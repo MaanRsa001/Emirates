@@ -1,0 +1,1591 @@
+/**
+ * 
+ *  Author  : Rajesh.R
+ *	 Company : MaanSarovar Software Private Limited  Chennai-1
+ *	 Project : E-MarineInsurance
+ *  Purpose : This Bean Used To SELECT The Data from Database
+ * 
+ */
+package com.maan.admin;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.StringTokenizer;
+
+import org.apache.logging.log4j.Logger;
+
+import com.maan.common.LogUtil;
+import com.maan.common.exception.BaseException;
+import com.maan.services.util.runner;
+
+public class DataSelection 
+{
+	private static final Logger logger = LogUtil.getLogger(DataSelection.class);
+	final static transient private String ENTER = "- Enter";
+	final static transient private String EXIT = "- Exit";
+	// Used to retrieve values from T_TRN_MARINE_CARRIER1 table //
+	public String[][] T_TRN_MARINE_CARRIER1_SELECT(String qnoFrom, String qnoTo) 
+	{
+		String result[][] = new String[0][0];
+		String sql = "select MCR_POLICY_ID,MCR_ENDT_ID,MCR_DECLARATION_ID,MCR_SERIAL_NO,MCR_CARRIER_CODE,MCR_CARRIER_TYPE,MCR_A_CARRIER_DESC,MCR_E_CARRIER_DESC,MCR_TONNAGE,MCR_AGE,to_char(MCR_VALIDITY_START_DATE,'DD/MM/YYYY HH24:MI:SS'),to_char(MCR_VALIDITY_EXPIRY_DATE,'DD/MM/YYYY HH24:MI:SS'),MCR_STATUS,MCR_A_CARRIER_REG_X,MCR_E_CARRIER_REG_X,MCR_CARRIER_REG_N,MCR_PREPARED_BY,to_char(MCR_PREPARED_DT,'DD/MM/YYYY HH24:MI:SS'),MCR_MODIFIED_BY,to_char(MCR_MODIFIED_DT,'DD/MM/YYYY HH24:MI:SS'),to_char(MCR_START_DATE,'DD/MM/YYYY HH24:MI:SS'),to_char(MCR_END_DATE,'DD/MM/YYYY HH24:MI:SS') from T_TRN_MARINE_CARRIER1 where MCR_POLICY_ID between '"
+				+ qnoFrom + "' and '" + qnoTo + "' order by MCR_POLICY_ID";
+		try 
+		{
+			result = runner.multipleSelection(sql);
+		} 
+		catch (Exception e) 
+		{
+			System.out.println("Exception in selecting policy number" + e);e.printStackTrace();
+		}
+		return result;
+	}
+
+	public String[][] T_TRN_MARINE_CARRIER1_SELECT(StringBuffer qnos) 
+	{
+		String result[][] = new String[0][0];
+		String sql = "select MCR_POLICY_ID,MCR_ENDT_ID,MCR_DECLARATION_ID,MCR_SERIAL_NO,MCR_CARRIER_CODE,MCR_CARRIER_TYPE,MCR_A_CARRIER_DESC,MCR_E_CARRIER_DESC,MCR_TONNAGE,MCR_AGE,to_char(MCR_VALIDITY_START_DATE,'DD/MM/YYYY HH24:MI:SS'),to_char(MCR_VALIDITY_EXPIRY_DATE,'DD/MM/YYYY HH24:MI:SS'),MCR_STATUS,MCR_A_CARRIER_REG_X,MCR_E_CARRIER_REG_X,MCR_CARRIER_REG_N,MCR_PREPARED_BY,to_char(MCR_PREPARED_DT,'DD/MM/YYYY HH24:MI:SS'),MCR_MODIFIED_BY,to_char(MCR_MODIFIED_DT,'DD/MM/YYYY HH24:MI:SS'),to_char(MCR_START_DATE,'DD/MM/YYYY HH24:MI:SS'),to_char(MCR_END_DATE,'DD/MM/YYYY HH24:MI:SS') from T_TRN_MARINE_CARRIER1 where MCR_POLICY_ID in("+qnos+") order by MCR_POLICY_ID";
+		try 
+		{
+			result = runner.multipleSelection(sql);
+		} 
+		catch (Exception e) 
+		{
+			System.out.println("Exception in selecting policy number" + e);e.printStackTrace();
+		}
+		return result;
+	}
+
+	// Used to retrieve values from T_MAS_CASH_CUSTOMER1 table //
+	public String[][] T_MAS_CASH_CUSTOMER1_SELECT(String qnoFrom, String qnoTo) 
+	{
+		String result[][] = new String[0][0];
+	
+		String sql = "select CSH_POLICY_ID,CSH_CUSTOMER_ID,CSH_NAME_TITLE,CSH_A_SURNAME_TRIBE,CSH_E_SURNAME_TRIBE,CSH_A_NAME_1,CSH_E_NAME_1,CSH_A_NAME_2,CSH_E_NAME_2,CSH_A_NAME_3,CSH_E_NAME_3,CSH_A_NAME_4,CSH_E_NAME_4,CSH_A_NAME_5,CSH_E_NAME_5,CSH_A_ADDRESS_1,CSH_E_ADDRESS_1,CSH_A_ADDRESS_2,CSH_E_ADDRESS_2,CSH_A_ADDRESS_3,CSH_E_ADDRESS_3,CSH_A_ADDRESS_4,CSH_E_ADDRESS_4,CSH_A_ADDRESS_5,CSH_E_ADDRESS_5,CSH_A_ZIP_CODE,CSH_E_ZIP_CODE,CSH_A_EMAIL_ID,CSH_E_EMAIL_ID,CSH_FAX_NO,CSH_A_TELEX_NO,CSH_E_TELEX_NO,CSH_A_PHONE_NO,CSH_E_PHONE_NO,CSH_A_GSM_NO,CSH_E_GSM_NO,CSH_NATIONALITY,CSH_OC_CODE,CSH_CCG_CODE,CSH_A_CO_REGN_NO,CSH_E_CO_REGN_NO,CSH_A_PASSPORT_NO,CSH_E_PASSPORT_NO,CSH_A_ID_CARD_NO,CSH_E_ID_CARD_NO,CSH_A_VISA_NO,CSH_E_VISA_NO,CSH_USER_ID,to_char(CSH_VALIDITY_START_DATE,'DD/MM/YYYY HH24:MI:SS'),to_char(CSH_VALIDITY_EXPIRY_DATE,'DD/MM/YYYY HH24:MI:SS'),CSH_CTY_CODE,CSH_REG_CODE,CSH_LOC_CODE,CSH_TOT_ACC_CODE,CSH_INSURED_ID,CSH_ENDT_ID,CSH_CUT_CODE,CSH_PREPARED_BY,to_char(CSH_PREPARED_DT,'DD/MM/YYYY HH24:MI:SS'),CSH_MODIFIED_BY,to_char(CSH_MODIFIED_DT,'DD/MM/YYYY HH24:MI:SS'),CSH_BUSINESS,CSH_CUST_TYPE,CSH_POBOX_NO,CSH_TERRITORY,CSH_LAWS,CSH_COMPANY_NAME,CSH_COMPANY_ADDR1,CSH_INT_ACC_EXEC_CODE,CSH_EXT_ACC_EXEC_CODE,CSH_LEGAL_FORM,to_char(CSH_DT_ESTABLISHMENT,'dd-mm-yyyy'),CSH_PLACE_ESTABLISHMENT,CSH_REGULATORY_BODY,CSH_EXTERNAL_AUDITOR,CSH_SOURCE_OF_CUST,CSH_MARKETING_FEE,to_char(CSH_DOB,'DD/MM/YYYY HH24:MI:SS') ,CSH_POB,CSH_AFFINITY_REF_NO,CSH_ECM_CODE,CSH_ID_TYP_CODE,CSH_ID_NO,CSH_CITY,CSH_COUNTRY from T_MAS_CASH_CUSTOMER1  where CSH_POLICY_ID between '"+qnoFrom+"' and '"+qnoTo+"' order by CSH_POLICY_ID";
+		try 
+		{
+			result = runner.multipleSelection(sql);
+		} 
+		catch (Exception e) 
+		{
+			System.out.println("Exception in selecting policy number" + e);e.printStackTrace();
+		}
+		return result;
+	}
+	public String[][] getIntegrationTables(){
+		String result[][] = new String[0][0];
+		String sql = "select table_name,column_count,key_factor from Mississippi_Tables_Details where status='Y' order by display_order";
+		try{
+			result = runner.multipleSelection(sql);
+		}catch(Exception e){e.printStackTrace();}
+		return result;
+	}
+	public Map getIntegrationDatas(StringBuffer qnos,String tableName)
+	{
+		String result[][] = new String[0][0];
+		Map coreDatas = new HashMap();
+		String sql = "";
+		String colLen="0";
+		if("PT_POLICY".equalsIgnoreCase(tableName)){
+			sql = "select POL_SYS_ID,POL_PDS_CODE,POL_DIVN_CODE,POL_DEPT_CODE,POL_SC_CODE,POL_NO,'royaldates'||to_char(POL_ISSUE_DT,'DD/MM/YYYY HH24:MI:SS')," +
+				"POL_UW_YEAR,POL_REF_DT_CODE,POL_REF_NO,POL_REF_SYS_ID,POL_PROPOSAL_NO,POL_ADVISE_DT_YN,POL_PERIOD,POL_PERIOD_UNIT,'royaldates'||to_char(POL_FM_DT,'DD/MM/YYYY HH24:MI:SS'),'royaldates'||to_char(POL_TO_DT,'DD/MM/YYYY HH24:MI:SS')," +
+				"POL_PERIOD_DESC,'royaldates'||to_char(POL_NL_FM_DT,'DD/MM/YYYY HH24:MI:SS'),'royaldates'||to_char(POL_NL_TO_DT,'DD/MM/YYYY HH24:MI:SS'),POL_NL_PERIOD_DESC,POL_CASH_YN,POL_CUST_CODE,POL_ASSURED_NAME,POL_ADDR1,POL_ADDR2,POL_ADDR3,POL_OCC_CODE," +
+				"POL_INTEREST,POL_DFLT_SI_CURR_CODE,POL_LC_SI,POL_CUST_PREM_CURR_CODE,POL_FC_PREM,POL_LC_PREM,POL_DISC_PERC,POL_FC_DISC,POL_LC_DISC,POL_FAC_YN,POL_COINS_YN,POL_RI_TYPE," +
+				"POL_FAC_POOL_CODE,POL_RI_BASIS,POL_STATUS,POL_PREM_PAID_YN,POL_FLEET_YN,POL_FAC_CLOSE_FLAG,POL_PRINT_STATUS,POL_APPRV_STATUS,'royaldates'||to_char(POL_APPRV_DATE,'DD/MM/YYYY HH24:MI:SS')," +
+				"POL_APPRV_UID,POL_LINK_YN,POL_LINK_POL_NO,POL_CONDITION_YN,POL_SCHEDULE_YN,POL_SCH_HDR_TEXT,POL_SCH_FTR_TEXT," +
+				"POL_COVER_YN,POL_BROKER_YN,POL_OPEN_POL_YN,POL_CERT_YN,POL_DISCOUNT_YN,POL_DED_LOSS_YN,POL_PREM_INST_YN,POL_VESSEL_YN,POL_VEHICLE_YN,POL_AIRCRAFT_YN," +
+				"POL_RISK_YN,POL_ES_CODE,POL_END_TYPE,POL_END_NO,POL_END_NO_IDX,'royaldates'||to_char(POL_END_DT,'DD/MM/YYYY HH24:MI:SS'),'royaldates'||to_char(POL_END_EFF_FM_DT,'DD/MM/YYYY HH24:MI:SS'),'royaldates'||to_char(POL_END_EFF_TO_DT,'DD/MM/YYYY HH24:MI:SS')," +
+				"POL_END_DESC,'royaldates'||to_char(POL_END_NL_FM_DT,'DD/MM/YYYY HH24:MI:SS'),'royaldates'||to_char(POL_END_NL_TO_DT,'DD/MM/YYYY HH24:MI:SS'),POL_FACIN_YN,'royaldates'||to_char(POL_CR_DT,'DD/MM/YYYY HH24:MI:SS'),POL_CR_UID,'royaldates'||to_char(POL_UPD_DT,'DD/MM/YYYY HH24:MI:SS')," +
+				"POL_UPD_UID,POL_DISC_CODE,POL_PHONE,POL_RI_CLOSE_FLAG,POL_PML_PERC,POL_PML_FC_SI,POL_PML_LC_SI,POL_PML_BASIS,POL_COINS_POOL_CODE,POL_DECL_NO,POL_DECL_LOT_NO,POL_LOT_REMARKS," +
+				"POL_ASSR_CODE,POL_PREM_GEN_YN,POL_FAC_GEN_YN,POL_COINS_GEN_YN,POL_BRK_GEN_YN,POL_AGE,POL_PERIOD_UPD_COUNT,POL_LOCAL_YN,POL_LOCAL_POOL_CODE,POL_LOCAL_GEN_YN,POL_REINST_REASON,POL_REINST_UID," +
+				"'royaldates'||to_char(POL_REINST_DT,'DD/MM/YYYY HH24:MI:SS'),POL_BROK_CODE,POL_OUR_SHARE_PERC,POL_SHORT_PERIOD_BASIS_YN,POL_LONG_TERM_YN,POL_FAC_MODIFY_APPRV_FLAG,POL_ADJUSTABLE_YN," +
+				"POL_PRODUCER_CODE" +
+				" from PT_POLICY  where POL_SYS_ID in("+qnos+") order by POL_SYS_ID";
+			colLen = "113";
+		}else if("PT_POLICY_APPL_CURR".equalsIgnoreCase(tableName)){
+			sql = "select PAC_SYS_ID,PAC_POL_SYS_ID,PAC_CURR_CODE,PAC_CURR_RATE,'royaldates'||to_char(PAC_CR_DT,'DD/MM/YYYY HH24:MI:SS'),PAC_CR_UID, 'royaldates'||to_char(PAC_UPD_DT,'DD/MM/YYYY HH24:MI:SS')," +
+					"PAC_UPD_UID,PAC_DEL_FLAG from PT_POLICY_APPL_CURR where PAC_POL_SYS_ID in("+qnos+") order by PAC_POL_SYS_ID";
+			colLen = "9";
+		}else if("PT_CONDITION".equalsIgnoreCase(tableName)){
+			sql = "select COND_SYS_ID,COND_POL_SYS_ID,COND_SRNO,COND_CODE,COND_DESC,COND_DEL_FLAG,'royaldates'||to_char(COND_CR_DT,'DD/MM/YYYY HH24:MI:SS'),COND_CR_UID,'royaldates'||to_char(COND_UPD_DT,'DD/MM/YYYY HH24:MI:SS')," +
+					"COND_UPD_UID from PT_CONDITION where COND_POL_SYS_ID in("+qnos+") order by COND_POL_SYS_ID";
+			colLen = "10";
+		}else if("PT_SHIPMENT".equalsIgnoreCase(tableName)){
+			sql = "select SHIP_SYS_ID,SHIP_POL_SYS_ID,'royaldates'||to_char(SHIP_SAIL_DT,'DD/MM/YYYY HH24:MI:SS'),SHIP_VOYAGE_FM,SHIP_VOYAGE_TO,SHIP_CONV_DESC,SHIP_CONV_TYPE,SHIP_VES_CODE,SHIP_VOYAGE_NO,SHIP_BL_NO," +
+					"'royaldates'||to_char(SHIP_BL_DT,'DD/MM/YYYY HH24:MI:SS'),SHIP_ORDER_NO,SHIP_LC_NO,SHIP_BANK_NAME,SHIP_ARRIVED_YN," +
+					"'royaldates'||to_char(SHIP_ARRIVED_DT,'DD/MM/YYYY HH24:MI:SS'),SHIP_VAL_BASIS,SHIP_FREIGHT," +
+					"SHIP_CLM_NOTIFY_CUST,'royaldates'||to_char(SHIP_CR_DT,'DD/MM/YYYY HH24:MI:SS'),SHIP_CR_UID,'royaldates'||to_char(SHIP_UPD_DT,'DD/MM/YYYY HH24:MI:SS'),SHIP_UPD_UID,SHIP_VAL_PERC,SHIP_BANK_CODE,SHIP_VES_NAME,SHIP_PORT_FM_NAME," +
+					"SHIP_PORT_TO_NAME,SHIP_MAR_BUS_CODE,SHIP_DEL_FLAG,SHIP_ID,SHIP_MARKS from PT_SHIPMENT where SHIP_POL_SYS_ID in("+qnos+") order by SHIP_POL_SYS_ID";
+			colLen = "32";
+		}else if("PT_SHIP_GOODS".equalsIgnoreCase(tableName)){
+			sql = "select SG_SYS_ID,SG_SHIP_SYS_ID,SG_OP_SYS_ID,SG_CODE,SG_DESC,SG_CURR_CODE,SG_FC_INV_AMT,SG_FC_ORG_INV_AMT,SG_LC_INV_AMT,SG_LC_ORG_INV_AMT,SG_FC_SI,SG_LC_SI,SG_FC_ORG_SI,SG_LC_ORG_SI,SG_PREM_RATE,SG_DEL_FLAG,'royaldates'||to_char(SG_CR_DT,'DD/MM/YYYY HH24:MI:SS')," +
+					"SG_CR_UID,'royaldates'||to_char(SG_UPD_DT,'DD/MM/YYYY HH24:MI:SS'),SG_UPD_UID from PT_SHIP_GOOD where SG_OP_SYS_ID in("+qnos+") order by SG_OP_SYS_ID";
+			colLen = "20";
+		}else if("PT_POL_COVER".equalsIgnoreCase(tableName)){
+			sql = "select PCVR_SYS_ID,PCVR_POL_SYS_ID,PCVR_REF,PCVR_REF_SYS_ID,PCVR_CODE,PCVR_DESC,PCVR_SI_CURR_CODE,PCVR_FC_SI,PCVR_LC_SI,PCVR_FC_ORG_SI,PCVR_LC_ORG_SI,PCVR_PREM_RATE,PCVR_FC_PREM,PCVR_LC_PREM,PCVR_FC_ORG_PREM,PCVR_LC_ORG_PREM,PCVR_DISCOUNT_YN,PCVR_DED_LOSS_YN,PCVR_DEL_FLAG,'royaldates'||to_char(PCVR_CR_DT,'DD/MM/YYYY HH24:MI:SS'),PCVR_CR_UID,'royaldates'||to_char(PCVR_UPD_DT,'DD/MM/YYYY HH24:MI:SS'),PCVR_UPD_UID,PCVR_FC_ORG_TO_LIMIT,PCVR_LC_ORG_TO_LIMIT,PCVR_LC_TO_LIMIT,PCVR_FC_TO_LIMIT,PCVR_CENT_PERC_FC_SI," +
+					"PCVR_CENT_PERC_LC_SI,PCVR_CENT_PERC_FC_PREM,PCVR_CENT_PERC_LC_PREM,PCVR_CENT_PERC_FC_ORG_SI,PCVR_CENT_PERC_LC_ORG_SI,PCVR_CENT_PERC_FC_ORG_PREM,PCVR_CENT_PERC_LC_ORG_PREM,'royaldates'||to_char(PCVR_FM_DT,'DD/MM/YYYY HH24:MI:SS'),'royaldates'||to_char(PCVR_TO_DT,'DD/MM/YYYY HH24:MI:SS'),'royaldates'||to_char(PCVR_ENDT_EFF_FM_DT,'DD/MM/YYYY HH24:MI:SS'),'royaldates'||to_char(PCVR_ENDT_EFF_TO_DT,'DD/MM/YYYY HH24:MI:SS'),'royaldates'||to_char(PCVR_ORG_FM_DT,'DD/MM/YYYY HH24:MI:SS'),'royaldates'||to_char(PCVR_ORG_TO_DT,'DD/MM/YYYY HH24:MI:SS'),'royaldates'||to_char(PCVR_ORG_ENDT_EFF_FM_DT,'DD/MM/YYYY HH24:MI:SS')," +
+					"'royaldates'||to_char(PCVR_ORG_ENDT_EFF_TO_DT,'DD/MM/YYYY HH24:MI:SS') from PT_POL_COVER where PCVR_POL_SYS_ID in("+qnos+") order by PCVR_POL_SYS_ID";
+			colLen = "43";
+		}
+		
+		try 
+		{
+			result = runner.multipleSelection(sql);
+			coreDatas.put("coreDatas",result);
+			coreDatas.put("colLen", colLen);
+		} 
+		catch (Exception e) 
+		{
+			System.out.println("Exception in selecting policy number" + e);e.printStackTrace();
+		}
+		return coreDatas;
+	}
+
+	// Used to retrieve values from T_MAS_CUSTOMER1 table //
+	public String[][] T_MAS_CUSTOMER1_SELECT(String qnoFrom, String qnoTo) 
+	{
+		String result[][] = new String[0][0];
+		
+		String sql = "select CU_CUSTOMER_ID,CU_NAME_TITLE,CU_A_SURNAME_TRIBE,CU_E_SURNAME_TRIBE,CU_A_NAME_1,CU_E_NAME_1,CU_A_NAME_2,CU_E_NAME_2,CU_A_NAME_3,CU_E_NAME_3,CU_A_NAME_4,CU_E_NAME_4,CU_A_NAME_5,CU_E_NAME_5,CU_A_ADDRESS_1,CU_E_ADDRESS_1,CU_A_ADDRESS_2,CU_E_ADDRESS_2,CU_A_ADDRESS_3,CU_E_ADDRESS_3,CU_A_ADDRESS_4,CU_E_ADDRESS_4,CU_A_ADDRESS_5,CU_E_ADDRESS_5,CU_E_ZIP_CODE,CU_A_ZIP_CODE,CU_E_EMAIL_ID,CU_A_EMAIL_ID,CU_FAX_NO,CU_A_TELEX_NO,CU_E_TELEX_NO,CU_A_PHONE_NO,CU_E_PHONE_NO,CU_A_GSM_NO,CU_E_GSM_NO,CU_STATUS,CU_RATING,CU_A_INSTERESTS,CU_E_INSTERESTS,CU_NATIONALITY,CU_OC_CODE,CU_CCG_CODE,CU_A_CO_REGN_NO,CU_E_CO_REGN_NO,CU_A_PASSPORT_NO,CU_E_PASSPORT_NO,CU_A_ID_CARD_NO,CU_E_ID_CARD_NO,CU_A_VISA_NO,CU_E_VISA_NO,CU_USER_ID,CU_POLICY_ID,CU_CTY_CODE,CU_REG_CODE,CU_LOC_CODE,CU_TOT_ACC_CODE,CU_ACCEXEC_CODE,CU_CREDIT_AMT,CU_CREDIT_DAYS,CU_BUSINESS,CU_PREPARED_BY,to_char(CU_PREPARED_DT,'DD/MM/YYYY HH24:MI:SS'),CU_MODIFIED_BY,to_char(CU_MODIFIED_DT,'DD/MM/YYYY HH24:MI:SS') from T_MAS_CUSTOMER1 where CU_CUSTOMER_ID between '"
+				+ qnoFrom + "' and '" + qnoTo + "' order by CU_CUSTOMER_ID";
+		try 
+		{
+			result = runner.multipleSelection(sql);
+		} 
+		catch (Exception e) 
+		{
+			System.out.println("Exception in selecting policy number" + e);e.printStackTrace();
+		}
+		return result;
+	}
+
+	public String[][] T_MAS_CUSTOMER1_SELECT(StringBuffer qnos) 
+	{
+		String result[][] = new String[0][0];
+		String sql = "select CU_CUSTOMER_ID,CU_NAME_TITLE,CU_A_SURNAME_TRIBE,CU_E_SURNAME_TRIBE,CU_A_NAME_1,CU_E_NAME_1,CU_A_NAME_2,CU_E_NAME_2,CU_A_NAME_3,CU_E_NAME_3,CU_A_NAME_4,CU_E_NAME_4,CU_A_NAME_5,CU_E_NAME_5,CU_A_ADDRESS_1,CU_E_ADDRESS_1,CU_A_ADDRESS_2,CU_E_ADDRESS_2,CU_A_ADDRESS_3,CU_E_ADDRESS_3,CU_A_ADDRESS_4,CU_E_ADDRESS_4,CU_A_ADDRESS_5,CU_E_ADDRESS_5,CU_E_ZIP_CODE,CU_A_ZIP_CODE,CU_E_EMAIL_ID,CU_A_EMAIL_ID,CU_FAX_NO,CU_A_TELEX_NO,CU_E_TELEX_NO,CU_A_PHONE_NO,CU_E_PHONE_NO,CU_A_GSM_NO,CU_E_GSM_NO,CU_STATUS,CU_RATING,CU_A_INSTERESTS,CU_E_INSTERESTS,CU_NATIONALITY,CU_OC_CODE,CU_CCG_CODE,CU_A_CO_REGN_NO,CU_E_CO_REGN_NO,CU_A_PASSPORT_NO,CU_E_PASSPORT_NO,CU_A_ID_CARD_NO,CU_E_ID_CARD_NO,CU_A_VISA_NO,CU_E_VISA_NO,CU_USER_ID,CU_POLICY_ID,CU_CTY_CODE,CU_REG_CODE,CU_LOC_CODE,CU_TOT_ACC_CODE,CU_ACCEXEC_CODE,CU_CREDIT_AMT,CU_CREDIT_DAYS,CU_BUSINESS,CU_PREPARED_BY,to_char(CU_PREPARED_DT,'DD/MM/YYYY HH24:MI:SS'),CU_MODIFIED_BY,to_char(CU_MODIFIED_DT,'DD/MM/YYYY HH24:MI:SS') from T_MAS_CUSTOMER1 where CU_CUSTOMER_ID in("
+				+ qnos + ") order by CU_CUSTOMER_ID";
+		try 
+		{
+			result = runner.multipleSelection(sql);
+		} 
+		catch (Exception e) 
+		{
+			System.out.println("Exception in selecting policy number" + e);e.printStackTrace();
+		}
+		return result;
+	}
+
+	// Used to retrieve values from T_TRN_MARINE_DETAIL1 table //
+	public String[][] T_TRN_MARINE_DETAIL1_SELECT(String qnoFrom, String qnoTo)
+	{
+		String result[][] = new String[0][0];
+		String sql = "select MD_POLICY_ID,MD_ENDT_ID,MD_DECLARATION_ID,MD_COMMODITY_ID,MD_SERIAL_NO,MD_COMMODITY_GROUP_CODE,MD_COMMODITY_CODE,MD_A_COMMODITY_DESC,MD_E_COMMODITY_DESC,MD_SUM_INSURED,MD_FC_SUM_INSURED,MD_SUM_INSURED_LOADING,MD_ADDL_LOADING,MD_PACKING_TYPE,MD_A_PACKING_DESC,MD_E_PACKING_DESC,MD_PACKING_NO,MD_NO_OF_PACKAGES,MD_A_CONTAINER_NO,MD_E_CONTAINER_NO,MD_MI_INVOICE_ID,MD_GEO_CODE,MD_BASIC_RISK_CODE,MD_RISK_CODE,MD_RI_RSK_CODE,to_char(MD_VALIDITY_START_DATE,'DD/MM/YYYY HH24:MI:SS'),to_char(MD_VALIDITY_EXPIRY_DATE,'DD/MM/YYYY HH24:MI:SS'),MD_STATUS,MD_VALUATION_BASIS,MD_PREPARED_BY,to_char(MD_PREPARED_DT,'DD/MM/YYYY HH24:MI:SS'),MD_MODIFIED_BY,to_char(MD_MODIFIED_DT,'DD/MM/YYYY HH24:MI:SS'),to_char(MD_START_DATE,'DD/MM/YYYY HH24:MI:SS'),to_char(MD_END_DATE,'DD/MM/YYYY HH24:MI:SS'),md_cargo_type from T_TRN_MARINE_DETAIL1 where MD_POLICY_ID between '"
+				+ qnoFrom + "' and '" + qnoTo + "' order by MD_POLICY_ID";
+		try 
+		{
+			result = runner.multipleSelection(sql);
+		} 
+		catch (Exception e) 
+		{
+			System.out.println("Exception in selecting policy number" + e);e.printStackTrace();
+		}
+		return result;
+	}
+
+	public String[][] T_TRN_MARINE_DETAIL1_SELECT(StringBuffer qnos) 
+	{
+		String result[][] = new String[0][0];
+	
+		String sql = "select MD_POLICY_ID,MD_ENDT_ID,MD_DECLARATION_ID,MD_COMMODITY_ID,MD_SERIAL_NO,MD_COMMODITY_GROUP_CODE,MD_COMMODITY_CODE,MD_A_COMMODITY_DESC,MD_E_COMMODITY_DESC,MD_SUM_INSURED,MD_FC_SUM_INSURED,MD_SUM_INSURED_LOADING,MD_ADDL_LOADING,MD_PACKING_TYPE,MD_A_PACKING_DESC,MD_E_PACKING_DESC,MD_PACKING_NO,MD_NO_OF_PACKAGES,MD_A_CONTAINER_NO,MD_E_CONTAINER_NO,MD_MI_INVOICE_ID,MD_GEO_CODE,MD_BASIC_RISK_CODE,MD_RISK_CODE,MD_RI_RSK_CODE,to_char(MD_VALIDITY_START_DATE,'DD/MM/YYYY HH24:MI:SS'),to_char(MD_VALIDITY_EXPIRY_DATE,'DD/MM/YYYY HH24:MI:SS'),MD_STATUS,MD_VALUATION_BASIS,MD_PREPARED_BY,to_char(MD_PREPARED_DT,'DD/MM/YYYY HH24:MI:SS'),MD_MODIFIED_BY,to_char(MD_MODIFIED_DT,'DD/MM/YYYY HH24:MI:SS'),to_char(MD_START_DATE,'DD/MM/YYYY HH24:MI:SS'),to_char(MD_END_DATE,'DD/MM/YYYY HH24:MI:SS'),md_cargo_type from T_TRN_MARINE_DETAIL1 where MD_POLICY_ID in("+qnos+") order by MD_POLICY_ID";
+		try 
+		{
+			result = runner.multipleSelection(sql);
+		} 
+		catch (Exception e) 
+		{
+			System.out.println("Exception in selecting policy number" + e);e.printStackTrace();
+		}
+		return result;
+	}
+
+	// Used to retrieve values from T_TRN_MARINE_HEADER1 table //
+	public String[][] T_TRN_MARINE_HEADER1_SELECT(String qnoFrom, String qnoTo) 
+	{
+		String result[][] = new String[0][0];
+		String sql = "select MH_POLICY_ID,MH_ENDT_ID,MH_DECLARATION_ID,MH_OPEN_ID,MH_DECLARATION_NO,to_char(MH_DECLARATION_DATE,'DD/MM/YYYY HH24:MI:SS'),MH_CERTIFICATE_NO,to_char(MH_CERTIFICATE_DATE,'DD/MM/YYYY HH24:MI:SS'),MH_STAMP_DUTY,MH_SETTLEMENT_CURRENCY,MH_EXCHANGE_RATE,MH_SELECTED_TRANSIT,MH_SETTLING_AGENT,MH_A_SUBJECT_MATTER_DESC,MH_E_SUBJECT_MATTER_DESC,MH_STATUS,to_char(MH_VALIDITY_START_DATE,'DD/MM/YYYY HH24:MI:SS'),to_char(MH_VALIDITY_EXPIRY_DATE,'DD/MM/YYYY HH24:MI:SS'),MH_A_TRANSHIPMENT,MH_E_TRANSHIPMENT,MH_E_SETTLEMENT_LOC,MH_LC_ID,MH_PREPARED_BY,to_char(MH_PREPARED_DT,'DD/MM/YYYY HH24:MI:SS'),MH_MODIFIED_BY,to_char(MH_MODIFIED_DT,'DD/MM/YYYY HH24:MI:SS'),to_char(MH_START_DATE,'DD/MM/YYYY HH24:MI:SS'),to_char(MH_END_DATE,'DD/MM/YYYY HH24:MI:SS') from T_TRN_MARINE_HEADER1 where MH_POLICY_ID between '"
+				+ qnoFrom + "' and '" + qnoTo + "' order by MH_POLICY_ID";
+		try 
+		{
+			result = runner.multipleSelection(sql);
+		} 
+		catch (Exception e) 
+		{
+			System.out.println("Exception in selecting policy number" + e);e.printStackTrace();
+		}
+
+		return result;
+	}
+
+	public String[][] T_TRN_MARINE_HEADER1_SELECT(StringBuffer qnos) 
+	{
+		String result[][] = new String[0][0];
+		String sql = "select MH_POLICY_ID,MH_ENDT_ID,MH_DECLARATION_ID,MH_OPEN_ID,MH_DECLARATION_NO,to_char(MH_DECLARATION_DATE,'DD/MM/YYYY HH24:MI:SS'),MH_CERTIFICATE_NO,to_char(MH_CERTIFICATE_DATE,'DD/MM/YYYY HH24:MI:SS'),MH_STAMP_DUTY,MH_SETTLEMENT_CURRENCY,MH_EXCHANGE_RATE,MH_SELECTED_TRANSIT,MH_SETTLING_AGENT,MH_A_SUBJECT_MATTER_DESC,MH_E_SUBJECT_MATTER_DESC,MH_STATUS,to_char(MH_VALIDITY_START_DATE,'DD/MM/YYYY HH24:MI:SS'),to_char(MH_VALIDITY_EXPIRY_DATE,'DD/MM/YYYY HH24:MI:SS'),MH_A_TRANSHIPMENT,MH_E_TRANSHIPMENT,MH_E_SETTLEMENT_LOC,MH_LC_ID,MH_PREPARED_BY,to_char(MH_PREPARED_DT,'DD/MM/YYYY HH24:MI:SS'),MH_MODIFIED_BY,to_char(MH_MODIFIED_DT,'DD/MM/YYYY HH24:MI:SS'),to_char(MH_START_DATE,'DD/MM/YYYY HH24:MI:SS'),to_char(MH_END_DATE,'DD/MM/YYYY HH24:MI:SS') from T_TRN_MARINE_HEADER1 where MH_POLICY_ID in("+qnos+") order by MH_POLICY_ID";
+		try 
+		{
+			result = runner.multipleSelection(sql);
+		} 
+		catch (Exception e) 
+		{
+			System.out.println("Exception in selecting policy number" + e);e.printStackTrace();
+		}
+		return result;
+	}
+
+	// Used to retrieve values from T_TRN_MARINE_TRANSIT1 table //
+	public String[][] T_TRN_MARINE_TRANSIT1_SELECT(String qnoFrom, String qnoTo) 
+	{
+		String result[][] = new String[0][0];
+	
+		String sql = "select MT_POLICY_ID,MT_ENDT_ID,MT_DECLARATION_ID,MT_SERIAL_NO,MT_MODE_OF_TRANSIT,MT_A_START_PLACE,MT_E_START_PLACE,MT_START_CITY,MT_START_COUNTRY,MT_A_DESTINATION_PLACE,MT_E_DESTINATION_PLACE,MT_DESTINATION_CITY,MT_DESTINATION_COUNTRY,MT_A_BL_AWB_LR_NO,MT_E_BL_AWB_LR_NO,to_char(MT_BL_AWB_LR_DATE,'DD/MM/YYYY HH24:MI:SS'),to_char(MT_DEPARTURE_DATE,'DD/MM/YYYY HH24:MI:SS'),MT_STORAGE_PERIOD,MT_MTL_CODE,MT_STATUS,to_char(MT_VALIDITY_START_DATE,'DD/MM/YYYY HH24:MI:SS'),to_char(MT_VALIDITY_EXPIRY_DATE,'DD/MM/YYYY HH24:MI:SS'),MT_PREPARED_BY,to_char(MT_PREPARED_DT,'DD/MM/YYYY HH24:MI:SS'),MT_MODIFIED_BY,to_char(MT_MODIFIED_DT,'DD/MM/YYYY HH24:MI:SS'),to_char(MT_START_DATE,'DD/MM/YYYY HH24:MI:SS'),to_char(MT_END_DATE,'DD/MM/YYYY HH24:MI:SS') from T_TRN_MARINE_TRANSIT1 where MT_POLICY_ID between '"
+				+ qnoFrom + "' and '" + qnoTo + "' order by MT_POLICY_ID";
+		try 
+		{
+			result = runner.multipleSelection(sql);
+		} 
+		catch (Exception e) 
+		{
+			System.out.println("Exception in selecting policy number" + e);e.printStackTrace();
+		}
+		return result;
+	}
+
+	public String[][] T_TRN_MARINE_TRANSIT1_SELECT(StringBuffer qnos) 
+	{
+		String result[][] = new String[0][0];
+	
+		String sql = "select MT_POLICY_ID,MT_ENDT_ID,MT_DECLARATION_ID,MT_SERIAL_NO,MT_MODE_OF_TRANSIT,MT_A_START_PLACE,MT_E_START_PLACE,MT_START_CITY,MT_START_COUNTRY,MT_A_DESTINATION_PLACE,MT_E_DESTINATION_PLACE,MT_DESTINATION_CITY,MT_DESTINATION_COUNTRY,MT_A_BL_AWB_LR_NO,MT_E_BL_AWB_LR_NO,to_char(MT_BL_AWB_LR_DATE,'DD/MM/YYYY HH24:MI:SS'),to_char(MT_DEPARTURE_DATE,'DD/MM/YYYY HH24:MI:SS'),MT_STORAGE_PERIOD,MT_MTL_CODE,MT_STATUS,to_char(MT_VALIDITY_START_DATE,'DD/MM/YYYY HH24:MI:SS'),to_char(MT_VALIDITY_EXPIRY_DATE,'DD/MM/YYYY HH24:MI:SS'),MT_PREPARED_BY,to_char(MT_PREPARED_DT,'DD/MM/YYYY HH24:MI:SS'),MT_MODIFIED_BY,to_char(MT_MODIFIED_DT,'DD/MM/YYYY HH24:MI:SS'),to_char(MT_START_DATE,'DD/MM/YYYY HH24:MI:SS'),to_char(MT_END_DATE,'DD/MM/YYYY HH24:MI:SS') from T_TRN_MARINE_TRANSIT1 where MT_POLICY_ID in("+qnos+") order by MT_POLICY_ID";
+		try 
+		{
+			result = runner.multipleSelection(sql);
+		} 
+		catch (Exception e) 
+		{
+			System.out.println("Exception in selecting policy number" + e);e.printStackTrace();
+		}
+		return result;
+	}
+
+	// Used to retrieve values from T_TRN_POLICY1 table //
+	public String[][] T_TRN_POLICY1_SELECT(String qnoFrom, String qnoTo) 
+	{
+		String result[][] = new String[0][0];
+		
+		String sql = "select POL_POLICY_ID,POL_LOCATION_CODE,POL_CLASS_CODE,POL_DOCUMENT_CODE,POL_POLICY_NO,POL_POLICY_YEAR,POL_REF_POLICY_NO,POL_REF_POLICY_YEAR,POL_POLICY_TYPE,POL_PROPOSAL_NO,to_char(POL_PROPOSAL_DATE,'DD/MM/YYYY HH24:MI:SS'),to_char(POL_ISSUE_DATE,'DD/MM/YYYY HH24:MI:SS'),to_char(POL_EXPIRY_DATE,'DD/MM/YYYY HH24:MI:SS'),POL_CUSTOMER_ID,POL_SOURCE_OF_BUSINESS,POL_AGENT_ID,POL_COMMISION_ID,POL_COINSURANCE_INDICATOR,POL_COINSURANCE_TYPE,POL_COVER_NOTE_NO,to_char(POL_COVER_NOTE_DATE,'DD/MM/YYYY HH24:MI:SS'),POL_PREMIUM,POL_GOVERNMENT_TAX,POL_POLICY_FEES,POL_CURRENCY_CODE,POL_EXCHANGE_RATE,to_char(POL_PROCESSED_DATE,'DD/MM/YYYY HH24:MI:SS'),POL_STATUS,POL_FINANCIAL_INT_IND,POL_APPROVED_BY,POL_USER_ID,to_char(POL_EFFECTIVE_DATE,'DD/MM/YYYY HH24:MI:SS'),to_char(POL_PRINT_DATE,'DD/MM/YYYY HH24:MI:SS'),POL_CUT_CODE,POL_SPECIAL_TYPE,POL_COVER_NOTE_HOUR,POL_COVER_NOTE_MIN,POL_ISSUE_HOUR,POL_ISSUE_MIN,POL_EFFECTIVE_HOUR,POL_EFFECTIVE_MIN,POL_EXPIRY_HOUR,POL_EXPIRY_MIN,POL_CERTIFICATE_NO,to_char(POL_CERTIFICATE_DATE,'DD/MM/YYYY HH24:MI:SS'),to_char(POL_VALIDITY_START_DATE,'DD/MM/YYYY HH24:MI:SS'),to_char(POL_VALIDITY_EXPIRY_DATE,'DD/MM/YYYY HH24:MI:SS'),POL_ENDT_ID,to_char(POL_ENDT_EFFECTIVE_DATE,'DD/MM/YYYY HH24:MI:SS'),to_char(POL_ENDT_EXPIRY_DATE,'DD/MM/YYYY HH24:MI:SS'),POL_RATING_TYPE,POL_CCG_CODE,POL_ENDT_NO,POL_CTY_CODE,POL_REG_CODE,POL_POLICY_TERM,POL_REF_POLICY_ID,POL_ACCEXEC_CODE,POL_INSURED_ID,POL_QUOTATION_NO,to_char(POL_QUOTATION_DATE,'DD/MM/YYYY HH24:MI:SS'),POL_BR_CODE,POL_DCT_CODE,POL_PREPARED_BY,to_char(POL_PREPARED_DT,'DD/MM/YYYY HH24:MI:SS'),POL_MODIFIED_BY,to_char(POL_MODIFIED_DT,'DD/MM/YYYY HH24:MI:SS'),to_char(POL_POSTED_DATE,'DD/MM/YYYY HH24:MI:SS'),to_char(POL_REFRESH_DATE,'DD/MM/YYYY HH24:MI:SS'),POL_CONC_POLICY_NO,POL_SOC_CODE,POL_TAR_CODE,POL_REN_TERM_TXT,POL_OTHER_INSURER_CODE,POL_BUSINESS_TYPE,POL_APPROVAL_DATE,POL_SUSPEND_TRANSACTION,POL_INSURED_CODE,POL_DISTRIBUTION_CHNL from T_TRN_POLICY1 where POL_POLICY_ID between '"
+				+ qnoFrom + "' and '" + qnoTo + "' order by POL_POLICY_ID";
+		try 
+		{
+			result = runner.multipleSelection(sql);
+		} 
+		catch (Exception e) 
+		{
+			System.out.println("Exception in selecting policy number" + e);e.printStackTrace();
+		}
+		return result;
+	}
+
+	public String[][] T_TRN_POLICY1_SELECT(StringBuffer qnos) 
+	{
+		String result[][] = new String[0][0];
+	
+		String sql = "select POL_POLICY_ID,POL_LOCATION_CODE,POL_CLASS_CODE,POL_DOCUMENT_CODE,POL_POLICY_NO,POL_POLICY_YEAR,POL_REF_POLICY_NO,POL_REF_POLICY_YEAR,POL_POLICY_TYPE,POL_PROPOSAL_NO,to_char(POL_PROPOSAL_DATE,'DD/MM/YYYY HH24:MI:SS'),to_char(POL_ISSUE_DATE,'DD/MM/YYYY HH24:MI:SS'),to_char(POL_EXPIRY_DATE,'DD/MM/YYYY HH24:MI:SS'),POL_CUSTOMER_ID,POL_SOURCE_OF_BUSINESS,POL_AGENT_ID,POL_COMMISION_ID,POL_COINSURANCE_INDICATOR,POL_COINSURANCE_TYPE,POL_COVER_NOTE_NO,to_char(POL_COVER_NOTE_DATE,'DD/MM/YYYY HH24:MI:SS'),POL_PREMIUM,POL_GOVERNMENT_TAX,POL_POLICY_FEES,POL_CURRENCY_CODE,POL_EXCHANGE_RATE,to_char(POL_PROCESSED_DATE,'DD/MM/YYYY HH24:MI:SS'),POL_STATUS,POL_FINANCIAL_INT_IND,POL_APPROVED_BY,POL_USER_ID,to_char(POL_EFFECTIVE_DATE,'DD/MM/YYYY HH24:MI:SS'),to_char(POL_PRINT_DATE,'DD/MM/YYYY HH24:MI:SS'),POL_CUT_CODE,POL_SPECIAL_TYPE,POL_COVER_NOTE_HOUR,POL_COVER_NOTE_MIN,POL_ISSUE_HOUR,POL_ISSUE_MIN,POL_EFFECTIVE_HOUR,POL_EFFECTIVE_MIN,POL_EXPIRY_HOUR,POL_EXPIRY_MIN,POL_CERTIFICATE_NO,to_char(POL_CERTIFICATE_DATE,'DD/MM/YYYY HH24:MI:SS'),to_char(POL_VALIDITY_START_DATE,'DD/MM/YYYY HH24:MI:SS'),to_char(POL_VALIDITY_EXPIRY_DATE,'DD/MM/YYYY HH24:MI:SS'),POL_ENDT_ID,to_char(POL_ENDT_EFFECTIVE_DATE,'DD/MM/YYYY HH24:MI:SS'),to_char(POL_ENDT_EXPIRY_DATE,'DD/MM/YYYY HH24:MI:SS'),POL_RATING_TYPE,POL_CCG_CODE,POL_ENDT_NO,POL_CTY_CODE,POL_REG_CODE,POL_POLICY_TERM,POL_REF_POLICY_ID,POL_ACCEXEC_CODE,POL_INSURED_ID,POL_QUOTATION_NO,to_char(POL_QUOTATION_DATE,'DD/MM/YYYY HH24:MI:SS'),POL_BR_CODE,POL_DCT_CODE,POL_PREPARED_BY,to_char(POL_PREPARED_DT,'DD/MM/YYYY HH24:MI:SS'),POL_MODIFIED_BY,to_char(POL_MODIFIED_DT,'DD/MM/YYYY HH24:MI:SS'),to_char(POL_POSTED_DATE,'DD/MM/YYYY HH24:MI:SS'),to_char(POL_REFRESH_DATE,'DD/MM/YYYY HH24:MI:SS'),POL_CONC_POLICY_NO,POL_SOC_CODE,POL_TAR_CODE,POL_REN_TERM_TXT,POL_OTHER_INSURER_CODE,POL_BUSINESS_TYPE,POL_APPROVAL_DATE,POL_SUSPEND_TRANSACTION,POL_INSURED_CODE,POL_DISTRIBUTION_CHNL from T_TRN_POLICY1 where POL_POLICY_ID in("+ qnos+") order by POL_POLICY_ID";
+		try 
+		{
+			result = runner.multipleSelection(sql);
+		} 
+		catch (Exception e) 
+		{
+			System.out.println("Exception in selecting policy number" + e);e.printStackTrace();
+		}
+		return result;
+	}
+
+	// Used to retrieve values from T_TRN_POLICY_CONDITION1 table //
+	public String[][] T_TRN_POLICY_CONDITION1_SELECT(String qnoFrom,String qnoTo) 
+	{
+		String result[][] = new String[0][0];
+		String sql = "select TPC_POLICY_ID,TPC_ENDT_ID,TPC_CL_CODE,TPC_PT_CODE,TPC_CODE,TPC_COV_CODE,TPC_CT_CODE,TPC_CST_CODE,to_char(TPC_VALIDITY_START_DATE,'DD/MM/YYYY HH24:MI:SS'),to_char(TPC_VALIDITY_END_DATE,'DD/MM/YYYY HH24:MI:SS'),TPC_RSK_ID,TPC_STATUS,TPC_PREPARED_BY,to_char(TPC_PREPARED_DT,'DD/MM/YYYY HH24:MI:SS'),TPC_MODIFIED_BY,to_char(TPC_MODIFIED_DT,'DD/MM/YYYY HH24:MI:SS'),TPC_AMOUNT,TPC_PRINT_FLAG from T_TRN_POLICY_CONDITION1 where TPC_POLICY_ID between '"
+				+ qnoFrom + "' and '" + qnoTo + "' order by TPC_POLICY_ID";
+		try 
+		{
+			result = runner.multipleSelection(sql);
+		} 
+		catch (Exception e) 
+		{
+			System.out.println("Exception in selecting policy number" + e);e.printStackTrace();
+		}
+		return result;
+	}
+	public String[][] T_TRN_POLICY_CONDITION1_SELECT(StringBuffer qnos)
+	{
+		String result[][] = new String[0][0];
+		String sql = "select TPC_POLICY_ID,TPC_ENDT_ID,TPC_CL_CODE,TPC_PT_CODE,TPC_CODE,TPC_COV_CODE,TPC_CT_CODE,TPC_CST_CODE,to_char(TPC_VALIDITY_START_DATE,'DD/MM/YYYY HH24:MI:SS'),to_char(TPC_VALIDITY_END_DATE,'DD/MM/YYYY HH24:MI:SS'),TPC_RSK_ID,TPC_STATUS,TPC_PREPARED_BY,to_char(TPC_PREPARED_DT,'DD/MM/YYYY HH24:MI:SS'),TPC_MODIFIED_BY,to_char(TPC_MODIFIED_DT,'DD/MM/YYYY HH24:MI:SS'),TPC_AMOUNT,TPC_PRINT_FLAG from T_TRN_POLICY_CONDITION1 where TPC_POLICY_ID in("+qnos+") order by TPC_POLICY_ID";
+
+		try 
+		{
+			result = runner.multipleSelection(sql);
+		} 
+		catch (Exception e) 
+		{
+			System.out.println("Exception in selecting policy number" + e);e.printStackTrace();
+		}
+		return result;
+	}
+	// Used to retrieve values from T_TRN_POLICY_EXCLUSION table //
+	public String[][] T_TRN_POLICY_EXCLUSION_SELECT(String qnoFrom, String qnoTo) 
+	{
+		String result[][] = new String[0][0];
+		String sql = "select TPE_POLICY_ID,TPE_ENDT_ID,TPE_CL_CODE,TPE_PT_CODE,TPE_CODE,TPE_COV_CODE,TPE_CT_CODE,TPE_CST_CODE,to_char(TPE_VALIDITY_START_DATE,'DD/MM/YYYY HH24:MI:SS'),to_char(TPE_VALIDITY_END_DATE,'DD/MM/YYYY HH24:MI:SS'),TPE_RSK_ID,TPE_STATUS,TPE_PREPARED_BY,to_char(TPE_PREPARED_DT,'DD/MM/YYYY HH24:MI:SS'),TPE_MODIFIED_BY,to_char(TPE_MODIFIED_DT,'DD/MM/YYYY HH24:MI:SS'),TPE_AMOUNT,TPE_PRINT_FLAG from T_TRN_POLICY_EXCLUSION where TPE_POLICY_ID between '"+ qnoFrom + "' and '" + qnoTo + "' order by TPE_POLICY_ID";
+		try 
+		{
+			result = runner.multipleSelection(sql);
+		} 
+		catch (Exception e) 
+		{
+			System.out.println("Exception in selecting policy number" + e);e.printStackTrace();
+		}
+		return result;
+	}
+	public String[][] T_TRN_POLICY_EXCLUSION_SELECT(StringBuffer qnos) 
+	{
+		String result[][] = new String[0][0];
+		String sql = "select TPE_POLICY_ID,TPE_ENDT_ID,TPE_CL_CODE,TPE_PT_CODE,TPE_CODE,TPE_COV_CODE,TPE_CT_CODE,TPE_CST_CODE,to_char(TPE_VALIDITY_START_DATE,'DD/MM/YYYY HH24:MI:SS'),to_char(TPE_VALIDITY_END_DATE,'DD/MM/YYYY HH24:MI:SS'),TPE_RSK_ID,TPE_STATUS,TPE_PREPARED_BY,to_char(TPE_PREPARED_DT,'DD/MM/YYYY HH24:MI:SS'),TPE_MODIFIED_BY,to_char(TPE_MODIFIED_DT,'DD/MM/YYYY HH24:MI:SS'),TPE_AMOUNT,TPE_PRINT_FLAG from T_TRN_POLICY_EXCLUSION where TPE_POLICY_ID in("+qnos+") order by TPE_POLICY_ID";
+		try 
+		{
+			result = runner.multipleSelection(sql);
+		} 
+		catch (Exception e) 
+		{
+			System.out.println("Exception in selecting policy number" + e);e.printStackTrace();
+		}
+		return result;
+	}
+	// Used to retrieve values from T_TRN_POLICY_WARRANTY table //
+	public String[][] T_TRN_POLICY_WARRANTY_SELECT(String qnoFrom, String qnoTo) 
+	{
+		String result[][] = new String[0][0];
+	
+		String sql = "select TPW_POLICY_ID,TPW_ENDT_ID,TPW_CL_CODE,TPW_PT_CODE,TPW_CODE,TPW_COV_CODE,TPW_CT_CODE,TPW_CST_CODE,to_char(TPW_VALIDITY_START_DATE,'DD/MM/YYYY HH24:MI:SS'),to_char(TPW_VALIDITY_END_DATE,'DD/MM/YYYY HH24:MI:SS'),TPW_RSK_ID,TPW_STATUS,TPW_PREPARED_BY,to_char(TPW_PREPARED_DT,'DD/MM/YYYY HH24:MI:SS'),TPW_MODIFIED_BY,to_char(TPW_MODIFIED_DT,'DD/MM/YYYY HH24:MI:SS'),TPW_AMOUNT,TPW_PRINT_FLAG from T_TRN_POLICY_WARRANTY where TPW_POLICY_ID between '"+ qnoFrom + "' and '" + qnoTo + "' order by TPW_POLICY_ID";
+		try 
+		{
+			result = runner.multipleSelection(sql);
+		} 
+		catch (Exception e) 
+		{
+			System.out.println("Exception in selecting policy number" + e);e.printStackTrace();
+		}
+		return result;
+	}
+	public String[][] T_TRN_POLICY_WARRANTY_SELECT(StringBuffer qnos) 
+	{
+		String result[][] = new String[0][0];
+		String sql = "select TPW_POLICY_ID,TPW_ENDT_ID,TPW_CL_CODE,TPW_PT_CODE,TPW_CODE,TPW_COV_CODE,TPW_CT_CODE,TPW_CST_CODE,to_char(TPW_VALIDITY_START_DATE,'DD/MM/YYYY HH24:MI:SS'),to_char(TPW_VALIDITY_END_DATE,'DD/MM/YYYY HH24:MI:SS'),TPW_RSK_ID,TPW_STATUS,TPW_PREPARED_BY,to_char(TPW_PREPARED_DT,'DD/MM/YYYY HH24:MI:SS'),TPW_MODIFIED_BY,to_char(TPW_MODIFIED_DT,'DD/MM/YYYY HH24:MI:SS'),TPW_AMOUNT,TPW_PRINT_FLAG from T_TRN_POLICY_WARRANTY where TPW_POLICY_ID in("+qnos+") order by TPW_POLICY_ID";
+		try 
+		{
+			result = runner.multipleSelection(sql);
+		} 
+		catch (Exception e) 
+		{
+			System.out.println("Exception in selecting policy number" + e);e.printStackTrace();
+		}
+		return result;
+	}
+	// Used to retrieve values from T_TRN_PREMIUM1 table //
+	public String[][] T_TRN_PREMIUM1_SELECT(String qnoFrom, String qnoTo)
+	{
+		String result[][] = new String[0][0];
+		String sql = "select PRM_POLICY_ID,PRM_CL_CODE,PRM_PT_CODE,PRM_BASIC_RSK_CODE,PRM_BASIC_RSK_ID,PRM_COV_CODE,PRM_CT_CODE,PRM_CST_CODE,PRM_RSK_CODE,PRM_RT_CODE,PRM_RC_CODE,PRM_RSC_CODE,PRM_RSK_ID,PRM_SUM_INSURED,PRM_RATE,PRM_PREMIUM,PRM_COMPULSORY_EXCESS,PRM_VOLUNTARY_EXCESS,to_char(PRM_VALIDITY_START_DATE,'DD/MM/YYYY HH24:MI:SS'),to_char(PRM_VALIDITY_EXPIRY_DATE,'DD/MM/YYYY HH24:MI:SS'),PRM_ENDT_ID,PRM_EXCESS_RATE,PRM_RI_RSK_CODE,PRM_SI_IND,PRM_STATUS,to_char(PRM_EFFECTIVE_DATE,'DD/MM/YYYY HH24:MI:SS'),to_char(PRM_EXPIRY_DATE,'DD/MM/YYYY HH24:MI:SS'),PRM_POL_SUM_INSURED,PRM_SITYPE_CODE,PRM_FN_CODE,PRM_SUM_INSURED_CURR,PRM_PREMIUM_CURR,PRM_PREPARED_BY,to_char(PRM_PREPARED_DT,'DD/MM/YYYY HH24:MI:SS'),PRM_MODIFIED_BY,to_char(PRM_MODIFIED_DT,'DD/MM/YYYY HH24:MI:SS'),PRM_RI_LOC_CODE,PRM_RATE_TYPE,PRM_OLD_PREMIUM,PRM_OLD_SUM_INSURED,PRM_PREMIUM_ACTUAL,PRM_EXP_PERIOD_PRM,PRM_RENEWAL_LOADING from T_TRN_PREMIUM1 where PRM_POLICY_ID between '"+qnoFrom+"' and '"+qnoTo+ "' order by PRM_POLICY_ID,PRM_BASIC_RSK_ID,prm_cov_code";
+		
+		try 
+		{
+			result = runner.multipleSelection(sql);
+		} 
+		catch (Exception e) 
+		{
+			System.out.println("Exception in selecting policy number" + e);e.printStackTrace();
+		}
+		return result;
+	}
+	
+	public String[][] T_TRN_PREMIUM1_SELECT(StringBuffer qnos) 
+	{
+		String result[][] = new String[0][0];
+		String sql = "select PRM_POLICY_ID,PRM_CL_CODE,PRM_PT_CODE,PRM_BASIC_RSK_CODE,PRM_BASIC_RSK_ID,PRM_COV_CODE,PRM_CT_CODE,PRM_CST_CODE,PRM_RSK_CODE,PRM_RT_CODE,PRM_RC_CODE,PRM_RSC_CODE,PRM_RSK_ID,PRM_SUM_INSURED,PRM_RATE,PRM_PREMIUM,PRM_COMPULSORY_EXCESS,PRM_VOLUNTARY_EXCESS,to_char(PRM_VALIDITY_START_DATE,'DD/MM/YYYY HH24:MI:SS'),to_char(PRM_VALIDITY_EXPIRY_DATE,'DD/MM/YYYY HH24:MI:SS'),PRM_ENDT_ID,PRM_EXCESS_RATE,PRM_RI_RSK_CODE,PRM_SI_IND,PRM_STATUS,to_char(PRM_EFFECTIVE_DATE,'DD/MM/YYYY HH24:MI:SS'),to_char(PRM_EXPIRY_DATE,'DD/MM/YYYY HH24:MI:SS'),PRM_POL_SUM_INSURED,PRM_SITYPE_CODE,PRM_FN_CODE,PRM_SUM_INSURED_CURR,PRM_PREMIUM_CURR,PRM_PREPARED_BY,to_char(PRM_PREPARED_DT,'DD/MM/YYYY HH24:MI:SS'),PRM_MODIFIED_BY,to_char(PRM_MODIFIED_DT,'DD/MM/YYYY HH24:MI:SS'),PRM_RI_LOC_CODE,PRM_RATE_TYPE,PRM_OLD_PREMIUM,PRM_OLD_SUM_INSURED,PRM_PREMIUM_ACTUAL,PRM_EXP_PERIOD_PRM,PRM_RENEWAL_LOADING from T_TRN_PREMIUM1 where PRM_POLICY_ID in("+qnos + ") order by PRM_POLICY_ID,PRM_BASIC_RSK_ID,prm_cov_code";
+		try 
+		{
+			result = runner.multipleSelection(sql);
+		} 
+		catch (Exception e) 
+		{
+			System.out.println("Exception in selecting policy number" + e);e.printStackTrace();
+		}
+		return result;
+	}
+	// Used to retrieve values from T_TRN_GACC_PERSON table //
+	public String[][] T_TRN_GACC_PERSON_SELECT(String qnoFrom, String qnoTo)
+	{
+		String result[][] = new String[0][0];
+		String sql = "select GPR_POLICY_ID,GPR_BASIC_RISK_ID,GPR_RSK_CODE,GPR_ID,GPR_RT_CODE,GPR_RC_CODE,GPR_A_NAME,GPR_E_NAME,GPR_A_ADDRESS1,GPR_E_ADDRESS1,GPR_A_ADDRESS2,GPR_E_ADDRESS2,GPR_A_ADDRESS3,GPR_E_ADDRESS3,GPR_ZIP,GPR_TELEPHONE,GPR_FAX,GPR_GSM,GPR_EMAIL,GPR_AGE,GPR_OC_CODE,GPR_SUM_INSURED,GPR_STATUS,to_char(GPR_VALIDITY_START_DATE,'DD/MM/YYYY HH24:MI:SS'),to_char(GPR_VALIDITY_EXPIRY_DATE,'DD/MM/YYYY HH24:MI:SS'),GPR_ENDT_ID,GPR_RI_RSK_CODE,GPR_BASIC_RSK_CODE,GPR_GENDER,GPR_RELATION,to_char(GPR_RETROACTIVE_DATE,'DD/MM/YYYY HH24:MI:SS'),GPR_SALARY,GPR_PREPARED_BY,to_char(GPR_PREPARED_DT,'DD/MM/YYYY HH24:MI:SS'),GPR_MODIFIED_BY,to_char(GPR_MODIFIED_DT,'DD/MM/YYYY HH24:MI:SS'),to_char(GPR_START_DATE,'DD/MM/YYYY HH24:MI:SS'),to_char(GPR_END_DATE,'DD/MM/YYYY HH24:MI:SS'),to_char(GPR_DATE_OF_BIRTH,'DD/MM/YYYY HH24:MI:SS'),GPR_DESCRIPTION,GPR_PERSON_ID from T_TRN_GACC_PERSON where GPR_POLICY_ID between '"+qnoFrom+"' and '"+qnoTo+ "' order by GPR_POLICY_ID,GPR_BASIC_RISK_ID";
+		
+		try 
+		{
+			result = runner.multipleSelection(sql);
+		} 
+		catch (Exception e) 
+		{
+			System.out.println("Exception in selecting policy number" + e);e.printStackTrace();
+		}
+		return result;
+	}
+	public String[][] T_TRN_GACC_PERSON_SELECT(StringBuffer qnos)
+	{
+		String result[][] = new String[0][0];
+		String sql = "select GPR_POLICY_ID,GPR_BASIC_RISK_ID,GPR_RSK_CODE,GPR_ID,GPR_RT_CODE,GPR_RC_CODE,GPR_A_NAME,GPR_E_NAME,GPR_A_ADDRESS1,GPR_E_ADDRESS1,GPR_A_ADDRESS2,GPR_E_ADDRESS2,GPR_A_ADDRESS3,GPR_E_ADDRESS3,GPR_ZIP,GPR_TELEPHONE,GPR_FAX,GPR_GSM,GPR_EMAIL,GPR_AGE,GPR_OC_CODE,GPR_SUM_INSURED,GPR_STATUS,to_char(GPR_VALIDITY_START_DATE,'DD/MM/YYYY HH24:MI:SS'),to_char(GPR_VALIDITY_EXPIRY_DATE,'DD/MM/YYYY HH24:MI:SS'),GPR_ENDT_ID,GPR_RI_RSK_CODE,GPR_BASIC_RSK_CODE,GPR_GENDER,GPR_RELATION,to_char(GPR_RETROACTIVE_DATE,'DD/MM/YYYY HH24:MI:SS'),GPR_SALARY,GPR_PREPARED_BY,to_char(GPR_PREPARED_DT,'DD/MM/YYYY HH24:MI:SS'),GPR_MODIFIED_BY,to_char(GPR_MODIFIED_DT,'DD/MM/YYYY HH24:MI:SS'),to_char(GPR_START_DATE,'DD/MM/YYYY HH24:MI:SS'),to_char(GPR_END_DATE,'DD/MM/YYYY HH24:MI:SS'),to_char(GPR_DATE_OF_BIRTH,'DD/MM/YYYY HH24:MI:SS'),GPR_DESCRIPTION,GPR_PERSON_ID from T_TRN_GACC_PERSON where GPR_POLICY_ID in ("+qnos+") order by GPR_POLICY_ID,GPR_BASIC_RISK_ID";
+		
+		try 
+		{
+			result = runner.multipleSelection(sql);
+		} 
+		catch (Exception e) 
+		{
+			System.out.println("Exception in selecting policy number" + e);e.printStackTrace();
+		}
+		return result;
+	}
+	//Used to retrieve values from T_TRN_BUILDING
+	public String[][] buildingDetails(String qnoFrom, String qnoTo)
+	{
+		String result[][] = new String[0][0];
+		String sql = "select BLD_POLICY_ID,BLD_NO,BLD_ID,BLD_RSK_CODE,BLD_OCCUPANCY_CODE,BLD_CONSTRUCTION_CODE,BLD_ZONE_CODE,BLD_GEOAREA_CODE,to_char(BLD_START_DATE,'DD/MM/YYYY HH24:MI:SS'),to_char(BLD_END_DATE,'DD/MM/YYYY HH24:MI:SS'),BLD_A_ADDRESS1,BLD_E_ADDRESS1,BLD_A_ADDRESS2,BLD_E_ADDRESS2,BLD_A_ADDRESS3,BLD_E_ADDRESS3,BLD_ZIP,BLD_SUM_INSURED,BLD_MPL_FIRE,BLD_MPL_FLOOD,BLD_HAZARD_CODE,BLD_STATUS,to_char(BLD_VALIDITY_START_DATE,'DD/MM/YYYY HH24:MI:SS'),to_char(BLD_VALIDITY_EXPIRY_DATE,'DD/MM/YYYY HH24:MI:SS'),BLD_DECL_NO,to_char(BLD_DECL_DATE,'DD/MM/YYYY HH24:MI:SS'),BLD_DESC,BLD_RSK_TYPE,BLD_ENDT_ID,BLD_E_NAME,BLD_A_NAME,BLD_WAY_NO,BLD_BLOCK_NO,BLD_DIR_CODE,BLD_MUN_CODE,BLD_E_STREET_NAME,BLD_A_STREET_NAME,BLD_RI_RSK_CODE,BLD_WALL_TYPE,BLD_ROOF_TYPE,BLD_MPL_FIRE_PERC,BLD_MPL_FLOOD_PERC,BLD_COVER_INDICATOR,BLD_PREPARED_BY,to_char(BLD_PREPARED_DT,'DD/MM/YYYY HH24:MI:SS'),BLD_MODIFIED_BY,to_char(BLD_MODIFIED_DT,'DD/MM/YYYY HH24:MI:SS'),BLD_FIXTURES_IND,BLD_CONST_YR,BLD_LATITUDE,BLD_LONGITUDE,BLD_TOTAL_NO_FLOORS,BLD_LOWEST_FLOOR,BLD_NO_OCC_FLOORS,to_char(BLD_DISP_DATE,'DD/MM/YYYY HH24:MI:SS') from T_TRN_BUILDING where BLD_POLICY_ID between '"+qnoFrom+"' and '"+qnoTo+ "' order by BLD_POLICY_ID";
+		
+		try 
+		{
+			result = runner.multipleSelection(sql);
+		} 
+		catch (Exception e) 
+		{
+			System.out.println("Exception in selecting policy number" + e);e.printStackTrace();
+		}
+		return result;
+	}
+	public String[][] buildingDetails(StringBuffer qnos)
+	{
+		String result[][] = new String[0][0];
+		String sql = "select BLD_POLICY_ID,BLD_NO,BLD_ID,BLD_RSK_CODE,BLD_OCCUPANCY_CODE,BLD_CONSTRUCTION_CODE,BLD_ZONE_CODE,BLD_GEOAREA_CODE,to_char(BLD_START_DATE,'DD/MM/YYYY HH24:MI:SS'),to_char(BLD_END_DATE,'DD/MM/YYYY HH24:MI:SS'),BLD_A_ADDRESS1,BLD_E_ADDRESS1,BLD_A_ADDRESS2,BLD_E_ADDRESS2,BLD_A_ADDRESS3,BLD_E_ADDRESS3,BLD_ZIP,BLD_SUM_INSURED,BLD_MPL_FIRE,BLD_MPL_FLOOD,BLD_HAZARD_CODE,BLD_STATUS,to_char(BLD_VALIDITY_START_DATE,'DD/MM/YYYY HH24:MI:SS'),to_char(BLD_VALIDITY_EXPIRY_DATE,'DD/MM/YYYY HH24:MI:SS'),BLD_DECL_NO,to_char(BLD_DECL_DATE,'DD/MM/YYYY HH24:MI:SS'),BLD_DESC,BLD_RSK_TYPE,BLD_ENDT_ID,BLD_E_NAME,BLD_A_NAME,BLD_WAY_NO,BLD_BLOCK_NO,BLD_DIR_CODE,BLD_MUN_CODE,BLD_E_STREET_NAME,BLD_A_STREET_NAME,BLD_RI_RSK_CODE,BLD_WALL_TYPE,BLD_ROOF_TYPE,BLD_MPL_FIRE_PERC,BLD_MPL_FLOOD_PERC,BLD_COVER_INDICATOR,BLD_PREPARED_BY,to_char(BLD_PREPARED_DT,'DD/MM/YYYY HH24:MI:SS'),BLD_MODIFIED_BY,to_char(BLD_MODIFIED_DT,'DD/MM/YYYY HH24:MI:SS'),BLD_FIXTURES_IND,BLD_CONST_YR,BLD_LATITUDE,BLD_LONGITUDE,BLD_TOTAL_NO_FLOORS,BLD_LOWEST_FLOOR,BLD_NO_OCC_FLOORS,to_char(BLD_DISP_DATE,'DD/MM/YYYY HH24:MI:SS') from T_TRN_BUILDING where BLD_POLICY_ID in ("+qnos+") order by BLD_POLICY_ID";
+		
+		try 
+		{
+			result = runner.multipleSelection(sql);
+		} 
+		catch (Exception e) 
+		{
+			System.out.println("Exception in selecting policy number" + e);e.printStackTrace();
+		}
+		return result;
+	}
+//	Used to retrieve values from T_TRN_BUILDING
+	public String[][] contentDetails(String qnoFrom, String qnoTo)
+	{
+		String result[][] = new String[0][0];
+		String sql = "select CNT_POLICY_ID,CNT_BASIC_RISK_ID,CNT_RSK_CODE,CNT_CATEGORY,CNT_CONTENT_ID,CNT_DESCRIPTION,CNT_SUM_INSURED,to_char(CNT_VALIDITY_START_DATE,'DD/MM/YYYY HH24:MI:SS'),to_char(CNT_VALIDITY_EXPIRY_DATE,'DD/MM/YYYY HH24:MI:SS'),CNT_DECL_NO,to_char(CNT_DECL_DATE,'DD/MM/YYYY HH24:MI:SS'),CNT_BASIC_RSK_CODE,CNT_ENDT_ID,CNT_RI_RSK_CODE,CNT_STATUS,CNT_PREPARED_BY,to_char(CNT_PREPARED_DT,'DD/MM/YYYY HH24:MI:SS'),CNT_MODIFIED_BY,to_char(CNT_MODIFIED_DT,'DD/MM/YYYY HH24:MI:SS'),to_char(CNT_START_DATE,'DD/MM/YYYY HH24:MI:SS'),to_char(CNT_END_DATE,'DD/MM/YYYY HH24:MI:SS'),CNT_MPL_FIRE,CNT_MPL_FLOOD,CNT_MPL_FIRE_PERC,CNT_MPL_FLOOD_PERC,CNT_A_DESCRIPTION from T_TRN_CONTENT where CNT_POLICY_ID between '"+qnoFrom+"' and '"+qnoTo+ "' order by CNT_POLICY_ID,CNT_BASIC_RISK_ID";
+		
+		try 
+		{
+			result = runner.multipleSelection(sql);
+		} 
+		catch (Exception e) 
+		{
+			System.out.println("Exception in selecting policy number" + e);e.printStackTrace();
+		}
+		return result;
+	}
+	public String[][] contentDetails(StringBuffer qnos)
+	{
+		String result[][] = new String[0][0];
+		String sql = "select CNT_POLICY_ID,CNT_BASIC_RISK_ID,CNT_RSK_CODE,CNT_CATEGORY,CNT_CONTENT_ID,CNT_DESCRIPTION,CNT_SUM_INSURED,to_char(CNT_VALIDITY_START_DATE,'DD/MM/YYYY HH24:MI:SS'),to_char(CNT_VALIDITY_EXPIRY_DATE,'DD/MM/YYYY HH24:MI:SS'),CNT_DECL_NO,to_char(CNT_DECL_DATE,'DD/MM/YYYY HH24:MI:SS'),CNT_BASIC_RSK_CODE,CNT_ENDT_ID,CNT_RI_RSK_CODE,CNT_STATUS,CNT_PREPARED_BY,to_char(CNT_PREPARED_DT,'DD/MM/YYYY HH24:MI:SS'),CNT_MODIFIED_BY,to_char(CNT_MODIFIED_DT,'DD/MM/YYYY HH24:MI:SS'),to_char(CNT_START_DATE,'DD/MM/YYYY HH24:MI:SS'),to_char(CNT_END_DATE,'DD/MM/YYYY HH24:MI:SS'),CNT_MPL_FIRE,CNT_MPL_FLOOD,CNT_MPL_FIRE_PERC,CNT_MPL_FLOOD_PERC,CNT_A_DESCRIPTION from T_TRN_CONTENT where CNT_POLICY_ID in ("+qnos+") order by CNT_POLICY_ID,CNT_BASIC_RISK_ID";
+		
+		try 
+		{
+			result = runner.multipleSelection(sql);
+		} 
+		catch (Exception e) 
+		{
+			System.out.println("Exception in selecting policy number" + e);e.printStackTrace();
+		}
+		return result;
+	}
+	// Used to retrieve values from T_TRN_DTL_DEBIT_NOTE1 table //
+	public String[][] T_TRN_DTL_DEBIT_NOTE1_SELECT(String qnoFrom, String qnoTo) 
+	{
+		String result[][] = new String[0][0];
+		String sql = "select DND_DEBIT_NOTE_NO,to_char(DND_DEBIT_NOTE_DATE,'DD/MM/YYYY HH24:MI:SS'),DND_POLICY_ID,DND_SERIAL_NO,DND_AMOUNT,DND_POLICY_NO,DND_POLICY_YEAR,DND_DESC,DND_LOCATION_CODE,DND_CLASS_CODE,DND_DOCUMENT_CODE,DND_ENDT_ID,DND_CTY_CODE,DND_REG_CODE,DND_CC_CODE,DND_CLAIM_ID,DND_REF_TRAN_ID,DND_REF_TRAN_TYPE,DND_REF_TRAN_SERIAL_NO,DND_PREPARED_BY,to_char(DND_PREPARED_DT,'DD/MM/YYYY HH24:MI:SS'),DND_MODIFIED_BY,to_char(DND_MODIFIED_DT,'DD/MM/YYYY HH24:MI:SS'),DND_TOT_ACC_CODE,DND_GL_CODE,DND_ANALYSIS_CODE from T_TRN_DTL_DEBIT_NOTE1 where DND_POLICY_ID between '"+qnoFrom+"' and '"+qnoTo+"' order by DND_POLICY_ID, DND_SERIAL_NO";
+		try 
+		{
+			result = runner.multipleSelection(sql);
+		} 
+		catch (Exception e) 
+		{
+			System.out.println("Exception in selecting policy number" + e);e.printStackTrace();
+		}
+		return result;
+	}
+
+	public String[][] T_TRN_DTL_DEBIT_NOTE1_SELECT(StringBuffer qnos) 
+	{
+		String result[][] = new String[0][0];
+		String sql = "select DND_DEBIT_NOTE_NO,to_char(DND_DEBIT_NOTE_DATE,'DD/MM/YYYY HH24:MI:SS'),DND_POLICY_ID,DND_SERIAL_NO,DND_AMOUNT,DND_POLICY_NO,DND_POLICY_YEAR,DND_DESC,DND_LOCATION_CODE,DND_CLASS_CODE,DND_DOCUMENT_CODE,DND_ENDT_ID,DND_CTY_CODE,DND_REG_CODE,DND_CC_CODE,DND_CLAIM_ID,DND_REF_TRAN_ID,DND_REF_TRAN_TYPE,DND_REF_TRAN_SERIAL_NO,DND_PREPARED_BY,to_char(DND_PREPARED_DT,'DD/MM/YYYY HH24:MI:SS'),DND_MODIFIED_BY,to_char(DND_MODIFIED_DT,'DD/MM/YYYY HH24:MI:SS'),DND_TOT_ACC_CODE,DND_GL_CODE,DND_ANALYSIS_CODE from T_TRN_DTL_DEBIT_NOTE1 where DND_POLICY_ID in("+qnos+") order by DND_POLICY_ID, DND_SERIAL_NO";
+		try 
+		{
+			result = runner.multipleSelection(sql);
+		} 
+		catch (Exception e) 
+		{
+			System.out.println("Exception in selecting policy number" + e);e.printStackTrace();
+		}
+		return result;
+	}
+
+	// Used to retrieve values from T_TRN_HDR_DEBIT_NOTE1 table //
+	public String[][] T_TRN_HDR_DEBIT_NOTE1_SELECT(String qnoFrom, String qnoTo) 
+	{
+		String result[][] = new String[0][0];
+		String sql = "select DNH_DEBIT_NOTE_NO,to_char(DNH_DEBIT_NOTE_DATE,'DD/MM/YYYY HH24:MI:SS'),DNH_A_DESC,DNH_E_DESC,DNH_PREPARED_BY,DNH_APPROVED_BY,to_char(DNH_PRINT_DATE,'DD/MM/YYYY HH24:MI:SS'),DNH_CUSTOMER_ID,DNH_CTY_CODE,DNH_REG_CODE,DNH_LOC_CODE,DNH_CUT_CODE,DNH_PREPRINT_NO,to_char(DNH_PREPARED_DT,'DD/MM/YYYY HH24:MI:SS'),DNH_MODIFIED_BY,to_char(DNH_MODIFIED_DT,'DD/MM/YYYY HH24:MI:SS'),DNH_NAME,DNH_CC_CODE,DNH_TOT_ACC_CODE,DNH_GL_CODE,to_char(DNH_POSTED_DATE,'DD/MM/YYYY HH24:MI:SS'),to_char(DNH_REFRESH_DATE,'DD/MM/YYYY HH24:MI:SS') from T_TRN_HDR_DEBIT_NOTE1 where DNH_PREPRINT_NO between '"
+				+ qnoFrom + "' and '" + qnoTo + "' order by DNH_PREPRINT_NO";
+		try 
+		{
+			result = runner.multipleSelection(sql);
+		} 
+		catch (Exception e) 
+		{
+			System.out.println("Exception in selecting policy number" + e);e.printStackTrace();
+		}
+		return result;
+	}
+
+	public String[][] T_TRN_HDR_DEBIT_NOTE1_SELECT(StringBuffer qnos) 
+	{
+		String result[][] = new String[0][0];
+		String sql = "select DNH_DEBIT_NOTE_NO,to_char(DNH_DEBIT_NOTE_DATE,'DD/MM/YYYY HH24:MI:SS'),DNH_A_DESC,DNH_E_DESC,DNH_PREPARED_BY,DNH_APPROVED_BY,to_char(DNH_PRINT_DATE,'DD/MM/YYYY HH24:MI:SS'),DNH_CUSTOMER_ID,DNH_CTY_CODE,DNH_REG_CODE,DNH_LOC_CODE,DNH_CUT_CODE,DNH_PREPRINT_NO,to_char(DNH_PREPARED_DT,'DD/MM/YYYY HH24:MI:SS'),DNH_MODIFIED_BY,to_char(DNH_MODIFIED_DT,'DD/MM/YYYY HH24:MI:SS'),DNH_NAME,DNH_CC_CODE,DNH_TOT_ACC_CODE,DNH_GL_CODE,to_char(DNH_POSTED_DATE,'DD/MM/YYYY HH24:MI:SS'),to_char(DNH_REFRESH_DATE,'DD/MM/YYYY HH24:MI:SS') from T_TRN_HDR_DEBIT_NOTE1 where DNH_PREPRINT_NO in("+qnos+") order by DNH_PREPRINT_NO";
+		try 
+		{
+			result = runner.multipleSelection(sql);
+		} 
+		catch (Exception e) 
+		{
+			System.out.println("Exception in selecting policy number" + e);e.printStackTrace();
+		}
+		return result;
+	}
+
+	// Used to retrieve values from T_TRN_NON_STD_TEXT1 table //
+	public String[][] T_TRN_NON_STD_TEXT1_SELECT(String qnoFrom, String qnoTo) 
+	{
+		String result[][] = new String[0][0];
+		String sql = "select NST_POLICY_ID,NST_ENDT_ID,NST_TYPE_CODE,NST_A_TEXT,NST_E_TEXT,to_char(NST_VALIDITY_START_DATE,'DD/MM/YYYY HH24:MI:SS'),to_char(NST_VALIDITY_END_DATE,'DD/MM/YYYY HH24:MI:SS'),NST_PHR_CODE,NST_PREPARED_BY,to_char(NST_PREPARED_DT,'DD/MM/YYYY HH24:MI:SS'),NST_MODIFIED_BY,to_char(NST_MODIFIED_DT,'DD/MM/YYYY HH24:MI:SS') from T_TRN_NON_STD_TEXT1 where NST_POLICY_ID between '"+ qnoFrom + "' and '" + qnoTo + "' order by NST_POLICY_ID";
+		try 
+		{
+			result = runner.multipleSelection(sql);
+		} 
+		catch (Exception e) 
+		{
+			System.out.println("Exception in selecting policy number" + e);e.printStackTrace();
+		}
+		return result;
+	}
+
+	public String[][] T_TRN_NON_STD_TEXT1_SELECT(StringBuffer qnos) 
+	{
+		String result[][] = new String[0][0];
+		String sql = "select NST_POLICY_ID,NST_ENDT_ID,NST_TYPE_CODE,NST_A_TEXT,NST_E_TEXT,to_char(NST_VALIDITY_START_DATE,'DD/MM/YYYY HH24:MI:SS'),to_char(NST_VALIDITY_END_DATE,'DD/MM/YYYY HH24:MI:SS'),NST_PHR_CODE,NST_PREPARED_BY,to_char(NST_PREPARED_DT,'DD/MM/YYYY HH24:MI:SS'),NST_MODIFIED_BY,to_char(NST_MODIFIED_DT,'DD/MM/YYYY HH24:MI:SS') from T_TRN_NON_STD_TEXT1 where NST_POLICY_ID in("+ qnos+") order by NST_POLICY_ID";
+		try 
+		{
+			result = runner.multipleSelection(sql);
+		} 
+		catch (Exception e) 
+		{
+			System.out.println("Exception in selecting policy number" + e);e.printStackTrace();
+		}
+		return result;
+	}
+	//Used to retrieve values from T_TRN_POLICY_TEXT
+	public String[][] T_TRN_POLICY_TEXT_SELECT(String qnoFrom, String qnoTo)
+	{
+		String result[][] = new String[0][0];
+		String sql = "select PTX_POLICY_ID,PTX_ENDT_ID,PTX_A_DESC,PTX_E_DESC,to_char(PTX_VALIDITY_START_DATE,'DD/MM/YYYY HH24:MI:SS'),to_char(PTX_VALIDITY_EXPIRY_DATE,'DD/MM/YYYY HH24:MI:SS'),PTX_STATUS,PTX_PRINT_FLAG,PTX_NO,PTX_PREPARED_BY,to_char(PTX_PREPARED_DT,'DD/MM/YYYY HH24:MI:SS'),PTX_MODIFIED_BY,to_char(PTX_MODIFIED_DT,'DD/MM/YYYY HH24:MI:SS') from T_TRN_POLICY_TEXT where PTX_POLICY_ID between '"+qnoFrom + "' and '"+qnoTo+"' order by PTX_POLICY_ID";
+		try 
+		{
+			result = runner.multipleSelection(sql);
+		} 
+		catch (Exception e) 
+		{
+			System.out.println("Exception in selecting policy number" + e);e.printStackTrace();
+		}
+		return result;
+	}
+	public String[][] T_TRN_POLICY_TEXT_SELECT(StringBuffer qnos)
+	{
+		String result[][] = new String[0][0];
+		String sql = "select PTX_POLICY_ID,PTX_ENDT_ID,PTX_A_DESC,PTX_E_DESC,to_char(PTX_VALIDITY_START_DATE,'DD/MM/YYYY HH24:MI:SS'),to_char(PTX_VALIDITY_EXPIRY_DATE,'DD/MM/YYYY HH24:MI:SS'),PTX_STATUS,PTX_PRINT_FLAG,PTX_NO,PTX_PREPARED_BY,to_char(PTX_PREPARED_DT,'DD/MM/YYYY HH24:MI:SS'),PTX_MODIFIED_BY,to_char(PTX_MODIFIED_DT,'DD/MM/YYYY HH24:MI:SS') from T_TRN_POLICY_TEXT where PTX_POLICY_ID in("+qnos+") order by PTX_POLICY_ID";
+		try 
+		{
+			result = runner.multipleSelection(sql);
+		} 
+		catch (Exception e) 
+		{
+			System.out.println("Exception in selecting policy number" + e);e.printStackTrace();
+		}
+		return result;
+	}
+	// Used to retrieve values from T_TRN_MARINE_LC1 table //
+	public String[][] T_TRN_MARINE_LC1_SELECT(String qnoFrom, String qnoTo)
+	{
+		String result[][] = new String[0][0];
+		String sql = "select LC_POLICY_ID,LC_ENDT_ID,LC_DECLARATION_ID,LC_ID,LC_SL_NO,LC_NUMBER,LC_REFERENCE,to_char(LC_DATE,'DD/MM/YYYY HH24:MI:SS'),LC_AMOUNT,to_char(LC_EFFECTIVE_DATE,'DD/MM/YYYY HH24:MI:SS'),to_char(LC_EXPIRY_DATE,'DD/MM/YYYY HH24:MI:SS'),LC_BANK_CODE,LC_A_BANK_NAME,LC_E_BANK_NAME,to_char(LC_VALIDITY_START_DATE,'DD/MM/YYYY HH24:MI:SS'),to_char(LC_VALIDITY_EXPIRY_DATE,'DD/MM/YYYY HH24:MI:SS'),LC_STATUS,LC_FC_AMOUNT,LC_EXCHANGE_RATE,LC_CURRENCY_CODE,LC_PREPARED_BY,to_char(LC_PREPARED_DT,'DD/MM/YYYY HH24:MI:SS'),LC_MODIFIED_BY,to_char(LC_MODIFIED_DT,'DD/MM/YYYY HH24:MI:SS'),to_char(LC_START_DATE,'DD/MM/YYYY HH24:MI:SS'),to_char(LC_END_DATE,'DD/MM/YYYY HH24:MI:SS'),LC_CONSIGNEE_NAME from T_TRN_MARINE_LC1 where LC_POLICY_ID between '"
+				+ qnoFrom + "' and '" + qnoTo + "' order by LC_POLICY_ID";
+		try 
+		{
+			result = runner.multipleSelection(sql);
+		} 
+		catch (Exception e) 
+		{
+			System.out.println("Exception in selecting policy number" + e);e.printStackTrace();
+		}
+		return result;
+	}
+
+	public String[][] T_TRN_MARINE_LC1_SELECT(StringBuffer qnos) 
+	{
+		String result[][] = new String[0][0];
+	
+		String sql = "select LC_POLICY_ID,LC_ENDT_ID,LC_DECLARATION_ID,LC_ID,LC_SL_NO,LC_NUMBER,LC_REFERENCE,to_char(LC_DATE,'DD/MM/YYYY HH24:MI:SS'),LC_AMOUNT,to_char(LC_EFFECTIVE_DATE,'DD/MM/YYYY HH24:MI:SS'),to_char(LC_EXPIRY_DATE,'DD/MM/YYYY HH24:MI:SS'),LC_BANK_CODE,LC_A_BANK_NAME,LC_E_BANK_NAME,to_char(LC_VALIDITY_START_DATE,'DD/MM/YYYY HH24:MI:SS'),to_char(LC_VALIDITY_EXPIRY_DATE,'DD/MM/YYYY HH24:MI:SS'),LC_STATUS,LC_FC_AMOUNT,LC_EXCHANGE_RATE,LC_CURRENCY_CODE,LC_PREPARED_BY,to_char(LC_PREPARED_DT,'DD/MM/YYYY HH24:MI:SS'),LC_MODIFIED_BY,to_char(LC_MODIFIED_DT,'DD/MM/YYYY HH24:MI:SS'),to_char(LC_START_DATE,'DD/MM/YYYY HH24:MI:SS'),to_char(LC_END_DATE,'DD/MM/YYYY HH24:MI:SS'),LC_CONSIGNEE_NAME from T_TRN_MARINE_LC1 where LC_POLICY_ID in("+qnos+") order by LC_POLICY_ID";
+		try 
+		{
+			result = runner.multipleSelection(sql);
+		} 
+		catch (Exception e) 
+		{
+			System.out.println("Exception in selecting policy number" + e);e.printStackTrace();
+		}
+		return result;
+	}
+
+	public String formateDate(String dbdate) {
+		String date1 = dbdate;
+		String date = "";
+		try{
+		if (date1.length() > 0) {
+			date = date1.substring(0, (date1.indexOf('/')));
+			int intdate = Integer.parseInt(date);
+			if (intdate < 10) {
+				date = " 0"
+						+ intdate
+						+ date1.substring(date1.indexOf('/'),
+								date1.length() - 1);
+			} else {
+				date = date1.substring((date1.indexOf('/')) + 1, (date1
+						.lastIndexOf('/')));
+				int intmon = Integer.parseInt(date);
+				if (intmon < 10)
+					date = intdate
+							+ "/0"
+							+ intmon
+							+ date1.substring(date1.lastIndexOf('/'), date1
+									.length() - 1);
+				else
+					date = dbdate;
+				if (intdate == 12 && intmon == 8)
+					date = " "
+							+ intdate
+							+ "/0"
+							+ intmon
+							+ date1.substring(date1.lastIndexOf('/'), date1
+									.length() - 1);
+				if (intdate == 11 && intmon == 8)
+					date = " "
+							+ intdate
+							+ "/0"
+							+ intmon
+							+ date1.substring(date1.lastIndexOf('/'), date1
+									.length() - 1);
+				if (intdate == 11 && intmon == 7)
+					date = " "
+							+ intdate
+							+ "/0"
+							+ intmon
+							+ date1.substring(date1.lastIndexOf('/'), date1
+									.length() - 1);
+				if (intdate == 10 && intmon == 7)
+					date = " "
+							+ intdate
+							+ "/0"
+							+ intmon
+							+ date1.substring(date1.lastIndexOf('/'), date1
+									.length() - 1);
+			}
+		} else
+			date = dbdate;
+		}catch(Exception e){e.printStackTrace();}
+		return date;
+	}
+
+	public String[][] replaceQuotes(String[][] resultSet, int cols) 
+	{
+		String result[][] = new String[0][0];
+		System.out.println("ResultSet  values KV"+resultSet.length);
+		System.out.println("Column values "+cols);
+		result = resultSet;
+		try 
+		{
+			for (int i = 0; i < result.length; i++) 
+			{
+				for (int j = 0; j < cols; j++) 
+				{
+					if (result[i][j] != null)
+					{
+						result[i][j] = result[i][j].replaceAll("\"", "");
+						result[i][j] = result[i][j].replaceAll("\n","");
+						result[i][j] = result[i][j].replaceAll("\r","");
+						result[i][j] = result[i][j].replaceAll("\t","");
+					}
+				}
+			}
+		} 
+		catch (Exception e) 
+		{
+			System.out.println("Exception in replacing quotes" + e.toString());e.printStackTrace();
+		}
+		
+		return result;
+	}
+	public String ProductId_Select(StringBuffer qlist)
+	{
+		String result = "";
+		String sql = "select PRODUCT_ID from POSITION_MASTER where POLICY_NO in("+qlist+")";
+		try 
+		{
+			result = runner.singleSelection(sql);
+		}
+		catch (Exception e) 
+		{
+			System.out.println("Exception in product seletion" + e);
+			e.printStackTrace();
+		}
+		return result;
+	}
+	public String ProductId_Select(String pno) 
+	{
+		String result = "";
+		String sql = "select PRODUCT_ID from POSITION_MASTER where POLICY_NO=?";
+		try
+		{
+			String args[] = new String[1];
+			args[0] = pno;
+			result = runner.singleSelection(sql,args);
+			
+		} 
+		catch (Exception e) 
+		{
+			System.out.println("Exception in product seletion" + e);e.printStackTrace();
+		}
+		return result;
+	}
+	public String[][] countryCodeSelectDatewise(String startDate,String endDate, String pid) 
+	{
+		String result[][] = new String[0][0];
+		
+		String sql = "select POL_SYS_ID,POL_NO from PT_POLICY where" +
+				" POL_ISSUE_DT between  to_date(?,'dd-mm-yyyy') and to_date(?,'dd-mm-yyyy')+1 and " +
+				"POL_NO in(select POLICY_NO from POSITION_MASTER where PRODUCT_ID=? and POLICY_NO " +
+				"is not null and inception_Date between to_date(?,'dd-mm-yyyy') and to_date(?,'dd-mm-yyyy')+1)";
+		try 
+		{
+			String args[] = new String[5];
+			args[0] = startDate;
+			args[1] = endDate;
+			args[2] = pid;
+			args[3] = startDate;
+			args[4] = endDate;
+			result = runner.multipleSelection(sql,args);
+		} 
+		catch (Exception e) 
+		{
+			System.out.println("Exception in new list of quotes seletion" + e);e.printStackTrace();
+		}
+		return result;
+	}
+	public String[][] countryCodeSelectPolciyRangewise(String qnoFrom,String qnoTo, String pid) 
+	{
+		String result[][] = new String[0][0];
+		String sql = "select POL_SYS_ID,POL_NO,to_char(POL_ISSUE_DT,'dd-mm-yyyy') from PT_POLICY where " +
+				"substr(POL_NO,instr(POL_NO,'-',1,4)+1,length(POL_NO)) between '"+ qnoFrom	+ "' and '"	+ qnoTo	+ "' and " +
+						"POL_NO in(select POLICY_NO from POSITION_MASTER where PRODUCT_ID='"+ pid + "'" +
+								" and POLICY_NO is not null and substr(policy_no,instr(policy_no,'-',1,4)+1,length(policy_no)) between '"+ qnoFrom	+ "' and '"	+ qnoTo	+ "')";
+		try 
+		{
+			result = runner.multipleSelection(sql);
+		} 
+		catch (Exception e) 
+		{
+			System.out.println("Exception in selecting policy number" + e);e.printStackTrace();
+		}
+		return result;
+	}
+
+	public String[][] countryCodeSelectPolicyNumbers(StringBuffer qlist,String pid) 
+	{
+		String result[][] = new String[0][0];
+		String sql = "select POL_SYS_ID,POL_NO,to_char(POL_ISSUE_DT,'dd-mm-yyyy') from PT_POLICY where" +
+				" POL_NO in("+qlist+") and POL_NO in(select POLICY_NO from " +
+						"POSITION_MASTER where PRODUCT_ID='"+ pid + "' and POLICY_NO is not null and POLICY_NO in("+qlist+"))";
+		try 
+		{
+			result = runner.multipleSelection(sql);
+		} 
+		catch (Exception e) 
+		{
+			System.out.println("Exception in new list of quotes seletion" + e);e.printStackTrace();
+		}
+		return result;
+	}
+
+	public int MH_DECLARATION_ID_Select() 
+	{
+	
+		String sql = "select count(MH_DECLARATION_ID) from T_TRN_MARINE_HEADER1 where MH_DECLARATION_ID=8000450";
+		int res = 0;
+		try 
+		{
+			String temp = runner.singleSelection(sql);
+			if(temp.length()>0)
+				res = Integer.parseInt(temp);
+		}
+		catch (Exception e) 
+		{
+			System.out.println("Exception in Serial id Selection" + e);e.printStackTrace();
+		}
+		System.out.println("MH_DECLARATION_ID" + res);
+		return res;
+	}
+	public void insertDumbDetails(String start_date, String end_date,String downloaded_date, String branch_code, String product_id,
+			int total_policy, int totalPolicy_Abudabi, int totalPolicy_Dubai,int totalPolicy_Sharjah, String login_id, String remarks,String status, String today,String branch)
+	{
+		String sidsql = "select nvl(max(SERIAL_NO_ID),'0')+1 from DOWN_LOADED_MISSIPPI";
+		int sid = 0;
+		int resultabu = 0;
+		int resultdubu = 0;
+		int resultsha = 0;
+
+		try 
+		{
+			String temp = runner.singleSelection(sidsql);
+			if(temp.length()>0)
+				sid = Integer.parseInt(temp);
+		}
+		catch (Exception e) 
+		{
+			System.out.println("Exception in Serial id Selection" + e);e.printStackTrace();
+		}
+
+		String abusql = "";
+		String dubusql = "";
+		String shasql = "";
+		
+		String args[] = new String[21];
+		if (totalPolicy_Dubai > 0) 
+		{
+			
+			/*String t1 = "T_TRN_POLICY1_" + branch_code+"_" + downloaded_date + ".txt";
+			String t2 = "T_TRN_PREMIUM1_" + branch_code+"_" + downloaded_date + ".txt";
+			String t3 = "T_TRN_MARINE_DETAIL1_" + branch_code+"_" + downloaded_date
+					+ ".txt";
+			String t4 = "T_TRN_MARINE_HEADER1_" + branch_code+"_" + downloaded_date
+					+ ".txt";
+			String t5 = "T_TRN_MARINE_CARRIER1_" + branch_code+"_" + downloaded_date
+					+ ".txt";
+			String t6 = "T_TRN_MARINE_TRANSIT1_" + branch_code+"_" + downloaded_date
+					+ ".txt";
+			String t7 = "T_MAS_CASH_CUSTOMER1_" + branch_code+"_" + downloaded_date
+					+ ".txt";
+			String t8 = "T_TRN_DTL_DEBIT_NOTE1_" + branch_code+"_" + downloaded_date
+					+ ".txt";
+			String t9 = "T_TRN_HDR_DEBIT_NOTE1_" + branch_code+"_" + downloaded_date
+					+ ".txt";
+			String t10 = "T_TRN_NON_STD_TEXT1_" + branch_code+"_" + downloaded_date
+					+ ".txt";
+			String t11 = "T_TRN_MARINE_LC1_" + branch_code+"_" + downloaded_date
+					+ ".txt";*/
+			
+			
+			String t1 = "PT_POLICY_" + branch_code+"_" + downloaded_date + ".txt";
+			String t2 = "PT_CONDITION_" + branch_code+"_" + downloaded_date + ".txt";
+			String t3 = "PT_POL_COVER_" + branch_code+"_" + downloaded_date+ ".txt";
+			String t4 = "PT_POLICY_APPL_CURR_" + branch_code+"_" + downloaded_date+ ".txt";
+			String t5 = "PT_SHIP_GOODS_" + branch_code+"_" + downloaded_date+ ".txt";
+			String t6 = "PT_SHIPMENT_" + branch_code+"_" + downloaded_date+ ".txt";
+			String t7 = "";
+			String t8 = "";
+			String t9 = "";
+			String t10 = "";
+			String t11 = "";
+			
+			args[0] = ""+sid;
+			args[1] = login_id;
+			args[2] = today;
+			args[3] = start_date;
+			args[4] = end_date;
+			args[5] = branch;
+			args[6] = product_id;
+			args[7] = ""+totalPolicy_Dubai;
+			args[8] = t1;
+			args[9] = t2;
+			args[10] = t3;
+			args[11] = t4;
+			args[12] = t5;
+			args[13] = t6;
+			args[14] = t7;
+			args[15] = t8;
+			args[16] = t9;
+			args[17] = t10;
+			args[18] = t11;
+			args[19] = remarks;
+			args[20] = status;
+			dubusql = "Insert into DOWN_LOADED_MISSIPPI(SERIAL_NO_ID,LOGIN_ID,DOWNLOADED_DATE,START_DATE,END_DATE,BRANCH_CODE,PRODUCT_ID,TOTAL_NO_OF_POLICIES,TABLE_T_TRN_POLICY1,TABLE_T_TRN_PREMIUM1,TABLE_T_TRN_MARINE_DETAIL1,TABLE_T_TRN_MARINE_HEADER1,TABLE_T_TRN_MARINE_CARRIER1,TABLE_T_TRN_MARINE_TRANSIT1,TABLE_T_MAS_CASH_CUSTOMER1,TABLE_T_TRN_DTL_DEBIT_NOTE1,TABLE_T_TRN_HDR_DEBIT_NOTE1,TABLE_T_TRN_NON_STD_TEXT1,TABLE_T_TRN_MARINE_LC1,REMARKS,STATUS) values(?,?,to_date(?,'dd-mm-yyyy HH24:MI:SS'),to_date(?,'dd-mm-yyyy'),to_date(?,'dd-mm-yyyy'),?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+			
+			sid++;
+		}
+		try 
+		{
+			if (dubusql.length() > 0 && !dubusql.equals("")) 
+			{
+				runner.multipleInsertion(dubusql,args);
+			}
+
+		}
+		catch (Exception e) 
+		{
+			System.out.println("Exception in DumbDetails Insertion sql" + e);e.printStackTrace();
+		}
+	}
+	public void insertTravelDumbDetails(String start_date, String end_date,String downloaded_date, String branch_code, String product_id,int total_policy, int totalPolicy_Abudabi, int totalPolicy_Dubai,int totalPolicy_Sharjah, String login_id, String remarks,String status, String today,String branch)
+	{
+		String sidsql = "select nvl(max(SERIAL_NO_ID),'0')+1 from DOWN_LOADED_MISSIPPI";
+		int sid = 0;
+		int resultabu = 0;
+		int resultdubu = 0;
+		int resultsha = 0;
+
+		try 
+		{
+			String temp = runner.singleSelection(sidsql);
+			if(temp.length()>0)
+				sid = Integer.parseInt(temp);
+		}
+		catch (Exception e) 
+		{
+			System.out.println("Exception in Serial id Selection" + e);e.printStackTrace();
+		}
+		String abusql = "";
+		String dubusql = "";
+		String shasql = "";
+		String args[] = new String[21];
+		if (totalPolicy_Dubai > 0) 
+		{
+			
+			String t1 = "T_TRN_POLICY1_" + branch_code+"_" + downloaded_date + ".txt";
+			String t2 = "T_TRN_PREMIUM1_" + branch_code+"_" + downloaded_date + ".txt";
+			String t3 = "T_TRN_GACC_PERSON_" + branch_code+"_" + downloaded_date+ ".txt";
+			String t4 = "T_TRN_HDR_RECEIPT_" + branch_code+"_" + downloaded_date+ ".txt";
+			String t5 = "T_TRN_DTL_RECEIPT_" + branch_code+"_" + downloaded_date+ ".txt";
+			String t6 = "T_TRN_POLICY_WARRANTY_" + branch_code+"_" + downloaded_date+ ".txt";
+			String t7 = "T_MAS_CASH_CUSTOMER1_" + branch_code+"_" + downloaded_date+ ".txt";
+			String t8 = "T_TRN_DTL_DEBIT_NOTE1_" + branch_code+"_" + downloaded_date+ ".txt";
+			String t9 = "T_TRN_HDR_DEBIT_NOTE1_" + branch_code+"_" + downloaded_date+ ".txt";
+			String t10 = "T_TRN_NON_STD_TEXT1_" + branch_code+"_" + downloaded_date+ ".txt";
+			String t11 = "T_TRN_POLICY_TEXT_" + branch_code+"_" + downloaded_date+ ".txt";
+			
+			args[0] = ""+sid;
+			args[1] = login_id;
+			args[2] = today;
+			args[3] = start_date;
+			args[4] = end_date;
+			args[5] = branch;
+			args[6] = product_id;
+			args[7] = ""+totalPolicy_Dubai;
+			args[8] = t1;
+			args[9] = t2;
+			args[10] = t3;
+			args[11] = t4;
+			args[12] = t5;
+			args[13] = t6;
+			args[14] = t7;
+			args[15] = t8;
+			args[16] = t9;
+			args[17] = t10;
+			args[18] = t11;
+			args[19] = remarks;
+			args[20] = status;
+			
+			dubusql = "Insert into DOWN_LOADED_MISSIPPI(SERIAL_NO_ID,LOGIN_ID,DOWNLOADED_DATE,START_DATE,END_DATE,BRANCH_CODE,PRODUCT_ID,TOTAL_NO_OF_POLICIES,TABLE_T_TRN_POLICY1,TABLE_T_TRN_PREMIUM1,TABLE_T_TRN_MARINE_DETAIL1,TABLE_T_TRN_MARINE_HEADER1,TABLE_T_TRN_MARINE_CARRIER1,TABLE_T_TRN_MARINE_TRANSIT1,TABLE_T_MAS_CASH_CUSTOMER1,TABLE_T_TRN_DTL_DEBIT_NOTE1,TABLE_T_TRN_HDR_DEBIT_NOTE1,TABLE_T_TRN_NON_STD_TEXT1,TABLE_T_TRN_MARINE_LC1,REMARKS,STATUS) values(?,?,to_date(?,'dd-mm-yyyy HH24:MI:SS'),to_date(?,'dd-mm-yyyy'),to_date(?,'dd-mm-yyyy'),?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+			sid++;
+		}
+		try 
+		{
+			if (dubusql.length() > 0 && !dubusql.equals("")) 
+			{
+				runner.multipleInsertion(dubusql,args);
+			}
+
+		}
+		catch (Exception e) 
+		{
+			System.out.println("Exception in DumbDetails Insertion sql" + e);e.printStackTrace();
+		}
+	}
+	public String[][] getDownloadReports(String sdate, String edate,String branch_code, String pid,String branch)
+	{
+
+		if(pid.equalsIgnoreCase("0"))
+			pid = "(PRODUCT_ID=3 or PRODUCT_ID=11)";
+		else if(pid.equalsIgnoreCase("3"))
+			pid = "PRODUCT_ID=3";
+		else if(pid.equalsIgnoreCase("11"))
+			pid = "PRODUCT_ID=11";
+		else 
+			pid = "PRODUCT_ID="+pid;
+		
+		String[][] ss = new String[0][0];
+		String sql = "";
+		try 
+		{
+			sql = "select substr(to_char(DOWNLOADED_DATE,'dd-mm-yyyy'),1,10),count(DOWNLOADED_DATE) from DOWN_LOADED_MISSIPPI where (DOWNLOADED_DATE between to_date(?,'dd-mm-yyyy') and (to_date(?,'dd-mm-yyyy')+1)) and "+pid+" and BRANCH_CODE=? group by substr(to_char(DOWNLOADED_DATE,'dd-mm-yyyy'),1,10) order by substr(to_char(DOWNLOADED_DATE,'dd-mm-yyyy'),1,10) desc";
+			String args[] = new String[3];
+			args[0] = sdate;
+			args[1] = edate;
+			args[2] = branch;
+			ss = runner.multipleSelection(sql,args);
+			
+		} catch (Exception e) {
+			System.out.println("Exception in gettin refferal data"+ e.toString());e.printStackTrace();
+		}
+		return ss;
+	}
+
+	// Modified By Rajesh For Travel and Home Admin PortFolio End//
+	// Modified By Rajesh For Travel and Home Admin PortFolio Start//
+	public String[][] getDownloadReportsForDate(String eDate, String pid,String branch_code) 
+	{
+		String[][] result = new String[0][0];
+		String branch = "";
+		if (pid.equalsIgnoreCase("0"))
+			pid = "(PRODUCT_ID=3 or PRODUCT_ID=11)";
+		else if (pid.equalsIgnoreCase("3"))
+			pid = "PRODUCT_ID=3";
+		else if(pid.equalsIgnoreCase("11"))
+			pid = "PRODUCT_ID=11";
+		else
+			pid = "PRODUCT_ID="+pid;
+		
+		try 
+		{
+			String sql = "";
+			sql = "select LOGIN_ID,to_char(START_DATE,'dd-mm-yyyy'),to_char(END_DATE,'dd-mm-yyyy'),BRANCH_CODE,PRODUCT_ID,TOTAL_NO_OF_POLICIES from DOWN_LOADED_MISSIPPI where (substr(to_char(DOWNLOADED_DATE,'dd-mm-yyyy'),1,10)=?) and "+pid+" and  branch_code=? order by SERIAL_NO_ID";
+			String args[] = new String[2];
+			args[0] = eDate;
+			args[1] = branch_code;
+			result = runner.multipleSelection(sql,args);
+		} 
+		catch (Exception e) 
+		{
+			System.out.println("Exception in getting reports data from export"	+ e.toString());e.printStackTrace();
+		} 
+		return result;
+	}
+
+	public String[][] getDownloadReportsFiles(String eDate, String pid,
+			String branch_code, String sdate, String edate) {
+
+		String[][] result = new String[0][0];
+		String branch = "";
+		if(pid.equalsIgnoreCase("0"))
+			pid = "(PRODUCT_ID=3 or PRODUCT_ID=11)";
+		else if(pid.equalsIgnoreCase("3"))
+			pid = "PRODUCT_ID=3";
+		else if(pid.equalsIgnoreCase("11"))
+			pid = "PRODUCT_ID=11";
+		else
+			pid = "PRODUCT_ID="+pid;
+		try 
+		{
+			String sql = "";
+			sql = "select TABLE_T_TRN_POLICY1,TABLE_T_TRN_PREMIUM1,TABLE_T_TRN_MARINE_DETAIL1,TABLE_T_TRN_MARINE_HEADER1,TABLE_T_TRN_MARINE_CARRIER1,TABLE_T_TRN_MARINE_TRANSIT1,TABLE_T_MAS_CASH_CUSTOMER1,TABLE_T_TRN_DTL_DEBIT_NOTE1,TABLE_T_TRN_HDR_DEBIT_NOTE1,TABLE_T_TRN_NON_STD_TEXT1,TABLE_T_TRN_MARINE_LC1 from DOWN_LOADED_MISSIPPI where (substr(to_char(DOWNLOADED_DATE,'dd-mm-yyyy'),1,10)=?) and "+ pid+ " and branch_code=? and (substr(to_char(START_DATE,'dd-mm-yyyy'),1,10)=?) and (substr(to_char(END_DATE,'dd-mm-yyyy'),1,10)=?)";
+			String args[] = new String[4];
+			args[0] = eDate;
+			args[1] = branch_code;
+			args[2] = sdate;
+			args[3] = edate;
+			result = runner.multipleSelection(sql,args);
+		} 
+		catch (Exception e) 
+		{
+			System.out.println("Exception in getting reports data from export"	+ e.toString());e.printStackTrace();
+		}
+		return result;
+	}
+	//Home & Travel Mississippi Integration Start
+	public String getRelatedPids(String pid) 
+	{
+		String sql = "";
+		String result = "";
+		String res[][] = new String[0][0];
+		if (pid.equalsIgnoreCase("4"))
+			sql = "select product_id from HOME_PRODUCT_MASTER where BROKER_ID is null and status='Y' and product_id not in('30')";
+		else if (pid.equalsIgnoreCase("5"))
+			sql = "select product_id from HOME_PRODUCT_MASTER where BROKER_ID is not null and status='Y'";
+		try
+		{
+			res = runner.multipleSelection(sql);
+			if(res.length>0)
+			{
+				for(int i=0;i<res.length;i++)
+				{
+					result = result + "'"+res[i][0]+"',";
+				}
+				if(result.length()>0)
+					result = result.substring(0,(result.length()-1));
+			}
+			else
+			{
+				result = "0";
+			}
+
+		}
+		catch(Exception e)
+		{
+			System.out.println("Exception identification of pids..."+e.toString());
+			e.printStackTrace();
+		}
+		return result;
+	}
+	public String[][] Country_Code_Select_Datewise(String startDate,String endDate, String pid,String homeTravel) 
+	{
+		String result[][] = new String[0][0];
+		pid = getRelatedPids(pid);
+
+		String sql = "select POL_POLICY_ID,POL_CONC_POLICY_NO from T_TRN_POLICY1 where POL_ISSUE_DATE between  to_date(?,'dd-mm-yyyy') and to_date(?,'dd-mm-yyyy')+1 and POL_CONC_POLICY_NO in(select POLICY_NO from HOME_POSITION_MASTER " +
+				"where PRODUCT_ID in("+pid+") and POLICY_NO is not null and status='P')";
+		
+		try
+		{
+			String args[] = new String[2];
+			args[0] = startDate;
+			args[1] = endDate;
+			result = runner.multipleSelection(sql,args);
+		}
+		catch (Exception e) 
+		{
+			System.out.println("Exception in new list of quotes seletion" + e);e.printStackTrace();
+		}
+		return result;
+	}
+	public String[][] Country_Code_Select_PolciyRangewise(String qnoFrom,String qnoTo, String pid,String homeTravel) 
+	{
+		String result[][] = new String[0][0];
+		pid = getRelatedPids(pid);
+		String sql = "select POL_POLICY_ID,POL_CONC_POLICY_NO,to_char(POL_ISSUE_DATE,'dd-mm-yyyy') from T_TRN_POLICY1 " +
+				"where to_number(substr(POL_CONC_POLICY_NO,9,15)) between '"+qnoFrom+ "' and '"+qnoTo+ "' " +
+				"and POL_CONC_POLICY_NO in(select POLICY_NO from HOME_POSITION_MASTER where PRODUCT_ID in("+pid+")" +
+						" and POLICY_NO is not null and status='P')";
+		try 
+		{
+			result = runner.multipleSelection(sql);
+		}
+		catch (Exception e) 
+		{
+			System.out.println("Exception in selecting policy number" + e);e.printStackTrace();
+		}
+		return result;
+	}
+	public String[][] Country_Code_Select_PolicyNumbers(StringBuffer qlist,String pid,String homeTravel) 
+	{
+		String result[][] = new String[0][0];
+		pid = getRelatedPids(pid);
+		String sql = "select POL_POLICY_ID,POL_CONC_POLICY_NO,to_char(POL_ISSUE_DATE,'dd-mm-yyyy') from T_TRN_POLICY1 where " +
+				"POL_CONC_POLICY_NO in("+qlist+") and POL_CONC_POLICY_NO in(select POLICY_NO from HOME_POSITION_MASTER where PRODUCT_ID in("+pid+") " +
+						"and POLICY_NO is not null and status='P')";
+		try 
+		{
+			result = runner.multipleSelection(sql);
+		}
+		catch (Exception e) 
+		{
+			System.out.println("Exception in selecting policy number" + e);e.printStackTrace();
+		}
+		return result;
+	}
+	public String HT_ProductId_Select(StringBuffer qlist)
+	{
+		String result = "";
+		String sql = "select nvl(proposal_no,'0') from HOME_POSITION_MASTER where POLICY_NO in("+qlist+")";
+		try 
+		{
+			result = runner.singleSelection(sql);
+			if(result.equalsIgnoreCase("0"))
+				result = "4";
+			else
+				result = "5";
+			
+		}
+		catch (Exception e) 
+		{
+			System.out.println("Exception in product seletion" + e);
+			e.printStackTrace();
+		}
+		return result;
+	}
+
+	public String HT_ProductId_Select(String pno) 
+	{
+		String result = "";
+		String sql = "select nvl(proposal_no,'0') from HOME_POSITION_MASTER where POLICY_NO=?";
+		try 
+		{
+			String args[] = new String[1];
+			args[0] = pno;
+			result = runner.singleSelection(sql,args);
+			if(result.equalsIgnoreCase("0"))
+				result = "4";
+			else
+				result = "5";
+			
+		}
+		catch (Exception e) 
+		{
+			System.out.println("Exception in product seletion" + e);
+			e.printStackTrace();
+		}
+		return result;
+	}
+	public String[][] T_TRN_HDR_RECEIPT_SELECT(String qnoFrom,String qnoTo) 
+	{
+		String result[][] = new String[0][0];
+		String sql = "select RCH_RECEIPT_NO,to_char(RCH_RECEIPT_DATE,'DD/MM/YYYY HH24:MI:SS'),RCH_PREPRINT_NO,RCH_A_DESC,RCH_E_DESC,RCH_BANK_CODE,RCH_RECEIPT_MODE,RCH_CHEQUE_NO,to_char(RCH_CHEQUE_DATE,'DD/MM/YYYY HH24:MI:SS'),RCH_CHEQUE_TYPE,RCH_RECEIPT_TYPE,RCH_PREPARED_BY,RCH_APPROVED_BY,to_char(RCH_PRINT_DATE,'DD/MM/YYYY HH24:MI:SS'),RCH_CUSTOMER_ID,RCH_CUT_CODE,RCH_CTY_CODE,RCH_REG_CODE,RCH_LOCATION_CODE,RCH_CC_CODE,RCH_TOT_ACC_CODE,RCH_CURRENCY_CODE,RCH_EXCHANGE_RATE,to_char(RCH_PREPARED_DT,'DD/MM/YYYY HH24:MI:SS'),RCH_MODIFIED_BY,to_char(RCH_MODIFIED_DT,'DD/MM/YYYY HH24:MI:SS'),RCH_NAME,RCH_REALISATION_IND,to_char(RCH_REALISATION_DATE,'DD/MM/YYYY HH24:MI:SS'),to_char(RCH_POSTED_DATE,'DD/MM/YYYY HH24:MI:SS'),to_Char(RCH_REFRESH_DATE,'DD/MM/YYYY HH24:MI:SS'),RCH_CO_CODE,RCH_CO_BR_CODE from T_TRN_HDR_RECEIPT where RCH_PREPRINT_NO between '"
+				+ qnoFrom + "' and '" + qnoTo + "' order by RCH_PREPRINT_NO";
+		try 
+		{
+			result = runner.multipleSelection(sql);
+		} 
+		catch (Exception e) 
+		{
+			System.out.println("Exception in selecting policy number" + e);e.printStackTrace();
+		}
+		return result;
+	}
+	public String[][] T_TRN_HDR_RECEIPT_SELECT(StringBuffer qnos)
+	{
+		String result[][] = new String[0][0];
+		String sql = "select RCH_RECEIPT_NO,to_char(RCH_RECEIPT_DATE,'DD/MM/YYYY HH24:MI:SS'),RCH_PREPRINT_NO,RCH_A_DESC,RCH_E_DESC,RCH_BANK_CODE,RCH_RECEIPT_MODE,RCH_CHEQUE_NO,to_char(RCH_CHEQUE_DATE,'DD/MM/YYYY HH24:MI:SS'),RCH_CHEQUE_TYPE,RCH_RECEIPT_TYPE,RCH_PREPARED_BY,RCH_APPROVED_BY,to_char(RCH_PRINT_DATE,'DD/MM/YYYY HH24:MI:SS'),RCH_CUSTOMER_ID,RCH_CUT_CODE,RCH_CTY_CODE,RCH_REG_CODE,RCH_LOCATION_CODE,RCH_CC_CODE,RCH_TOT_ACC_CODE,RCH_CURRENCY_CODE,RCH_EXCHANGE_RATE,to_char(RCH_PREPARED_DT,'DD/MM/YYYY HH24:MI:SS'),RCH_MODIFIED_BY,to_char(RCH_MODIFIED_DT,'DD/MM/YYYY HH24:MI:SS'),RCH_NAME,RCH_REALISATION_IND,to_char(RCH_REALISATION_DATE,'DD/MM/YYYY HH24:MI:SS'),to_char(RCH_POSTED_DATE,'DD/MM/YYYY HH24:MI:SS'),to_char(RCH_REFRESH_DATE,'DD/MM/YYYY HH24:MI:SS'),RCH_CO_CODE,RCH_CO_BR_CODE from T_TRN_HDR_RECEIPT where RCH_PREPRINT_NO in("+qnos+") order by RCH_PREPRINT_NO";
+
+		try 
+		{
+			result = runner.multipleSelection(sql);
+		} 
+		catch (Exception e) 
+		{
+			System.out.println("Exception in selecting policy number" + e);e.printStackTrace();
+		}
+		return result;
+	}
+	public String[][] T_TRN_DTL_RECEIPT_SELECT(String qnoFrom,String qnoTo) 
+	{
+		String result[][] = new String[0][0];
+		String sql = "select RCD_RECEIPT_NO,to_char(RCD_RECEIPT_DATE,'DD/MM/YYYY HH24:MI:SS'),RCD_POLICY_ID,RCD_REF_ID_1," +
+					"RCD_REF_ID_2,RCD_SERIAL_NO,RCD_GL_CODE,RCD_SL_CODE,RCD_AMOUNT,RCD_POLICY_NO,RCD_POLICY_YEAR," +
+					"RCD_DEPT_CODE,RCD_OFFICE_CODE,RCD_DESC,RCD_REF_POLICY_NO,RCD_REF_POLICY_YEAR,RCD_LOCATION_CODE," +
+					"RCD_CLASS_CODE,RCD_DOCUMENT_CODE,RCD_POLICY_TYPE,RCD_ENDT_ID,RCD_CTY_CODE,RCD_REG_CODE,RCD_CC_CODE,RCD_TOT_ACC_CODE," +
+					"RCD_CLAIM_ID,RCD_REF_TRAN_ID,RCD_REF_TRAN_TYPE,RCD_REF_TRAN_SERIAL_NO,RCD_PREPARED_BY,to_char(RCD_PREPARED_DT,'DD/MM/YYYY HH24:MI:SS')," +
+					"RCD_MODIFIED_BY,to_char(RCD_MODIFIED_DT,'DD/MM/YYYY HH24:MI:SS'),RCD_ANALYSIS_CODE from T_TRN_DTL_RECEIPT where RCD_POLICY_ID between '"
+				+ qnoFrom + "' and '" + qnoTo + "' order by RCD_POLICY_ID";
+		try 
+		{
+			result = runner.multipleSelection(sql);
+		} 
+		catch (Exception e) 
+		{
+			System.out.println("Exception in selecting policy number" + e);e.printStackTrace();
+		}
+		return result;
+	}
+	public String[][] T_TRN_DTL_RECEIPT_SELECT(StringBuffer qnos)
+	{
+		String result[][] = new String[0][0];
+		String sql = "select RCD_RECEIPT_NO,to_char(RCD_RECEIPT_DATE,'DD/MM/YYYY HH24:MI:SS'),RCD_POLICY_ID,RCD_REF_ID_1," +
+					"RCD_REF_ID_2,RCD_SERIAL_NO,RCD_GL_CODE,RCD_SL_CODE,RCD_AMOUNT,RCD_POLICY_NO,RCD_POLICY_YEAR," +
+					"RCD_DEPT_CODE,RCD_OFFICE_CODE,RCD_DESC,RCD_REF_POLICY_NO,RCD_REF_POLICY_YEAR,RCD_LOCATION_CODE," +
+					"RCD_CLASS_CODE,RCD_DOCUMENT_CODE,RCD_POLICY_TYPE,RCD_ENDT_ID,RCD_CTY_CODE,RCD_REG_CODE,RCD_CC_CODE,RCD_TOT_ACC_CODE," +
+					"RCD_CLAIM_ID,RCD_REF_TRAN_ID,RCD_REF_TRAN_TYPE,RCD_REF_TRAN_SERIAL_NO,RCD_PREPARED_BY,to_char(RCD_PREPARED_DT,'DD/MM/YYYY HH24:MI:SS')," +
+					"RCD_MODIFIED_BY,to_char(RCD_MODIFIED_DT,'DD/MM/YYYY HH24:MI:SS'),RCD_ANALYSIS_CODE from T_TRN_DTL_RECEIPT where RCD_POLICY_ID in("+qnos+") order by RCD_POLICY_ID";
+
+		try 
+		{
+			result = runner.multipleSelection(sql);
+		} 
+		catch (Exception e) 
+		{
+			System.out.println("Exception in selecting policy number" + e);e.printStackTrace();
+		}
+		return result;
+	}
+	/*public void updateTravelOldMississippi()
+	{
+		com.maan.Travel.Services.HomeTravelMissippiEngine mississippiEngine= new com.maan.Travel.Services.HomeTravelMissippiEngine();
+		String result[][] = new String[0][0];
+		result = runner.multipleSelection("select quote_no,proposal_no,policy_no,nvl(debit_note_no,'0'),nvl(receipt_no,'0')" +
+				" from home_position_master where status='P' and proposal_no is not null order by policy_no");
+		for(int i=0;i<result.length;i++){
+			
+			StringTokenizer st = new StringTokenizer(result[i][2],"/");
+			String temp1="",temp2="",temp3="",temp4="";
+			while(st.hasMoreTokens()){
+				temp1 = st.nextToken();
+				temp2 = st.nextToken();
+				temp3 = st.nextToken();
+				temp4 = st.nextToken();
+			}
+			if(result[i][3].equalsIgnoreCase("0"))
+				updateDebit(result[i][0],result[i][1],temp3);
+			mississippiEngine.setQuoteNo(result[i][0]);
+			mississippiEngine.setProductId(result[i][1]);
+			mississippiEngine.setLoginBra(temp3);
+			mississippiEngine.setBcid("1");
+			mississippiEngine.LoadingData();
+		}
+	}*/
+	public void updateDebit(String qno,String travelProductId,String branch)
+	{
+			String debit_note_no	=	getMaxDebitNo(travelProductId,branch);
+			try
+			{
+				String args[] = new String[2];
+				args[0] = debit_note_no;
+				args[1] = qno;
+				runner.multipleUpdation("update home_position_master set debit_note_no=?,debit_note_date=inception_date where quote_no=?",args);
+			}
+			catch(Exception e)
+			{
+				e.printStackTrace();
+			}
+	}
+	public void updateReceipt(String travelProductId,String quoteno)
+	{
+
+		String receipt_no	=	getMaxReceiptNo(travelProductId);
+		try
+		{
+			String args[] = new String[2];
+			args[0] = receipt_no;
+			args[1] = quoteno;
+			runner.multipleUpdation("update home_position_master set receipt_no=?,receipt_date=inception_date where quote_no=?",args);
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+
+	}
+	public String getMaxReceiptNo(String pid)
+	{
+		String current_no="";
+		try
+		{
+			current_no=runner.singleSelection("select nvl(max(current_no)+1,max(start_no)) from policyno_generate where type_id=(select TYPE_ID from POLICYNO_GENERATE where (PRODUCT_ID='22' or PRODUCT_ID='31') and DESCRIPTION='Receipt No') and status='Y'");
+			String args[] = new String[2];
+			args[0] = current_no;
+			args[1] = current_no;
+			runner.multipleUpdation("update policyno_generate set current_no=?,remarks=? where type_id=(select TYPE_ID from POLICYNO_GENERATE where (PRODUCT_ID='22' or PRODUCT_ID='31') and DESCRIPTION='Receipt No') and status='Y'",args);
+		}
+		catch(Exception e)
+		{
+			System.out.println("ERROR in get MaxDebitNo in get MaxDebitNo  "+e.toString());e.printStackTrace();
+		}
+		
+		return current_no;
+	}
+	public String getMaxDebitNo(String pid,String loginBra)
+	{
+		String current_no=null;
+		String debiSql="";
+		String debiUpdateSql="";
+		String branchCode="";
+		String typeId = "";
+		try
+		{	
+			branchCode = loginBra;
+			debiSql = "select nvl(max(current_no)+1,max(start_no)) from policyno_generate where type_id=(select DEBIT_TYPE_ID from BRANCH_DETAIL where BRANCH_CODE=? and PRODUCT_ID=?) and status='Y' and branch_code=? and amend_id=(select max(amend_id) from policyno_generate where type_id=(select DEBIT_TYPE_ID from BRANCH_DETAIL where BRANCH_CODE=? and PRODUCT_ID=?) and branch_code=?)";
+			String args[] = new String[6];
+			args[0] = loginBra;
+			args[1] = pid;
+			args[2] = branchCode;
+			args[3] = loginBra;
+			args[4] = pid;
+			args[5] = branchCode;
+			current_no=runner.singleSelection(debiSql,args);
+
+			debiUpdateSql = "update policyno_generate set current_no=?,remarks=? where type_id=(select DEBIT_TYPE_ID from BRANCH_DETAIL where BRANCH_CODE=? and PRODUCT_ID=?) and status='Y' and branch_code=? and amend_id=(select max(amend_id) from policyno_generate where type_id=(select DEBIT_TYPE_ID from BRANCH_DETAIL where BRANCH_CODE=? and PRODUCT_ID=?) and branch_code=?)";
+			String args1[] = new String[8];
+			args1[0] = current_no;
+			args1[1] = current_no;
+			args1[2] = loginBra;
+			args1[3] = pid;
+			args1[4] = branchCode;
+			args1[5] = loginBra;
+			args1[6] = pid;
+			args1[7] = branchCode;
+			runner.multipleUpdation(debiUpdateSql,args1);
+		}
+		catch(Exception e)
+		{
+			System.out.println("ERROR in get MaxDebitNo in getMax DebitNo  "+e.toString());e.printStackTrace();
+		}
+		return current_no;
+	}
+	public String getBranchForQuote(final String option,final String quote)throws BaseException{
+		final String args[] = {quote};
+		String quotPolBranch;
+		if("policy".equalsIgnoreCase(option)){
+			quotPolBranch=runner.singleSelection("select nvl(branch_code,'020') from broker_company_master where " +
+					"agency_code=(select oa_code from login_master where login_id=(select login_id from home_position_master " +
+					"where policy_no=? and status='P'))",args);
+		}
+		else{
+			quotPolBranch=runner.singleSelection("select nvl(branch_code,'020') from broker_company_master where " +
+					"agency_code=(select oa_code from login_master where login_id=(select login_id from home_position_master " +
+					"where quote_no=? and status='P'))",args);
+		}
+		return quotPolBranch;
+	}
+	public String getSearchQuote(final String option,final String quote)throws BaseException{
+		String result;
+		final String args[] = {quote};
+		if("policy".equalsIgnoreCase(option)){
+			result=runner.singleSelection("select quote_no from home_position_master where policy_no=? and status='P'",args);
+		}
+		else{
+			result=runner.singleSelection("select quote_no from home_position_master where quote_no=? and status='P'",args);
+		}
+		return result;
+	}
+	public String getProductforQuote(final String quote)throws BaseException{
+		String result;
+		final String args[] = {quote};
+		result = runner.singleSelection("select nvl(PROPOSAL_NO,product_id) from home_position_master where quote_no=?",args);
+		return result;
+	}
+	//Home & Travel Mississippi Integration End
+	
+	public String productIdSelect(final String pno)throws BaseException 
+	{
+		logger.info("DataSelection productIdSelect method(String)");
+		logger.debug(ENTER);
+		String result = "";
+		String sql = ""; 
+		sql = "select PRODUCT_ID from POSITION_MASTER where POLICY_NO=?";
+		String args[] = new String[1];
+		args[0] = pno;
+		result = runner.singleSelection(sql,args);
+		logger.debug(EXIT);
+			
+		return result;
+	}
+	
+	public String productIdSelect(final StringBuffer qlist)throws BaseException
+	{
+		logger.info("DataSelection ProductId_Select method(StringBuffer)");
+		logger.debug(ENTER);
+		String result = "";
+		String sql =""; 
+		sql = "select PRODUCT_ID from POSITION_MASTER where POLICY_NO in("+qlist+")";
+		result = runner.singleSelection(sql);
+		logger.debug(EXIT);
+				
+		return result;
+	}
+	
+	public String htoProductIdSelect(final StringBuffer qlist)throws BaseException
+	{
+		logger.info("DataSelection HT_ProductId_Select method(StringBuffer)");
+		logger.debug(ENTER);
+		String result = "";
+		String sql =""; 
+		sql = "select nvl(proposal_no,nvl(content_type_id,'21')) from HOME_POSITION_MASTER where POLICY_NO in("+qlist+")";
+		
+		result = runner.singleSelection(sql);
+		if(result.length()>0&&Integer.parseInt(result)<=20){
+			result = "6";
+		}else if("21".equalsIgnoreCase(result)){
+			result = "4";
+		}else{
+			result = "5";
+		}
+		
+		logger.debug(EXIT);
+			
+		return result;
+	}
+	
+	public String htoProductIdSelect(final String pno)throws BaseException 
+	{
+		logger.info("DataSelection HT_ProductId_Select method(String)");
+		logger.debug(ENTER);
+		String result = "";
+		String sql =""; 
+		sql = "select nvl(proposal_no,nvl(content_type_id,'21')) from HOME_POSITION_MASTER where POLICY_NO=?";
+		
+		String args[] = new String[1];
+		args[0] = pno;
+		result = runner.singleSelection(sql,args);
+		if(result.length()>0&&Integer.parseInt(result)<=20){
+			result = "6";
+		}else if("21".equalsIgnoreCase(result)){
+			result = "4";
+		}else{
+			result = "5";
+		}
+		logger.debug(EXIT);
+				
+		return result;
+	}
+	
+	public String[][] getReceiptRegisterReportsForDate(final String sDate, final String eDate, final String pid,final String branch_code)throws BaseException 
+	{
+		String[][] result = new String[0][0];
+				
+			String sql = "";
+			String args[] ={sDate,eDate,branch_code,branch_code,pid};
+			sql = "select bro.COMPANY_NAME,(pi.first_name||pi.last_name||pi.company_name),prod.product_name,hpm.login_id,hpm.QUOTE_NO,hpm.policy_no,to_char(hpm.inception_date,'dd-mm-yyyy'),hpm.debit_note_no,to_char(hpm.debit_note_date,'dd-mm-yyyy'),hpm.payment_mode,nvl(hpm.receipt_no,''),to_char(hpm.receipt_date,'dd-mm-yyyy'),hpm.OVERALL_PREMIUM,hpm.product_id from HOME_POSITION_MASTER hpm,personal_info pi,BROKER_COMPANY_MASTER bro,product_master prod where (hpm.inception_date between (to_date(?,'dd-mm-yyyy')) and (to_date(?,'dd-mm-yyyy')+1)) and hpm.customer_id=pi.customer_id and lower(hpm.status) in lower('p') and bro.branch_code=? and bro.AGENCY_CODE in(select log.oa_code from LOGIN_MASTER log where log.login_id=hpm.login_id) and nvl(hpm.proposal_no,hpm.product_id)=prod.product_id and prod.branch_code=? and prod.rsacode=? and hpm.policy_no is not null order by hpm.policy_no";
+			
+			result = runner.multipleSelection(sql,args);
+		
+		return result;
+	}
+	
+	public String[][] getCancelledPolicyReportsForDate(final String sDate, final String eDate, final String pid,final String branch_code)throws BaseException 
+	{
+		String[][] result = new String[0][0];
+		
+			String sql = "";
+			sql="select bro.COMPANY_NAME,(pi.first_name||pi.last_name||pi.company_name),prod.product_name,hpm.login_id,hpm.QUOTE_NO,hpm.policy_no,to_char(hpm.inception_date,'dd-mm-yyyy'),to_char(hpm.CANCELLED_DATE,'dd-mm-yyyy'),(case when hpm.status='I' then 'Yes' else (case when hpm.status='C' then 'No' end)end) as reissued_status,hpm.CANCELLED_BY,nvl(hpm.CANCELLED_REASON,''),nvl(hpm.REISSUED_QUOTE_NO,''),nvl(hpm.REISSUED_POLICY_NO,''),nvl(hpm.RECEIPT_NO,''),to_char(hpm.RECEIPT_DATE,'dd-mm-yyyy'),hpm.OVERALL_PREMIUM,hpm.product_id from HOME_POSITION_MASTER hpm,personal_info pi,BROKER_COMPANY_MASTER bro,product_master prod  where (hpm.inception_date between (to_date(?,'dd-mm-yyyy')) and (to_date(?,'dd-mm-yyyy')+1)) and hpm.customer_id=pi.customer_id and lower(hpm.status) in ('i','c') and bro.branch_code=? and bro.AGENCY_CODE in(select log.oa_code from LOGIN_MASTER log where log.login_id=hpm.login_id) and nvl(hpm.proposal_no,hpm.product_id)=prod.product_id and prod.rsacode=? and prod.branch_code=? and hpm.policy_no is not null order by hpm.policy_no";
+			String args[] ={sDate,eDate,branch_code,pid,branch_code};
+			
+			result = runner.multipleSelection(sql,args);
+		
+		return result;
+	}
+}

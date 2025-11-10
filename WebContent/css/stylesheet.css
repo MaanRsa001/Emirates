@@ -1,0 +1,66 @@
+.orange {
+	FONT-WEIGHT: normal; FONT-SIZE: 11px; COLOR: #cc5b09; FONT-STYLE: normal; FONT-FAMILY: arial; TEXT-DECORATION: none
+}
+.red {
+	FONT-WEIGHT: normal; FONT-SIZE: 11px; COLOR: #b1202a; FONT-STYLE: normal; FONT-FAMILY: arial; TEXT-DECORATION: none
+}
+.copy {
+	FONT-WEIGHT: normal; FONT-SIZE: 11px; COLOR: #6e6a6a; FONT-STYLE: normal; FONT-FAMILY: arial; TEXT-DECORATION: none
+}
+.copy1 {
+	FONT-WEIGHT: normal; FONT-SIZE: 11px; COLOR: #056c99; LINE-HEIGHT: 14px; FONT-STYLE: normal; FONT-FAMILY: arial; TEXT-DECORATION: none
+}
+.lightgrey {
+	FONT-WEIGHT: normal; FONT-SIZE: 11px; COLOR: #c0c0c0; FONT-STYLE: normal; FONT-FAMILY: arial; TEXT-DECORATION: none
+}
+.grey {
+	FONT-WEIGHT: normal; FONT-SIZE: 11px; COLOR: #757575; FONT-STYLE: normal; FONT-FAMILY: arial; TEXT-DECORATION: none
+}
+.grey1 {
+	FONT-WEIGHT: normal; FONT-SIZE: 11px; COLOR: #757575; LINE-HEIGHT: 18px; FONT-STYLE: normal; FONT-FAMILY: arial; TEXT-DECORATION: none
+}
+.sgrey {
+	FONT-WEIGHT: normal; FONT-SIZE: 10px; COLOR: #757575; FONT-STYLE: normal; FONT-FAMILY: arial; TEXT-DECORATION: none
+}
+.white {
+	FONT-WEIGHT: normal; FONT-SIZE: 11px; COLOR: #ffffff; TEXT-INDENT: 12px; FONT-STYLE: normal; FONT-FAMILY: arial; TEXT-DECORATION: none
+}
+.white1 {
+	FONT-WEIGHT: normal; FONT-SIZE: 11px; COLOR: #ffffff; TEXT-INDENT: 5px; LINE-HEIGHT: 15px; FONT-STYLE: normal; FONT-FAMILY: arial; TEXT-DECORATION: none
+}
+.rwhite {
+	FONT-WEIGHT: normal; FONT-SIZE: 11px; COLOR: #ffffff; LINE-HEIGHT: 15px; FONT-STYLE: normal; FONT-FAMILY: arial; TEXT-DECORATION: none
+}
+.whiteheader {
+	FONT-WEIGHT: normal; FONT-SIZE: 18px; COLOR: #ffffff; TEXT-INDENT: 5px; LINE-HEIGHT: 15px; FONT-STYLE: normal; FONT-FAMILY: arial; TEXT-DECORATION: none
+}
+.links {
+	FONT-WEIGHT: normal; FONT-SIZE: 11px; COLOR: #6e6a6a; FONT-STYLE: normal; FONT-FAMILY: arial
+}
+.black {
+	FONT-SIZE: 11px; COLOR: #000000; FONT-STYLE: normal; FONT-FAMILY: arial; TEXT-DECORATION: none
+}
+.tlink {
+	FONT-SIZE: 11px; COLOR: #a1987c; FONT-STYLE: normal; FONT-FAMILY: arial; TEXT-DECORATION: none
+}
+.yellow {
+	FONT-SIZE: 11px; COLOR: #937b3e; FONT-STYLE: normal; FONT-FAMILY: arial; TEXT-DECORATION: none
+}
+.flyOver1 {
+	CURSOR: pointer;
+}
+.greylink {
+	FONT-WEIGHT: normal; FONT-SIZE: 11px; COLOR: #757575; LINE-HEIGHT: 18px; FONT-STYLE: normal; FONT-FAMILY: arial
+}
+.formField {
+	BORDER-RIGHT: #c0c0c0 1px solid; BORDER-TOP: #c0c0c0 1px solid; FONT-SIZE: 8pt; BORDER-LEFT: #c0c0c0 1px solid; COLOR: #666666; BORDER-BOTTOM: #c0c0c0 1px solid; FONT-FAMILY: Verdana
+}
+.formField1 {
+	BORDER-RIGHT: #c0c0c0 1px solid; BORDER-TOP: #c0c0c0 1px solid; FONT-SIZE: 8pt; BORDER-LEFT: #c0c0c0 1px solid; COLOR: #666666; BORDER-BOTTOM: #c0c0c0 1px solid; FONT-FAMILY: Verdana; HEIGHT: 20px
+}
+.title {
+	FONT-WEIGHT: bold; FONT-SIZE: 11px; COLOR: #ad0430; FONT-FAMILY: arial; TEXT-DECORATION: none
+}
+.scopy {
+	FONT-WEIGHT: normal; FONT-SIZE: 10px; COLOR: #4d98cc; FONT-STYLE: normal; FONT-FAMILY: tahoma; TEXT-DECORATION: none
+}

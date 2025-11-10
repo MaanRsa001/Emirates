@@ -1,0 +1,60 @@
+<MailServer>
+
+<Branch-01>
+	<Host-Name>mail.eminsco.com</Host-Name>
+	<User-name>emarine@eminsco.com</User-name>
+	<Password>emarine01</Password>
+	<Remarks>www.eminsco.com</Remarks>
+	<From-Address>www.eminsco.com</From-Address>
+</Branch-01>
+<Branch-02>
+	<Host-Name>mail.eminsco.com</Host-Name>
+	<User-name>emarine@eminsco.com</User-name>
+	<Password>emarine01</Password>
+	<Remarks>www.eminsco.com</Remarks>
+	<From-Address>www.eminsco.com</From-Address>
+</Branch-02>
+<Branch-03>
+	<Host-Name>mail.eminsco.com</Host-Name>
+	<User-name>emarine@eminsco.com</User-name>
+	<Password>emarine01</Password>
+	<Remarks>www.eminsco.com</Remarks>
+	<From-Address>www.eminsco.com</From-Address>
+</Branch-03>
+<Branch-04>
+	<Host-Name>mail.eminsco.com</Host-Name>
+	<User-name>emarine@eminsco.com</User-name>
+	<Password>emarine01</Password>
+	<Remarks>www.eminsco.com</Remarks>
+	<From-Address>www.eminsco.com</From-Address>
+</Branch-04>
+<Branch-05>
+	<Host-Name>mail.eminsco.com</Host-Name>
+	<User-name>emarine@eminsco.com</User-name>
+	<Password>emarine01</Password>
+	<Remarks>www.eminsco.com</Remarks>
+	<From-Address>www.eminsco.com</From-Address>
+</Branch-05>
+<Branch-06>
+	<Host-Name>mail.eminsco.com</Host-Name>
+	<User-name>emarine@eminsco.com</User-name>
+	<Password>emarine01</Password>
+	<Remarks>www.eminsco.com</Remarks>
+	<From-Address>www.eminsco.com</From-Address>
+</Branch-06>
+<Branch-07>
+	<Host-Name>mail.eminsco.com</Host-Name>
+	<User-name>emarine@eminsco.com</User-name>
+	<Password>emarine01</Password>
+	<Remarks>www.eminsco.com</Remarks>
+	<From-Address>www.eminsco.com</From-Address>
+</Branch-07>
+<Branch-08>
+	<Host-Name>mail.eminsco.com</Host-Name>
+	<User-name>emarine@eminsco.com</User-name>
+	<Password>emarine01</Password>
+	<Remarks>www.eminsco.com</Remarks>
+	<From-Address>www.eminsco.com</From-Address>
+</Branch-08>
+
+</MailServer>

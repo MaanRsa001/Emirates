@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Use this file to deploy some handlers/chains and services      --><!-- Two ways to do this:                                           --><!--   java org.apache.axis.client.AdminClient deploy.wsdd          --><!--      after the axis server is running                          --><!-- or                                                             --><!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   --><!--      from the same directory that the Axis engine runs         --><deployment xmlns="http://xml.apache.org/axis/wsdd/" xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from QuotationGenerationServiceService WSDL service -->
+
+  <service name="QuotationGenerationService" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://webservice.maan.com"/>
+      <parameter name="wsdlServiceElement" value="QuotationGenerationServiceService"/>
+      <parameter name="schemaQualified" value="http://webservice.maan.com"/>
+      <parameter name="wsdlServicePort" value="QuotationGenerationService"/>
+      <parameter name="className" value="com.maan.webservice.QuotationGenerationService"/>
+      <parameter name="wsdlPortType" value="QuotationGenerationService"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation xmlns:operNS="http://webservice.maan.com" xmlns:retNS="http://webservice.maan.com" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="quoteRequest" qname="operNS:quoteRequest" returnQName="retNS:quoteRequestReturn" returnType="rtns:string" soapAction="">
+        <parameter xmlns:pns="http://webservice.maan.com" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:requestInfo" type="tns:string"/>
+      </operation>
+      <operation xmlns:operNS="http://webservice.maan.com" xmlns:retNS="http://webservice.maan.com" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="draftRequest" qname="operNS:draftRequest" returnQName="retNS:draftRequestReturn" returnType="rtns:string" soapAction="">
+        <parameter xmlns:pns="http://webservice.maan.com" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:requestInfo" type="tns:string"/>
+      </operation>
+      <operation xmlns:operNS="http://webservice.maan.com" xmlns:retNS="http://webservice.maan.com" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="policyRequest" qname="operNS:policyRequest" returnQName="retNS:policyRequestReturn" returnType="rtns:string" soapAction="">
+        <parameter xmlns:pns="http://webservice.maan.com" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:requestInfo" type="tns:string"/>
+      </operation>
+      <operation xmlns:operNS="http://webservice.maan.com" xmlns:retNS="http://webservice.maan.com" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="premiumRequest" qname="operNS:premiumRequest" returnQName="retNS:premiumRequestReturn" returnType="rtns:string" soapAction="">
+        <parameter xmlns:pns="http://webservice.maan.com" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:requestInfo" type="tns:string"/>
+      </operation>
+      <operation xmlns:operNS="http://webservice.maan.com" xmlns:retNS="http://webservice.maan.com" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="quotePdfRequest" qname="operNS:quotePdfRequest" returnQName="retNS:quotePdfRequestReturn" returnType="rtns:string" soapAction="">
+        <parameter xmlns:pns="http://webservice.maan.com" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:requestInfo" type="tns:string"/>
+      </operation>
+      <operation xmlns:operNS="http://webservice.maan.com" xmlns:retNS="http://webservice.maan.com" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="debitPdfRequest" qname="operNS:debitPdfRequest" returnQName="retNS:debitPdfRequestReturn" returnType="rtns:string" soapAction="">
+        <parameter xmlns:pns="http://webservice.maan.com" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:requestInfo" type="tns:string"/>
+      </operation>
+      <operation xmlns:operNS="http://webservice.maan.com" xmlns:retNS="http://webservice.maan.com" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="creditPdfRequest" qname="operNS:creditPdfRequest" returnQName="retNS:creditPdfRequestReturn" returnType="rtns:string" soapAction="">
+        <parameter xmlns:pns="http://webservice.maan.com" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:requestInfo" type="tns:string"/>
+      </operation>
+      <operation xmlns:operNS="http://webservice.maan.com" xmlns:retNS="http://webservice.maan.com" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="adminReferral" qname="operNS:adminReferral" returnQName="retNS:adminReferralReturn" returnType="rtns:string" soapAction="">
+        <parameter xmlns:pns="http://webservice.maan.com" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:requestInfo" type="tns:string"/>
+      </operation>
+      <parameter name="allowedMethods" value="quotePdfRequest creditPdfRequest adminReferral policyRequest quoteRequest premiumRequest debitPdfRequest draftRequest"/>
+
+  </service>
+</deployment>

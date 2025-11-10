@@ -1,0 +1,400 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="CargoCredit" language="groovy" pageWidth="595" pageHeight="842" columnWidth="523" leftMargin="36" rightMargin="36" topMargin="21" bottomMargin="21" uuid="8a7d29b6-8fd6-4923-a1a4-9380cdc254fb">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="238"/>
+	<style name="Common" fontName="Arial" fontSize="9" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+	<parameter name="policyNumber" class="java.lang.String"/>
+	<parameter name="branchCode" class="java.lang.String"/>
+	<parameter name="imagePath" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT * FROM   table (credit_Schedule ($P{policyNumber},$P{branchCode}))]]>
+	</queryString>
+	<field name="BROKER_NAME" class="java.lang.String"/>
+	<field name="BROKER_ADDRESS" class="java.lang.String"/>
+	<field name="EMIRATE" class="java.lang.String"/>
+	<field name="BRANCH_NAME" class="java.lang.String"/>
+	<field name="CREDIT_NOTE_NO" class="java.lang.String"/>
+	<field name="CREDIT_NOTE_DATE" class="java.lang.String"/>
+	<field name="POLICY_NO" class="java.lang.String"/>
+	<field name="PRODUCT_NAME" class="java.lang.String"/>
+	<field name="ORIGINAL_INSURED" class="java.lang.String"/>
+	<field name="BRANCH_IMG" class="java.lang.String"/>
+	<field name="SIGN_IMG" class="java.lang.String"/>
+	<field name="FOOTER_IMG" class="java.lang.String"/>
+	<field name="COMMISSION" class="java.lang.String"/>
+	<field name="BROKER_COMMISSION" class="java.lang.String"/>
+	<field name="BRANCH_ADDRESS" class="java.lang.String"/>
+	<field name="CURRENCY_ABBREVIATION" class="java.lang.String"/>
+	<field name="PREMIUM_IN_WORDS" class="java.lang.String"/>
+	<field name="AC_EXECUTIVE_NAME" class="java.lang.String"/>
+	<field name="CHANNEL_TYPE" class="java.lang.String"/>
+	<field name="EXCUTIVE_YN" class="java.lang.String"/>
+	<field name="OPEN_COVER_NO" class="java.lang.String"/>
+	<field name="PRODUCTID" class="java.math.BigDecimal"/>
+	<field name="ENDT_NO" class="java.lang.String"/>
+	<field name="PREMIUMWORD" class="java.lang.String"/>
+	<field name="POLICYDESC" class="java.lang.String"/>
+	<field name="BROKERCOUNTRY" class="java.lang.String"/>
+	<field name="BROKERPOBOX" class="java.lang.String"/>
+	<field name="POLICY_FEE" class="java.lang.String"/>
+	<field name="VAT_OP_DESC" class="java.lang.String"/>
+	<field name="VAT_OP_AMOUNT" class="java.lang.String"/>
+	<field name="BROTER_TOTAL_COMMISSION" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="126" splitType="Stretch">
+			<image scaleImage="FillFrame" hAlign="Center" vAlign="Middle">
+				<reportElement x="0" y="0" width="523" height="100" isPrintWhenDetailOverflows="true" uuid="9d2c9b39-8a72-4e8a-80a1-8ecd13ddb970">
+					<printWhenExpression><![CDATA[$F{BRANCH_IMG}!=null]]></printWhenExpression>
+				</reportElement>
+				<imageExpression><![CDATA[$P{imagePath}+"//"+$F{BRANCH_IMG}]]></imageExpression>
+			</image>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="23" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="523" height="15" uuid="412d27fc-8808-47e8-b0de-36cc05be50c0"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" isBold="true" isUnderline="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["CREDIT NOTE"]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="15">
+			<staticText>
+				<reportElement style="Common" x="333" y="0" width="69" height="15" uuid="b6915012-6f81-4373-bd19-010db7c87e44"/>
+				<text><![CDATA[Branch]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="Common" x="402" y="0" width="121" height="15" isPrintWhenDetailOverflows="true" uuid="a4da5b26-b7cf-4e34-a97c-c83ddd9c6f91"/>
+				<textFieldExpression><![CDATA[$F{BRANCH_NAME}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="Common" x="117" y="0" width="144" height="15" isPrintWhenDetailOverflows="true" uuid="50aa38c0-89ef-4979-94f4-ce1051815099"/>
+				<textFieldExpression><![CDATA[$F{EXCUTIVE_YN}=="Broker"?($F{BROKER_NAME}==null?"":($F{BROKER_NAME})):$F{EXCUTIVE_YN}=="Customer"?($F{BROKER_NAME}==null?"":($F{BROKER_NAME})):$F{AC_EXECUTIVE_NAME}=="NO BDM"?($F{BROKER_NAME}==null?"":($F{BROKER_NAME})):($F{AC_EXECUTIVE_NAME}==null?"":($F{AC_EXECUTIVE_NAME}))]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Common" x="0" y="0" width="117" height="15" uuid="f66baacf-5a1f-4646-8d22-9e0d5cfd3f1a"/>
+				<textFieldExpression><![CDATA[$F{EXCUTIVE_YN}=="Broker"?"Broker Name":$F{EXCUTIVE_YN}=="Customer"?"Customer Name":$F{AC_EXECUTIVE_NAME}=="NO BDM"?"Broker Name":"Sales Executive"]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="15">
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="Common" x="402" y="0" width="121" height="15" isPrintWhenDetailOverflows="true" uuid="25af840b-f788-42b6-a0ca-b2a6752f01d2"/>
+				<textFieldExpression><![CDATA[$F{CREDIT_NOTE_NO}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="Common" x="333" y="0" width="69" height="15" uuid="4c9354ea-7240-4074-b35a-04153eee4883"/>
+				<text><![CDATA[Doc.No]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="Common" x="117" y="0" width="144" height="15" isPrintWhenDetailOverflows="true" uuid="32d8ba38-d405-4ea9-9fec-721ed119e013">
+					<printWhenExpression><![CDATA[($F{EXCUTIVE_YN}!="Sales")||($F{AC_EXECUTIVE_NAME}=="NO BDM")]]></printWhenExpression>
+				</reportElement>
+				<textFieldExpression><![CDATA[($F{BROKER_ADDRESS}==null?"":($F{BROKER_ADDRESS}))]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Common" x="0" y="0" width="117" height="15" uuid="06f72676-556d-4e80-b466-d037d200c9d6">
+					<printWhenExpression><![CDATA[($F{EXCUTIVE_YN}!="Sales")||($F{AC_EXECUTIVE_NAME}=="NO BDM")]]></printWhenExpression>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{EXCUTIVE_YN}=="Broker"?"Broker Address":"Customer Address"]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="16">
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="Common" x="402" y="0" width="121" height="15" isPrintWhenDetailOverflows="true" uuid="67954d67-250a-4995-8269-5ea18e37ad4e"/>
+				<textFieldExpression><![CDATA[$F{CREDIT_NOTE_DATE}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="Common" x="333" y="0" width="69" height="15" uuid="c3cbfcb3-7103-43e7-807c-7eb5f70a5863"/>
+				<text><![CDATA[Doc.Date]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="Common" x="117" y="0" width="143" height="15" uuid="ea0733ad-689e-4df1-81e7-dda3ffe5fbfb">
+					<printWhenExpression><![CDATA[($F{EXCUTIVE_YN}!="Sales")||($F{AC_EXECUTIVE_NAME}=="NO BDM")]]></printWhenExpression>
+				</reportElement>
+				<textFieldExpression><![CDATA[($F{BROKERPOBOX}==null?"":"P.O Box No:"+($F{BROKERPOBOX}+","))+""+($F{EMIRATE}==null?"":($F{EMIRATE}))+" "+($F{BROKERCOUNTRY}==null?"":(","+$F{BROKERCOUNTRY}))]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="15">
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="Common" x="117" y="0" width="406" height="15" isPrintWhenDetailOverflows="true" uuid="99a32ae5-89d3-421f-99cc-433f9a030813">
+					<printWhenExpression><![CDATA[$F{OPEN_COVER_NO}!=null]]></printWhenExpression>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{OPEN_COVER_NO}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="Common" x="0" y="0" width="117" height="15" isRemoveLineWhenBlank="true" uuid="8e8956f4-acd8-40c7-9de6-2ff3bac26fac">
+					<printWhenExpression><![CDATA[$F{OPEN_COVER_NO}!=null]]></printWhenExpression>
+				</reportElement>
+				<box leftPadding="0"/>
+				<text><![CDATA[Open Policy Number]]></text>
+			</staticText>
+		</band>
+		<band height="15">
+			<staticText>
+				<reportElement style="Common" x="0" y="0" width="117" height="15" uuid="0a7641c2-ebaf-4a4a-a44d-b5d57b734cfa"/>
+				<text><![CDATA[Policy Type]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="Common" x="117" y="0" width="406" height="15" isPrintWhenDetailOverflows="true" uuid="155b6953-c73a-48cd-af10-3e9ecccc26b8"/>
+				<textFieldExpression><![CDATA[$F{PRODUCT_NAME}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="15">
+			<staticText>
+				<reportElement style="Common" x="0" y="0" width="117" height="15" uuid="97e93ddc-1542-44c6-87dc-ce88449cff1f"/>
+				<text><![CDATA[Name of Assured]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="Common" x="117" y="0" width="406" height="15" isPrintWhenDetailOverflows="true" uuid="1484ce19-e85f-4ca2-b6bf-6dc89aecfd0a"/>
+				<textFieldExpression><![CDATA[$F{ORIGINAL_INSURED}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="45">
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="Common" x="117" y="0" width="406" height="15" isPrintWhenDetailOverflows="true" uuid="f7978b0b-1700-4791-aa7e-92858b15191a"/>
+				<textFieldExpression><![CDATA[$F{POLICY_NO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Common" x="0" y="0" width="117" height="15" uuid="26de1036-b421-4494-aed6-44f2539644e4"/>
+				<textFieldExpression><![CDATA[$F{PRODUCTID}==11?"Certificate number":"Policy number"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="Common" x="0" y="15" width="117" height="15" isRemoveLineWhenBlank="true" uuid="9f5b25d7-68d4-45c8-bf8c-b585982999be">
+					<printWhenExpression><![CDATA[$F{ENDT_NO}!=null]]></printWhenExpression>
+				</reportElement>
+				<box bottomPadding="4"/>
+				<textElement verticalAlignment="Bottom">
+					<font size="9" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Endorsement No]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="Common" x="117" y="15" width="405" height="15" isRemoveLineWhenBlank="true" isPrintWhenDetailOverflows="true" uuid="9a45a9b5-0f99-4f8a-8aa0-79659c415182">
+					<printWhenExpression><![CDATA[$F{ENDT_NO}!=null]]></printWhenExpression>
+				</reportElement>
+				<box bottomPadding="4"/>
+				<textElement verticalAlignment="Bottom">
+					<font size="9"/>
+					<paragraph lineSpacing="Double"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($F{ENDT_NO}==null?"":($F{ENDT_NO}))]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="16">
+			<textField>
+				<reportElement style="Common" x="0" y="1" width="523" height="15" uuid="97909fad-1b62-483d-aae9-1e7355f13d0b"/>
+				<textFieldExpression><![CDATA["We have credited your account as follows:"]]></textFieldExpression>
+			</textField>
+		</band>
+		<band/>
+		<band height="15">
+			<staticText>
+				<reportElement style="Common" x="0" y="0" width="403" height="15" uuid="d3c2c761-6bbb-49a4-aa6a-c9a8664b3cdb"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Description]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Common" x="403" y="0" width="58" height="15" uuid="0a9ae668-c4e0-4b24-b14d-37ea663386a3"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Currency]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Common" x="461" y="0" width="62" height="15" uuid="a14426ff-a3b7-4fdb-af80-8f9269660471"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Amount]]></text>
+			</staticText>
+		</band>
+		<band height="15">
+			<textField isStretchWithOverflow="true">
+				<reportElement style="Common" stretchType="RelativeToBandHeight" x="0" y="0" width="403" height="15" isPrintWhenDetailOverflows="true" uuid="2dfa3a6c-58bc-40ca-883a-fae789658100"/>
+				<box leftPadding="4">
+					<leftPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textFieldExpression><![CDATA[($F{PREMIUMWORD}==null?"":($F{PREMIUMWORD}))]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="Common" stretchType="RelativeToBandHeight" x="461" y="0" width="62" height="15" uuid="4fa02d47-8510-4733-9a40-f37cb5c5014a"/>
+				<box rightPadding="4">
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{BROKER_COMMISSION}.trim()]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="15">
+			<printWhenExpression><![CDATA[!$F{POLICY_FEE}.equals("0.00")]]></printWhenExpression>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="Common" stretchType="RelativeToBandHeight" x="461" y="0" width="62" height="15" uuid="461db3ad-3461-4c55-8c52-6efd580ef9a0">
+					<printWhenExpression><![CDATA[!$F{POLICY_FEE}.equals("0.00")]]></printWhenExpression>
+				</reportElement>
+				<box rightPadding="4">
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{POLICY_FEE}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="Common" stretchType="RelativeToBandHeight" x="0" y="0" width="403" height="15" isPrintWhenDetailOverflows="true" uuid="2d126194-fe64-4cec-88b3-6d950982dd92">
+					<printWhenExpression><![CDATA[!$F{POLICY_FEE}.equals("0.00")]]></printWhenExpression>
+				</reportElement>
+				<box leftPadding="4">
+					<leftPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement markup="none"/>
+				<text><![CDATA[Policy Fee]]></text>
+			</staticText>
+		</band>
+		<band height="15">
+			<printWhenExpression><![CDATA[!$F{EXCUTIVE_YN}.equals("Sales")]]></printWhenExpression>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="Common" stretchType="RelativeToBandHeight" x="0" y="0" width="403" height="15" isPrintWhenDetailOverflows="true" uuid="f8b5509e-b660-46a0-b3d9-53e6bf3a107b"/>
+				<box leftPadding="4">
+					<leftPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textFieldExpression><![CDATA[$F{VAT_OP_DESC}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Common" stretchType="RelativeToBandHeight" x="461" y="0" width="62" height="15" uuid="0d5620b9-7225-4852-8bf1-1fb7d899db95"/>
+				<box rightPadding="4">
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Right" markup="none"/>
+				<textFieldExpression><![CDATA[$F{VAT_OP_AMOUNT}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="15">
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="Common" stretchType="RelativeToBandHeight" x="461" y="0" width="62" height="15" uuid="632441b4-fc48-416b-b060-75ce82645ea0"/>
+				<box rightPadding="4">
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{BROTER_TOTAL_COMMISSION}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="Common" stretchType="RelativeToBandHeight" x="403" y="0" width="58" height="15" isPrintWhenDetailOverflows="true" uuid="5757454d-14b7-478a-8cc0-6ff523713199"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{CURRENCY_ABBREVIATION}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="Common" stretchType="RelativeToBandHeight" x="0" y="0" width="403" height="15" isPrintWhenDetailOverflows="true" uuid="ff75aa3c-714e-4d49-a265-608ceed5852a"/>
+				<box leftPadding="4">
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textFieldExpression><![CDATA[$F{POLICYDESC}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="15">
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="Common" x="0" y="0" width="523" height="15" isPrintWhenDetailOverflows="true" uuid="3e7a10a7-e683-448d-8517-bd56d8aaa319"/>
+				<box leftPadding="4">
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textFieldExpression><![CDATA[" "+($F{CURRENCY_ABBREVIATION}==null?"":($F{CURRENCY_ABBREVIATION}))+" "+($F{PREMIUM_IN_WORDS}==null?"":($F{PREMIUM_IN_WORDS}))]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="116">
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="Common" x="378" y="101" width="144" height="15" isPrintWhenDetailOverflows="true" uuid="761788e6-6c7c-4984-9d04-f3a86197d274"/>
+				<textElement textAlignment="Right">
+					<font isStrikeThrough="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{BRANCH_ADDRESS}]]></textFieldExpression>
+			</textField>
+			<image hAlign="Right">
+				<reportElement x="333" y="15" width="189" height="86" uuid="84cdee89-87fe-4df9-a677-96c9c9ff9cb4">
+					<printWhenExpression><![CDATA[$F{SIGN_IMG}!=null]]></printWhenExpression>
+				</reportElement>
+				<imageExpression><![CDATA[$P{imagePath}+"//"+$F{SIGN_IMG}]]></imageExpression>
+			</image>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="80" splitType="Stretch">
+			<textField>
+				<reportElement style="Common" x="402" y="0" width="80" height="20" uuid="39ca2ab7-43af-4466-b135-5a89fc1cf6d5"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement style="Common" x="483" y="0" width="40" height="20" uuid="9ceb3826-8125-4c71-abdc-0b1b6e25ea90"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<image scaleImage="FillFrame" hAlign="Center" vAlign="Middle">
+				<reportElement x="0" y="20" width="523" height="60" uuid="b787e835-0e63-4751-bb44-be4d80bd9585">
+					<printWhenExpression><![CDATA[$F{FOOTER_IMG}!=null]]></printWhenExpression>
+				</reportElement>
+				<imageExpression><![CDATA[$P{imagePath}+"//"+$F{FOOTER_IMG}]]></imageExpression>
+			</image>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

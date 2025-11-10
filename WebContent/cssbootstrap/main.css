@@ -1,0 +1,115 @@
+html, body {margin: 0; padding: 0;}
+body {font-family: Tahoma, Geneva, sans-serif; font-size:12px; }
+a img {border: 0;}
+.spmaprotection {display: none;}
+.clear { clear: both; }
+.wraper { 
+  margin: 20px auto 0 auto;  
+  width: 95%; 
+  }
+.box { width:98%; background:#FFF; margin:0 auto;  box-shadow: 0 0 30px #333; }
+
+.topcontainer {width: 100%; margin: 0 auto; color:#fff; position:relative; }
+.topcontainer a { color:#707070; text-decoration:none;}
+.topcontainer a:hover {text-decoration: underline;}
+.topcontainer .topmen {width:921px; height: 16px; padding:13px 20px 0 0; text-align:right; }
+.topcontainer .logo {width: 200px; height: 100px; float: left; margin: 15px 0px 0px 40px;}
+.CompName { color:#62A733; padding: 0 0 0 20px; font-size:20px;}
+.CompSlogan { color:#377E16; padding: 0 0 0 30px; font-size:18px;}
+.topcontainer .phone { font-family: Tahoma, Geneva, sans-serif; width:400px; height: 100px; font-size:15px; text-align:right; color:#4d4d4d; text-shadow:#FFF 1px 1px 1px; margin: 15px 40px 0px 0px; float: right; }
+.topcontainer .phone p { font-size:26px; margin:0; padding:0; font-weight:100; }
+
+.phone { float: right; }	
+
+#gal { clear:both; position:relative; width:95%; height:300px; }
+
+
+.footercontainer {color:#000000; font-size: 12px; }
+.footercontainer a {color:#330099; }
+
+/***********************************/
+.login {
+	color: #7E7E7E;
+	font: bold 25px Helvetica, Arial, sans-serif;
+	letter-spacing: -0.05em;
+	line-height: 20px;
+	margin: 10px 0 30px;
+}
+
+.login {	
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f8f8f8', endColorstr='#f9f9f9',GradientType=0 );
+	-webkit-box-shadow: 0 1px 0 #fff inset;
+	-moz-box-shadow: 0 1px 0 #fff inset;
+	-ms-box-shadow: 0 1px 0 #fff inset;
+	-o-box-shadow: 0 1px 0 #fff inset;
+	box-shadow: 0 1px 0 #fff inset;
+	margin: 0 auto;	
+	position: relative;
+	text-align: center;
+	text-shadow: 0 1px 0 #fff;
+	width: 400px;
+}
+.login h1 {
+	color: #7E7E7E;
+	font: bold 25px Helvetica, Arial, sans-serif;
+	letter-spacing: -0.05em;
+	line-height: 20px;
+	margin: 10px 0 30px;
+}
+.login h1:before,
+.login h1:after {
+	content: "";
+	height: 1px;
+	position: absolute;
+	top: 10px;
+	width: 27%;
+}
+.login h1:after {
+	background: rgb(126,126,126);
+	background: -moz-linear-gradient(left,  rgba(126,126,126,1) 0%, rgba(255,255,255,1) 100%);
+	background: -webkit-linear-gradient(left,  rgba(126,126,126,1) 0%,rgba(255,255,255,1) 100%);
+	background: -o-linear-gradient(left,  rgba(126,126,126,1) 0%,rgba(255,255,255,1) 100%);
+	background: -ms-linear-gradient(left,  rgba(126,126,126,1) 0%,rgba(255,255,255,1) 100%);
+	background: linear-gradient(left,  rgba(126,126,126,1) 0%,rgba(255,255,255,1) 100%);
+    right: 0;
+}
+.login h1:before {
+	background: rgb(126,126,126);
+	background: -moz-linear-gradient(right,  rgba(126,126,126,1) 0%, rgba(255,255,255,1) 100%);
+	background: -webkit-linear-gradient(right,  rgba(126,126,126,1) 0%,rgba(255,255,255,1) 100%);
+	background: -o-linear-gradient(right,  rgba(126,126,126,1) 0%,rgba(255,255,255,1) 100%);
+	background: -ms-linear-gradient(right,  rgba(126,126,126,1) 0%,rgba(255,255,255,1) 100%);
+	background: linear-gradient(right,  rgba(126,126,126,1) 0%,rgba(255,255,255,1) 100%);
+    left: 0;
+}
+
+/**************************/
+.rightCon {
+	float: right;
+	width: 50%;
+	min-height:330px;
+}
+
+.leftCon {
+	float: left;
+	width: 50%;
+	min-height:330px;
+}
+
+/******************************/
+body.ie6 .box,
+body.ie7 .box,
+body.ie8 .box {
+   zoom: 1;
+   filter: progid:DXImageTransform.Microsoft.Shadow(Color=#cccccc, Strength=5, Direction=0),
+         progid:DXImageTransform.Microsoft.Shadow(Color=#cccccc, Strength=5, Direction=90),
+         progid:DXImageTransform.Microsoft.Shadow(Color=#cccccc, Strength=5, Direction=180),
+         progid:DXImageTransform.Microsoft.Shadow(Color=#cccccc, Strength=5, Direction=270);
+}
+
+body.ie6 #gal,
+body.ie7 #gal,
+body.ie8 #gal {
+	margin-left: 10px;
+}
+

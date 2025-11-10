@@ -1,0 +1,1732 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="CargoCertificate" language="groovy" pageWidth="595" pageHeight="842" columnWidth="523" leftMargin="36" rightMargin="36" topMargin="21" bottomMargin="21" uuid="3dcc4afe-8a3e-470b-93bf-85ba242aabf5">
+	<property name="ireport.zoom" value="1.210000000000003"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="336"/>
+	<style name="Rotated180" mode="Opaque" forecolor="#FF33CC" hAlign="Center" vAlign="Middle" rotation="UpsideDown" fontName="Curlz MT" fontSize="40"/>
+	<style name="Rotated270" mode="Opaque" forecolor="#FF33CC" hAlign="Center" vAlign="Middle" rotation="Left" fontName="Curlz MT" fontSize="40"/>
+	<style name="Rotated90" mode="Opaque" forecolor="#FF33CC" hAlign="Center" vAlign="Middle" rotation="Right" fontName="Curlz MT" fontSize="40"/>
+	<style name="NotRotated" mode="Opaque" forecolor="#FF33CC" hAlign="Center" vAlign="Middle" rotation="None" fontName="Curlz MT" fontSize="40"/>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+		<conditionalStyle>
+			<style/>
+		</conditionalStyle>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#FFBFBF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5"/>
+			<leftPen lineWidth="0.5"/>
+			<bottomPen lineWidth="0.5"/>
+			<rightPen lineWidth="0.5"/>
+		</box>
+	</style>
+	<style name="table 1_TH" mode="Transparent" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_CH" mode="Transparent" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TD" mode="Transparent" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.0"/>
+			<leftPen lineWidth="0.5"/>
+			<bottomPen lineWidth="0.0"/>
+			<rightPen lineWidth="0.5"/>
+		</box>
+	</style>
+	<style name="table 2">
+		<box>
+			<pen lineWidth="1.0" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 2_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 2_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 2_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 3">
+		<box>
+			<pen lineWidth="0.0" lineColor="#FFFFFF"/>
+			<topPen lineWidth="0.0"/>
+			<leftPen lineWidth="0.0"/>
+			<bottomPen lineWidth="0.0"/>
+			<rightPen lineWidth="0.0"/>
+		</box>
+	</style>
+	<style name="table 3_TH" mode="Transparent" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.0" lineColor="#FFFFFF"/>
+			<topPen lineWidth="0.0"/>
+			<leftPen lineWidth="0.0"/>
+			<bottomPen lineWidth="0.0"/>
+			<rightPen lineWidth="0.0"/>
+		</box>
+	</style>
+	<style name="table 3_CH" mode="Transparent" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.0" lineColor="#FFFFFF"/>
+			<topPen lineWidth="0.0"/>
+			<leftPen lineWidth="0.0"/>
+			<bottomPen lineWidth="0.0"/>
+			<rightPen lineWidth="0.0"/>
+		</box>
+	</style>
+	<style name="table 3_TD" mode="Transparent" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.0" lineColor="#FFFFFF"/>
+			<topPen lineWidth="0.0"/>
+			<leftPen lineWidth="0.0"/>
+			<bottomPen lineWidth="0.0"/>
+			<rightPen lineWidth="0.0"/>
+		</box>
+	</style>
+	<style name="table 4">
+		<box>
+			<pen lineWidth="1.0" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 4_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 4_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 4_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="common" hAlign="Left" fontName="Arial" fontSize="9" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+	<style name="common1" isBlankWhenNull="false" fontName="Arial" fontSize="9" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" isPdfEmbedded="true">
+		<paragraph lineSpacing="Single"/>
+	</style>
+	<style name="table 5">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 5_TH" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 5_CH" mode="Opaque" backcolor="#FFBFBF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 5_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 6">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 6_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 6_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 6_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 7">
+		<box>
+			<pen lineWidth="1.0" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 7_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 7_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 7_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 8">
+		<box>
+			<pen lineWidth="1.0" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 8_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 8_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 8_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 9">
+		<box>
+			<pen lineWidth="0.0" lineColor="#FFFFFF"/>
+			<topPen lineWidth="0.0"/>
+			<leftPen lineWidth="0.0"/>
+			<bottomPen lineWidth="0.0"/>
+			<rightPen lineWidth="0.0"/>
+		</box>
+	</style>
+	<style name="table 9_TH" mode="Transparent" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.0" lineColor="#FFFFFF"/>
+			<topPen lineWidth="0.0"/>
+			<leftPen lineWidth="0.0"/>
+			<bottomPen lineWidth="0.0"/>
+			<rightPen lineWidth="0.0"/>
+		</box>
+	</style>
+	<style name="table 9_CH" mode="Transparent" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.0" lineColor="#FFFFFF"/>
+			<topPen lineWidth="0.0"/>
+			<leftPen lineWidth="0.0"/>
+			<bottomPen lineWidth="0.0"/>
+			<rightPen lineWidth="0.0"/>
+		</box>
+	</style>
+	<style name="table 9_TD" mode="Transparent" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.0" lineColor="#FFFFFF"/>
+			<topPen lineWidth="0.0"/>
+			<leftPen lineWidth="0.0"/>
+			<bottomPen lineWidth="0.0"/>
+			<rightPen lineWidth="0.0"/>
+		</box>
+	</style>
+	<style name="table 10">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5"/>
+			<leftPen lineWidth="0.5"/>
+			<bottomPen lineWidth="0.5"/>
+			<rightPen lineWidth="0.5"/>
+		</box>
+	</style>
+	<style name="table 10_TH" mode="Transparent" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5"/>
+			<leftPen lineWidth="0.5"/>
+			<bottomPen lineWidth="0.5"/>
+			<rightPen lineWidth="0.5"/>
+		</box>
+	</style>
+	<style name="table 10_CH" mode="Transparent" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5"/>
+			<leftPen lineWidth="0.5"/>
+			<bottomPen lineWidth="0.5"/>
+			<rightPen lineWidth="0.5"/>
+		</box>
+	</style>
+	<style name="table 10_TD" mode="Transparent" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5"/>
+			<leftPen lineWidth="0.5"/>
+			<bottomPen lineWidth="0.5"/>
+			<rightPen lineWidth="0.5"/>
+		</box>
+	</style>
+	<subDataset name="Clause" uuid="08b97fea-0670-40b4-bac4-c79bec20e3df">
+		<parameter name="Application_No" class="java.lang.String"/>
+		<parameter name="branchCode" class="java.lang.String"/>
+		<parameter name="belongingBranchCode" class="java.lang.String"/>
+		<queryString>
+			<![CDATA[select CODE1,codedesc1,code,codedesc from table(SCHEDULE_VIEW($P{Application_No},$P{belongingBranchCode})) where type='Clauses']]>
+		</queryString>
+		<field name="CODE1" class="java.math.BigDecimal"/>
+		<field name="CODEDESC1" class="java.lang.String"/>
+		<field name="CODE" class="java.math.BigDecimal"/>
+		<field name="CODEDESC" class="java.lang.String"/>
+	</subDataset>
+	<subDataset name="Exclusion" uuid="de228336-18a1-458d-a015-35ad7bae933a">
+		<parameter name="Application_No" class="java.lang.String"/>
+		<parameter name="branchCode" class="java.lang.String"/>
+		<parameter name="belongingBranchCode" class="java.lang.String"/>
+		<queryString>
+			<![CDATA[select code1,codedesc1 from table(SCHEDULE_VIEW($P{Application_No},$P{belongingBranchCode})) where type='Exclusion']]>
+		</queryString>
+		<field name="CODE1" class="java.math.BigDecimal"/>
+		<field name="CODEDESC1" class="java.lang.String"/>
+	</subDataset>
+	<subDataset name="Warrenty" uuid="9f076c05-c9fb-403f-ae11-0605ad72a1ee">
+		<parameter name="Application_No" class="java.lang.String"/>
+		<parameter name="branchCode" class="java.lang.String"/>
+		<parameter name="belongingBranchCode" class="java.lang.String"/>
+		<queryString>
+			<![CDATA[select code1,codedesc1 from table(SCHEDULE_VIEW($P{Application_No},$P{belongingBranchCode})) where type='Warranty']]>
+		</queryString>
+		<field name="CODE1" class="java.math.BigDecimal"/>
+		<field name="CODEDESC1" class="java.lang.String"/>
+	</subDataset>
+	<subDataset name="Excess" uuid="97c19127-341e-41f8-9d9d-3753337bb1e3">
+		<parameter name="Application_No" class="java.lang.String"/>
+		<parameter name="branchCode" class="java.lang.String"/>
+		<queryString>
+			<![CDATA[select rownum sno,DESCRIPTION,to_char(SUM_INSURED,'999G999G999G999G999G999G999')SUM_INSURED,
+trim(to_char(round(COMMODITY_EXCESS_PREMIUM,(select rfactor from currency_master cm
+where  cm.CURRENCY_ID=mrd.CURRENCY_ID and rownum=1)),'999G999G999G999G990D99')) ||'  '||
+(select CURRENCY_ABBREVIATION from branch_master cm where branch_code=$P{branchCode} and rownum=1) Excess
+from marine_result_details mrd where application_no=$P{Application_No}]]>
+		</queryString>
+		<field name="SNO" class="java.math.BigDecimal"/>
+		<field name="DESCRIPTION" class="java.lang.String"/>
+		<field name="SUM_INSURED" class="java.lang.String"/>
+		<field name="EXCESS" class="java.lang.String"/>
+	</subDataset>
+	<parameter name="Application_No" class="java.lang.String"/>
+	<parameter name="branchCode" class="java.lang.String"/>
+	<parameter name="imagePath" class="java.lang.String"/>
+	<parameter name="belongingBranchCode" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[select * from table(schedule_reports($P{Application_No},$P{branchCode}))]]>
+	</queryString>
+	<field name="TRANSPORTID" class="java.lang.String"/>
+	<field name="TRANSITFROM" class="java.lang.String"/>
+	<field name="FINALDESTINATION" class="java.lang.String"/>
+	<field name="POLICYSTARTDATE" class="java.lang.String"/>
+	<field name="COVERNAME" class="java.lang.String"/>
+	<field name="EXTRACOVERID" class="java.lang.String"/>
+	<field name="CURRENCYNAME" class="java.lang.String"/>
+	<field name="EXCHANGERATE" class="java.lang.String"/>
+	<field name="NOOFITEMS" class="java.lang.String"/>
+	<field name="POLICYDAY" class="java.lang.String"/>
+	<field name="ACEXECUTIVENAME" class="java.lang.String"/>
+	<field name="TRANSITFROMCOUNTRYID" class="java.lang.String"/>
+	<field name="FINALDESTINATIONCOUNTRYID" class="java.lang.String"/>
+	<field name="VOYAGE_ORGIN_COUNTRY" class="java.lang.String"/>
+	<field name="TO_DEST_COUNTRY" class="java.lang.String"/>
+	<field name="VOYAGE_FROM_CITY" class="java.lang.String"/>
+	<field name="DESITINATION" class="java.lang.String"/>
+	<field name="PREMIUM" class="java.lang.String"/>
+	<field name="EXCESS_PREMIUM" class="java.lang.String"/>
+	<field name="SALE_TERM_ID" class="java.math.BigDecimal"/>
+	<field name="SHORT_NAME" class="java.lang.String"/>
+	<field name="CURRENCY_ID" class="java.math.BigDecimal"/>
+	<field name="SEA_OPTIONS" class="java.lang.String"/>
+	<field name="TOTAL_SUM_INSURED" class="java.lang.String"/>
+	<field name="EFFECTIVE_DATE" class="java.lang.String"/>
+	<field name="VIA_CITY_NAME" class="java.lang.String"/>
+	<field name="VIA_COUNTRY_ID" class="java.lang.String"/>
+	<field name="POLICY_FEE" class="java.math.BigDecimal"/>
+	<field name="MARINE_PREMIUM" class="java.lang.String"/>
+	<field name="WAR_PREMIUM" class="java.lang.String"/>
+	<field name="NET_PREMIUM" class="java.lang.String"/>
+	<field name="QUOTENO" class="java.math.BigDecimal"/>
+	<field name="POLICYNO" class="java.lang.String"/>
+	<field name="APPLICATIONNO" class="java.math.BigDecimal"/>
+	<field name="CUSTOMERID" class="java.math.BigDecimal"/>
+	<field name="BROKER_REMARKS" class="java.lang.String"/>
+	<field name="PDF_MODIFY_BACKDATE" class="java.lang.String"/>
+	<field name="PDF_BACKDATE_ID" class="java.math.BigDecimal"/>
+	<field name="COMMISSION" class="java.math.BigDecimal"/>
+	<field name="PAYMENT_MODE" class="java.lang.String"/>
+	<field name="BASIS_VAL" class="java.lang.String"/>
+	<field name="DEBIT_CUST_ID" class="java.math.BigDecimal"/>
+	<field name="PDF_CURRENCY_STATUS" class="java.lang.String"/>
+	<field name="CARRIERNAME" class="java.lang.String"/>
+	<field name="BLAWBNO" class="java.lang.String"/>
+	<field name="BLAWBDATE" class="java.lang.String"/>
+	<field name="LCNUMBER" class="java.lang.String"/>
+	<field name="LCDATE" class="java.lang.String"/>
+	<field name="BANKNAME" class="java.lang.String"/>
+	<field name="SETTLINGAGENTNAMEOTHERS" class="java.lang.String"/>
+	<field name="SETTLINGAGENTID" class="java.lang.String"/>
+	<field name="SETTLINGAGENTNAME" class="java.lang.String"/>
+	<field name="SETTLINGAGENTADDRESSONE" class="java.lang.String"/>
+	<field name="SETTLINGAGENTADDRESSTWO" class="java.lang.String"/>
+	<field name="SETTLINGAGENTTELEPHONENO" class="java.lang.String"/>
+	<field name="SETTLINGAGENTFAXNO" class="java.lang.String"/>
+	<field name="CUSTOMERFIRSTNAME" class="java.lang.String"/>
+	<field name="CUSTOMERLASTNAME" class="java.lang.String"/>
+	<field name="CUSTOMERADDRESSONE" class="java.lang.String"/>
+	<field name="CUSTOMERADDRESSTWO" class="java.lang.String"/>
+	<field name="CUSTOMERTELEPHONE" class="java.lang.String"/>
+	<field name="CUSTOMERCOUNTRY" class="java.lang.String"/>
+	<field name="CUSTOMEREMIRATE" class="java.lang.String"/>
+	<field name="POBOX" class="java.math.BigDecimal"/>
+	<field name="COMPANY_NAME" class="java.lang.String"/>
+	<field name="BROKERNAME" class="java.lang.String"/>
+	<field name="BROKERADDRESS1" class="java.lang.String"/>
+	<field name="BROKERADDRESS2" class="java.lang.String"/>
+	<field name="BROKERCITY" class="java.lang.String"/>
+	<field name="BROKERCOUNTRY" class="java.lang.String"/>
+	<field name="BROKERPOBOX" class="java.lang.String"/>
+	<field name="BROKEREMIRATE" class="java.lang.String"/>
+	<field name="SALETERMVALUE" class="java.lang.String"/>
+	<field name="SALETERMNAME" class="java.lang.String"/>
+	<field name="SUBJ_MATTER" class="java.lang.String"/>
+	<field name="CURRENCY_ACCROYNM" class="java.lang.String"/>
+	<field name="SUM_INSURED" class="java.lang.String"/>
+	<field name="SIGN_IMG" class="java.lang.String"/>
+	<field name="BRANCH_IMG" class="java.lang.String"/>
+	<field name="FOOTER_BRANCH_IMG" class="java.lang.String"/>
+	<field name="BRANCH_ADDRESS" class="java.lang.String"/>
+	<field name="BRANCH_NAME" class="java.lang.String"/>
+	<field name="LOGIN_ID" class="java.lang.String"/>
+	<field name="STATUS" class="java.lang.String"/>
+	<field name="OPEN_COVER_NO" class="java.lang.String"/>
+	<field name="POLICY_EXCESS" class="java.lang.String"/>
+	<field name="SAILING_DATE" class="java.lang.String"/>
+	<field name="ASSURED_BANK_NAME" class="java.lang.String"/>
+	<field name="EXCLUSION_YN" class="java.lang.String"/>
+	<field name="WARRANTY_YN" class="java.lang.String"/>
+	<field name="WAREHOUSEYN" class="java.lang.String"/>
+	<field name="ANYPORTYN" class="java.lang.String"/>
+	<field name="COMMODITY_EXCESS" class="java.lang.String"/>
+	<field name="TOLERANCE_NAME" class="java.lang.String"/>
+	<field name="TOLERANCE_VALUE" class="java.lang.String"/>
+	<field name="SPECIAL_TERM" class="java.lang.String"/>
+	<field name="CERT_CLAUSES_YN" class="java.lang.String"/>
+	<field name="CODEDESC" class="java.lang.String"/>
+	<field name="BILL_NUMBER" class="java.lang.String"/>
+	<field name="FREE_TEXT_YN" class="java.lang.String"/>
+	<field name="COMMODITYCNT_YN" class="java.lang.String"/>
+	<field name="ENDT_NO" class="java.lang.String"/>
+	<field name="INVOICE_NO" class="java.lang.String"/>
+	<field name="INVOICE_DATE" class="java.lang.String"/>
+	<field name="SUPLIER_NAME" class="java.lang.String"/>
+	<field name="COMMODITYNAME" class="java.lang.String"/>
+	<field name="CONVEYAN_NAME" class="java.lang.String"/>
+	<field name="APPROVED_BY" class="java.lang.String"/>
+	<field name="VAT_TAX_AMT" class="java.lang.String"/>
+	<field name="VAT_TAX_PERCENT" class="java.lang.String"/>
+	<background>
+		<band height="770" splitType="Stretch">
+			<textField>
+				<reportElement uuid="7a8e3745-18f4-4040-a4c9-9d0c58d0f392" mode="Opaque" x="16" y="322" width="489" height="96" forecolor="#FFEDED"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" rotation="None">
+					<font size="60"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{STATUS}]]></textFieldExpression>
+			</textField>
+		</band>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="100" splitType="Stretch">
+			<image scaleImage="FillFrame" hAlign="Center">
+				<reportElement uuid="8edb6566-e57e-4afb-b11d-4f2ff199fab0" x="0" y="0" width="523" height="100">
+					<printWhenExpression><![CDATA[$F{BRANCH_IMG}!=null]]></printWhenExpression>
+				</reportElement>
+				<imageExpression><![CDATA[$P{imagePath}+"//"+$F{BRANCH_IMG}]]></imageExpression>
+			</image>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="53" splitType="Stretch">
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="81a34fb6-c372-402c-a94d-a4a613b16bf4" style="common" x="0" y="34" width="523" height="15"/>
+				<textElement/>
+				<textFieldExpression><![CDATA["Emirates Insurance agrees to provide cover as per the terms of the Policy subject to payment of the premium specified on the Schedule."]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="946dbe43-1128-43be-8d27-153c198394a3" style="common1" x="0" y="0" width="523" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Marine Cargo Policy]]></text>
+			</staticText>
+		</band>
+		<band height="35" splitType="Stretch">
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement uuid="4ccac420-114c-45d2-b4ea-4c13388723ef" style="common" stretchType="RelativeToTallestObject" x="170" y="20" width="219" height="15" isRemoveLineWhenBlank="true" isPrintWhenDetailOverflows="true"/>
+				<box bottomPadding="4"/>
+				<textElement verticalAlignment="Bottom">
+					<font size="9"/>
+					<paragraph lineSpacing="Double"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($F{POLICYNO}==null?$F{QUOTENO}:($F{POLICYNO}))]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="7ede9f67-813e-451d-bc46-141522547554" style="common" stretchType="RelativeToTallestObject" x="387" y="20" width="36" height="15" isRemoveLineWhenBlank="true"/>
+				<box bottomPadding="4"/>
+				<textElement/>
+				<text><![CDATA[Date]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="83d3005b-d482-4f7e-bbfa-5a6ba469dafb" style="common" stretchType="RelativeToTallestObject" x="423" y="20" width="100" height="15" isRemoveLineWhenBlank="true" isPrintWhenDetailOverflows="true"/>
+				<box bottomPadding="4"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[($F{POLICYSTARTDATE}==null?"":($F{POLICYSTARTDATE}))]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="ecb67997-e51f-4613-aeaf-c4f9ab6e88e1" style="common1" x="0" y="0" width="523" height="15"/>
+				<box>
+					<topPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10" isUnderline="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{POLICYNO}==null?"Draft":"Schedule"]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="94201e56-419c-4efe-a7aa-d219b387528e" style="common" x="934" y="10" width="100" height="15" isRemoveLineWhenBlank="true" isPrintWhenDetailOverflows="true">
+					<printWhenExpression><![CDATA[$F{POLICYNO}==null]]></printWhenExpression>
+				</reportElement>
+				<box bottomPadding="4"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[($F{POLICYSTARTDATE}==null?"":($F{POLICYSTARTDATE}))]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="04065916-128b-420d-80d7-f6ee99272df1" style="common" stretchType="RelativeToTallestObject" x="0" y="20" width="0" height="15"/>
+				<box>
+					<leftPen lineWidth="0.5"/>
+				</box>
+				<textElement markup="none"/>
+				<textFieldExpression><![CDATA[""]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="172c30e7-3751-41ff-b27c-019f35f28ad8" style="common" stretchType="RelativeToTallestObject" x="522" y="20" width="0" height="15"/>
+				<box>
+					<leftPen lineWidth="0.5"/>
+				</box>
+				<textElement markup="none"/>
+				<textFieldExpression><![CDATA[""]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement uuid="40f7bafa-26a9-4572-9692-e7ef7dd2e58f" stretchType="RelativeToTallestObject" x="0" y="20" width="522" height="1"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</line>
+			<textField>
+				<reportElement uuid="f197099f-69a6-4576-9696-2da27f02492b" style="common" stretchType="RelativeToTallestObject" x="0" y="20" width="170" height="15"/>
+				<box leftPadding="2"/>
+				<textElement markup="none"/>
+				<textFieldExpression><![CDATA[($F{POLICYNO}==null?"Quote no":"Policy number")]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="15">
+			<printWhenExpression><![CDATA[$F{ENDT_NO}!=null]]></printWhenExpression>
+			<textField>
+				<reportElement uuid="704ecafa-6a3c-4ce8-a819-745f7747e6d5" style="common" stretchType="RelativeToTallestObject" x="0" y="0" width="170" height="15" isRemoveLineWhenBlank="true"/>
+				<box leftPadding="2"/>
+				<textElement verticalAlignment="Bottom" markup="none">
+					<font size="9" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Endorsement No"]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement uuid="9566f685-1fdf-4390-bcc4-4df109b71b7c" style="common" stretchType="RelativeToTallestObject" x="170" y="0" width="352" height="15" isRemoveLineWhenBlank="true" isPrintWhenDetailOverflows="true"/>
+				<box bottomPadding="4"/>
+				<textElement verticalAlignment="Bottom">
+					<font size="9"/>
+					<paragraph lineSpacing="Double"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($F{ENDT_NO}==null?"":($F{ENDT_NO}))]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="53b5f4c0-a959-40a7-9dea-de9ccdab50e1" style="common" stretchType="RelativeToTallestObject" x="0" y="0" width="0" height="15"/>
+				<box>
+					<leftPen lineWidth="0.5"/>
+				</box>
+				<textElement markup="none"/>
+				<textFieldExpression><![CDATA[""]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="8002dd35-c454-4b3e-80a8-3344453623ae" style="common" stretchType="RelativeToTallestObject" x="522" y="0" width="0" height="15"/>
+				<box>
+					<leftPen lineWidth="0.5"/>
+				</box>
+				<textElement markup="none"/>
+				<textFieldExpression><![CDATA[""]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="15" splitType="Stretch">
+			<textField>
+				<reportElement uuid="b7f9dbca-ae7c-4af5-8ac3-4eeaca4d61fb" style="common" stretchType="RelativeToTallestObject" x="0" y="0" width="170" height="15"/>
+				<box leftPadding="2"/>
+				<textElement markup="none">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Name of Assured"]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement uuid="c9622f2b-c0a4-477d-8314-15d97d4960c7" style="common" stretchType="RelativeToTallestObject" x="170" y="0" width="352" height="15" isRemoveLineWhenBlank="true" isPrintWhenDetailOverflows="true"/>
+				<box bottomPadding="2"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($F{CUSTOMERFIRSTNAME}==null?"":($F{CUSTOMERFIRSTNAME}))+" "+($F{CUSTOMERLASTNAME}==null?"":($F{CUSTOMERLASTNAME}))]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="6ef3988f-5b93-47a9-ace2-7c68fcda459d" style="common" stretchType="RelativeToTallestObject" x="0" y="0" width="0" height="15"/>
+				<box>
+					<leftPen lineWidth="0.5"/>
+				</box>
+				<textElement markup="none"/>
+				<textFieldExpression><![CDATA[""]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="a9277259-a04c-4426-a27d-2aa23f76bace" style="common" stretchType="RelativeToTallestObject" x="522" y="0" width="0" height="15"/>
+				<box>
+					<leftPen lineWidth="0.5"/>
+				</box>
+				<textElement markup="none"/>
+				<textFieldExpression><![CDATA[""]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="15" splitType="Stretch">
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement uuid="689bfbfe-3743-449f-ad41-4555ec647913" style="common" stretchType="RelativeToTallestObject" x="170" y="0" width="352" height="15" isRemoveLineWhenBlank="true" isPrintWhenDetailOverflows="true"/>
+				<box bottomPadding="2"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[(($F{CUSTOMERADDRESSONE}==null || $F{CUSTOMERADDRESSONE}=="")?"":($F{CUSTOMERADDRESSONE}+", "))+""+(($F{CUSTOMERADDRESSTWO}==null || $F{CUSTOMERADDRESSTWO}=="")?"":(""+$F{CUSTOMERADDRESSTWO}+", "))+""+($F{POBOX}==null?"":("P.O Box No: "+$F{POBOX}))+""+($F{CUSTOMEREMIRATE}==null?"":(", "+$F{CUSTOMEREMIRATE}))+""+($F{CUSTOMERCOUNTRY}==null?"":(", "+$F{CUSTOMERCOUNTRY}))]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="a8094e5c-64f7-44a8-98f3-4ec90f108895" style="common" stretchType="RelativeToTallestObject" x="0" y="0" width="0" height="15"/>
+				<box>
+					<leftPen lineWidth="0.5"/>
+				</box>
+				<textElement markup="none"/>
+				<textFieldExpression><![CDATA[""]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="877f9b48-b93d-4d43-be34-eefb43bd7e79" style="common" stretchType="RelativeToTallestObject" x="522" y="0" width="0" height="15"/>
+				<box>
+					<leftPen lineWidth="0.5"/>
+				</box>
+				<textElement markup="none"/>
+				<textFieldExpression><![CDATA[""]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="15" splitType="Stretch">
+			<printWhenExpression><![CDATA[$F{CARRIERNAME}!=null]]></printWhenExpression>
+			<textField>
+				<reportElement uuid="94d7bc6d-ec94-48a4-b033-aa1dab3ff84b" style="common" stretchType="RelativeToTallestObject" x="0" y="0" width="170" height="15"/>
+				<box leftPadding="2"/>
+				<textElement markup="none"/>
+				<textFieldExpression><![CDATA["Conveyance"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="437e58b8-1f53-4017-a797-f91d3e937228" style="common" stretchType="RelativeToTallestObject" x="170" y="0" width="353" height="15"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{CARRIERNAME}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="d4042a0a-9d72-44e5-85e4-e9c397dc0d9e" style="common" stretchType="RelativeToTallestObject" x="0" y="0" width="0" height="15"/>
+				<box>
+					<leftPen lineWidth="0.5"/>
+				</box>
+				<textElement markup="none"/>
+				<textFieldExpression><![CDATA[""]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="d56789c9-eb5f-434e-804a-e9492a217296" style="common" stretchType="RelativeToTallestObject" x="522" y="0" width="0" height="15"/>
+				<box>
+					<leftPen lineWidth="0.5"/>
+				</box>
+				<textElement markup="none"/>
+				<textFieldExpression><![CDATA[""]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="15" splitType="Stretch">
+			<textField>
+				<reportElement uuid="93def16f-671b-48b4-bd7e-f999ae5b2020" style="common" stretchType="RelativeToTallestObject" x="0" y="0" width="170" height="15"/>
+				<box leftPadding="2"/>
+				<textElement markup="none"/>
+				<textFieldExpression><![CDATA["Voyage"]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="988120b7-0e6a-46b7-ba70-2fea2992a6ee" style="common" stretchType="RelativeToTallestObject" x="170" y="0" width="352" height="15" isRemoveLineWhenBlank="true" isPrintWhenDetailOverflows="true"/>
+				<textElement/>
+				<textFieldExpression><![CDATA["From : "+($F{WAREHOUSEYN}==null?"":($F{WAREHOUSEYN}+", "))+($F{VOYAGE_FROM_CITY}==null?"":($F{VOYAGE_FROM_CITY}+", "))+""+($F{VOYAGE_ORGIN_COUNTRY}==null?"":($F{VOYAGE_ORGIN_COUNTRY}))]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="8178d052-1825-4578-86ee-adeb5132d58b" style="common" stretchType="RelativeToTallestObject" x="0" y="0" width="0" height="15"/>
+				<box>
+					<leftPen lineWidth="0.5"/>
+				</box>
+				<textElement markup="none"/>
+				<textFieldExpression><![CDATA[""]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="5d127c09-0c29-4532-9eb2-d654b107cdca" style="common" stretchType="RelativeToTallestObject" x="522" y="0" width="0" height="15"/>
+				<box>
+					<leftPen lineWidth="0.5"/>
+				</box>
+				<textElement markup="none"/>
+				<textFieldExpression><![CDATA[""]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="15" splitType="Stretch">
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="de2bf72b-58a8-4bba-879d-539e1da328f7" style="common" stretchType="RelativeToTallestObject" x="170" y="0" width="352" height="15" isRemoveLineWhenBlank="true" isPrintWhenDetailOverflows="true"/>
+				<textElement/>
+				<textFieldExpression><![CDATA["To : "+($F{ANYPORTYN}==null?"":($F{ANYPORTYN}+", "))+($F{DESITINATION}==null?"":($F{DESITINATION}+", "))+""+($F{TO_DEST_COUNTRY}==null?"":($F{TO_DEST_COUNTRY}))]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="3d8c046c-5065-46b9-8e7f-9115d8aaaaa2" style="common" stretchType="RelativeToTallestObject" x="0" y="0" width="0" height="15"/>
+				<box>
+					<leftPen lineWidth="0.5"/>
+				</box>
+				<textElement markup="none"/>
+				<textFieldExpression><![CDATA[""]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="cc5f3ae6-d59e-4e02-a651-45d87386c143" style="common" stretchType="RelativeToTallestObject" x="522" y="0" width="0" height="15"/>
+				<box>
+					<leftPen lineWidth="0.5"/>
+				</box>
+				<textElement markup="none"/>
+				<textFieldExpression><![CDATA[""]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="15" splitType="Stretch">
+			<textField>
+				<reportElement uuid="19f61765-5789-4e77-9126-96376b761054" style="common" stretchType="RelativeToTallestObject" x="0" y="0" width="170" height="15"/>
+				<box leftPadding="2"/>
+				<textElement markup="none"/>
+				<textFieldExpression><![CDATA["Mode of transport"]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement uuid="812b636b-46b6-4778-9e0c-32abbeeb7402" style="common" stretchType="RelativeToTallestObject" x="170" y="0" width="352" height="15" isRemoveLineWhenBlank="true" isPrintWhenDetailOverflows="true"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{TRANSITFROM}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="eb44af9a-0cac-46cb-a30e-b6c28c593af0" style="common" stretchType="RelativeToTallestObject" x="0" y="0" width="0" height="15"/>
+				<box>
+					<leftPen lineWidth="0.5"/>
+				</box>
+				<textElement markup="none"/>
+				<textFieldExpression><![CDATA[""]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="9ae688ea-fb5a-4e78-a639-bb2bb39eac87" style="common" stretchType="RelativeToTallestObject" x="522" y="0" width="0" height="15"/>
+				<box>
+					<leftPen lineWidth="0.5"/>
+				</box>
+				<textElement markup="none"/>
+				<textFieldExpression><![CDATA[""]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="15" splitType="Stretch">
+			<textField>
+				<reportElement uuid="9b4e67d2-9d09-404c-94d3-96ea22c072b9" style="common" stretchType="RelativeToTallestObject" x="0" y="0" width="170" height="15"/>
+				<box leftPadding="2"/>
+				<textElement markup="none"/>
+				<textFieldExpression><![CDATA["Mode of Carriage"]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement uuid="25fcb480-ea4c-4cf7-a6de-28a6fa2890bc" style="common" stretchType="RelativeToTallestObject" x="170" y="0" width="352" height="15" isRemoveLineWhenBlank="true" isPrintWhenDetailOverflows="true"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{CONVEYAN_NAME}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="ae9cdef2-0d1c-4cc0-ac71-e9128ee0e7de" style="common" stretchType="RelativeToTallestObject" x="0" y="0" width="0" height="15"/>
+				<box>
+					<leftPen lineWidth="0.5"/>
+				</box>
+				<textElement markup="none"/>
+				<textFieldExpression><![CDATA[""]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="a4ea1154-8973-42d1-b490-7354ba33193e" style="common" stretchType="RelativeToTallestObject" x="522" y="0" width="0" height="15"/>
+				<box>
+					<leftPen lineWidth="0.5"/>
+				</box>
+				<textElement markup="none"/>
+				<textFieldExpression><![CDATA[""]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="15">
+			<textField>
+				<reportElement uuid="6a8161b1-a1e7-4c55-a1e8-7e8fb2b01002" style="common" stretchType="RelativeToTallestObject" x="0" y="0" width="170" height="15"/>
+				<box leftPadding="2"/>
+				<textElement markup="none"/>
+				<textFieldExpression><![CDATA["Subject matter insured"]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement uuid="8ceff53f-8175-403f-b578-8b75a6db218d" style="common" stretchType="RelativeToTallestObject" x="170" y="0" width="352" height="15" isRemoveLineWhenBlank="true" isPrintWhenDetailOverflows="true"/>
+				<textElement/>
+				<!-- <textFieldExpression><![CDATA[$F{COMMODITYNAME}]]></textFieldExpression> -->
+				<textFieldExpression><![CDATA[$F{SUBJ_MATTER}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="caab609e-4c8b-4450-8211-6f18e46f43bf" style="common" stretchType="RelativeToTallestObject" x="0" y="0" width="0" height="15"/>
+				<box>
+					<leftPen lineWidth="0.5"/>
+				</box>
+				<textElement markup="none"/>
+				<textFieldExpression><![CDATA[""]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="da965e9a-d617-4bc3-889a-c1d7d744e011" style="common" stretchType="RelativeToTallestObject" x="522" y="0" width="0" height="15"/>
+				<box>
+					<leftPen lineWidth="0.5"/>
+				</box>
+				<textElement markup="none"/>
+				<textFieldExpression><![CDATA[""]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="15">
+			<printWhenExpression><![CDATA[$F{SUBJ_MATTER}!=null]]></printWhenExpression>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement uuid="0d1d83ad-093e-4b48-82a4-dc8a54059870" style="common" stretchType="RelativeToTallestObject" x="170" y="0" width="352" height="15" isRemoveLineWhenBlank="true" isPrintWhenDetailOverflows="true"/>
+				<textElement/>
+					<textFieldExpression><![CDATA[""]]></textFieldExpression>
+				 <!-- <textFieldExpression><![CDATA[$F{SUBJ_MATTER}]]></textFieldExpression> -->
+			</textField>
+			<textField>
+				<reportElement uuid="c824d038-735b-4bd5-a071-045dfb93fb45" style="common" stretchType="RelativeToTallestObject" x="0" y="0" width="0" height="15"/>
+				<box>
+					<leftPen lineWidth="0.5"/>
+				</box>
+				<textElement markup="none"/>
+				<textFieldExpression><![CDATA[""]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="277e450f-c969-4285-a200-e5df83672b3d" style="common" stretchType="RelativeToTallestObject" x="522" y="0" width="0" height="15"/>
+				<box>
+					<leftPen lineWidth="0.5"/>
+				</box>
+				<textElement markup="none"/>
+				<textFieldExpression><![CDATA[""]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="15">
+			<printWhenExpression><![CDATA[$F{SUPLIER_NAME}!=null]]></printWhenExpression>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement uuid="51580fef-9ea0-4957-a8a3-aa20690ade69" style="common" stretchType="RelativeToTallestObject" x="170" y="0" width="352" height="15" isRemoveLineWhenBlank="true" isPrintWhenDetailOverflows="true">
+					<printWhenExpression><![CDATA[$F{SUPLIER_NAME}!=null]]></printWhenExpression>
+				</reportElement>
+				<textElement/>
+				<textFieldExpression><![CDATA[($F{SUPLIER_NAME}==null?"":("Supplier name : "+$F{SUPLIER_NAME}))]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="52da8d9a-bd62-4805-a5e4-0c44b84f2dc7" style="common" stretchType="RelativeToTallestObject" x="0" y="0" width="0" height="15"/>
+				<box>
+					<leftPen lineWidth="0.5"/>
+				</box>
+				<textElement markup="none"/>
+				<textFieldExpression><![CDATA[""]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="12b3af18-6e45-41c1-b935-2da828406180" style="common" stretchType="RelativeToTallestObject" x="522" y="0" width="0" height="15"/>
+				<box>
+					<leftPen lineWidth="0.5"/>
+				</box>
+				<textElement markup="none"/>
+				<textFieldExpression><![CDATA[""]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="15">
+			<printWhenExpression><![CDATA[$F{INVOICE_NO}!=null || $F{INVOICE_DATE}!=null]]></printWhenExpression>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement uuid="4cf0791b-4f33-4fa4-a77a-310b496f4d3a" style="common" stretchType="RelativeToTallestObject" x="170" y="0" width="352" height="15" isRemoveLineWhenBlank="true" isPrintWhenDetailOverflows="true">
+					<printWhenExpression><![CDATA[($F{INVOICE_NO}!=null || $F{INVOICE_DATE}!=null)]]></printWhenExpression>
+				</reportElement>
+				<textElement/>
+				<textFieldExpression><![CDATA[($F{INVOICE_NO}==null?"":("Invoice No : "+$F{INVOICE_NO}))+""+($F{INVOICE_NO}==null?"":" ; ")+($F{INVOICE_DATE}==null?"":("Invoice Date : "+$F{INVOICE_DATE}))]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="2f6ed7e9-25ad-4ba8-925e-8225b6ec96cf" style="common" stretchType="RelativeToTallestObject" x="0" y="0" width="0" height="15"/>
+				<box>
+					<leftPen lineWidth="0.5"/>
+				</box>
+				<textElement markup="none"/>
+				<textFieldExpression><![CDATA[""]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="bbe0b655-841e-4427-8de0-69ce8a0bc437" style="common" stretchType="RelativeToTallestObject" x="522" y="0" width="0" height="15"/>
+				<box>
+					<leftPen lineWidth="0.5"/>
+				</box>
+				<textElement markup="none"/>
+				<textFieldExpression><![CDATA[""]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="15">
+			<printWhenExpression><![CDATA[$F{LCNUMBER}!=null ||$F{LCDATE}!=null]]></printWhenExpression>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement uuid="9da060c7-af6d-4c33-918c-e5488cb1df00" style="common" stretchType="RelativeToTallestObject" x="170" y="0" width="352" height="15" isRemoveLineWhenBlank="true" isPrintWhenDetailOverflows="true">
+					<printWhenExpression><![CDATA[($F{LCNUMBER}!=null || $F{LCDATE}!=null)]]></printWhenExpression>
+				</reportElement>
+				<textElement/>
+				<textFieldExpression><![CDATA[($F{LCNUMBER}==null?"":("LC Number : "+$F{LCNUMBER}))+""+($F{LCNUMBER}==null?"":" ;  ")+($F{LCDATE}==null?"":("LC Date : "+$F{LCDATE}))]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="879c7895-e701-4223-9084-0528e3eca8a5" style="common" stretchType="RelativeToTallestObject" x="0" y="0" width="0" height="15"/>
+				<box>
+					<leftPen lineWidth="0.5"/>
+				</box>
+				<textElement markup="none"/>
+				<textFieldExpression><![CDATA[""]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="18bd9a93-18e0-4d30-8428-07aa8afe8dc5" style="common" stretchType="RelativeToTallestObject" x="522" y="0" width="0" height="15"/>
+				<box>
+					<leftPen lineWidth="0.5"/>
+				</box>
+				<textElement markup="none"/>
+				<textFieldExpression><![CDATA[""]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="15">
+			<printWhenExpression><![CDATA[$F{BILL_NUMBER}!=null]]></printWhenExpression>
+			<textField>
+				<reportElement uuid="0d8dd1ab-d981-490b-8d61-39a3d3b8c157" style="common" stretchType="RelativeToTallestObject" x="0" y="0" width="170" height="15" isRemoveLineWhenBlank="true">
+					<printWhenExpression><![CDATA[$F{BILL_NUMBER}!=null]]></printWhenExpression>
+				</reportElement>
+				<box leftPadding="2"/>
+				<textElement markup="none"/>
+				<textFieldExpression><![CDATA["B/L or AWB bill number"]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement uuid="3a52f172-cdab-47a7-be02-58d8660b5a11" style="common" stretchType="RelativeToTallestObject" x="170" y="0" width="352" height="15" isRemoveLineWhenBlank="true" isPrintWhenDetailOverflows="true">
+					<printWhenExpression><![CDATA[$F{BILL_NUMBER}!=null]]></printWhenExpression>
+				</reportElement>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{BILL_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="9ceb1320-2fb9-4a4c-966e-5744261da60b" style="common" stretchType="RelativeToTallestObject" x="0" y="0" width="0" height="15"/>
+				<box>
+					<leftPen lineWidth="0.5"/>
+				</box>
+				<textElement markup="none"/>
+				<textFieldExpression><![CDATA[""]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="9bbd271e-9664-4ea3-9925-da48af19c11c" style="common" stretchType="RelativeToTallestObject" x="522" y="0" width="0" height="15"/>
+				<box>
+					<leftPen lineWidth="0.5"/>
+				</box>
+				<textElement markup="none"/>
+				<textFieldExpression><![CDATA[""]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="15">
+			<textField>
+				<reportElement uuid="dfb3da7c-265f-4167-9dad-b3e8b3be2ef3" style="common" stretchType="RelativeToTallestObject" x="0" y="0" width="170" height="15"/>
+				<box leftPadding="2"/>
+				<textElement markup="none"/>
+				<textFieldExpression><![CDATA["Basis of valuation"]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="559184fa-4136-47f8-bdf2-acd445c76325" style="common" stretchType="RelativeToTallestObject" x="170" y="0" width="352" height="15" isRemoveLineWhenBlank="true" isPrintWhenDetailOverflows="true"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[($F{SHORT_NAME}==null?"":($F{SHORT_NAME}))+" "+($F{TOTAL_SUM_INSURED}==null?"":($F{TOTAL_SUM_INSURED}))+""+($F{SALETERMVALUE}==null?"":($F{SALETERMVALUE}))+" ; "+($F{SALETERMNAME}==null?"":($F{SALETERMNAME}))]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="0e9b1733-c348-4aa7-8fd3-754eec4fcab1" style="common" stretchType="RelativeToTallestObject" x="0" y="0" width="0" height="15"/>
+				<box>
+					<leftPen lineWidth="0.5"/>
+				</box>
+				<textElement markup="none"/>
+				<textFieldExpression><![CDATA[""]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="6769866b-b07a-4c61-8f54-3d6686c104eb" style="common" stretchType="RelativeToTallestObject" x="522" y="0" width="0" height="15"/>
+				<box>
+					<leftPen lineWidth="0.5"/>
+				</box>
+				<textElement markup="none"/>
+				<textFieldExpression><![CDATA[""]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="15">
+			<staticText>
+				<reportElement uuid="58f49354-2f70-4410-a41c-2a624617b52a" style="common" stretchType="RelativeToTallestObject" x="170" y="0" width="67" height="15" isRemoveLineWhenBlank="true">
+					<printWhenExpression><![CDATA[$F{EXCHANGERATE}!=null]]></printWhenExpression>
+				</reportElement>
+				<textElement/>
+				<text><![CDATA[Exchange Rate]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement uuid="7dc57b11-feab-4e2d-a770-821a7bb9737a" style="common" stretchType="RelativeToTallestObject" x="237" y="0" width="285" height="15" isRemoveLineWhenBlank="true" isPrintWhenDetailOverflows="true">
+					<printWhenExpression><![CDATA[$F{EXCHANGERATE}!=null]]></printWhenExpression>
+				</reportElement>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{EXCHANGERATE}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="b3a787e7-889b-4d5b-83a5-9318fe342f93" style="common" stretchType="RelativeToTallestObject" x="0" y="0" width="0" height="15"/>
+				<box>
+					<leftPen lineWidth="0.5"/>
+				</box>
+				<textElement markup="none"/>
+				<textFieldExpression><![CDATA[""]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="30ea5197-f294-461c-916b-622f2f15b41b" style="common" stretchType="RelativeToTallestObject" x="522" y="0" width="0" height="15"/>
+				<box>
+					<leftPen lineWidth="0.5"/>
+				</box>
+				<textElement markup="none"/>
+				<textFieldExpression><![CDATA[""]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="15">
+			<textField>
+				<reportElement uuid="c43998a4-aaa0-42b3-9d83-dcfc4bb53791" style="common" stretchType="RelativeToTallestObject" x="0" y="0" width="170" height="15"/>
+				<box leftPadding="2"/>
+				<textElement markup="none"/>
+				<textFieldExpression><![CDATA["Sum Insured"]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement uuid="2913a1f1-a72d-4edf-86ee-9ba527fbda47" style="common" stretchType="RelativeToTallestObject" x="170" y="0" width="352" height="15" isRemoveLineWhenBlank="true" isPrintWhenDetailOverflows="true"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[($F{BASIS_VAL}==null?"":($F{BASIS_VAL}))+" "+($F{CURRENCY_ACCROYNM}==null?"":($F{CURRENCY_ACCROYNM}))+" "+($F{SUM_INSURED}==null?"":($F{SUM_INSURED}))]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="9ca1e0d4-a3d2-45f9-b2bb-859d9be47e8a" style="common" stretchType="RelativeToTallestObject" x="0" y="0" width="0" height="15"/>
+				<box>
+					<leftPen lineWidth="0.5"/>
+				</box>
+				<textElement markup="none"/>
+				<textFieldExpression><![CDATA[""]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="397b54a1-e72e-4ae3-847c-92c5e7e31507" style="common" stretchType="RelativeToTallestObject" x="522" y="0" width="0" height="15"/>
+				<box>
+					<leftPen lineWidth="0.5"/>
+				</box>
+				<textElement markup="none"/>
+				<textFieldExpression><![CDATA[""]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="15">
+			<printWhenExpression><![CDATA[$F{ASSURED_BANK_NAME}!=null]]></printWhenExpression>
+			<textField>
+				<reportElement uuid="f21c2892-02ff-499a-93e3-d0d6837280d0" style="common" stretchType="RelativeToTallestObject" x="0" y="0" width="170" height="15">
+					<printWhenExpression><![CDATA[$F{ASSURED_BANK_NAME}!=null]]></printWhenExpression>
+				</reportElement>
+				<box leftPadding="2"/>
+				<textElement markup="none"/>
+				<textFieldExpression><![CDATA["Bank name"]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement uuid="b843f0de-cb32-455a-bf3e-b21ae11bfa20" style="common" stretchType="RelativeToTallestObject" x="170" y="0" width="352" height="15" isRemoveLineWhenBlank="true" isPrintWhenDetailOverflows="true">
+					<printWhenExpression><![CDATA[$F{ASSURED_BANK_NAME}!=null]]></printWhenExpression>
+				</reportElement>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{ASSURED_BANK_NAME}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="4d821ab1-7fe5-4912-9b63-0cc736222f06" style="common" stretchType="RelativeToTallestObject" x="0" y="0" width="0" height="15"/>
+				<box>
+					<leftPen lineWidth="0.5"/>
+				</box>
+				<textElement markup="none"/>
+				<textFieldExpression><![CDATA[""]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="128ce7c5-7d51-405b-8399-a10828969c28" style="common" stretchType="RelativeToTallestObject" x="522" y="0" width="0" height="15"/>
+				<box>
+					<leftPen lineWidth="0.5"/>
+				</box>
+				<textElement markup="none"/>
+				<textFieldExpression><![CDATA[""]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="15">
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement uuid="a11d3862-3cc0-4a62-a0a1-930e4ebd2ac8" style="common" stretchType="RelativeToTallestObject" x="170" y="0" width="352" height="15" isRemoveLineWhenBlank="true" isPrintWhenDetailOverflows="true"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[($F{PREMIUM}==null?"":($F{PREMIUM}))]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="da264259-7e4d-4f31-98df-c5deb6ce5692" style="common" stretchType="RelativeToTallestObject" x="0" y="0" width="170" height="15"/>
+				<box leftPadding="2"/>
+				<textElement markup="none"/>
+				<textFieldExpression><![CDATA["Premium"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="73122417-fdbe-43f5-996b-1daf7960ea1f" style="common" stretchType="RelativeToTallestObject" x="0" y="0" width="0" height="15"/>
+				<box>
+					<leftPen lineWidth="0.5"/>
+				</box>
+				<textElement markup="none"/>
+				<textFieldExpression><![CDATA[""]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="3a0fcab7-a8de-4cc5-98d5-28ac74383ea4" style="common" stretchType="RelativeToTallestObject" x="522" y="0" width="0" height="15"/>
+				<box>
+					<leftPen lineWidth="0.5"/>
+				</box>
+				<textElement markup="none"/>
+				<textFieldExpression><![CDATA[""]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="15">
+			<printWhenExpression><![CDATA[$F{VAT_TAX_AMT}!=null]]></printWhenExpression>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement uuid="a11d3862-3cc0-4a62-a0a1-930e4ebd2ac8" style="common" stretchType="RelativeToTallestObject" x="170" y="0" width="352" height="15" isRemoveLineWhenBlank="true" isPrintWhenDetailOverflows="true"/>
+				<box>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement/>
+				<textFieldExpression><![CDATA[($F{VAT_TAX_AMT}==null?"":$F{VAT_TAX_AMT})]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="aa18e301-5d5e-426c-ae74-320d6bd2b5c3" style="common" stretchType="RelativeToTallestObject" x="0" y="0" width="170" height="15"/>
+				<box leftPadding="2">
+					<leftPen lineWidth="0.5"/>
+				</box>
+				<textElement markup="none"/>
+				<textFieldExpression><![CDATA["VAT " +($F{VAT_TAX_PERCENT}==null?"":$F{VAT_TAX_PERCENT})+"%"]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="1">
+			<line>
+				<reportElement uuid="2f270426-7985-4a97-8f6a-f8e93179722c" stretchType="RelativeToTallestObject" x="0" y="0" width="522" height="1"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</line>
+		</band>
+		<band height="44">
+			<printWhenExpression><![CDATA[$F{CERT_CLAUSES_YN}.equals("Y")]]></printWhenExpression>
+			<staticText>
+				<reportElement uuid="d4f7220c-f4e4-4303-be1a-79901027b379" style="common1" x="0" y="10" width="523" height="15"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Conditions ]]></text>
+			</staticText>
+			<componentElement>
+				<reportElement uuid="aa739012-b385-4bee-b95d-eb4cf4eb2d41" key="table 1" style="table 1" mode="Transparent" x="0" y="25" width="523" height="15" isRemoveLineWhenBlank="true" isPrintInFirstWholeBand="true"/>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="Clause" uuid="82537544-03fb-4a85-9c2b-d362963c34ae">
+						<datasetParameter name="Application_No">
+							<datasetParameterExpression><![CDATA[$P{Application_No}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="belongingBranchCode">
+							<datasetParameterExpression><![CDATA[$P{belongingBranchCode}]]></datasetParameterExpression>
+						</datasetParameter>
+						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					</datasetRun>
+					<jr:column width="262" uuid="0f975ea0-e311-4041-b156-f45d89dd6ae2">
+						<jr:detailCell style="table 1_TD" height="15" rowSpan="1">
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement uuid="cedd5cd7-7569-4685-9b9f-ffef4201a8e3" style="common" x="0" y="0" width="262" height="15" isPrintWhenDetailOverflows="true"/>
+								<box topPadding="2" leftPadding="4" bottomPadding="2" rightPadding="2"/>
+								<textElement textAlignment="Justified"/>
+								<textFieldExpression><![CDATA[($F{CODEDESC1}==null?"":($F{CODEDESC1}))]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="259" uuid="ab355ee4-3f29-49d4-9139-0fef523d6cb2">
+						<jr:detailCell style="table 1_TD" height="15" rowSpan="1">
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement uuid="9a6391c8-225b-4f85-9952-ae9c3b1062c5" style="common" x="0" y="0" width="259" height="15" isPrintWhenDetailOverflows="true"/>
+								<box topPadding="2" leftPadding="4" bottomPadding="2" rightPadding="2"/>
+								<textElement textAlignment="Justified"/>
+								<textFieldExpression><![CDATA[($F{CODEDESC}==null?"":($F{CODEDESC}))]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+		</band>
+		<band height="31">
+			<printWhenExpression><![CDATA[$F{CERT_CLAUSES_YN}.equals("Y")]]></printWhenExpression>
+			<staticText>
+				<reportElement uuid="0910b4cd-3b9b-4543-a5f7-2777c3bb1f94" style="common1" x="0" y="0" width="523" height="15" isRemoveLineWhenBlank="true" isPrintInFirstWholeBand="true">
+					<printWhenExpression><![CDATA[$F{EXCLUSION_YN}=="Y"]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Exclusions]]></text>
+			</staticText>
+			<componentElement>
+				<reportElement uuid="1a678b98-5be3-48ac-b327-1360223c1afe" key="table 3" style="table 3" mode="Transparent" x="0" y="15" width="523" height="12" isRemoveLineWhenBlank="true" isPrintInFirstWholeBand="true">
+					<printWhenExpression><![CDATA[$F{EXCLUSION_YN}=="Y"]]></printWhenExpression>
+				</reportElement>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="Exclusion" uuid="2020f2d4-6735-4b3e-9f71-ecc94c63963b">
+						<datasetParameter name="Application_No">
+							<datasetParameterExpression><![CDATA[$P{Application_No}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="belongingBranchCode">
+							<datasetParameterExpression><![CDATA[$P{belongingBranchCode}]]></datasetParameterExpression>
+						</datasetParameter>
+						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					</datasetRun>
+					<jr:column width="530" uuid="9387b234-4e33-4c70-b90e-6b7a557894c0">
+						<jr:detailCell style="table 3_TD" height="12" rowSpan="1">
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement uuid="9b5bb497-2466-46da-8b27-50271a8b12f3" style="common" x="0" y="0" width="528" height="12" isRemoveLineWhenBlank="true" isPrintWhenDetailOverflows="true" forecolor="#FF3333">
+									<printWhenExpression><![CDATA[$F{CODEDESC1}!=null]]></printWhenExpression>
+								</reportElement>
+								<textElement textAlignment="Justified"/>
+								<textFieldExpression><![CDATA[($F{CODEDESC1}==null?"":($F{CODEDESC1}))]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+		</band>
+		<band height="29">
+			<printWhenExpression><![CDATA[$F{CERT_CLAUSES_YN}.equals("Y")]]></printWhenExpression>
+			<staticText>
+				<reportElement uuid="ca3eda8b-da00-4163-b7ec-dbf3346b576f" style="common1" x="0" y="0" width="523" height="15" isRemoveLineWhenBlank="true" isPrintInFirstWholeBand="true">
+					<printWhenExpression><![CDATA[$F{WARRANTY_YN}=="Y"]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Warranties]]></text>
+			</staticText>
+			<componentElement>
+				<reportElement uuid="e99139dd-96cf-4a45-874e-31f095c7c578" key="table 9" style="table 9" mode="Transparent" x="0" y="15" width="523" height="12" isRemoveLineWhenBlank="true" isPrintInFirstWholeBand="true">
+					<printWhenExpression><![CDATA[$F{WARRANTY_YN}=="Y"]]></printWhenExpression>
+				</reportElement>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="Warrenty" uuid="31ad0e50-34da-4c11-86f6-783e4e57261b">
+						<datasetParameter name="Application_No">
+							<datasetParameterExpression><![CDATA[$P{Application_No}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="belongingBranchCode">
+							<datasetParameterExpression><![CDATA[$P{belongingBranchCode}]]></datasetParameterExpression>
+						</datasetParameter>
+						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					</datasetRun>
+					<jr:column width="529" uuid="81bc8916-7cce-49e3-ad5b-b9bb330b5637">
+						<jr:detailCell style="table 9_TD" height="12" rowSpan="1">
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement uuid="0c202694-2559-4267-aefc-c3338e766f6e" style="common" x="0" y="0" width="526" height="12" isRemoveLineWhenBlank="true" isPrintWhenDetailOverflows="true" forecolor="#FF3333"/>
+								<textElement textAlignment="Justified">
+									<font size="9"/>
+								</textElement>
+								<textFieldExpression><![CDATA[($F{CODEDESC1}==null?"":($F{CODEDESC1}))]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+		</band>
+		<band height="30">
+			<printWhenExpression><![CDATA[$F{SPECIAL_TERM}!=null]]></printWhenExpression>
+			<staticText>
+				<reportElement uuid="e6cba935-b31d-4daa-bc88-2dd3d214e6d8" style="common1" x="0" y="0" width="523" height="15"/>
+				<textElement/>
+				<text><![CDATA[Special Term]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement uuid="73628fad-8e9a-4e03-9549-e85ca71fedc2" style="common" x="0" y="15" width="523" height="15"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{SPECIAL_TERM}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="17">
+			<printWhenExpression><![CDATA[!$F{COMMODITY_EXCESS}.trim().equals("0")]]></printWhenExpression>
+			<textField>
+				<reportElement uuid="bf09adee-7752-4eaa-92ec-0b4b246514e3" style="common" x="35" y="0" width="488" height="15" isRemoveLineWhenBlank="true">
+					<printWhenExpression><![CDATA[($F{COMMODITYCNT_YN}=="Y")&&($F{POLICY_EXCESS}=="YES")]]></printWhenExpression>
+				</reportElement>
+				<box leftPadding="4"/>
+				<textElement textAlignment="Justified"/>
+				<textFieldExpression><![CDATA[($F{COMMODITY_EXCESS}==null?"":($F{COMMODITY_EXCESS}))+" for each and every loss or occurrence."]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="8ae4dfbb-2dcc-47f5-b6e0-3959f1f08dee" style="common1" x="0" y="0" width="35" height="15" isRemoveLineWhenBlank="true">
+					<printWhenExpression><![CDATA[($F{COMMODITYCNT_YN}=="Y")&&($F{POLICY_EXCESS}=="YES")]]></printWhenExpression>
+				</reportElement>
+				<textElement/>
+				<text><![CDATA[Excess:]]></text>
+			</staticText>
+		</band>
+		<band height="34" splitType="Prevent">
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="46e092a4-906d-47ea-8ee5-be642d503866" style="common" x="0" y="15" width="523" height="15" isPrintInFirstWholeBand="true"/>
+				<textElement textAlignment="Justified"/>
+				<textFieldExpression><![CDATA["In the event of loss or damage which may give rise to a claim under this Policy, notice must be given immediately to "+($F{SETTLINGAGENTNAME}==null?"":($F{SETTLINGAGENTNAME}))+"."]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="1ebfb054-b5fc-45f4-99e5-8e65416860f1" style="common1" x="0" y="0" width="523" height="15" isRemoveLineWhenBlank="true"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Survey Clause]]></text>
+			</staticText>
+		</band>
+		<band height="35" splitType="Prevent">
+			<staticText>
+				<reportElement uuid="2cdc2159-76eb-40b9-a103-2e009bfc9b84" style="common1" x="0" y="0" width="523" height="15" isPrintInFirstWholeBand="true"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Claims]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="d95b9f73-155c-4def-9742-987f31d38910" style="common" isPrintRepeatedValues="false" x="0" y="15" width="523" height="15" isPrintInFirstWholeBand="true"/>
+				<textElement textAlignment="Justified"/>
+				<textFieldExpression><![CDATA["In the event of a claim arising under this Policy, it is agreed that it shall be settled in accordance with English Law and Practice and shall be so payable in "+($F{TO_DEST_COUNTRY}==null?"":($F{TO_DEST_COUNTRY}))+"."]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="104">
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement uuid="40d03faf-db70-44ec-aa98-3a16be37f803" style="common" x="364" y="85" width="159" height="15" isRemoveLineWhenBlank="true"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{BRANCH_ADDRESS}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="615293e6-e884-40c1-8ea3-619a7a14c524" style="common" x="0" y="70" width="364" height="15" isPrintWhenDetailOverflows="true"/>
+				<textElement/>
+				<textFieldExpression><![CDATA["Entered by "+($F{LOGIN_ID}==null?"":($F{LOGIN_ID}))]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="ab9b2619-ad22-414d-8a61-3c7a15c82bd5" style="common" x="45" y="41" width="125" height="15" isPrintWhenDetailOverflows="true"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[($F{EFFECTIVE_DATE}==null?"":($F{EFFECTIVE_DATE}))]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="37f02645-ef11-4daf-ba90-e279fcac7807" style="common" x="0" y="85" width="364" height="15" isPrintWhenDetailOverflows="true"/>
+				<textElement/>
+				<textFieldExpression><![CDATA["This certificate is issued by "+($F{LOGIN_ID}==null?"":($F{LOGIN_ID}))+" on behalf of "+($F{BRANCH_ADDRESS}==null?"":($F{BRANCH_ADDRESS}))]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="fe3c1773-4276-43b1-9334-3763504b6fd7" style="common" x="0" y="56" width="170" height="15"/>
+				<textElement/>
+				<textFieldExpression><![CDATA["Signed at "+($F{BRANCH_NAME}==null?"":($F{BRANCH_NAME}))]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="f49ae56c-ff12-4247-97bd-fdccd75d7f73" style="common" x="0" y="41" width="45" height="15"/>
+				<textElement/>
+				<text><![CDATA[Signed on]]></text>
+			</staticText>
+			<image scaleImage="FillFrame" hAlign="Right" vAlign="Middle">
+				<reportElement uuid="d3c1374f-a997-4e35-92f9-3fdbfa6cd7c3" x="437" y="0" width="85" height="85">
+					<printWhenExpression><![CDATA[$F{SIGN_IMG}!=null]]></printWhenExpression>
+				</reportElement>
+				<imageExpression><![CDATA[$P{imagePath}+"//"+$F{SIGN_IMG}]]></imageExpression>
+			</image>
+		</band>
+		<band height="18">
+			<printWhenExpression><![CDATA[$F{APPROVED_BY}!=null]]></printWhenExpression>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="01ff456e-f261-40b7-8b01-5ac23612e03d" style="common" x="0" y="0" width="523" height="15" isPrintWhenDetailOverflows="true"/>
+				<textElement/>
+				<textFieldExpression><![CDATA["This certificate is approved by "+($F{APPROVED_BY}==null?"":($F{APPROVED_BY}))]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="46">
+			<printWhenExpression><![CDATA[$F{COMMODITY_EXCESS}!=0]]></printWhenExpression>
+			<staticText>
+				<reportElement uuid="d640f1eb-c764-41d1-8432-8d871369cb86" style="common1" x="0" y="2" width="35" height="15" isRemoveLineWhenBlank="true">
+					<printWhenExpression><![CDATA[($F{COMMODITYCNT_YN}=="N")&&($F{POLICY_EXCESS}=="YES")]]></printWhenExpression>
+				</reportElement>
+				<textElement/>
+				<text><![CDATA[Excess:]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="e568667b-17a2-4ca6-a27e-207c039373f5" style="common" x="1" y="17" width="523" height="15" isRemoveLineWhenBlank="true">
+					<printWhenExpression><![CDATA[($F{COMMODITYCNT_YN}=="N")&&($F{POLICY_EXCESS}=="YES")]]></printWhenExpression>
+				</reportElement>
+				<textElement/>
+				<textFieldExpression><![CDATA["Claims, if any, are payable subject to an excess for each and every loss\n\n\n"]]></textFieldExpression>
+			</textField>
+			<componentElement>
+				<reportElement uuid="ac87b38e-cf7a-42c0-af75-2727f7cd91a8" key="table 10" style="table 10" mode="Transparent" x="0" y="32" width="523" height="12" isRemoveLineWhenBlank="true">
+					<printWhenExpression><![CDATA[($F{COMMODITYCNT_YN}=="N")&&($F{POLICY_EXCESS}=="YES")]]></printWhenExpression>
+				</reportElement>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="Excess" uuid="d87e415d-9af1-4fd0-8014-8f3a335371bd">
+						<datasetParameter name="Application_No">
+							<datasetParameterExpression><![CDATA[$P{Application_No}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="branchCode">
+							<datasetParameterExpression><![CDATA[$P{branchCode}]]></datasetParameterExpression>
+						</datasetParameter>
+						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					</datasetRun>
+					<jr:column width="90" uuid="691fd853-55bd-4d76-81da-2f549aafc4ab">
+						<jr:columnHeader style="table 10_CH" height="15" rowSpan="1">
+							<staticText>
+								<reportElement uuid="c7b64f75-d170-4849-b578-dd4edbdf7ed6" style="common" x="0" y="0" width="90" height="15" isPrintWhenDetailOverflows="true"/>
+								<textElement textAlignment="Center"/>
+								<text><![CDATA[S.No]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table 10_TD" height="15" rowSpan="1">
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement uuid="91a8d3d0-b20c-4ae7-a1fd-445def92e359" style="common" isPrintRepeatedValues="false" x="0" y="0" width="90" height="15" isPrintWhenDetailOverflows="true"/>
+								<textElement textAlignment="Center"/>
+								<textFieldExpression><![CDATA[$F{SNO}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="199" uuid="c67ae2ab-11f8-4d87-95a6-fd4cc59787e2">
+						<jr:columnHeader style="table 10_CH" height="15" rowSpan="1">
+							<staticText>
+								<reportElement uuid="d3cd4a41-df07-492d-9055-cb1b8f43f2ab" style="common" x="0" y="0" width="199" height="15" isPrintWhenDetailOverflows="true"/>
+								<textElement textAlignment="Center"/>
+								<text><![CDATA[Subject Matter Insured]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table 10_TD" height="15" rowSpan="1">
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement uuid="b4ea507b-11d0-4669-aebf-f7ab1656267a" style="common" isPrintRepeatedValues="false" x="0" y="0" width="199" height="15" isPrintWhenDetailOverflows="true"/>
+								<textElement textAlignment="Center"/>
+								<textFieldExpression><![CDATA[$F{DESCRIPTION}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="133" uuid="4dbb7f74-f3de-46b2-b6a7-24cb3ad19242">
+						<jr:columnHeader style="table 10_CH" height="15" rowSpan="1">
+							<staticText>
+								<reportElement uuid="94a14a87-6415-409a-813e-987f6df6ecb4" style="common" x="0" y="0" width="133" height="15" isPrintWhenDetailOverflows="true"/>
+								<textElement textAlignment="Center"/>
+								<text><![CDATA[Sum Insured]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table 10_TD" height="15" rowSpan="1">
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement uuid="e2c9b6d3-0050-4ac1-aaaa-5d742c860e3c" style="common" x="0" y="0" width="133" height="15" isPrintWhenDetailOverflows="true"/>
+								<box rightPadding="4"/>
+								<textElement textAlignment="Right"/>
+								<textFieldExpression><![CDATA[$F{SUM_INSURED}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="103" uuid="babc3a1e-2bfb-49c5-acda-d0e8a161b92f">
+						<jr:columnHeader height="15" rowSpan="1">
+							<box>
+								<pen lineWidth="0.5"/>
+								<topPen lineWidth="0.5"/>
+								<leftPen lineWidth="0.5"/>
+								<bottomPen lineWidth="0.5"/>
+								<rightPen lineWidth="0.5"/>
+							</box>
+							<staticText>
+								<reportElement uuid="7bf9e098-0649-4b56-b1b7-19ea2e679809" style="common" x="0" y="0" width="103" height="15" isPrintWhenDetailOverflows="true"/>
+								<box>
+									<pen lineWidth="0.0"/>
+									<topPen lineWidth="0.0"/>
+									<leftPen lineWidth="0.0"/>
+									<bottomPen lineWidth="0.0"/>
+									<rightPen lineWidth="0.0"/>
+								</box>
+								<textElement textAlignment="Center"/>
+								<text><![CDATA[Excess]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell height="15" rowSpan="1">
+							<box>
+								<pen lineWidth="0.5"/>
+								<topPen lineWidth="0.5"/>
+								<leftPen lineWidth="0.5"/>
+								<bottomPen lineWidth="0.5"/>
+								<rightPen lineWidth="0.5"/>
+							</box>
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement uuid="b0a4d8a2-ab7c-4e23-bac8-d80783612064" style="common" x="0" y="0" width="103" height="15" isPrintWhenDetailOverflows="true"/>
+								<box rightPadding="4">
+									<pen lineWidth="0.0"/>
+									<topPen lineWidth="0.0"/>
+									<leftPen lineWidth="0.0"/>
+									<bottomPen lineWidth="0.0"/>
+									<rightPen lineWidth="0.0"/>
+								</box>
+								<textElement textAlignment="Right"/>
+								<textFieldExpression><![CDATA[$F{EXCESS}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+			<break>
+				<reportElement uuid="d4f6db9e-b781-4a50-8069-03ef5398c5a9" x="0" y="1" width="523" height="1" isRemoveLineWhenBlank="true">
+					<printWhenExpression><![CDATA[($F{COMMODITYCNT_YN}=="N")&&($F{POLICY_EXCESS}=="YES")]]></printWhenExpression>
+				</reportElement>
+			</break>
+		</band>
+		<band height="27">
+			<break>
+				<reportElement uuid="8e6cac8f-3db5-4e49-b5a6-28d72573cd15" x="0" y="-1" width="523" height="1"/>
+			</break>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="28dd152c-f3f9-4fd0-828e-42d47bd2e7ea" style="common" x="0" y="6" width="523" height="15" isPrintWhenDetailOverflows="true">
+					<printWhenExpression><![CDATA[$F{POLICYNO}!=null]]></printWhenExpression>
+				</reportElement>
+				<textElement/>
+				<textFieldExpression><![CDATA["Attached is forming part of Policy no:"+($F{POLICYNO}==null?"":($F{POLICYNO}))]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="73">
+			<staticText>
+				<reportElement uuid="a490a9ae-9a64-435b-81c8-c7f4fe29df32" style="common1" x="0" y="0" width="523" height="15" forecolor="#FF3333"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[IMPORTANT NOTICE CLAUSE]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="f56e191f-7c29-4691-a355-8f4347f3de6f" style="common" x="0" y="30" width="523" height="15" forecolor="#FF3333"/>
+				<textElement/>
+				<textFieldExpression><![CDATA["The Assured must read this policy carefully and in case of errors please inform Emirates Insurance immediately."]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="459135ed-5388-4c1c-bd91-67fbbcef327f" style="common" x="0" y="52" width="523" height="15" forecolor="#FF3333"/>
+				<textElement/>
+				<textFieldExpression><![CDATA["Please note failure to comply with any warranty will result in coverage being cancelled automatically from date of breach."]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="225">
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="dc091cb8-6993-42c1-8740-1a3b141fcd2c" style="common" x="34" y="102" width="489" height="15" forecolor="#FF3333"/>
+				<textElement textAlignment="Justified"/>
+				<textFieldExpression><![CDATA["When delivery is made by container, to ensure that the container and its seals are examined immediately by their responsible official."]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="e42b4578-0947-4054-ac42-d7340157a7cd" style="common" x="20" y="161" width="15" height="15" forecolor="#FF3333"/>
+				<textElement/>
+				<text><![CDATA[5]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="da8ba971-f4f5-426a-80bd-7ce309fc2f64" style="common" x="20" y="87" width="15" height="15" forecolor="#FF3333"/>
+				<textElement/>
+				<text><![CDATA[2]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="b156031d-60d9-45e6-950f-6471d74eec7b" style="common" x="0" y="20" width="523" height="15" forecolor="#FF3333"/>
+				<textElement textAlignment="Justified"/>
+				<textFieldExpression><![CDATA["It is the duty of the insured and their agents in all cases to take such measures as may be reasonable for the purpose or averting or minimising a loss and to ensure that all right against Carriers, Bailees or other Third Parties are properly preserved and exercised.\n\nIn particular the Assured or their Agents are required:-"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="b7344c73-1c2b-4db2-b7fa-87a3e407d387" style="common" x="20" y="72" width="15" height="15" forecolor="#FF3333"/>
+				<textElement/>
+				<text><![CDATA[1]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="d31edadf-70dd-4eda-9076-88b0e18ca048" style="common" x="20" y="102" width="15" height="15" forecolor="#FF3333"/>
+				<textElement/>
+				<text><![CDATA[3]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="60d6b17e-b6d9-4206-bf50-58e7ada5d799" style="common" x="34" y="161" width="489" height="15" forecolor="#FF3333"/>
+				<textElement textAlignment="Justified"/>
+				<textFieldExpression><![CDATA["To apply immediately for survey by Carriers or other Bailees, representatives if any loss or damage be apparent and claim on the Carriers or other Bailees for any actual loss or damage found at such survey."]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="600cc737-5aac-4a14-b9ed-010c499fd9cb" style="common" x="34" y="210" width="489" height="15" forecolor="#FF3333"/>
+				<textElement textAlignment="Justified"/>
+				<textFieldExpression><![CDATA["The Consignees or their Agents are recommended to make themselves familiar with regulation of the said authorities at the port of discharge."]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="fa844200-f6b9-4185-a0a9-8231732b822c" style="common" x="20" y="210" width="15" height="15" forecolor="#FF3333"/>
+				<textElement>
+					<font isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[7]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="c66957ef-1041-4c29-b7ea-1904f1927eb9" style="common" x="34" y="185" width="489" height="15" forecolor="#FF3333"/>
+				<textElement textAlignment="Justified"/>
+				<textFieldExpression><![CDATA["To give notice in writing to the Carriers or other Bailees within three days of delivery if the loss or damage was not apparent at the time of taking delivery."]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="fb69d03a-eb09-44b4-ba24-0930e39fb277" style="common" x="20" y="185" width="15" height="15" forecolor="#FF3333"/>
+				<textElement/>
+				<text><![CDATA[6]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="413c8a68-f012-4a7f-af2d-b740f8da1fc5" style="common" x="34" y="127" width="489" height="15" forecolor="#FF3333"/>
+				<box leftPadding="0"/>
+				<textElement textAlignment="Justified"/>
+				<textFieldExpression><![CDATA["If the container is delivered damaged or with seals broken or missing or with seals other than as stated in the shipping documents, to clause the delivery receipt accordingly and retain all defective or irregular seals for subsequent identification."]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="dff7b837-8e5f-4ae9-95d4-6708dd0bb78f" style="common" x="34" y="72" width="489" height="15" forecolor="#FF3333"/>
+				<textElement textAlignment="Justified"/>
+				<textFieldExpression><![CDATA["To claim immediately on the Carriers, Port Authorities and other Bailees for any missing packages."]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="b87c7b41-c1e0-4327-bff7-60773eb0c492" style="common" x="20" y="127" width="15" height="15" forecolor="#FF3333"/>
+				<textElement/>
+				<text><![CDATA[4]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="7bbaf4cd-f31c-4b87-830b-b1ed09d20c97" style="common1" x="0" y="0" width="523" height="15" isPrintWhenDetailOverflows="true" forecolor="#FF3333"/>
+				<box leftPadding="0"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Procedure in the event of loss or damage]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="29e87b0c-c68d-4b81-98b8-a7cca2e81987" style="common" x="34" y="87" width="489" height="15" forecolor="#FF3333"/>
+				<textElement textAlignment="Justified"/>
+				<textFieldExpression><![CDATA["In no circumstances, except under written protest, to give clean receipts where goods are doubtful condition."]]></textFieldExpression>
+			</textField>
+		</band>
+		<band/>
+		<band height="130" splitType="Prevent">
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="aae3ab1e-bf42-40e9-8ed7-08de4f9e6752" style="common" x="34" y="70" width="489" height="15" forecolor="#FF3333"/>
+				<textElement/>
+				<textFieldExpression><![CDATA["Original Bill of Lading and/ or other contract of carriage like Airway Bill/ Consignment Note (including reverse side)"]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="da478ac1-3619-4adc-9f08-bce9f6ac16df" style="common" x="34" y="100" width="489" height="15" forecolor="#FF3333"/>
+				<textElement/>
+				<textFieldExpression><![CDATA["Tally sheets and weight notes at final destination"]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="02946d7e-0328-4af8-b0d5-e4dd6e7ac78e" style="common" x="34" y="40" width="489" height="15" forecolor="#FF3333"/>
+				<textElement/>
+				<textFieldExpression><![CDATA["Original Marine Cargo Policy or Certificate of Insurance "]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="924c34e6-d4b3-4b47-a6af-5f9837511cf7" style="common" x="34" y="85" width="489" height="15" forecolor="#FF3333"/>
+				<textElement/>
+				<textFieldExpression><![CDATA["Survey report or other documentary evidence to show the extent of the loss or damage"]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="25e6e730-5c01-4ec9-aa97-288e7a41a5fc" style="common" x="34" y="115" width="489" height="15" forecolor="#FF3333"/>
+				<textElement/>
+				<textFieldExpression><![CDATA["Correspondence exchanged with the Carriers and other parties regarding their liability for the loss or damage"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="a01cffb4-29c3-4f61-bcb8-076c3859ab86" style="common1" x="0" y="0" width="523" height="15" forecolor="#FF3333"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Arial" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Documentation for Claims]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="33ea9ffa-ad7b-4eca-bde4-7242c2590271" style="common" x="0" y="20" width="523" height="15" forecolor="#FF3333"/>
+				<textElement/>
+				<textFieldExpression><![CDATA["The Assured or their Agents must submit the following documents in the event of a claim: "]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="9b316d06-e7aa-4a36-afb6-b3dec8161bb8" style="common" x="34" y="55" width="489" height="15" forecolor="#FF3333"/>
+				<textElement/>
+				<textFieldExpression><![CDATA["Original or copy of Shipping Invoices together with shipping specification and/ or weight notes"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="5289bdd9-86d2-4aab-85a2-353148ec2bb6" style="common" x="20" y="40" width="15" height="15" forecolor="#FF3333"/>
+				<textElement/>
+				<text><![CDATA[1]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="9f74bc7e-261f-421d-8338-81e579b210cc" style="common" x="20" y="55" width="15" height="15" forecolor="#FF3333"/>
+				<textElement/>
+				<text><![CDATA[2]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="a0c0648c-d349-4414-b14e-357607107623" style="common" x="20" y="100" width="15" height="15" forecolor="#FF3333"/>
+				<textElement/>
+				<text><![CDATA[5]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="b4f04f54-b238-4a56-a1ee-57d3864f0d23" style="common" x="20" y="115" width="15" height="15" forecolor="#FF3333"/>
+				<textElement/>
+				<text><![CDATA[6]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="5373823e-a599-4f33-a3cf-f2b0e3e519d5" style="common" x="20" y="70" width="15" height="15" forecolor="#FF3333"/>
+				<textElement/>
+				<text><![CDATA[3]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="a954c3ea-d358-4842-8004-dfb5c0c12ae5" style="common" x="20" y="85" width="15" height="15" forecolor="#FF3333"/>
+				<textElement/>
+				<text><![CDATA[4]]></text>
+			</staticText>
+		</band>
+		<band/>
+	</detail>
+	<columnFooter>
+		<band height="16" splitType="Stretch">
+			<textField>
+				<reportElement uuid="226b03b0-1e1c-40a6-909a-cb765e5ed016" x="403" y="0" width="80" height="15"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement uuid="34a4bd76-75df-4e8a-baad-a9afb98611c5" x="482" y="0" width="40" height="15"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="62" splitType="Stretch">
+			<image scaleImage="FillFrame" hAlign="Center" vAlign="Middle">
+				<reportElement uuid="53a1fefc-3712-4ec0-bb48-aa7317bfed7c" x="0" y="0" width="523" height="60">
+					<printWhenExpression><![CDATA[$F{FOOTER_BRANCH_IMG}!=null]]></printWhenExpression>
+				</reportElement>
+				<imageExpression><![CDATA[$P{imagePath}+"//"+$F{FOOTER_BRANCH_IMG}]]></imageExpression>
+			</image>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

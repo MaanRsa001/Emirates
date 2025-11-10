@@ -1,0 +1,640 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+
+<struts>
+
+	<constant name="struts.enable.DynamicMethodInvocation" value="false" />
+	<constant name="struts.devMode" value="false" />
+	<constant name="struts.ognl.allowStaticMethodAccess" value="true" />
+	<constant name="struts.custom.i18n.resources" value="MessageResources,ApplicationConstants,DBQuery, application_dynamic_queries, OracleQuery, app_field_names,CoreQuery" />
+	<constant name="struts.i18n.reload" value="true" />
+	<constant name="struts.action.extension" value="action,,do" />
+	<constant name="struts.multipart.maxSize" value="50000000" />
+	<constant name="locale.provider" value="org.displaytag.localization.I18nStrutsAdapter" />
+	<constant name="struts.action.excludePattern" value=".*unfiltered.*,/admin/.*,/CommodityCountryRate.do,/CustomerInfo/.*,/premiumOpenCover/.*,/LCControl/.*,jspa,/services/.*,/servlet/.*,/struts/*,/struts/webconsole.html"/>
+	<constant name="struts.mapper.action.prefix.enabled" value="false" />
+
+	 <package name="intercept" extends="tiles-default,json-default" strict-method-invocation="false">
+		  	<result-types>
+				<result-type name="tiles" class="org.apache.struts2.views.tiles.TilesResult" />
+			</result-types>
+			<interceptors>
+       			<interceptor name="noCacheIntercept" class="com.maan.common.interceptor.NoCacheInterceptor" />
+				<interceptor name="SessionIntercept" class="com.maan.common.interceptor.SessionInterceptor" />
+				<interceptor-stack name="noCacheStack">
+					<interceptor-ref name="noCacheIntercept" />				
+	     			<interceptor-ref name="prepare"/>
+					<interceptor-ref name="defaultStack">
+						<param name="exception.logEnabled">true</param>
+						<param name="exception.logLevel">ERROR</param>
+					</interceptor-ref>
+					<interceptor-ref name="token">
+						<param name="excludeMethods">*</param>
+					</interceptor-ref>
+					<interceptor-ref name="fileUpload">
+						<param name="maximumSize">52428800</param>
+						<param name="contentType">application/octet-stream</param>
+					</interceptor-ref>
+					<interceptor-ref name="actionMappingParams" />
+					<interceptor-ref name="params"> 
+						<param name="excludeParams">dojo\..*,^struts\..*</param>
+					</interceptor-ref>
+					<interceptor-ref name="conversionError" />
+					<interceptor-ref name="validation"/>
+					<interceptor-ref name="workflow"/>
+				</interceptor-stack>
+				<interceptor-stack name="SessionCheckStack">
+					<interceptor-ref name="SessionIntercept" />
+					<interceptor-ref name="noCacheStack" />
+				</interceptor-stack>
+       		</interceptors>
+       		<default-interceptor-ref name="SessionCheckStack"></default-interceptor-ref>
+       		<global-results>
+       			<result name="session" type="tiles">SessionExpired</result>
+       			<result name="invalid.token" type="tiles">SessionExpired</result>
+       			<result name="unhandledException" type="tiles">SessionExpired</result>
+       		</global-results>
+       		<global-exception-mappings>
+       			<exception-mapping result="ExceptionHandler" exception="java.lang.Exception" />
+       		</global-exception-mappings>
+       	</package>
+       	
+       	<package name="paymentIntercept" extends="struts-default,tiles-default,json-default" strict-method-invocation="false">
+		<result-types>
+			<result-type name="tiles" class="org.apache.struts2.views.tiles.TilesResult" />
+		</result-types>
+		<interceptors>
+		<!--  <interceptor name="noCacheIntercept" class="com.maan.common.interceptor.NoCacheInterceptor" />
+		<interceptor name="SessionIntercept" class="com.maan.common.interceptor.SessionInterceptor" />-->
+		<interceptor-stack name="noCacheStack">
+			<!--  <interceptor-ref name="noCacheIntercept" />-->				
+			<interceptor-ref name="prepare"/>
+			<interceptor-ref name="defaultStack">
+				<param name="exception.logEnabled">true</param>
+				<param name="exception.logLevel">ERROR</param>
+			</interceptor-ref>
+			<interceptor-ref name="token">
+				<param name="excludeMethods">*</param>
+			</interceptor-ref>
+			<interceptor-ref name="fileUpload">
+				<param name="maximumSize">52428800</param>
+				<param name="contentType">application/octet-stream</param>
+			</interceptor-ref>
+			<interceptor-ref name="actionMappingParams" />
+			<interceptor-ref name="params"> 
+				<param name="excludeParams">dojo\..*,^struts\..*</param>
+			</interceptor-ref>
+			<interceptor-ref name="conversionError" />
+			<interceptor-ref name="validation"/>
+			<interceptor-ref name="workflow"/>
+			</interceptor-stack>
+		</interceptors>
+		<default-interceptor-ref name="noCacheStack"></default-interceptor-ref>
+		<global-results>
+			<result name="session" type="tiles">SessionExpired</result>
+			<result name="invalid.token" type="tiles">SessionExpired</result>
+			<result name="unhandledException" type="tiles">SessionExpired</result>
+		</global-results>
+		<global-exception-mappings>
+			<exception-mapping result="ExceptionHandler" exception="java.lang.Exception" />
+		</global-exception-mappings>
+	</package>
+       		<package name="default" extends="intercept" strict-method-invocation="false">
+	            <action name="Login*" class="com.maan.common.login.LogInAction" method="{1}">
+	            	<interceptor-ref name="noCacheStack"></interceptor-ref>
+					<result name="page">/pages/login.jsp</result>
+					<result name="input">/pages/login.jsp</result>
+					<result name="changePWD">/pages/login/changePWD.jsp</result>
+					<result name="forgotPWD">/pages/login/forgotPWD.jsp</result>
+					<result name="home" type="redirectAction">
+						<param name="actionName">HomeUser</param>
+					</result>
+					<result name="adminHome" type="redirectAction">
+						<param name="actionName">homeAdmin</param>
+					</result>
+				</action>
+				<!--<action name="HomeAdmin">
+	                <result name="success" type="tiles">adminHome</result>
+	            </action>-->
+	            <action name="HomeUser">
+	                <result name="success" type="tiles">productSelection</result>
+	            </action>
+	            <action name="*DoUpload" class="com.maan.upload.UploadAction" method="{1}">
+	  				<result name="input" type="tiles">FileUpload</result>
+	                <result name="success" type="tiles">FileUpload</result>
+	            </action>
+	             <action name="*Quotation" class="com.maan.quotation.QuotationAction" method="{1}">
+	                <result name="input" type="tiles">quotation</result>
+	                <result name="success" type="chain">initPremium</result>
+	                <result name="dropdown" type="tiles">ajaxDropdown</result>
+	                <result name="commodity" type="tiles">commoditySelection</result>
+	                <result name="vesselSelection" type="tiles">vesselSelection</result>
+	                <result name="coreCustomer" type="tiles">coreCustomer</result>
+	                <result name="customerSelection" type="tiles">customerSelection</result>
+	                <result name="customerSearchList" type="tiles">customerSearchList</result>
+	                <result name="lcSelection" type="tiles">lcSelection</result>
+	                <result name="lcSearchList" type="tiles">lcSearchList</result>
+	                <result name="citySelection" type="tiles">citySelection</result>
+	                <result name="vesselList" type="tiles">vesselList</result>
+	                <result name="stream" type="stream">
+					    <param name="inputName">inputStream</param>
+					    <param name="contentType">text/html</param>
+					</result>
+	            </action>
+	             <action name="*Report" class="com.maan.report.ReportAction" method="{1}">
+	             	<result name="input" type="tiles">lcUpload</result>
+	                <result name="success" type="tiles">report</result>
+	                <result name="policyInfo" type="tiles">policyInfo</result>
+	                <result name="declarationPolicy" type="tiles">declarationPolicy</result>
+	                <result name="links" type="tiles">links</result>
+	                 <result name="redirect" type="redirectAction">
+  						<param name="actionName">initReport</param>							
+  						<param name="menuType">QL</param>
+  						<param name="loginId">${loginId}</param>							
+	               </result>
+	               <result name="search" type="tiles">search</result> 	      
+	               <result name="searchResult" type="tiles">searchResult</result>
+	               <result name="dropdown" type="tiles">ajaxDropdown</result>
+	               <result name="viewQuote" type="tiles">viewQuote</result>
+	               <result name="endorsement" type="redirectAction">
+	               		<param name="actionName">editQuoteQuotation</param>
+	               		<param name="quoteNo">${quoteNo}</param>
+	               		<param name="endTypeId">${endTypeId}</param>
+	               		<param name="policyNo">${policyNo}</param>
+	               		<param name="custName">${custName}</param>
+	               		<param name="loginId">${loginId}</param>
+	               		<param name="brokerCompany">${brokerCompany}</param>
+	               		<param name="openCoverNo">${openCoverNo}</param>
+	               </result>
+					<result name="travelEndorsement" type="redirectAction">
+	               		<param name="actionName">initTravel</param>
+	               		<param name="endTypeId">${endTypeId}</param>
+		                <param name="applicationNo">${applicationNo}</param>
+		                <param name="policyNo">${policyNo}</param>
+		                <param name="quoteStatus">ET</param>
+		                <param name="brokerCompany">${brokerCompany}</param>
+	               </result>
+	               <result name="healthEndorsement" type="redirectAction">
+	               		<param name="actionName">initHealth</param>
+	               		<param name="endTypeId">${endTypeId}</param>
+		                <param name="applicationNo">${applicationNo}</param>
+		                <param name="policyNo">${policyNo}</param>
+		                <param name="quoteStatus">ET</param>
+		                <param name="brokerCompany">${brokerCompany}</param>
+	               </result>
+					<result name="streamPDF" type="stream">
+						<param name="contentDisposition">inline;filename=${fileName}</param>
+						<param name="inputName">inputStream</param>
+						<param name="contentType">application/pdf</param>
+						<param name="bufferSize">1024</param>
+					</result>
+					<result name="redirectviewPDF" type="redirect">
+  						<param name="location">/viewpdfReport</param>
+  						<param name="req">report</param>						
+	               	</result>
+					<result name="viewPDF">${fileName}</result>
+					<result name="cusomerInfo" type="tiles">cusomerInfo</result>
+					<result name="excel" type="stream">
+					    <param name="contentDisposition">attachment;filename=${fileName}.xls</param>
+					    <param name="contentType">application/octet-stream</param>
+					    <param name="inputName">inputStream</param>
+					</result>	
+					<result name="pdf" type="stream">
+					    <param name="contentDisposition">attachment;filename=${fileName}.pdf</param>
+					    <param name="contentType">application/pdf</param>
+					    <param name="inputName">inputStream</param>
+					    <param name="bufferSize">1024</param>
+					</result>
+					<result name="redirectPDFReport" type="redirect">
+  						<param name="location">/pdfReport</param>						
+	               	</result>
+	               	
+	               	<result name="lcdownload" type="stream">
+						<param name="contentDisposition">attachment;filename=${downloadFileName}</param>
+						<param name="inputName">inputStream</param>
+						<param name="contentType">application/octet-stream</param>
+						<param name="bufferSize">1024</param>
+					</result>
+	               	
+	               	<result name="pdfReport">/pages/pdfReport.jsp</result>
+	               	<result name="lcUpload" type="tiles">lcUpload</result>
+	               	<result name="viewdocuments">/pages/viewdocuments.jsp</result>
+	               	<result name="paymentreport" type="tiles">paymentreport</result>
+	            </action>
+	            
+	            <action name="*Premium" class="com.maan.quotation.PremiumAction" method="{1}">
+	                <result name="success" type="tiles">premiumInfo</result>
+	                <result name="input" type="tiles">clauses</result>
+	                <result name="policyInfo" type="tiles">policyInfo</result>
+	                <result name="cybersource" type="tiles">cybersource</result>
+	                <result name="referralStatusInfo" type="tiles">referralStatusInfo</result>	
+	                <result name="addConditions" type="tiles">addConditions</result>	
+	               <result name="redirect" type="redirectAction">
+  						<param name="actionName">initReport</param>							
+  						<param name="menuType">QE</param>
+  						<param name="loginId">${loginId}</param>							
+	               </result>
+	               <result name="onlinePaymentReq" type="redirectAction">
+						<param name="actionName">payment/onlinepaymentReqPayment</param>
+						<param name="merchantRefno">${merchantRefno}</param>
+						<param name="applicationNo">${applicationNo}</param>
+					</result> 
+					<result name="retJson" type="json"/>	                 	            
+	            </action>
+	             
+	            
+	            <action name="*OpenUpload" class="com.maan.upload.UploadAction" method="{1}">
+	  				<result name="input" type="tiles">OpenFileUpload</result>
+	                <result name="success" type="tiles">OpenFileUpload</result>
+	                <result name="reupload" type="tiles">PendingReUpload</result>
+	                <result name="dropdown" type="tiles">ajaxDropdown</result>
+	                <result name="commodityList" type="tiles">commodityList</result>
+	                <result name="otherInfo" type="tiles">otherInfo</result>
+	            </action>
+	            
+	            <action name="*Declaration" class="com.maan.quotation.DeclarationAction" method="{1}">
+	                <result name="success" type="tiles">declaration</result>
+	                <result name="policyInfo" type="tiles">policyInfo</result>
+	            </action>
+	            
+				<action name="*Customer" class="com.maan.customer.CustomerAction" method="{1}">
+	                <result name="input" type="tiles">customerDetails</result>
+	                <result name="customerSelection" type="tiles">customerSelection</result>
+	                <result name="dropdown" type="tiles">ajaxDropdown</result>
+	                <result name="stream" type="stream">
+					    <param name="inputName">inputStream</param>
+					    <param name="contentType">text/html</param>
+					</result>
+					<result name="coreCustomer" type="tiles">coreCustomer</result>
+	                <result name="initReport" type="redirectAction">
+		                <param name="actionName">initReport</param>
+		                <param name="menuType">${quoteStatus}</param>
+  						<param name="loginId">${loginId}</param>		
+	                </result>
+	                <result name="redirectTravel" type="redirectAction">
+		                <param name="actionName">initTravel</param>
+		                <param name="customerId">${customerId}</param>
+		                <param name="applicationNo">${applicationNo}</param>
+		                <param name="quoteStatus">${quoteStatus}</param>	
+	                </result>
+	                <result name="redirectHealth" type="redirectAction">
+		                <param name="actionName">initHealth</param>
+		                <param name="customerId">${customerId}</param>
+		                <param name="applicationNo">${applicationNo}</param>
+		                <param name="quoteStatus">${quoteStatus}</param>
+	                </result>
+	                <result name="redirectHome" type="redirectAction">
+		                <param name="actionName">initHome</param>
+		                <param name="customerId">${customerId}</param>
+		                <param name="applicationNo">${applicationNo}</param>
+		                <param name="quoteStatus">${quoteStatus}</param>
+		                <param name="quoteNo">${quoteNo}</param>
+	                </result>
+	            </action>
+	            
+	            <action name="*CopyQuote" class="com.maan.copyquote.CopyQuoteAction" method="{1}">
+	                <result name="success" type="tiles">copyQuote</result>	 
+	                <result name="redirect" type="redirectAction">
+  						<param name="actionName">initReport</param>							
+  						<param name="menuType">QE</param>
+  						<param name="loginId">${loginId}</param>							
+	               </result>                
+	            </action>
+	            
+	            <action name="*Portfolio" class="com.maan.adminnew.portfolio.PortfolioAction" method="{1}">
+	            	<result name="portfolio" type="tiles">portfolio</result>
+	            	<result name="check" type="tiles">check</result>
+	            	<result name="byDate" type="tiles">byDate</result>
+	            	<result name="information" type="tiles">information</result>
+	            	<result name="portfolioAjax" type="tiles">portfolioajax</result>
+	            	<result name="viewAjax" type="tiles">viewajax</result>
+	            </action>
+	            
+	            <action name="Rating*" class="com.maan.adminnew.rating.RatingEngineAction" method="{1}">
+	                 <result name="commonList" type="tiles">common</result>
+	            </action>
+	            
+	           	<action name="*RatingEngine" class="com.maan.adminnew.rating.RatingEngineHome" method="{1}">
+	                <result name="baserate" type="tiles">baserate</result>
+	                <result name="adminAjax" type="tiles">adminajax</result>
+	                <result name="bankList" type="tiles">bank</result>
+	            </action>
+	            
+	           <action name="*Rating" class="com.maan.adminnew.rating.RatingEngineAction" method="{1}">
+	                <result name="updateConveyance" type="tiles">editConveyance</result>
+	                <result name="editCountry" type="tiles">editCountry</result>
+	                <result name="editBank" type="tiles">editBank</result>
+	                <result name="updateBank" type="tiles">bank</result>
+	                <result name="editMaterial" type="tiles">editMaterial</result>
+	                <result name="editWar" type="tiles">editWar</result>
+	                <result name="editCategory" type="tiles">editCategory</result>
+	                <result name="editCoverComm" type="tiles">editCoverComm</result>
+	                <result name="updateSale" type="tiles">saleterm</result>
+	                <result name="editSale" type="tiles">editSale</result>
+	                <result name="adminAjax"       type="tiles">adminajax</result>
+	                <result name="conveyanceList"  type="tiles">conveyance</result>
+	                <result name="editTole" type="tiles">editTole</result>
+	                <result name="editComEx" type="tiles">editComEx</result>
+	                <result name="editVessel" type="tiles">editVessel</result>
+	                <result name="updateCity" type="tiles">editCity</result>
+	                <result name="editWarranty" type="tiles">editWarranty</result>
+					<result name="editCountryDet" type="tiles">editCountryDet</result>
+					<result name="extracover" type="tiles">extracover</result>  
+	                <result name="editExtraCover" type="tiles">editExtraCover</result>   
+	                <result name="updateExtraCover" type="tiles">editExtraCover</result>    
+	                <result name="editCity" type="tiles">editCity</result>
+	                <result name="editConstantMaster" type="tiles">editConstantMaster</result>
+	                <result name="editConstant" type="tiles">editConstant</result>
+	                <result name="editAgent" type="tiles">editAgent</result>
+	                <result name="updateAgent" type="tiles">editAgent</result>
+	                <result name="calculate" type="tiles">calculate</result>
+	                <result name="editCommodity" type="tiles">editCommodity</result>
+	                <result name="editCurrency" type="tiles">editCurrency</result>
+	                <result name="editExchange" type="tiles">editExchange</result>
+	                <result name="editCover" type="tiles">editCover</result>
+	                <result name="editExclusion" type="tiles">editExclusion</result>
+	                <result name="updateExclusion" type="tiles">editExclusion</result>
+	                <result name="editError" type="tiles">editError</result>
+	                <result name="editClauseID" type="tiles">editClauseID</result>
+	                <result name="updateClauseID" type="tiles">editClauseID</result>
+	                <result name="editTransport" type="tiles">editTransport</result>
+	                <result name="commonList" type="tiles">common</result>
+	                <result name="editWsrcc" type="tiles">wsrccCover</result>
+	                <result name="baserate1" type="tiles">baserate1</result>
+	                <result name="ratingFileUpload" type="tiles">ratingFileUpload</result>
+	                <result name="transDetail" type="tiles">transDetail</result>
+	                <result name="error1" type="json" >
+	           		 	<param name="ignoreHierarchy">false</param>
+	           		 </result>
+	           		<result name="download" type="stream">
+					    <param name="contentDisposition">attachment;filename=${uploadFileName}</param>
+					    <param name="contentType">application/vnd.ms-excel</param>
+					    <param name="inputName">inputStream</param>
+					    <param name="bufferSize">1024</param>
+					</result>
+					<result name="editExecutive" type="tiles">editExecutive</result>
+	            </action>
+	               
+ 				<action name="*Ratingjson" class="com.maan.adminnew.rating.RatingEngineAction" method="{1}">
+	           		<result name="commonList" type="json"/>
+	           		<result name="jsonAjax" type="json" />
+	           	</action> 
+	           	
+	           	<action name="*MotorAdmin" class="com.maan.adminnew.motor.MotorAdminAction" method="{1}">
+	                 <result name="motorGrid" type="tiles">motorGrid</result>
+	                 <result name="editareacov" type="tiles">editareacov</result>
+	                              
+	                <result name="error1" type="json" >
+	           		 	<param name="ignoreHierarchy">false</param>
+	           		 </result>
+	            </action>
+	               
+ 				<action name="*MotorAdminjson" class="com.maan.adminnew.motor.MotorAdminAction" method="{1}">
+	           		<result name="motorGrid" type="json"/>
+	           	</action>   
+	            
+	            <action name="editTransportRatingEngine" class="com.maan.adminnew.rating.RatingEngineAction" method="edit">
+	                <result name="editTransport"   type="tiles">editTransport</result>
+	            </action>
+	            
+	            <action name="updateTransport" class="com.maan.adminnew.rating.RatingEngineAction" method="updateTransport">
+	                <result name="transport" type="tiles">newtransport</result>
+	                <result name="editTransport" type="tiles">editTransport</result>
+	            </action>
+	            <action name="addTransport" class="com.maan.adminnew.rating.RatingEngineAction" method="addTransport">
+	                <result name="editTransport"   type="tiles">editTransport</result>
+	            </action>
+	            <action name="newTransport" class="com.maan.adminnew.rating.RatingEngineAction" method="newTransport">
+	                <result name="transport" type="tiles">newtransport</result>
+	                <result name="test" type="tiles">addtransport</result>
+	            </action>
+	             <action name="*BrokerMgm"  class="com.maan.adminnew.BrokerManagement.BrokerManagementAction" method="{1}">
+	             	<result name="brokerList"  type="tiles">brokerList</result>
+	             	<result name="view" type="tiles">viewBroker</result>
+	             	<result name="edit" type="tiles">editBroker</result> 
+	                <result name="success" type="tiles">pwdChange</result>
+	                <result name="coreCust" type="tiles">corecust</result>
+	                <result name="commission" type="tiles">brokerCommission</result>
+	                <result name="assignNew" type="tiles">assignNewPwd</result>
+	                <result name="status" type="tiles">brokerStatus</result>
+	                <result name="adminAjax" type="tiles">adminajax</result>
+	            </action>
+	          
+	            <action name="*UserMgm"  class="com.maan.adminnew.userManagement.UserMgtAction" method="{1}">
+	             	<result name="userList" type="tiles">userList</result>
+	             	<result name="adminAjax" type="tiles">adminajax</result>
+	             	<result name="view" type="tiles">viewUser</result>
+	             	<result name="edit" type="tiles">editUser</result>
+	             	<result name="openCover" type="tiles">openCover</result>
+	            </action>
+	            
+	            <action name="*CustomerMgm"  class="com.maan.adminnew.customerManagement.CustomerMgtAction" method="{1}">
+	             	<result name="customerList" type="tiles">customerList</result>
+	             	<result name="adminAjax" type="tiles">adminajax</result>
+	             	<result name="view" type="tiles">viewCustomer</result>
+	            </action>
+	            
+	            <action name="*Referal"  class="com.maan.adminnew.referal.ReferalAction" method="{1}">
+	             	<result name="referalList" type="tiles">referalList</result>
+	             	<result name="adminAjax" type="tiles">adminajax</result>
+	            </action>
+	            
+	            <action name="*OC"  class="com.maan.adminnew.openCover.OpenCoverAction" method="{1}">
+	             	<result name="opencover" type="tiles">opencoverList</result>
+	             	<result name="adminAjax" type="tiles">adminajax</result>
+	             	<result name="brokeroc" type="tiles">brokeroc</result>
+	             	<result name="lcdetail" type="tiles">lcdetail</result>
+	            </action>
+	            
+	            <action name="*Areport"  class="com.maan.adminnew.report.ReportAction" method="{1}">
+	             	<result name="policy" type="tiles">policyreport</result>
+	             	<result name="policyajax" type="tiles">policyajax</result>
+	             	<result name="lcsmart" type="tiles">lcsmart</result>
+	             	<result name="branch" type="tiles">branch</result>
+	             	<result name="integration" type="tiles">integration</result>
+	             	<result name="exchange" type="tiles">exchange1</result>
+	             	<result name="ajax" type="tiles">adminajax</result>
+	             	<result name="smart" type="tiles">smartreport</result>
+	             	<result name="input" type="tiles">smartreport</result>
+	             	<result name="commoditySelect" type="tiles">commodityselect</result>
+	             	<result name="smartList" type="tiles">smartlist</result>
+					<result name="opencover" type="tiles">openCoverReport</result>
+					<result name="excel" type="stream">
+					    <param name="contentDisposition">attachment;filename=${fileName}.xls</param>
+					    <param name="contentType">application/octet-stream</param>
+					    <param name="inputName">inputStream</param>
+					</result>	
+					<result name="pdf" type="stream">
+					    <param name="contentDisposition">attachment;filename=${fileName}.pdf</param>
+					    <param name="contentType">application/pdf</param>
+					    <param name="inputName">inputStream</param>
+					    <param name="bufferSize">1024</param>
+					</result>
+	            </action>
+	            
+	            <action name="*LC"  class="com.maan.adminnew.lcMaster.LCMasterAction" method="{1}">
+	            	<result name="success" type="tiles">lclist</result>
+	             	<result name="lclist" type="tiles">lclist</result>
+	             	<result name="lcdetails" type="tiles">lcdetails</result>
+	             	<result name="newlc" type="tiles">newlc</result>
+	             	<result name="viewOpen">/ViewOpenCovers.jsp</result>
+	            </action>
+	            
+	            <action name="*Admin"  class="com.maan.adminnew.AdminMgt.AdminMgtAction" method="{1}">
+	            	<result name="adminHome" type="tiles">adminHome</result>
+	            	<result name="adminMgt" type="tiles">adminMgt</result>
+	            	<result name="menuSelect" type="tiles">menuSelect</result>
+	            	<result name="brokerSelect" type="tiles">brokerSelect</result>
+	            	<result name="ajax" type="tiles">adminajax</result>	            	
+	            </action>
+	            
+	            <action name="*Branch" class="com.maan.adminnew.branchMgt.BranchAction" method="{1}">
+					<result name="input" type="tiles">branch</result>	            
+	            	<result name="branch" type="tiles">branch</result>
+	            	<result name="branchAjax" type="tiles">branchAjax</result>
+	            </action>
+	            
+	             <action name="BrokerDisplayContoller"  class="com.maan.adminnew.BrokerManagement.BrokerManagementAction" method="getABList">
+	                <result name="brokerList"  type="tiles">brokerList</result>
+	            </action>
+	            <action name="CustomerCreationContoller"  class="com.maan.adminnew.customerManagement.CustomerMgtAction" method="getABList">
+	                <result name="customerList"  type="tiles">customerList</result>
+	            </action>
+	             <action name="UserCreationContoller"  class="com.maan.adminnew.userManagement.UserMgtAction" method="getABList">
+	                <result name="userList"  type="tiles">userList</result>
+	            </action>
+	            <action name="UnderwriterCreationContoller"  class="com.maan.adminnew.underwriterManagement.UnderwriterMgtAction" method="getABList">
+	                <result name="underwriterList"  type="tiles">underwriterList</result>
+	            </action>
+	             <action name="*ReportJson" class="com.maan.report.ReportAction" method="{1}">
+	           		<result name="success" type="json"/>
+	           	</action>
+	           	<action name="*UnderwriterMgm"  class="com.maan.adminnew.underwriterManagement.UnderwriterMgtAction" method="{1}">
+	             	<result name="underwriterList" type="tiles">underwriterList</result>
+	             	<result name="adminAjax" type="tiles">adminajax</result>
+	             	<result name="underwriterInfo" type="tiles">viewUnderwriter</result>
+	             	<result name="includeIssuer" type="tiles">includeIssuer</result>
+	             	<result name="excludeIssuer" type="tiles">excludeIssuer</result>
+	             	<result name="edit" type="tiles">editUnderwriter</result>
+	             	<result name="openCover" type="tiles">openCover</result>
+	             	<result name="changePass" type="tiles">changePass</result>
+	             	<result name="branchSelection">/pages/admin/underwriterMgt/branchSelection.jsp</result>
+	             	<result name="adminAjax" type="tiles">adminajax</result> 
+	            </action>
+	              <action name="*CloseTrn"  class="com.maan.adminnew.closeTrn.CloseTrnAction" method="{1}">
+	            	<result name="enterTrn" type="tiles">enterTrn</result>
+	            </action>
+	            <action name="claim*" class="com.maan.claim.ClaimAction" method="{1}">
+	            	<interceptor-ref name="noCacheStack"></interceptor-ref>
+	            	<result name="claimDetail" type="tiles">claimSearch</result>
+	            	<result name="viewClaimDetails" type="tiles">viewClaimDetails</result>
+	            	<result name="adminClaimIndimation" type="tiles">adminClaimIndimation</result>
+	            	<result name="adminAjax" type="tiles">adminajax</result>
+	            	<result name="viewDetail" type="tiles">viewDetail</result>
+	            </action>
+	            
+      </package>	
+      
+      
+      <package name="payment" extends="paymentIntercept" strict-method-invocation="false">
+		<!-- Payment Start -->
+		<action name="*Payment" class="com.maan.payment.PaymentAction" method="{1}">
+			<result name="input" type="tiles">cybersource</result>
+			<result name="cybersource" type="tiles">cybersource</result>
+			<result name="updatePolicyInfoMotor" type="redirectAction">
+				<param name="actionName">onlinepaymentResPremium</param>
+				<param name="quoteNo">${quoteNo}</param>
+				<param name="applicationNo">${applicationNo}</param>
+				<param name="merchantRefno">${merchantRefno}</param>
+			</result>
+			<result name="jsonAjax" type="json"/>
+			<result name="input" type="tiles">clauses</result>
+			 <result name="paymentreport" type="tiles">paymentreport</result>
+		</action>
+		<action name="*Report" class="com.maan.report.ReportAction" method="{1}">
+	             	<result name="input" type="tiles">lcUpload</result>
+	                <result name="success" type="tiles">report</result>
+	                <result name="policyInfo" type="tiles">policyInfo</result>
+	                <result name="declarationPolicy" type="tiles">declarationPolicy</result>
+	                <result name="links" type="tiles">links</result>
+	                 <result name="redirect" type="redirectAction">
+  						<param name="actionName">initReport</param>							
+  						<param name="menuType">QL</param>
+  						<param name="loginId">${loginId}</param>							
+	               </result>
+	               <result name="search" type="tiles">search</result> 	      
+	               <result name="searchResult" type="tiles">searchResult</result>
+	               <result name="dropdown" type="tiles">ajaxDropdown</result>
+	               <result name="viewQuote" type="tiles">viewQuote</result>
+	               <result name="endorsement" type="redirectAction">
+	               		<param name="actionName">editQuoteQuotation</param>
+	               		<param name="quoteNo">${quoteNo}</param>
+	               		<param name="endTypeId">${endTypeId}</param>
+	               		<param name="policyNo">${policyNo}</param>
+	               		<param name="custName">${custName}</param>
+	               		<param name="loginId">${loginId}</param>
+	               		<param name="brokerCompany">${brokerCompany}</param>
+	               		<param name="openCoverNo">${openCoverNo}</param>
+	               </result>
+					<result name="travelEndorsement" type="redirectAction">
+	               		<param name="actionName">initTravel</param>
+	               		<param name="endTypeId">${endTypeId}</param>
+		                <param name="applicationNo">${applicationNo}</param>
+		                <param name="policyNo">${policyNo}</param>
+		                <param name="quoteStatus">ET</param>
+		                <param name="brokerCompany">${brokerCompany}</param>
+	               </result>
+	               <result name="healthEndorsement" type="redirectAction">
+	               		<param name="actionName">initHealth</param>
+	               		<param name="endTypeId">${endTypeId}</param>
+		                <param name="applicationNo">${applicationNo}</param>
+		                <param name="policyNo">${policyNo}</param>
+		                <param name="quoteStatus">ET</param>
+		                <param name="brokerCompany">${brokerCompany}</param>
+	               </result>
+					<result name="streamPDF" type="stream">
+						<param name="contentDisposition">inline;filename=${fileName}</param>
+						<param name="inputName">inputStream</param>
+						<param name="contentType">application/pdf</param>
+						<param name="bufferSize">1024</param>
+					</result>
+					<result name="redirectviewPDF" type="redirect">
+  						<param name="location">/viewpdfReport</param>
+  						<param name="req">report</param>						
+	               	</result>
+					<result name="viewPDF">${fileName}</result>
+					<result name="cusomerInfo" type="tiles">cusomerInfo</result>
+					<result name="excel" type="stream">
+					    <param name="contentDisposition">attachment;filename=${fileName}.xls</param>
+					    <param name="contentType">application/octet-stream</param>
+					    <param name="inputName">inputStream</param>
+					</result>	
+					<result name="pdf" type="stream">
+					    <param name="contentDisposition">attachment;filename=${fileName}.pdf</param>
+					    <param name="contentType">application/pdf</param>
+					    <param name="inputName">inputStream</param>
+					    <param name="bufferSize">1024</param>
+					</result>
+					<result name="redirectPDFReport" type="redirect">
+  						<param name="location">/pdfReport</param>						
+	               	</result>
+	               	
+	               	<result name="lcdownload" type="stream">
+						<param name="contentDisposition">attachment;filename=${downloadFileName}</param>
+						<param name="inputName">inputStream</param>
+						<param name="contentType">application/octet-stream</param>
+						<param name="bufferSize">1024</param>
+					</result>
+	               	
+	               	<result name="pdfReport">/pages/pdfReport.jsp</result>
+	               	<result name="lcUpload" type="tiles">lcUpload</result>
+	               	<result name="viewdocuments">/pages/viewdocuments.jsp</result>
+	               	<result name="paymentreport" type="tiles">paymentreport</result>
+	            </action>
+		<!-- Payment End -->
+		
+		
+	</package>	
+</struts>

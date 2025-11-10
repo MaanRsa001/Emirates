@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+<Properties>
+    <Property name="log-path">${sys:catalina.base}/logs</Property>
+</Properties>
+<Appenders>
+
+    <!-- console appender -->
+    <Console name="console-log" target="SYSTEM_OUT">
+        <PatternLayout pattern="[%-5level] %d{yyyy-MM-dd HH:mm:ss} [%t] %c{1} - %msg%n"/>
+    </Console>
+
+    <!-- file appender -->
+    <RollingFile name="commons-log" fileName="${log-path}/Emirates-Debug.log"
+                 filePattern="${log-path}/commons-%d{yyyy-MM-dd}.log">
+        <!-- log pattern -->
+        <PatternLayout>
+            <pattern>[%-5level] %d{yyyy-MM-dd HH:mm:ss} %c{1} - %msg%n</pattern>
+        </PatternLayout>
+
+        <!-- set file size policy -->
+        <Policies>
+            <TimeBasedTriggeringPolicy />
+            <SizeBasedTriggeringPolicy size="500 MB" />
+        </Policies>
+    </RollingFile>
+    <RollingFile name="analytics-log" fileName="${log-path}/Emirates-warn.log"
+                 filePattern="${log-path}/analytics-%d{yyyy-MM-dd}.log">
+        <PatternLayout>
+            <pattern>[%-5level] %d{yyyy-MM-dd HH:mm:ss} %c{1} - %msg%n</pattern>
+        </PatternLayout>
+        <Policies>
+            <TimeBasedTriggeringPolicy interval="1" modulate="true"/>
+        </Policies>
+    </RollingFile>
+</Appenders>
+<Loggers>
+    <Logger name="com.maan.admin" level="debug" additivity="false">       
+        <appender-ref ref="commons-log" level="debug"/>
+        <appender-ref ref="analytics-log" level="warn"/>
+        <appender-ref ref="console-log" level="debug"/>
+    </Logger>
+    <Logger name="com.maan.admin.login.customer" level="debug" additivity="false">       
+        <appender-ref ref="commons-log" level="debug"/>
+        <appender-ref ref="analytics-log" level="warn"/>
+        <appender-ref ref="console-log" level="debug"/>
+    </Logger>
+    <Logger name="com.maan.admin.logincreation.BrokerManagement" level="debug" additivity="false">       
+        <appender-ref ref="commons-log" level="debug"/>
+        <appender-ref ref="analytics-log" level="warn"/>
+        <appender-ref ref="console-log" level="debug"/>
+    </Logger>
+    <Logger name="com.maan.admin.logincreation.underwriterManagement" level="debug" additivity="false">       
+        <appender-ref ref="commons-log" level="debug"/>
+        <appender-ref ref="analytics-log" level="warn"/>
+        <appender-ref ref="console-log" level="debug"/>
+    </Logger>
+    <Logger name="com.maan.admin.master.Bank" level="debug" additivity="false">       
+        <appender-ref ref="commons-log" level="debug"/>
+        <appender-ref ref="analytics-log" level="warn"/>
+        <appender-ref ref="console-log" level="debug"/>
+    </Logger>
+    <Logger name="com.maan.admin.master.BodyType" level="debug" additivity="false">       
+        <appender-ref ref="commons-log" level="debug"/>
+        <appender-ref ref="analytics-log" level="warn"/>
+        <appender-ref ref="console-log" level="debug"/>
+    </Logger>
+    <Logger name="com.maan.admin.master.BranchMaster" level="debug" additivity="false">       
+        <appender-ref ref="commons-log" level="debug"/>
+        <appender-ref ref="analytics-log" level="warn"/>
+        <appender-ref ref="console-log" level="debug"/>
+    </Logger>
+    <Logger name="com.maan.admin.master.CityMaster" level="debug" additivity="false">       
+        <appender-ref ref="commons-log" level="debug"/>
+        <appender-ref ref="analytics-log" level="warn"/>
+        <appender-ref ref="console-log" level="debug"/>
+    </Logger>
+    <Logger name="com.maan.admin.master.docUpload" level="debug" additivity="false">       
+        <appender-ref ref="commons-log" level="debug"/>
+        <appender-ref ref="analytics-log" level="warn"/>
+        <appender-ref ref="console-log" level="debug"/>
+    </Logger>
+    <Logger name="com.maan.admin.master.motormakemodel" level="debug" additivity="false">       
+        <appender-ref ref="commons-log" level="debug"/>
+        <appender-ref ref="analytics-log" level="warn"/>
+        <appender-ref ref="console-log" level="debug"/>
+    </Logger>
+    <Logger name="com.maan.admin.master.Occupation" level="debug" additivity="false">       
+        <appender-ref ref="commons-log" level="debug"/>
+        <appender-ref ref="analytics-log" level="warn"/>
+        <appender-ref ref="console-log" level="debug"/>
+    </Logger>
+    <Logger name="com.maan.admin.master.promocode" level="debug" additivity="false">       
+        <appender-ref ref="commons-log" level="debug"/>
+        <appender-ref ref="analytics-log" level="warn"/>
+        <appender-ref ref="console-log" level="debug"/>
+    </Logger>
+    <Logger name="com.maan.admin.master.ratingUpload" level="debug" additivity="false">       
+        <appender-ref ref="commons-log" level="debug"/>
+        <appender-ref ref="analytics-log" level="warn"/>
+        <appender-ref ref="console-log" level="debug"/>
+    </Logger>
+    <Logger name="com.maan.admin.portfolio" level="debug" additivity="false">       
+        <appender-ref ref="commons-log" level="debug"/>
+        <appender-ref ref="analytics-log" level="warn"/>
+        <appender-ref ref="console-log" level="debug"/>
+    </Logger>
+    <Logger name="com.maan.admin.referal" level="debug" additivity="false">       
+        <appender-ref ref="commons-log" level="debug"/>
+        <appender-ref ref="analytics-log" level="warn"/>
+        <appender-ref ref="console-log" level="debug"/>
+    </Logger>
+    <Logger name="com.maan.adminnew.login" level="debug" additivity="false">       
+        <appender-ref ref="commons-log" level="debug"/>
+        <appender-ref ref="analytics-log" level="warn"/>
+        <appender-ref ref="console-log" level="debug"/>
+    </Logger>
+    <Logger name="com.maan.captcha" level="debug" additivity="false">       
+        <appender-ref ref="commons-log" level="debug"/>
+        <appender-ref ref="analytics-log" level="warn"/>
+        <appender-ref ref="console-log" level="debug"/>
+    </Logger>
+    <Logger name="com.maan.common" level="debug" additivity="false">       
+        <appender-ref ref="commons-log" level="debug"/>
+        <appender-ref ref="analytics-log" level="warn"/>
+        <appender-ref ref="console-log" level="debug"/>
+    </Logger>
+    <Logger name="com.maan.common.ClaimInfo.dao" level="debug" additivity="false">       
+        <appender-ref ref="commons-log" level="debug"/>
+        <appender-ref ref="analytics-log" level="warn"/>
+        <appender-ref ref="console-log" level="debug"/>
+    </Logger>
+    <Logger name="com.maan.common.ClaimInfo.SAAJ.mapping" level="debug" additivity="false">       
+        <appender-ref ref="commons-log" level="debug"/>
+        <appender-ref ref="analytics-log" level="warn"/>
+        <appender-ref ref="console-log" level="debug"/>
+    </Logger>
+    <Logger name="com.maan.common.ClaimInfo.SAAJ.mapping.client" level="debug" additivity="false">       
+        <appender-ref ref="commons-log" level="debug"/>
+        <appender-ref ref="analytics-log" level="warn"/>
+        <appender-ref ref="console-log" level="debug"/>
+    </Logger>
+    <Logger name="com.maan.common.ClaimInfo.service" level="debug" additivity="false">       
+        <appender-ref ref="commons-log" level="debug"/>
+        <appender-ref ref="analytics-log" level="warn"/>
+        <appender-ref ref="console-log" level="debug"/>
+    </Logger>
+    <Logger name="com.maan.common.CoreIntegration" level="debug" additivity="false">       
+        <appender-ref ref="commons-log" level="debug"/>
+        <appender-ref ref="analytics-log" level="warn"/>
+        <appender-ref ref="console-log" level="debug"/>
+    </Logger>
+    <Logger name="com.maan.common.dao" level="debug" additivity="false">       
+        <appender-ref ref="commons-log" level="debug"/>
+        <appender-ref ref="analytics-log" level="warn"/>
+        <appender-ref ref="console-log" level="debug"/>
+    </Logger>
+    <Logger name="com.maan.common.error" level="debug" additivity="false">       
+        <appender-ref ref="commons-log" level="debug"/>
+        <appender-ref ref="analytics-log" level="warn"/>
+        <appender-ref ref="console-log" level="debug"/>
+    </Logger>
+    <Logger name="com.maan.common.exception" level="debug" additivity="false">       
+        <appender-ref ref="commons-log" level="debug"/>
+        <appender-ref ref="analytics-log" level="warn"/>
+        <appender-ref ref="console-log" level="debug"/>
+    </Logger>
+    <Logger name="com.maan.common.home" level="debug" additivity="false">       
+        <appender-ref ref="commons-log" level="debug"/>
+        <appender-ref ref="analytics-log" level="warn"/>
+        <appender-ref ref="console-log" level="debug"/>
+    </Logger>
+    <Logger name="com.maan.common.interceptor" level="debug" additivity="false">       
+        <appender-ref ref="commons-log" level="debug"/>
+        <appender-ref ref="analytics-log" level="warn"/>
+        <appender-ref ref="console-log" level="debug"/>
+    </Logger>
+    <Logger name="com.maan.common.login" level="debug" additivity="false">       
+        <appender-ref ref="commons-log" level="debug"/>
+        <appender-ref ref="analytics-log" level="warn"/>
+        <appender-ref ref="console-log" level="debug"/>
+    </Logger>
+    <Logger name="com.maan.common.otp" level="debug" additivity="false">       
+        <appender-ref ref="commons-log" level="debug"/>
+        <appender-ref ref="analytics-log" level="warn"/>
+        <appender-ref ref="console-log" level="debug"/>
+    </Logger>
+    <Logger name="com.maan.common.password" level="debug" additivity="false">       
+        <appender-ref ref="commons-log" level="debug"/>
+        <appender-ref ref="analytics-log" level="warn"/>
+        <appender-ref ref="console-log" level="debug"/>
+    </Logger>
+    <Logger name="com.maan.common.sms" level="debug" additivity="false">       
+        <appender-ref ref="commons-log" level="debug"/>
+        <appender-ref ref="analytics-log" level="warn"/>
+        <appender-ref ref="console-log" level="debug"/>
+    </Logger>
+    <Logger name="com.maan.common.util" level="debug" additivity="false">       
+        <appender-ref ref="commons-log" level="debug"/>
+        <appender-ref ref="analytics-log" level="warn"/>
+        <appender-ref ref="console-log" level="debug"/>
+    </Logger>
+    <Logger name="com.maan.DBCon" level="debug" additivity="false">       
+        <appender-ref ref="commons-log" level="debug"/>
+        <appender-ref ref="analytics-log" level="warn"/>
+        <appender-ref ref="console-log" level="debug"/>
+    </Logger>
+    <Logger name="com.maan.motor" level="debug" additivity="false">       
+        <appender-ref ref="commons-log" level="debug"/>
+        <appender-ref ref="analytics-log" level="warn"/>
+        <appender-ref ref="console-log" level="debug"/>
+    </Logger>
+    <Logger name="com.maan.motor.api" level="debug" additivity="false">       
+        <appender-ref ref="commons-log" level="debug"/>
+        <appender-ref ref="analytics-log" level="warn"/>
+        <appender-ref ref="console-log" level="debug"/>
+    </Logger>
+    <Logger name="com.maan.motor.api.config" level="debug" additivity="false">       
+        <appender-ref ref="commons-log" level="debug"/>
+        <appender-ref ref="analytics-log" level="warn"/>
+        <appender-ref ref="console-log" level="debug"/>
+    </Logger>
+    <Logger name="com.maan.motor.api.exception" level="debug" additivity="false">       
+        <appender-ref ref="commons-log" level="debug"/>
+        <appender-ref ref="analytics-log" level="warn"/>
+        <appender-ref ref="console-log" level="debug"/>
+    </Logger>
+    <Logger name="com.maan.motor.api.response" level="debug" additivity="false">       
+        <appender-ref ref="commons-log" level="debug"/>
+        <appender-ref ref="analytics-log" level="warn"/>
+        <appender-ref ref="console-log" level="debug"/>
+    </Logger>
+    <Logger name="com.maan.motor.api.thread" level="debug" additivity="false">       
+        <appender-ref ref="commons-log" level="debug"/>
+        <appender-ref ref="analytics-log" level="warn"/>
+        <appender-ref ref="console-log" level="debug"/>
+    </Logger>
+    <Logger name="com.maan.motor.bean" level="debug" additivity="false">       
+        <appender-ref ref="commons-log" level="debug"/>
+        <appender-ref ref="analytics-log" level="warn"/>
+        <appender-ref ref="console-log" level="debug"/>
+    </Logger>
+    <Logger name="com.maan.motor.service" level="debug" additivity="false">       
+        <appender-ref ref="commons-log" level="debug"/>
+        <appender-ref ref="analytics-log" level="warn"/>
+        <appender-ref ref="console-log" level="debug"/>
+    </Logger>
+    <Logger name="com.maan.report" level="debug" additivity="false">       
+        <appender-ref ref="commons-log" level="debug"/>
+        <appender-ref ref="analytics-log" level="warn"/>
+        <appender-ref ref="console-log" level="debug"/>
+    </Logger>
+    <Logger name="com.maan.report.api" level="debug" additivity="false">       
+        <appender-ref ref="commons-log" level="debug"/>
+        <appender-ref ref="analytics-log" level="warn"/>
+        <appender-ref ref="console-log" level="debug"/>
+    </Logger>
+    <Logger name="com.maan.report.bean" level="debug" additivity="false">       
+        <appender-ref ref="commons-log" level="debug"/>
+        <appender-ref ref="analytics-log" level="warn"/>
+        <appender-ref ref="console-log" level="debug"/>
+    </Logger>
+    <Logger name="com.maan.report.service" level="debug" additivity="false">       
+        <appender-ref ref="commons-log" level="debug"/>
+        <appender-ref ref="analytics-log" level="warn"/>
+        <appender-ref ref="console-log" level="debug"/>
+    </Logger>
+    <Logger name="com.maan.upload.bean" level="debug" additivity="false">       
+        <appender-ref ref="commons-log" level="debug"/>
+        <appender-ref ref="analytics-log" level="warn"/>
+        <appender-ref ref="console-log" level="debug"/>
+    </Logger>
+    <Logger name="com.maan.upload.dao" level="debug" additivity="false">       
+        <appender-ref ref="commons-log" level="debug"/>
+        <appender-ref ref="analytics-log" level="warn"/>
+        <appender-ref ref="console-log" level="debug"/>
+    </Logger>
+    <Logger name="com.maan.upload.service" level="debug" additivity="false">       
+        <appender-ref ref="commons-log" level="debug"/>
+        <appender-ref ref="analytics-log" level="warn"/>
+        <appender-ref ref="console-log" level="debug"/>
+    </Logger>
+    <Logger name="com.maan.userMgt" level="debug" additivity="false">       
+        <appender-ref ref="commons-log" level="debug"/>
+        <appender-ref ref="analytics-log" level="warn"/>
+        <appender-ref ref="console-log" level="debug"/>
+    </Logger>
+    <Root level="info" additivity="false">
+        <AppenderRef ref="console-log"/>
+    </Root>
+</Loggers>
+</Configuration>

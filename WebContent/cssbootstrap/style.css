@@ -1,0 +1,219 @@
+body {
+	font-family: Arial;
+	font-size: 12px;
+}
+
+.clear { clear: both; }
+
+/*************************/
+.preText {
+	font-weight: bold; color: #999999;
+}
+
+.preTotVal {
+	font-size: 16px; font-weight: bold; 
+}
+
+.preBlock {
+	width: 46%; float: left; min-height: 275px; margin-left: 10px;
+}
+
+.preDataW {
+	width: 50%;
+}
+
+/**************************/
+
+@media (max-width: 915px)
+{
+}
+
+@media screen and (max-width: 800px)
+{
+}
+
+@media screen and (max-width: 600px)
+{
+	.textfield33 {
+		width: 50%;
+	}
+	
+	.textfield33v {
+		width: 50%;
+	}
+	
+	.preBlock {
+		width: 48%;
+	}
+	
+	.perInsu .inputBox {
+		width: 75%;
+	}
+	
+	.perInsu .inputBoxS {
+		width: 75%;
+	}
+	
+	.perInsu .inputAppend {
+		width: 75%;
+	} 
+	
+	.dynaTable .inputBox {
+		width: 65%;
+	}
+	
+	.dynaTable .inputBoxS {
+		width: 65%;
+	}
+	
+	.dynaTable .inputAppend {
+		width: 65%;
+	} 
+}
+
+@media screen and (max-width: 540px)			
+{
+	.textfield {
+		width: 100%;
+		height: 70px;
+	}
+	
+	.textfieldA {
+		width: 100%;
+	}
+	
+	.textfield33 {
+		width: 100%;		
+		float: none;
+		text-align: center;		
+	}
+	
+	.textfield33v {
+		width: 100%;		
+		float: none;	
+	}
+	
+	.inputBox {
+		width: 100%;
+	}
+	
+	.inputBoxS {
+		width: 100%;
+	}
+	
+	.inputAppend {
+		width: 100%;
+	}
+	
+	.preBlock {
+		width: 46%;
+	}
+		
+	.perInsu .inputBox {
+		width: 65%;
+	}
+	
+	.perInsu .inputBoxS {
+		width: 65%;
+	}
+	
+	.perInsu .inputAppend {
+		width: 65%;
+	}
+	
+	.dynaTable .inputBox {
+		width: 50%;
+	}
+	
+	.dynaTable .inputBoxS {
+		width: 50%;
+	}
+	
+	.dynaTable .inputAppend {
+		width: 50%;
+	}
+	
+	.tCols50 {
+		width: 100%;
+	}
+}
+
+@media screen and (max-width: 480px)
+{
+	.preBlock {
+		width: 90%;	
+		float: none; 
+		min-height: 0;
+		margin-left: 0;
+		position:relative;
+	}
+	
+	.perInsu .inputBox {
+		width: 55%;
+	}
+	
+	.perInsu .inputBoxS {
+		width: 55%;
+	}
+	
+	.perInsu .inputAppend {
+		width: 55%;
+	}
+	
+	.polDtls .inputBox {
+		width: 55%;
+	}
+	
+	.polDtls .inputBoxS {
+		width: 55%;
+	}
+	
+	
+}
+
+@media screen and (max-width: 320px)
+{
+	
+}
+
+/****************Premium Table**************************/
+.premiumTable{
+	margin:0px;padding:0px;
+	width:100%;
+	z-index: 1;	
+}
+
+.premiumTable table{
+    border-collapse: collapse;
+        border-spacing: 0;
+	width:100%;
+	height:100%;
+	margin:0px;padding:0px;
+}
+
+.premiumTable tr:nth-child(odd) { background-color:#eaf2f9; }
+.premiumTable tr:nth-child(even) { background-color:#ffffff; }
+
+.premiumTable td{
+	vertical-align:middle;
+	border-bottom:1px solid #c2c2c2;
+	border-width:0px 1px 1px 0px;
+	padding:20px;
+	font-size:14px;
+	font-family:Arial;
+	font-weight:normal;	
+}
+
+/******************************************************/
+/*
+.preBlock:hover {      
+  -webkit-transform: scale(1.2);
+  -moz-transform: scale(1.2);
+  -ms-transform: scale(1.2);
+  -o-transform: scale(1.2);
+  transform: scale(1.2);
+  z-index:10;
+}
+
+
+/*****************************************************/

@@ -1,0 +1,601 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="PolicyReport" pageWidth="3240" pageHeight="2160" whenNoDataType="AllSectionsNoDetail" columnWidth="3200" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="2cc9e87e-6055-4f72-8fae-c916e5bf2474">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="2475"/>
+	<property name="ireport.y" value="0"/>
+	<style name="style1" mode="Transparent" backcolor="#9999FF">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 1]]></conditionExpression>
+			<style backcolor="#CCCCCC"/>
+		</conditionalStyle>
+	</style>
+	<parameter name="startDate" class="java.lang.String"/>
+	<parameter name="endDate" class="java.lang.String"/>
+	<parameter name="loginid" class="java.lang.String"/>
+	<parameter name="product" class="java.lang.String"/>
+	<parameter name="branch" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="opencoverno" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="imagePath" class="java.lang.String"/>
+	<parameter name="creditStatus" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[Select * from table(broker_reports($P{loginid},$P{branch},$P{startDate},$P{endDate},$P{opencoverno},$P{product}))]]>
+	</queryString>
+	<field name="SNO" class="java.math.BigDecimal"/>
+	<field name="POLICY_ISSUE_DATE" class="java.lang.String"/>
+	<field name="POLICY_NO" class="java.lang.String"/>
+	<field name="INCEPTION_DATE" class="java.lang.String"/>
+	<field name="INSURED_NAME" class="java.lang.String"/>
+	<field name="FORM_OF_TRANSPORT" class="java.lang.String"/>
+	<field name="ORIGIN_COUNTRY" class="java.lang.String"/>
+	<field name="DEST_COUNTRY" class="java.lang.String"/>
+	<field name="CARRIER_NAME" class="java.lang.String"/>
+	<field name="SUM_INSURED_FOREIGN" class="java.lang.String"/>
+	<field name="BASIS_OF_VALUATION" class="java.lang.String"/>
+	<field name="CURRENCY_TYPE" class="java.lang.String"/>
+	<field name="EXCHANGE_RATE" class="java.math.BigDecimal"/>
+	<field name="SUM_INSURED_LOCAL" class="java.math.BigDecimal"/>
+	<field name="SALE_TERM_CHARGES" class="java.math.BigDecimal"/>
+	<field name="TOLERANCE_CHARGES" class="java.math.BigDecimal"/>
+	<field name="TOTAL_SUM_INSURED" class="java.math.BigDecimal"/>
+	<field name="MARINE_PREMIUM" class="java.math.BigDecimal"/>
+	<field name="WAR_PREMIUM" class="java.math.BigDecimal"/>
+	<field name="ADDITIONAL_PREMIUM" class="java.math.BigDecimal"/>
+	<field name="TOTAL_PREMIUM" class="java.math.BigDecimal"/>
+	<field name="COMMISSION" class="java.math.BigDecimal"/>
+	<field name="GOODS_DESCRIPTION" class="java.lang.String"/>
+	<field name="CREDIT_NOTE_NO" class="java.lang.String"/>
+	<field name="DEBIT_NOTE_NO" class="java.lang.String"/>
+	<field name="BROKER_NAME" class="java.lang.String"/>
+	<field name="ISSUER_NAME" class="java.lang.String"/>
+	<field name="BRANCH_IMG" class="java.lang.String"/>
+	<variable name="tot_premium" class="java.math.BigDecimal" resetType="Group" resetGroup="OPGroup" calculation="Sum">
+		<variableExpression><![CDATA[$F{TOTAL_PREMIUM}]]></variableExpression>
+		<initialValueExpression><![CDATA[$F{TOTAL_PREMIUM}.valueOf( 0 )]]></initialValueExpression>
+	</variable>
+	<variable name="tot_commission" class="java.math.BigDecimal" resetType="Group" resetGroup="OPGroup" calculation="Sum">
+		<variableExpression><![CDATA[$F{COMMISSION}]]></variableExpression>
+		<initialValueExpression><![CDATA[$F{COMMISSION}.valueOf( 0 )]]></initialValueExpression>
+	</variable>
+	<group name="brokerGroup">
+		<groupHeader>
+			<band height="20">
+				<staticText>
+					<reportElement uuid="116ec1d0-0549-48b0-9f08-ad4097229770" x="37" y="0" width="90" height="18"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="Arial" size="8" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Start Date : ]]></text>
+				</staticText>
+				<textField pattern="#,##0.00;-#,##0.00" isBlankWhenNull="true">
+					<reportElement uuid="9f2c58c5-9db4-4a4b-8673-0e224edbc121" x="127" y="0" width="129" height="18"/>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font fontName="Arial" size="8" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{startDate}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement uuid="31e0d99a-04b8-41db-b69c-1b4a15b29709" x="256" y="0" width="94" height="18"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="Arial" size="8" isBold="true"/>
+					</textElement>
+					<text><![CDATA[End Date : ]]></text>
+				</staticText>
+				<textField pattern="#,##0.00;-#,##0.00" isBlankWhenNull="true">
+					<reportElement uuid="b7d04e9c-e1f0-4df3-900a-9deb5d2fbbb0" x="350" y="0" width="161" height="18"/>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font fontName="Arial" size="8" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{endDate}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+	</group>
+	<group name="OPGroup">
+		<groupExpression><![CDATA[$F{BROKER_NAME}]]></groupExpression>
+		<groupHeader>
+			<band height="33">
+				<textField>
+					<reportElement uuid="fb3025a7-89c2-4f52-afb3-f26e7458d64d" mode="Opaque" x="0" y="1" width="127" height="15" forecolor="#000000" backcolor="#CCCCCC"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="Arial" size="9" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Broker Name :"]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement uuid="f828a6c4-05ad-4bb7-a475-dd574e2bd6bf" mode="Opaque" x="511" y="1" width="138" height="15" forecolor="#000000" backcolor="#CCCCCC"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" size="9" isBold="true"/>
+					</textElement>
+				</textField>
+				<staticText>
+					<reportElement uuid="5de941b1-2e7f-488d-a5cf-0b847cc07ae5" x="0" y="16" width="37" height="17"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial" size="8" isBold="true"/>
+					</textElement>
+					<text><![CDATA[SNo.]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="ac99f544-4a87-471b-82f2-6b2a4b1bce64" x="256" y="16" width="94" height="17"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial" size="8" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Inception Date
+]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="9c474858-4f71-4bdc-a5e3-dd9fa746dc32" x="851" y="16" width="199" height="17"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial" size="8" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Country Of Destination
+]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="a831a473-c7cf-402e-80f2-7c8bf94c563f" x="127" y="16" width="129" height="17"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial" size="8" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Policy No
+]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="166093fe-f82e-4560-8018-8c93459f0f42" x="2945" y="16" width="107" height="17"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial" size="8" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Debit Note No
+]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="0fcb289f-2af7-48e9-a8ce-3cb38f86ddbe" x="3052" y="16" width="84" height="17"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial" size="8" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Creditnote no
+]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="ecbad10c-0445-45fa-8b49-531557c2c309" x="649" y="16" width="202" height="17"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial" size="8" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Country Of Origin
+]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="de2bfaf9-0ec4-4bd7-80db-92fa875e08c0" x="350" y="16" width="161" height="17"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial" size="8" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Insured Name
+]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="456ae50f-9911-4fa6-94c9-5972f72db26c" x="1050" y="16" width="133" height="17"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial" size="8" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Carrier Name
+]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="1a42d6e3-8c0c-41a7-859f-62163b8a02c5" x="2099" y="16" width="102" height="17"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="Arial" size="8" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Marine Premium
+]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="1ff9a3a5-cd85-4a9a-8c05-4972e7c4452b" x="2201" y="16" width="105" height="17"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="Arial" size="8" isBold="true"/>
+					</textElement>
+					<text><![CDATA[WSRCC Premium
+]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="e5b27313-3201-4d6a-82aa-db6528b7faa8" x="2306" y="16" width="124" height="17"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="Arial" size="8" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Additional Premium
+]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="41bb7acd-f084-4a08-8ac2-045d5a3b09e5" x="2430" y="16" width="110" height="17"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="Arial" size="8" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Total Premium
+]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="33254393-12a5-407f-b473-f2674fda8ba4" x="2540" y="16" width="94" height="17"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="Arial" size="8" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Commission
+]]></text>
+				</staticText>
+				<textField isBlankWhenNull="true">
+					<reportElement uuid="30c154e6-8e4b-4515-ba15-b41efdd14f1c" mode="Opaque" x="851" y="1" width="332" height="15" forecolor="#000000" backcolor="#CCCCCC"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" size="9" isBold="true"/>
+					</textElement>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement uuid="f3fe155a-d540-4283-be4a-570dd9ce94c8" mode="Opaque" x="1353" y="1" width="1783" height="15" forecolor="#000000" backcolor="#CCCCCC"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" size="9" isBold="true"/>
+					</textElement>
+				</textField>
+				<textField pattern="#,##0.00;-#,##0.00" isBlankWhenNull="true">
+					<reportElement uuid="066834fb-eeed-47c3-b9c5-747763dfbb51" mode="Opaque" x="1183" y="1" width="170" height="15" forecolor="#000000" backcolor="#CCCCCC"/>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font fontName="Arial" size="9" isBold="true"/>
+					</textElement>
+				</textField>
+				<staticText>
+					<reportElement uuid="d8e0de71-4cb8-47f2-991b-017877695bcc" x="2634" y="16" width="311" height="17"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial" size="8" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Goods Description
+]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="4c6da5d5-9682-4a58-a15a-e182cc2badde" x="1454" y="16" width="91" height="17"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial" size="8" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Currency Type
+]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="ba3e109d-bb72-42da-acc4-27527d431002" x="1183" y="16" width="170" height="17"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="Arial" size="8" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Sum Insured(Foreign  Currency)
+]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="9f07fc3d-7d6b-4f1d-b295-9296a3787bc7" x="37" y="16" width="90" height="17"/>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font fontName="Arial" size="8" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Policy Issue Date
+
+]]></text>
+				</staticText>
+				<textField pattern="#,##0.00;-#,##0.00" isBlankWhenNull="true">
+					<reportElement uuid="87bba237-7269-410e-ac87-1f9f196c3ace" mode="Opaque" x="350" y="1" width="161" height="15" forecolor="#000000" backcolor="#CCCCCC"/>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font fontName="Arial" size="9" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[""]]></textFieldExpression>
+				</textField>
+				<textField pattern="#,##0.00;-#,##0.00" isBlankWhenNull="true">
+					<reportElement uuid="0fc0f4e4-d42d-4ba4-9d01-37fce530b56f" mode="Opaque" x="649" y="1" width="202" height="15" forecolor="#000000" backcolor="#CCCCCC"/>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font fontName="Arial" size="9" isBold="true"/>
+					</textElement>
+				</textField>
+				<textField>
+					<reportElement uuid="86958c48-94a2-44e6-83a9-89fc4022f9b8" mode="Opaque" x="127" y="1" width="223" height="15" forecolor="#000000" backcolor="#CCCCCC"/>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font fontName="Arial" size="9" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{BROKER_NAME}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement uuid="f4810c64-aa17-4dae-83cb-c8188476bffb" x="511" y="16" width="138" height="17"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial" size="8" isBold="true"/>
+					</textElement>
+					<text><![CDATA[mode of Transport
+]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="835a5191-0b0d-4e0c-aaf8-49ecdbd65b6d" x="1353" y="16" width="101" height="17"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="Arial" size="8" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Basis of Valuation
+]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="8709fb30-8cab-4cbe-9641-c056d70a0c8d" x="1632" y="16" width="111" height="17"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="Arial" size="8" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Sum Insured(Local Currency)
+]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="1ace8dd9-6ecf-4639-9776-249f8208b40c" x="1545" y="16" width="87" height="17"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="Arial" size="8" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Exchange Rate]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="355b2b85-61db-44b6-8a52-e05d22712b73" x="1743" y="16" width="111" height="17"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="Arial" size="8" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Sale Term Charges]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="73ae55f4-0288-48db-adf1-29ca102908c7" x="1980" y="16" width="119" height="17"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="Arial" size="8" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Total Sum Insured]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="5f080419-2b88-4fc5-a109-588eae5251f9" x="1854" y="16" width="126" height="17"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="Arial" size="8" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Tolerance Charges]]></text>
+				</staticText>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="15">
+				<staticText>
+					<reportElement uuid="8684da9c-a207-4544-9823-0601c1f1fdf1" x="127" y="0" width="2303" height="15"/>
+					<textElement textAlignment="Right">
+						<font fontName="Arial" size="8" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Sub Total :]]></text>
+				</staticText>
+				<textField pattern="#,##0.00" isBlankWhenNull="true">
+					<reportElement uuid="79318365-79b7-410f-b194-6ab6f1ad2786" x="2430" y="0" width="110" height="15"/>
+					<textElement textAlignment="Right">
+						<font fontName="Arial" size="8" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{tot_premium}]]></textFieldExpression>
+				</textField>
+				<textField pattern="#,##0.00" isBlankWhenNull="true">
+					<reportElement uuid="bb51aeb2-6251-49e7-8edc-69401e2d9e41" x="2540" y="0" width="94" height="15"/>
+					<textElement textAlignment="Right">
+						<font fontName="Arial" size="8" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA["N".equals( $P{creditStatus})?"N/A":$V{tot_commission}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupFooter>
+	</group>
+	<title>
+		<band height="45" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="4d1df4bd-b8db-442c-aa16-e130a6fe1111" mode="Opaque" x="0" y="13" width="3136" height="15" backcolor="#999999"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Broker Report]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="19" splitType="Stretch"/>
+	</pageHeader>
+	<detail>
+		<band height="24">
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement uuid="dd6d33e8-3183-4078-b4a4-388a2639dfef" stretchType="RelativeToBandHeight" mode="Transparent" x="0" y="0" width="37" height="24" isPrintWhenDetailOverflows="true"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{brokerGroup_COUNT}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement uuid="f67156bc-84e8-4781-a1df-818944ca0663" stretchType="RelativeToBandHeight" mode="Transparent" x="256" y="0" width="94" height="24" isPrintWhenDetailOverflows="true"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{INCEPTION_DATE}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="#,##0.00;-#,##0.00" isBlankWhenNull="true">
+				<reportElement uuid="81168555-64e9-47f8-9a08-77e0e728ca9d" stretchType="RelativeToBandHeight" mode="Transparent" x="851" y="0" width="199" height="24" isPrintWhenDetailOverflows="true"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{DEST_COUNTRY}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement uuid="8e26a2d5-c1e2-4151-80b4-5d6de5799845" stretchType="RelativeToBandHeight" mode="Transparent" x="2945" y="0" width="107" height="24" isPrintWhenDetailOverflows="true"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{DEBIT_NOTE_NO}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement uuid="91ded35c-3537-4463-9400-32f2ea7fa25c" stretchType="RelativeToBandHeight" mode="Transparent" x="3052" y="0" width="84" height="24" isPrintWhenDetailOverflows="true"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{CREDIT_NOTE_NO}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement uuid="1441b1b7-15d9-4d60-a833-ffa015417cff" stretchType="RelativeToBandHeight" mode="Transparent" x="350" y="0" width="161" height="24" isPrintWhenDetailOverflows="true"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{INSURED_NAME}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="#,##0.00;-#,##0.00" isBlankWhenNull="true">
+				<reportElement uuid="8607efaa-c37e-4845-baa1-7b98f14da073" stretchType="RelativeToBandHeight" mode="Transparent" x="1050" y="0" width="133" height="24" isPrintWhenDetailOverflows="true"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{CARRIER_NAME}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement uuid="fdb4ff1f-29cf-4879-aa35-6b2a3a720344" stretchType="RelativeToBandHeight" mode="Transparent" x="649" y="0" width="202" height="24" isPrintWhenDetailOverflows="true"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ORIGIN_COUNTRY}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="#,##0.00;-#,##0.00" isBlankWhenNull="true">
+				<reportElement uuid="1493e75b-c4a5-4439-8fc4-ae06033e9641" stretchType="RelativeToBandHeight" mode="Transparent" x="2099" y="0" width="102" height="24" isPrintWhenDetailOverflows="true"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{MARINE_PREMIUM}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="#,##0.00;-#,##0.00" isBlankWhenNull="true">
+				<reportElement uuid="8f5ccc5a-c6fc-4e48-ab35-918bd8753e10" stretchType="RelativeToBandHeight" mode="Transparent" x="2306" y="0" width="124" height="24" isPrintWhenDetailOverflows="true"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ADDITIONAL_PREMIUM}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="#,##0.00;-#,##0.00" isBlankWhenNull="true">
+				<reportElement uuid="222efbca-d591-4a4a-977c-0c5a41f28b7b" stretchType="RelativeToBandHeight" mode="Transparent" x="2430" y="0" width="110" height="24" isPrintWhenDetailOverflows="true"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{TOTAL_PREMIUM}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="#,##0.00;-#,##0.00" isBlankWhenNull="true">
+				<reportElement uuid="595beea3-7df2-4e9f-b3c7-30e236fa6c7b" stretchType="RelativeToBandHeight" mode="Transparent" x="2540" y="0" width="94" height="24" isPrintWhenDetailOverflows="true"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA["N".equals( $P{creditStatus})?"N/A":$F{COMMISSION}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="#,##0.00;-#,##0.00" isBlankWhenNull="true">
+				<reportElement uuid="46406b62-e794-414a-aea2-be91ed7480e1" mode="Transparent" x="2634" y="0" width="311" height="24" isPrintWhenDetailOverflows="true"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{GOODS_DESCRIPTION}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="#,##0.00;-#,##0.00" isBlankWhenNull="true">
+				<reportElement uuid="a26c0c26-1aa3-4b99-ab09-2ad311e062ab" stretchType="RelativeToBandHeight" mode="Transparent" x="1632" y="0" width="111" height="24" isPrintWhenDetailOverflows="true"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{SUM_INSURED_LOCAL}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="#,##0.00;-#,##0.00" isBlankWhenNull="true">
+				<reportElement uuid="69ad7b11-f65f-4883-a7f6-2666531f4fcc" stretchType="RelativeToBandHeight" mode="Transparent" x="1454" y="0" width="91" height="24" isPrintWhenDetailOverflows="true"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{CURRENCY_TYPE}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="#,##0.00;-#,##0.00" isBlankWhenNull="true">
+				<reportElement uuid="0774767d-3856-45bc-acea-e5e4c267700e" stretchType="RelativeToBandHeight" mode="Transparent" x="2201" y="0" width="105" height="24" isPrintWhenDetailOverflows="true"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{WAR_PREMIUM}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement uuid="6ea01b8e-b0e5-4dbc-a7bb-b430fa2ffafb" stretchType="RelativeToBandHeight" mode="Transparent" x="127" y="0" width="129" height="24" isPrintWhenDetailOverflows="true"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($F{POLICY_NO}==null?"":($F{POLICY_NO}))]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="#,##0.00;-#,##0.00" isBlankWhenNull="true">
+				<reportElement uuid="d3c9e82d-bec2-4381-9abe-a3569e9c0023" stretchType="RelativeToBandHeight" mode="Transparent" x="1183" y="0" width="170" height="24" isPrintWhenDetailOverflows="true"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{SUM_INSURED_FOREIGN}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement uuid="6a55bcbd-582a-4420-9d05-17010ec063ed" stretchType="RelativeToBandHeight" mode="Transparent" x="37" y="0" width="90" height="24" isPrintWhenDetailOverflows="true"/>
+				<textElement textAlignment="Left">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{POLICY_ISSUE_DATE}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="#,##0.00;-#,##0.00" isBlankWhenNull="true">
+				<reportElement uuid="50a3f2cf-99f4-4943-a57b-2748e3ceca09" stretchType="RelativeToBandHeight" mode="Transparent" x="1353" y="0" width="101" height="24" isPrintWhenDetailOverflows="true"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{BASIS_OF_VALUATION}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="#,##0.00;-#,##0.00" isBlankWhenNull="true">
+				<reportElement uuid="ceef2198-1b94-4606-b0a6-41428ff06e01" stretchType="RelativeToBandHeight" mode="Transparent" x="511" y="0" width="138" height="24" isPrintWhenDetailOverflows="true"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{FORM_OF_TRANSPORT}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="#,##0.00;-#,##0.00" isBlankWhenNull="true">
+				<reportElement uuid="e896edc9-ad16-45f2-b21b-3aee584f6d57" stretchType="RelativeToBandHeight" mode="Transparent" x="1545" y="0" width="87" height="24" isPrintWhenDetailOverflows="true"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{EXCHANGE_RATE}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="#,##0.00;-#,##0.00" isBlankWhenNull="true">
+				<reportElement uuid="9d01c870-b01e-47a3-8c10-e81e47c4a512" stretchType="RelativeToBandHeight" mode="Transparent" x="1743" y="0" width="111" height="24" isPrintWhenDetailOverflows="true"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{SALE_TERM_CHARGES}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="#,##0.00;-#,##0.00" isBlankWhenNull="true">
+				<reportElement uuid="9664c2c9-b413-440c-92d5-ec76c8059b0b" stretchType="RelativeToBandHeight" mode="Transparent" x="1980" y="0" width="119" height="24" isPrintWhenDetailOverflows="true"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{TOTAL_SUM_INSURED}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="#,##0.00;-#,##0.00" isBlankWhenNull="true">
+				<reportElement uuid="dc77819a-96ee-4f6f-9308-76620d065216" stretchType="RelativeToBandHeight" mode="Transparent" x="1854" y="0" width="126" height="24" isPrintWhenDetailOverflows="true"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{TOLERANCE_CHARGES}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="15">
+			<textField>
+				<reportElement uuid="3da61c27-82cb-49ad-a230-bf796003f9e4" x="1183" y="0" width="170" height="15"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement uuid="3bb615ae-d547-451a-8b5e-ba0e9817ba33" x="1353" y="0" width="101" height="15"/>
+				<textElement>
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<lastPageFooter>
+		<band height="15">
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="c242b7b7-7551-4a9a-85ce-46996525513b" x="0" y="0" width="350" height="15"/>
+				<textElement>
+					<font fontName="Arial" size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["There were " +String.valueOf($V{REPORT_COUNT}) +" records on this report."]]></textFieldExpression>
+			</textField>
+		</band>
+	</lastPageFooter>
+	<summary>
+		<band height="15"/>
+	</summary>
+</jasperReport>

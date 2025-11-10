@@ -1,0 +1,578 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+	
+	<definition name="newLayout" template="/layouts/newLayout.jsp">
+		<put-attribute name="title" value="New Template" />
+		<put-attribute name="header" value="/NewTemplate/header.jsp" />
+		<put-attribute name="menu" value="/NewTemplate/menu.jsp" />
+		<put-attribute name="body" value="/NewTemplate/body.jsp" />
+		<put-attribute name="footer" value="/NewTemplate/footer.jsp" />
+	</definition>
+	
+	<definition name="newLayoutWithoutMenu" template="/layouts/newLayoutWithoutMenu.jsp">
+		<put-attribute name="title" value="New Template" />
+		<put-attribute name="header" value="/NewTemplate/header.jsp" />
+		<put-attribute name="body" value="/NewTemplate/body.jsp" />
+		<put-attribute name="footer" value="/NewTemplate/footer.jsp" />
+	</definition>
+	
+	<definition name="newBaseLayoutAdmin" template="/layouts/newLayout.jsp">
+		<put-attribute name="title" value="New Template" />
+		<put-attribute name="header" value="/NewTemplate/header.jsp" />
+		<put-attribute name="menu" value="/NewTemplate/adminMenu.jsp" />
+		<put-attribute name="body" value="/NewTemplate/body.jsp" />
+		<put-attribute name="footer" value="/NewTemplate/footer.jsp" />
+	</definition>
+	
+	<definition name="baseLayoutAdmin" template="/layouts/baseLayout2.jsp">
+		<put-attribute name="title" value="Template" />
+		<put-attribute name="header" value="/templates/header.jsp" />
+		<put-attribute name="menu" value="/templates/adminMenu.jsp" />
+		<put-attribute name="body" value="/templates/body.jsp" />
+		<put-attribute name="footer" value="/templates/footer.jsp" />
+	</definition>
+	
+	<definition name="baseLayout" template="/layouts/baseLayout.jsp">
+		<put-attribute name="title" value="Template" />
+		<put-attribute name="header" value="/templates/header.jsp" />
+		<put-attribute name="menu" value="/templates/menu.jsp" />
+		<put-attribute name="body" value="/templates/body.jsp" />
+		<put-attribute name="footer" value="/templates/footer.jsp" />
+	</definition>
+	<definition name="baseLayout1" template="/layouts/baseLayout1.jsp">
+		<put-attribute name="title" value="Template" />
+		<put-attribute name="header" value="/templates/header.jsp" />		
+		<put-attribute name="body" value="/templates/body.jsp" />
+		<put-attribute name="footer" value="/templates/footer.jsp" />
+	</definition>
+	
+	<definition name="error1" extends="baseLayout"  >
+		<put-attribute name="title" value="Error" />
+		<put-attribute name="menu" value="" />
+		<put-attribute name="body" value="/pages/error.jsp" />
+	</definition>
+	<definition name="home"  template="/pages/login.jsp">
+		<put-attribute name="title" value="Home Page" />
+	</definition>
+	<definition name="login" template="/pages/login.jsp">
+		<put-attribute name="title" value="Login Page" />
+	</definition>
+	<definition name="SessionExpired" template="/login/error_messg.jsp">
+		<put-attribute name="title" value="Session Expired" />
+	</definition>
+	 <definition name="portfolioajax" template="/pages/admin/portfolio/portfolioAjax.jsp">
+	 	<put-attribute name="title" value="Portfolio"/>
+	 </definition>
+	 <definition name="viewajax" template="/pages/admin/portfolio/viewAjax.jsp">
+	 	<put-attribute name="title" value="Portfolio"/>
+	 </definition>
+	<definition name="FileUpload" extends="baseLayout"  >
+		<put-attribute name="title" value="File Upload" />
+		<put-attribute name="body" value="/pages/upload.jsp" />
+	</definition>
+	<definition name="quotation" extends="newLayout"  > 
+		<put-attribute name="title" value="Quotation" />
+		<put-attribute name="body" value="/pages/quotation.jsp" />
+	</definition>
+		<definition name="report" extends="newLayout"  >
+		<put-attribute name="title" value="Report" />
+		<put-attribute name="body" value="/pages/report.jsp" />
+	</definition>
+		<definition name="premiumInfo" extends="newLayout"  >
+		<put-attribute name="title" value="Premium Info" />
+		<put-attribute name="body" value="/pages/premiumInfo.jsp" />
+	</definition>
+	<definition name="ajaxDropdown" template="/pages/common/ajaxDropdown.jsp">
+		<put-attribute name="title" value="Ajax Dropdown" />
+	</definition>
+	<definition name="commoditySelection" template="/pages/commoditySelection.jsp">
+		<put-attribute name="title" value="Commodity Selection"/>
+	</definition>
+	<definition name="vesselSelection" template="/pages/vesselSelection.jsp">
+		<put-attribute name="title" value="Vessel Selection"/>
+	</definition>
+	<definition name="coreCustomer" template="/CustomerInfo/CoreCustomerSearch.jsp">
+		<put-attribute name="title" value="Options Selection"/>
+	</definition>	
+	<definition name="customerSelection" template="/pages/customerSelection.jsp">
+		<put-attribute name="title" value="Customer Selection"/>
+	</definition>
+	<definition name="lcSelection" template="/pages/lcSelection.jsp">
+		<put-attribute name="title" value="LC Selection"/>
+	</definition>
+	<definition name="clauses" template="/pages/clauses.jsp">
+		<put-attribute name="title" value="Clauses Information"/>
+	</definition>
+	<definition name="OpenFileUpload" extends="baseLayout"  >
+		<put-attribute name="title" value="Open Cover Upload" />
+		<put-attribute name="body" value="/pages/openCoverUpload.jsp" />
+	</definition>
+	<definition name="citySelection" template="/pages/citySelection.jsp">
+		<put-attribute name="title" value="City Selection"/>
+	</definition>
+	<definition name="vesselList" template="/pages/vesselList.jsp">
+		<put-attribute name="title" value="Vessel List"/>
+	</definition>	
+	<definition name="referralStatusInfo" extends="baseLayout"  >
+		<put-attribute name="title" value="Referral Status Info" />
+		<put-attribute name="body" value="/pages/referralStatusInfo.jsp" />
+	</definition>
+	<definition name="customerSearchList" template="/pages/customerSearchList.jsp">
+		<put-attribute name="title" value="Customer List"/>
+	</definition>	
+	<definition name="lcSearchList" template="/pages/lcSearchList.jsp">
+		<put-attribute name="title" value="LC List"/>
+	</definition>	
+	<definition name="declaration" extends="baseLayout"  >
+		<put-attribute name="title" value="Declaration" />
+		<put-attribute name="body" value="/pages/declaration.jsp" />
+	</definition>	
+	<definition name="declarationPolicy" extends="baseLayout"  >
+		<put-attribute name="title" value="Declaration" />
+		<put-attribute name="body" value="/pages/declarationPolicy.jsp" />
+	</definition>
+	<definition name="copyQuote" extends="newLayout"  >
+		<put-attribute name="title" value="Copy Quote" />
+		<put-attribute name="body" value="/pages/copyQuote.jsp" />
+	</definition>
+	<definition name="links" extends="newLayout"  >
+		<put-attribute name="title" value="Copy Quote" />
+		<put-attribute name="body" value="/pages/links.jsp" />
+	</definition>
+	<definition name="addConditions" template="/pages/addConditions.jsp">
+		<put-attribute name="title" value="Add Clauses"/>
+	</definition>
+	<definition name="search" extends="newLayout"  >
+		<put-attribute name="title" value="Search" />
+		<put-attribute name="body" value="/pages/search.jsp" />
+	</definition>
+	<definition name="searchResult" template="/pages/searchResult.jsp">
+		<put-attribute name="title" value="Search Result"/>
+	</definition>
+	<definition name="viewQuote" extends="baseLayout"  >
+		<put-attribute name="title" value="Quote Info" />
+		<put-attribute name="body" value="/pages/quoteInfo.jsp" />
+	</definition>
+	<definition name="customerDetails" extends="baseLayout"  > 
+		<put-attribute name="title" value="Customer Details" />
+		<put-attribute name="body" value="/pages/customer/customerDetails.jsp" />
+	</definition>
+	<definition name="policyInfo" extends="newLayout">
+		<put-attribute name="title" value="Policy Information"/>
+		<put-attribute name="body" value="/pages/policyInfo.jsp" />
+	</definition>
+	<definition name="cybersource" template="/pages/cybersource.jsp">
+		<put-attribute name="title" value="Policy Information" />		
+	</definition>
+	<definition name="adminHome" extends="baseLayoutAdmin"  >
+		<put-attribute name="title" value="Admin Home" />
+		<put-attribute name="body" value="/admin/admin_welcome.jsp" />
+	</definition>
+	<definition name="brokerList" extends="baseLayoutAdmin"  >
+		<put-attribute name="title" value="Broker List" />
+		<put-attribute name="body" value="/pages/admin/brokerMgt/AdminBrokerList.jsp" />
+	</definition>
+	<definition name="viewBroker" extends="baseLayoutAdmin"  >
+		<put-attribute name="title" value="View Broker Info" />
+		<put-attribute name="body" value="/pages/admin/brokerMgt/viewadminBrokerInfo.jsp" />
+	</definition>
+	<definition name="editBroker" extends="baseLayoutAdmin"  >
+		<put-attribute name="title" value="Edit Broker Info" />
+		<put-attribute name="body" value="/pages/admin/brokerMgt/editadminBrokerInfo.jsp" />
+	</definition>
+	<definition name="pwdChange" extends="baseLayoutAdmin"  >
+		<put-attribute name="title" value="Broker Management" />
+		<put-attribute name="body" value="/pages/admin/brokerMgt/changePWD.jsp" />
+	</definition>
+	<definition name="corecust" template="/pages/admin/brokerMgt/CoreCustomerSearch.jsp">
+		<put-attribute name="title" value="Customer Selection" />
+	</definition>
+	<definition name="brokerCommission" extends="baseLayoutAdmin"  >
+		<put-attribute name="title" value="Broker Commission" />
+		<put-attribute name="body" value="/pages/admin/brokerMgt/commissionforBroker.jsp" />
+	</definition>
+	<definition name="assignNewPwd" extends="baseLayoutAdmin"  >
+		<put-attribute name="title" value="Broker New Password" />
+		<put-attribute name="body" value="/pages/admin/brokerMgt/assignnewPWD.jsp" />
+	</definition>
+	<definition name="brokerStatus" extends="baseLayoutAdmin"  >
+		<put-attribute name="title" value="Broker Status" />
+		<put-attribute name="body" value="/pages/admin/brokerMgt/AdminBrokerStatus.jsp" />
+	</definition>
+	<definition name="adminajax" template="/pages/admin/adminAjax.jsp">
+		<put-attribute name="title" value="Ajax Broker List" />
+	</definition>
+	<definition name="userList" extends="baseLayoutAdmin"  >
+		<put-attribute name="title" value="User List" />
+		<put-attribute name="body" value="/pages/admin/userMgt/adminUserList.jsp"/>
+	</definition>
+	<definition name="customerList" extends="baseLayoutAdmin"  >
+		<put-attribute name="title" value="Customer List" />
+		<put-attribute name="body" value="/pages/admin/customerMgt/adminCustomerList.jsp"/>
+	</definition>
+	<definition name="customerListAjax" template="/pages/admin/customerMgt/adminCustomerList.jsp">
+		<put-attribute name="title" value="Customer List"/>
+	</definition>
+	<definition name="viewUser" extends="baseLayoutAdmin"  >
+		<put-attribute name="title" value="View User Info" />
+		<put-attribute name="body" value="/pages/admin/userMgt/viewadminUserInfo.jsp"/>
+	</definition>
+	<definition name="viewCustomer" extends="baseLayoutAdmin"  >
+		<put-attribute name="title" value="View User Info" />
+		<put-attribute name="body" value="/pages/admin/customerMgt/viewadminCustomerInfo.jsp"/>
+	</definition>
+	<definition name="editUser" extends="baseLayoutAdmin"  >
+		<put-attribute name="title" value="Edit Broker Info" />
+		<put-attribute name="body" value="/pages/admin/userMgt/editadminUserInfo.jsp" />
+	</definition>
+	<definition name="referalList" extends="baseLayoutAdmin">
+		<put-attribute name="title" value="Referal List" />
+		<put-attribute name="body" value="/pages/admin/referal/referalList.jsp" />
+	</definition>
+	<definition name="opencoverList" extends="baseLayoutAdmin"  >
+		<put-attribute name="title" value="Open Cover" />
+		<put-attribute name="body" value="/pages/admin/openCover/openCoverList.jsp" />
+	</definition>
+	<definition name="brokeroc" extends="baseLayoutAdmin" >
+		<put-attribute name="title" value="Open Cover" />
+		<put-attribute name="body" value="/pages/admin/openCover/brokerocList.jsp" />
+	</definition>
+	<definition name="lcdetail" template="/pages/admin/openCover/lcDetailList.jsp">
+		<put-attribute name="title" value="LC Detail List" />
+	</definition>
+	<definition name="policyajax" template="/pages/admin/report/policyReport.jsp">
+		<put-attribute name="title" value="Reports" />
+	</definition>
+	<definition name="policyreport" extends="baseLayoutAdmin">
+		<put-attribute name="title" value="Reports" />
+		<put-attribute name="body" value="/pages/admin/report/policyReport.jsp" />
+	</definition>
+	<definition name="lcsmart" extends="baseLayoutAdmin"  >
+		<put-attribute name="title" value="Reports" />
+		<put-attribute name="body" value="/pages/admin/report/lcSmartReport.jsp" />
+	</definition>
+	<definition name="branch" extends="baseLayoutAdmin"  >
+		<put-attribute name="title" value="Reports" />
+		<put-attribute name="body" value="/pages/admin/report/branchReport.jsp" />
+	</definition>
+	<definition name="integration" extends="baseLayoutAdmin"  >
+		<put-attribute name="title" value="Reports" />
+		<put-attribute name="body" value="/pages/admin/report/integrationReport.jsp" />
+	</definition>
+	<definition name="exchange1" extends="baseLayoutAdmin"  >
+		<put-attribute name="title" value="Reports" />
+		<put-attribute name="body" value="/pages/admin/report/exchangeReport.jsp" />
+	</definition>
+	<definition name="commodityselect" template="/pages/admin/report/commodityselection.jsp">
+		<put-attribute name="title" value="Commodity Selection" />
+	</definition>
+	<definition name="smartreport" extends="baseLayoutAdmin"  >
+		<put-attribute name="title" value="Smart Report" />
+		<put-attribute name="body" value="/pages/admin/report/smartReport.jsp" />
+	</definition>
+	<definition name="smartlist" extends="baseLayoutAdmin"  >
+		<put-attribute name="title" value="Smart Report" />
+		<put-attribute name="body" value="/pages/admin/report/smartlist.jsp" />
+	</definition>
+	<definition name="lclist" extends="baseLayoutAdmin"  >
+		<put-attribute name="title" value="LC Master Creation" />
+		<put-attribute name="body" value="/pages/admin/lcMaster/lcMasterList.jsp" />
+	</definition>
+	<definition name="lcdetails" extends="baseLayoutAdmin"  >
+		<put-attribute name="title" value="LC Details" />
+		<put-attribute name="body" value="/pages/admin/lcMaster/lcDetail.jsp" />
+	</definition>
+	<definition name="newlc" extends="baseLayoutAdmin"  >
+		<put-attribute name="title" value="LC Creation" />
+		<put-attribute name="body" value="/pages/admin/lcMaster/newLC.jsp" />
+	</definition>
+	<definition name="adminMgt" extends="baseLayoutAdmin"  >
+		<put-attribute name="title" value="Admin Management" />
+		<put-attribute name="body" value="/pages/admin/adminMgt/adminMgtMaster.jsp" />
+	</definition>
+	<definition name="menuSelect" template="/pages/admin/adminMgt/menuSelection.jsp">
+		<put-attribute name="title" value="Menu Selection" />
+	</definition>
+	<definition name="brokerSelect" template="/pages/admin/adminMgt/brokerSelection.jsp">
+		<put-attribute name="title" value="Broker Selection" />
+	</definition>
+	<definition name="baserate" extends="baseLayoutAdmin">
+	    <put-attribute name="title" value="Base Rate"/>
+	    <put-attribute name="body" value="/pages/admin/ratingEngine/baserate.jsp"/>
+	</definition>
+	<definition name="editTransport" extends="baseLayoutAdmin">
+	    <put-attribute name="title" value="Edit Transport"/>
+	    <put-attribute name="body" value="/pages/admin/ratingEngine/editTransport.jsp"/>
+	</definition>
+	<definition name="addError" extends="baseLayoutAdmin">
+	    <put-attribute name="title" value="Add Error"/>
+	    <put-attribute name="body" value="/pages/admin/ratingEngine/addError.jsp"/>
+	</definition>
+	<definition name="editConveyance" extends="baseLayoutAdmin">
+	    <put-attribute name="title" value="Edit Conveyance"/>
+	    <put-attribute name="body" value="/pages/admin/ratingEngine/editConveyance.jsp"/>
+	</definition>
+	<definition name="editExtraCover" extends="baseLayoutAdmin">
+	    <put-attribute name="title" value="Edit Extra Cover"/>
+	    <put-attribute name="body" value="/pages/admin/ratingEngine/editExtraCover.jsp"/>
+	</definition>
+	<definition name="editCity" extends="baseLayoutAdmin">
+	    <put-attribute name="title" value="Edit City"/>
+	    <put-attribute name="body" value="/pages/admin/ratingEngine/editCity.jsp"/>
+	</definition>
+	<definition name="editCountry" extends="baseLayoutAdmin">
+	    <put-attribute name="title" value="Edit Country"/>
+	    <put-attribute name="body" value="/pages/admin/ratingEngine/editCountry.jsp"/>
+	</definition>
+	<definition name="editBank" extends="baseLayoutAdmin">
+	    <put-attribute name="title" value="Edit Bank"/>
+	    <put-attribute name="body" value="/pages/admin/ratingEngine/editBank.jsp"/>
+	</definition>
+	<definition name="editMaterial" extends="baseLayoutAdmin">
+	    <put-attribute name="title" value="Edit Material"/>
+	    <put-attribute name="body" value="/pages/admin/ratingEngine/editMaterial.jsp"/>
+	</definition>
+	<definition name="editWar" extends="baseLayoutAdmin">
+	    <put-attribute name="title" value="Edit War Rate"/>
+	    <put-attribute name="body" value="/pages/admin/ratingEngine/editWarRate.jsp"/>
+	</definition>
+	<definition name="editSale" extends="baseLayoutAdmin"  >
+		<put-attribute name="title" value="Sale Term Master" />
+		<put-attribute name="body" value="/pages/admin/ratingEngine/editSaleTerm.jsp" />
+	</definition>
+	<definition name="editTole" extends="baseLayoutAdmin">
+	    <put-attribute name="title" value="Edit Tolerance Master"/>
+	    <put-attribute name="body" value="/pages/admin/ratingEngine/editTolerance.jsp"/>
+	</definition>
+	<definition name="editComEx" extends="baseLayoutAdmin">
+	    <put-attribute name="title" value="Edit Commodity Excess"/>
+	    <put-attribute name="body" value="/pages/admin/ratingEngine/editComEx.jsp"/>
+	</definition>
+	<definition name="editVessel" extends="baseLayoutAdmin">
+	    <put-attribute name="title" value="Vessel Master"/>
+	    <put-attribute name="body" value="/pages/admin/ratingEngine/editVessel.jsp"/>
+	</definition>
+	<definition name="editWarranty" extends="baseLayoutAdmin">
+	    <put-attribute name="title" value="Warranty Master"/>
+	    <put-attribute name="body" value="/pages/admin/ratingEngine/editWarranty.jsp"/>
+	</definition>
+	<definition name="editConstant" extends="baseLayoutAdmin">
+	    <put-attribute name="title" value="Constant Detail"/>
+	    <put-attribute name="body" value="/pages/admin/ratingEngine/editConstant.jsp"/>
+	</definition>
+	<definition name="editCountryDet" extends="baseLayoutAdmin">
+	    <put-attribute name="title" value="Country Detail"/>
+	    <put-attribute name="body" value="/pages/admin/ratingEngine/editCountryDet.jsp"/>
+	</definition>
+	<definition name="editAgent" extends="baseLayoutAdmin">
+	    <put-attribute name="title" value="Setting Agent"/>
+	    <put-attribute name="body" value="/pages/admin/ratingEngine/editAgent.jsp"/>
+	</definition>
+   	<definition name="calculate" extends="baseLayoutAdmin">
+	    <put-attribute name="title" value="Base Rate"/>
+	    <put-attribute name="body" value="/pages/admin/ratingEngine/calculation.jsp"/>
+	</definition>
+	<definition name="editCommodity" extends="baseLayoutAdmin">
+	    <put-attribute name="title" value="Commodity Master"/>
+	    <put-attribute name="body" value="/pages/admin/ratingEngine/editCommodity.jsp"/>
+	</definition>
+	<definition name="editPromotional" extends="baseLayoutAdmin">
+	    <put-attribute name="title" value="Commodity Master"/>
+	    <put-attribute name="body" value="/pages/admin/ratingEngine/editPromotional.jsp"/>
+	</definition>
+	<definition name="editCurrency" extends="baseLayoutAdmin">
+	    <put-attribute name="title" value="Currency Master"/>
+	    <put-attribute name="body" value="/pages/admin/ratingEngine/editCurrency.jsp"/>
+	</definition>
+	<definition name="editExchange" extends="baseLayoutAdmin">
+	    <put-attribute name="title" value="Exchange Master"/>
+	    <put-attribute name="body" value="/pages/admin/ratingEngine/editExchange.jsp"/>
+	</definition>
+	<definition name="editCover" extends="baseLayoutAdmin">
+	    <put-attribute name="title" value="Cover Master"/>
+	    <put-attribute name="body" value="/pages/admin/ratingEngine/editCover.jsp"/>
+	</definition>
+	<definition name="editExclusion" extends="baseLayoutAdmin">
+	    <put-attribute name="title" value="Exclusion"/>
+	    <put-attribute name="body" value="/pages/admin/ratingEngine/editExclusion.jsp"/>
+	</definition>
+	<definition name="portfolio" extends="baseLayoutAdmin">
+	    <put-attribute name="title" value="Protfolio"/>
+	    <put-attribute name="body" value="/pages/admin/portfolio/AdminPortfolio.jsp"/>
+	</definition>
+	<definition name="check" extends="baseLayoutAdmin">
+	    <put-attribute name="title" value="Protfolio"/>
+	    <put-attribute name="body" value="/pages/admin/portfolio/CheckPortfolio.jsp"/>
+	</definition>
+	<definition name="byDate" extends="baseLayoutAdmin">
+	    <put-attribute name="title" value="Protfolio"/>
+	    <put-attribute name="body" value="/pages/admin/portfolio/Portfolio_ByDate.jsp"/>
+	</definition>
+	<definition name="information" template="/pages/admin/portfolio/information.jsp">
+	    <put-attribute name="title" value="Protfolio"/>   
+	</definition>
+	<definition name="editError" extends="baseLayoutAdmin">
+	    <put-attribute name="title" value="Edit Error"/>
+	    <put-attribute name="body" value="/pages/admin/ratingEngine/editError.jsp"/>
+	</definition>
+	<definition name="editClauseID" extends="baseLayoutAdmin">
+	    <put-attribute name="title" value="Edit Clause ID"/>
+	    <put-attribute name="body" value="/pages/admin/ratingEngine/editClauseID.jsp"/>
+	</definition>
+	<definition name="PendingReUpload" extends="baseLayout"  >
+		<put-attribute name="title" value="Pending ReUpload" />
+		<put-attribute name="body" value="/pages/pendingReUpload.jsp" />
+	</definition>
+	<definition name="commodityList" template="/pages/commodityList.jsp">
+		<put-attribute name="title" value="Commodity List"/>
+	</definition>
+	<definition name="otherInfo" template="/pages/otherInfo.jsp">
+		<put-attribute name="title" value="Others Info"/>
+	</definition>
+	<definition name="baserate1" extends="baseLayoutAdmin">
+	    <put-attribute name="title" value="Base Rate"/>
+	    <put-attribute name="body" value="/pages/admin/ratingEngine/baserate.jsp"/>
+	</definition>
+	<definition name="depositList" extends="baseLayoutAdmin">
+	    <put-attribute name="title" value="Deposit Master"/>
+	    <put-attribute name="body" value="/pages/admin/deposit/depositMaster.jsp"/>
+	</definition>
+	<definition name="customerOption" template="/pages/admin/deposit/customerSelection.jsp">
+		<put-attribute name="title" value="Customer Selection" />
+	</definition>
+	<definition name="openCoverSelect" template="/pages/admin/deposit/openCoverSelection.jsp">
+		<put-attribute name="title" value="OpenCover Selection" />
+	</definition>
+	
+	<definition name="depositDetail" extends="baseLayoutAdmin">
+	 	<put-attribute name="title" value="Deposit Master"/>
+	    <put-attribute name="body" value="/pages/admin/deposit/chequeDetails.jsp"/>
+	</definition>
+	<definition name="wsrccCover" extends="baseLayoutAdmin">
+		<put-attribute name="title" value="wsrccCover"/>
+		<put-attribute name="body" value="/pages/admin/ratingEngine/editWsrcc.jsp"/>
+	</definition>
+	<definition name="common" extends="baseLayoutAdmin">
+	    <put-attribute name="title" value="Common Master"/>
+	    <put-attribute name="body" value="/pages/admin/ratingEngine/commonMaster.jsp"/>
+	</definition>
+	<definition name="premiumsummery" extends="baseLayout">
+		<put-attribute name="title" value="Premium Summery"/>
+		<put-attribute name="body" value="/pages/home/premiumSummary.jsp"/>
+	</definition>
+	<definition name="underwriterList" extends="baseLayoutAdmin"  >
+		<put-attribute name="title" value="Underwriter List" />
+		<put-attribute name="body" value="/pages/admin/underwriterMgt/adminUnderwriterList.jsp"/>
+	</definition>
+	<definition name="viewUnderwriter" extends="baseLayoutAdmin"  >
+		<put-attribute name="title" value="View User Info" />
+		<put-attribute name="body" value="/pages/admin/underwriterMgt/viewadminUnderwriterInfo.jsp"/>
+	</definition>
+	<definition name="includeIssuer" extends="baseLayoutAdmin"  >
+		<put-attribute name="title" value="View User Info" />
+		<put-attribute name="body" value="/pages/admin/underwriterMgt/includeIssuer.jsp"/>
+	</definition>
+	<definition name="excludeIssuer" extends="baseLayoutAdmin"  >
+		<put-attribute name="title" value="View User Info" />
+		<put-attribute name="body" value="/pages/admin/underwriterMgt/excludeIssuer.jsp"/>
+	</definition>
+	<definition name="editUnderwriter" extends="baseLayoutAdmin"  >
+		<put-attribute name="title" value="Edit Issuer Info" />
+		<put-attribute name="body" value="/pages/admin/underwriterMgt/editadminUnderwriterInfo.jsp" />
+	</definition>
+	<definition name="openCover" template="/pages/admin/openCoverCommon.jsp"  >
+		<put-attribute name="title" value="Open Cover Selection" />
+	</definition>
+	<definition name="changePass" extends="baseLayoutAdmin"  >
+		<put-attribute name="title" value="Underwriter List" />
+		<put-attribute name="body" value="/pages/admin/underwriterMgt/uwChangePassword.jsp"/>
+	</definition>
+	<definition name="motorGrid" extends="baseLayoutAdmin">
+	    <put-attribute name="title" value="Common Master"/>
+	    <put-attribute name="body" value="/pages/admin/motor/motorGrid.jsp"/>
+	</definition>
+	<definition name="editareacov" extends="baseLayoutAdmin"  >
+		<put-attribute name="title" value="Area Coverage" />
+		<put-attribute name="body" value="/pages/admin/motor/AreaMaster.jsp"/>
+	</definition>
+	
+	<definition name="openCoverReport" extends="baseLayoutAdmin"  >
+		<put-attribute name="title" value="openCover Report" />
+		<put-attribute name="body" value="/pages/admin/report/openCoverReport.jsp"/>
+	</definition>
+	
+	<definition name="productSelection" extends="newLayoutWithoutMenu"  >
+		<put-attribute name="title" value="Product Selection" />
+		<put-attribute name="body" value="/login/ProductSelection.jsp" />
+	</definition>
+	
+	<definition name="enterTrn" extends="baseLayoutAdmin">
+		<put-attribute name="title" value="Close TRN Transaction" />
+		<put-attribute name="body" value="/pages/admin/closeTrn/Close_Date.jsp" />
+	</definition>
+	<definition name="editCategory" extends="baseLayoutAdmin">
+	    <put-attribute name="title" value="Edit Category"/>
+	    <put-attribute name="body" value="/pages/admin/ratingEngine/editCargoCategory.jsp"/>
+	</definition>
+	<definition name="editCoverComm" extends="baseLayoutAdmin">
+	    <put-attribute name="title" value="Edit Cover"/>
+	    <put-attribute name="body" value="/pages/admin/ratingEngine/editCoverCommodity.jsp"/>
+	</definition>
+	<definition name="editConstantMaster" extends="baseLayoutAdmin">
+	    <put-attribute name="title" value="Constant Master"/>
+	    <put-attribute name="body" value="/pages/admin/ratingEngine/editConstantMaster.jsp"/>
+	</definition>
+	<definition name="ratingFileUpload" extends="baseLayoutAdmin">
+	    <put-attribute name="body" value="/pages/admin/ratingEngine/ratingFileUpload.jsp"/>
+	</definition>
+	<definition name="transDetail" extends="baseLayoutAdmin">
+		<put-attribute name="body" value="/pages/admin/ratingEngine/transDetails.jsp" />
+	</definition>
+	<definition name="editExecutive" extends="baseLayoutAdmin">
+	    <put-attribute name="title" value="Executive Master"/>
+	    <put-attribute name="body" value="/pages/admin/ratingEngine/editExecutiveMaster.jsp"/>
+	</definition>
+	<definition name="branch1" extends="baseLayoutAdmin">
+		<put-attribute name="title" value="Branch Master" />
+		<put-attribute name="body" value="/pages/admin/branchMgt/branch.jsp" />
+	</definition>
+	<definition name="branchAjax" template="/pages/admin/branchMgt/branchAjax.jsp">
+		<put-attribute name="title" value="Branch Master" />
+	</definition>
+	<definition name="lcUpload" extends="newLayout"  >
+		<put-attribute name="title" value="lcUpload" />
+		<put-attribute name="body" value="/pages/lcFileUpload.jsp" />
+	</definition>
+	<definition name="viewdocuments" extends="baseLayoutAdmin">
+	    <put-attribute name="title" value="Protfolio"/>
+	    <put-attribute name="body" value="/pages/admin/portfolio/viewdocuments.jsp"/>
+	</definition>
+		<definition name="claimBaseLayout" template="/layouts/claimBaseLayout.jsp">
+		<put-attribute name="title" value="Template" />
+		<put-attribute name="header" value="/templates/claimHeader.jsp" />		
+		<put-attribute name="body" value="/templates/body.jsp" />
+		<put-attribute name="footer" value="/templates/footer.jsp" />
+	</definition>
+	<definition name="viewClaimDetails" extends="claimBaseLayout">
+		<put-attribute name="title" value="Claim Details"></put-attribute>
+		<put-attribute name="body" value="/pages/claim/viewClaimReport.jsp"></put-attribute>		
+	</definition>
+	<definition name="claimSearch" template="/pages/claim/claimReport.jsp"  >
+		<put-attribute name="title" value="Claim Search" />
+	</definition>
+	<definition name="adminClaimIndimation" extends="baseLayoutAdmin"  >
+		<put-attribute name="title" value="Admin Home" />
+		<put-attribute name="body" value="/pages/claim/adminClaim.jsp" />
+	</definition>
+	<definition name="viewDetail" extends="baseLayoutAdmin">
+		<put-attribute name="title" value="Admin Home" />
+		<put-attribute name="body" value="/pages/claim/viewClaimReport.jsp"></put-attribute>		
+	</definition>
+	<definition name="paymentreport" extends="newLayout"  >
+		<put-attribute name="title" value="Payment Report" />
+		<put-attribute name="body" value="/pages/paymentreport.jsp" />
+	</definition>
+</tiles-definitions>

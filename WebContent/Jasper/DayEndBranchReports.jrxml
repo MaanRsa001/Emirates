@@ -1,0 +1,1596 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="DayEndBranchReports" pageWidth="3750" pageHeight="842" columnWidth="3710" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="f32220b7-8a10-4f9c-b09c-19e2dc795a63">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="common1" hAlign="Center" vAlign="Middle" fontName="Arial" fontSize="9" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+	<style name="common" hAlign="Left" vAlign="Middle" fontName="Arial" fontSize="9" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+	<subDataset name="DayandReports" uuid="1bbcf0ce-5e8b-4fa5-8659-63ba3bfffcdb">
+		<parameter name="startDate" class="java.lang.String"/>
+		<parameter name="endDate" class="java.lang.String"/>
+		<parameter name="status" class="java.lang.String"/>
+		<parameter name="branchCode" class="java.lang.String"/>
+		<queryString>
+			<![CDATA[select rownum rnk,A.* from table(adminReports($P{startDate},$P{endDate},$P{status},'3',$P{branchCode})) A]]>
+		</queryString>
+		<field name="RNK" class="java.math.BigDecimal"/>
+		<field name="ENTRY_DATE" class="java.lang.String"/>
+		<field name="BRANCH_NAME" class="java.lang.String"/>
+		<field name="LOGIN_ID" class="java.lang.String"/>
+		<field name="APPLICATIONID" class="java.lang.String"/>
+		<field name="QUOTE_NO" class="java.lang.String"/>
+		<field name="APPLICATION_NO" class="java.lang.String"/>
+		<field name="POLICY_NO" class="java.lang.String"/>
+		<field name="INCEPTION_DATE" class="java.lang.String"/>
+		<field name="EFFECTIVE_DATE" class="java.lang.String"/>
+		<field name="PRODUCT_ID" class="java.lang.String"/>
+		<field name="CUSTOMER_NAME" class="java.lang.String"/>
+		<field name="TRANSPORT_DESCRIPTION" class="java.lang.String"/>
+		<field name="COVER_NAME" class="java.lang.String"/>
+		<field name="SALE_TERM_NAME" class="java.lang.String"/>
+		<field name="TOTAL_SLAE_TERM_CHARGES" class="java.lang.String"/>
+		<field name="TOTAL_TOLERANCE_CHARGES" class="java.lang.String"/>
+		<field name="EXTRA_COVER_NAME" class="java.lang.String"/>
+		<field name="SUM_INSURED_LOCAL" class="java.lang.String"/>
+		<field name="CURRENCY_NAME" class="java.lang.String"/>
+		<field name="EXCHANGE_RATE" class="java.lang.String"/>
+		<field name="SUM_INSURED_FOREIGN" class="java.lang.String"/>
+		<field name="BASIC_PREMIUM" class="java.lang.String"/>
+		<field name="TOTAL_WAR_CHARGES" class="java.lang.String"/>
+		<field name="EXCESS_PREMIUM" class="java.lang.String"/>
+		<field name="POLICY_FEE" class="java.lang.String"/>
+		<field name="TOTAL_PREMIUM_LOCAL" class="java.lang.String"/>
+		<field name="FOREIGN_CURRENCY" class="java.lang.String"/>
+		<field name="TOTAL_PREMIUM_FOREIGN" class="java.lang.String"/>
+		<field name="COMMISSION" class="java.lang.String"/>
+		<field name="TRANSIT_FROM_CITY" class="java.lang.String"/>
+		<field name="TRANSIT_FROM_COUNTRY" class="java.lang.String"/>
+		<field name="FINAL_DEST_CITY" class="java.lang.String"/>
+		<field name="FINAL_DESTINATION_COUNTRY" class="java.lang.String"/>
+		<field name="DEBIT_NOTE_NO" class="java.lang.String"/>
+		<field name="REFERRAL" class="java.lang.String"/>
+		<field name="REFERAL_STATUS" class="java.lang.String"/>
+		<field name="STATUS" class="java.lang.String"/>
+		<field name="INTEGRATION_STATUS" class="java.lang.String"/>
+		<field name="INTEGRATION_ERROR" class="java.lang.String"/>
+		<field name="COMPANY_NAME" class="java.lang.String"/>
+		<field name="GOODS_DESCRIPTION" class="java.lang.String"/>
+	</subDataset>
+	<subDataset name="DayandReports_1" uuid="a5c208e5-4a6c-4cb8-a9d5-bd8d407340d4">
+		<parameter name="startDate" class="java.lang.String"/>
+		<parameter name="endDate" class="java.lang.String"/>
+		<parameter name="status" class="java.lang.String"/>
+		<parameter name="branchCode" class="java.lang.String"/>
+		<queryString>
+			<![CDATA[select rownum rnk,A.* from table(adminReports($P{startDate},$P{endDate},$P{status},'11',$P{branchCode})) A]]>
+		</queryString>
+		<field name="RNK" class="java.math.BigDecimal"/>
+		<field name="ENTRY_DATE" class="java.lang.String"/>
+		<field name="BRANCH_NAME" class="java.lang.String"/>
+		<field name="LOGIN_ID" class="java.lang.String"/>
+		<field name="APPLICATIONID" class="java.lang.String"/>
+		<field name="QUOTE_NO" class="java.lang.String"/>
+		<field name="APPLICATION_NO" class="java.lang.String"/>
+		<field name="POLICY_NO" class="java.lang.String"/>
+		<field name="INCEPTION_DATE" class="java.lang.String"/>
+		<field name="EFFECTIVE_DATE" class="java.lang.String"/>
+		<field name="PRODUCT_ID" class="java.lang.String"/>
+		<field name="CUSTOMER_NAME" class="java.lang.String"/>
+		<field name="TRANSPORT_DESCRIPTION" class="java.lang.String"/>
+		<field name="COVER_NAME" class="java.lang.String"/>
+		<field name="SALE_TERM_NAME" class="java.lang.String"/>
+		<field name="TOTAL_SLAE_TERM_CHARGES" class="java.lang.String"/>
+		<field name="TOTAL_TOLERANCE_CHARGES" class="java.lang.String"/>
+		<field name="EXTRA_COVER_NAME" class="java.lang.String"/>
+		<field name="SUM_INSURED_LOCAL" class="java.lang.String"/>
+		<field name="CURRENCY_NAME" class="java.lang.String"/>
+		<field name="EXCHANGE_RATE" class="java.lang.String"/>
+		<field name="SUM_INSURED_FOREIGN" class="java.lang.String"/>
+		<field name="BASIC_PREMIUM" class="java.lang.String"/>
+		<field name="TOTAL_WAR_CHARGES" class="java.lang.String"/>
+		<field name="EXCESS_PREMIUM" class="java.lang.String"/>
+		<field name="POLICY_FEE" class="java.lang.String"/>
+		<field name="TOTAL_PREMIUM_LOCAL" class="java.lang.String"/>
+		<field name="FOREIGN_CURRENCY" class="java.lang.String"/>
+		<field name="TOTAL_PREMIUM_FOREIGN" class="java.lang.String"/>
+		<field name="COMMISSION" class="java.lang.String"/>
+		<field name="TRANSIT_FROM_CITY" class="java.lang.String"/>
+		<field name="TRANSIT_FROM_COUNTRY" class="java.lang.String"/>
+		<field name="FINAL_DEST_CITY" class="java.lang.String"/>
+		<field name="FINAL_DESTINATION_COUNTRY" class="java.lang.String"/>
+		<field name="DEBIT_NOTE_NO" class="java.lang.String"/>
+		<field name="REFERRAL" class="java.lang.String"/>
+		<field name="REFERAL_STATUS" class="java.lang.String"/>
+		<field name="STATUS" class="java.lang.String"/>
+		<field name="INTEGRATION_STATUS" class="java.lang.String"/>
+		<field name="INTEGRATION_ERROR" class="java.lang.String"/>
+		<field name="COMPANY_NAME" class="java.lang.String"/>
+		<field name="GOODS_DESCRIPTION" class="java.lang.String"/>
+	</subDataset>
+	<parameter name="startDate" class="java.lang.String"/>
+	<parameter name="endDate" class="java.lang.String"/>
+	<parameter name="status" class="java.lang.String"/>
+	<parameter name="branchCode" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[select 1 from dual]]>
+	</queryString>
+	<field name="1" class="java.math.BigDecimal"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement uuid="3db85933-3a31-4928-8c71-1199b8cefe6d" mode="Opaque" x="0" y="0" width="3691" height="20" backcolor="#CCCCCC"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Arial" size="16" isBold="true" isUnderline="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["One Off Policies"]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="15">
+			<componentElement>
+				<reportElement uuid="d828dddd-e952-47b1-a17d-8da354653a48" key="table" style="table" x="0" y="0" width="3691" height="15"/>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="DayandReports" uuid="9e0699b0-f34a-4b9b-ac42-12ead172e964">
+						<datasetParameter name="startDate">
+							<datasetParameterExpression><![CDATA[$P{startDate}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="endDate">
+							<datasetParameterExpression><![CDATA[$P{endDate}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="status">
+							<datasetParameterExpression><![CDATA[$P{status}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="branchCode">
+							<datasetParameterExpression><![CDATA[$P{branchCode}]]></datasetParameterExpression>
+						</datasetParameter>
+						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					</datasetRun>
+					<jr:column width="40" uuid="3ca7264d-617a-4633-b242-71856981b56e">
+						<jr:tableHeader style="table_TH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement uuid="d602f114-9912-47a6-abff-1c711a1d60a8" style="common1" x="0" y="0" width="40" height="30"/>
+								<textElement/>
+								<text><![CDATA[Sno]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="table_TD" height="20" rowSpan="1">
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement uuid="7dc22ec9-4a55-4648-ab46-c55361a1644c" style="common" stretchType="RelativeToBandHeight" x="0" y="0" width="40" height="20"/>
+								<textElement textAlignment="Center"/>
+								<textFieldExpression><![CDATA[$F{RNK}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="e6f25bea-6b96-4ed3-b00f-b32cda8772c3">
+						<jr:tableHeader style="table_TH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement uuid="58a7be79-633d-4ae7-93bc-e95aed0862f9" style="common1" x="0" y="0" width="90" height="30"/>
+								<textElement/>
+								<text><![CDATA[ENTRY DATE]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="table_TD" height="20" rowSpan="1">
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement uuid="9e095a2a-1b2f-4a10-b328-b8bf466f219a" style="common" stretchType="RelativeToBandHeight" x="0" y="0" width="90" height="20"/>
+								<textElement textAlignment="Left"/>
+								<textFieldExpression><![CDATA[$F{ENTRY_DATE}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="efa32a51-f4c9-4a3a-8779-82a6a65b1e11">
+						<jr:tableHeader style="table_TH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement uuid="0bfbd258-6e6c-4781-a562-b58844e523ba" style="common1" x="0" y="0" width="90" height="30"/>
+								<textElement/>
+								<text><![CDATA[BRANCH NAME]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="table_TD" height="20" rowSpan="1">
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement uuid="7dcbeeac-21b7-406b-925e-7d24a644a214" style="common" stretchType="RelativeToBandHeight" x="0" y="0" width="90" height="20"/>
+								<textElement textAlignment="Left"/>
+								<textFieldExpression><![CDATA[$F{BRANCH_NAME}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="56cdc0cc-2844-4731-a532-4fcebef188d7">
+						<jr:tableHeader style="table_TH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement uuid="ce8d7e9c-c8b8-475c-bb9e-ae61315da7b2" style="common1" x="0" y="0" width="90" height="30"/>
+								<textElement/>
+								<text><![CDATA[LOGIN ID]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="table_TD" height="20" rowSpan="1">
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement uuid="b7efdc2a-7ca2-46e9-9401-b65bf5debf69" style="common" stretchType="RelativeToBandHeight" x="0" y="0" width="90" height="20"/>
+								<textElement textAlignment="Left"/>
+								<textFieldExpression><![CDATA[$F{LOGIN_ID}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="cabf45d9-bf69-44f1-8dc9-678592a4e92d">
+						<jr:tableHeader style="table_TH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement uuid="88d41333-a8e8-4bce-aab3-d0da203a7d21" style="common1" x="0" y="0" width="90" height="30"/>
+								<textElement/>
+								<text><![CDATA[APPLICATIONID]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="table_TD" height="20" rowSpan="1">
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement uuid="d83b809d-8421-4f0d-afb3-7ac52180ce59" style="common" stretchType="RelativeToBandHeight" x="0" y="0" width="90" height="20"/>
+								<textElement textAlignment="Left"/>
+								<textFieldExpression><![CDATA[$F{APPLICATIONID}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="a633a700-ba67-4194-abfb-b91128dcb15e">
+						<jr:tableHeader style="table_TH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement uuid="23398073-a4a8-48d3-bd78-877c772424db" style="common1" x="0" y="0" width="90" height="30"/>
+								<textElement/>
+								<text><![CDATA[QUOTE NO]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="table_TD" height="20" rowSpan="1">
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement uuid="6fa10f8f-47d1-4451-81d6-798afbfff42c" style="common" stretchType="RelativeToBandHeight" x="0" y="0" width="90" height="20"/>
+								<textElement textAlignment="Left"/>
+								<textFieldExpression><![CDATA[$F{QUOTE_NO}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="49f12a41-a81e-42f7-8929-559fa9b248ae">
+						<jr:tableHeader style="table_TH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement uuid="4728e503-6ca9-4661-a584-e18f36012e82" style="common1" x="0" y="0" width="90" height="30"/>
+								<textElement/>
+								<text><![CDATA[APPLICATION NO]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="table_TD" height="20" rowSpan="1">
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement uuid="79789ba8-7e2f-4f34-b6d0-442d6c093b93" style="common" stretchType="RelativeToBandHeight" x="0" y="0" width="90" height="20"/>
+								<textElement textAlignment="Left"/>
+								<textFieldExpression><![CDATA[$F{APPLICATION_NO}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="140" uuid="9046b2a2-952c-4528-b7e4-73b94be3c399">
+						<jr:tableHeader style="table_TH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement uuid="b43d898e-2e99-4018-bfb3-9af8598e45f5" style="common1" x="0" y="0" width="140" height="30"/>
+								<textElement/>
+								<text><![CDATA[POLICY NO]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="table_TD" height="20" rowSpan="1">
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement uuid="288324ac-f209-4899-99b3-2ff4e482a783" style="common" stretchType="RelativeToBandHeight" x="0" y="0" width="140" height="20"/>
+								<textElement textAlignment="Left"/>
+								<textFieldExpression><![CDATA[$F{POLICY_NO}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="c3e91e85-08b6-4eea-a041-d726006528df">
+						<jr:tableHeader style="table_TH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement uuid="a472a8c9-83d5-4462-ac27-0196cdbff756" style="common1" x="0" y="0" width="90" height="30"/>
+								<textElement/>
+								<text><![CDATA[INCEPTION DATE]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="table_TD" height="20" rowSpan="1">
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement uuid="05eedce6-3698-441a-bc0d-583786624d49" style="common" stretchType="RelativeToBandHeight" x="0" y="0" width="90" height="20"/>
+								<textElement textAlignment="Left"/>
+								<textFieldExpression><![CDATA[$F{INCEPTION_DATE}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="729cc6fe-104b-40ab-aa3f-13bcaee41b18">
+						<jr:tableHeader style="table_TH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement uuid="dccc0e28-5841-4953-aab0-e45a4bc33a76" style="common1" x="0" y="0" width="90" height="30"/>
+								<textElement/>
+								<text><![CDATA[EFFECTIVE DATE]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="table_TD" height="20" rowSpan="1">
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement uuid="c663e3d6-2907-4e62-be30-aeb492d629cf" style="common" stretchType="RelativeToBandHeight" x="0" y="0" width="90" height="20"/>
+								<textElement textAlignment="Left"/>
+								<textFieldExpression><![CDATA[$F{EFFECTIVE_DATE}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="e3f0f868-bc1f-40e8-8a79-512d8fe293ae">
+						<jr:tableHeader style="table_TH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement uuid="64a78075-0af9-4b24-a64a-dd24ff70fd2f" style="common1" x="0" y="0" width="90" height="30"/>
+								<textElement/>
+								<text><![CDATA[PRODUCT ID]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="table_TD" height="20" rowSpan="1">
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement uuid="4d50010f-d7cf-4dc2-9825-b9c8d4ea458f" style="common" stretchType="RelativeToBandHeight" x="0" y="0" width="90" height="20"/>
+								<textElement textAlignment="Left"/>
+								<textFieldExpression><![CDATA[$F{PRODUCT_ID}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="e364b7d2-0b68-484a-ae78-e29e08db21de">
+						<jr:tableHeader style="table_TH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement uuid="10d80dad-ee9f-45b2-af69-8602b9cdb63e" style="common1" x="0" y="0" width="90" height="30"/>
+								<textElement/>
+								<text><![CDATA[CUSTOMER NAME]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="table_TD" height="20" rowSpan="1">
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement uuid="f7b7f577-67cc-42fb-85f5-3c88b55f954e" style="common" stretchType="RelativeToBandHeight" x="0" y="0" width="90" height="20"/>
+								<textElement textAlignment="Left"/>
+								<textFieldExpression><![CDATA[$F{CUSTOMER_NAME}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="569e21ba-3eae-4ebf-8025-4fb4b9a1a1c4">
+						<jr:tableHeader style="table_TH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement uuid="27583f94-dcc1-42da-8e6c-c7d7560b80d2" style="common1" x="0" y="0" width="90" height="30"/>
+								<textElement/>
+								<text><![CDATA[TRANSPORT DESCRIPTION]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="table_TD" height="20" rowSpan="1">
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement uuid="22ff4a27-dfb4-42d1-a8f0-c4c16dbc4875" style="common" stretchType="RelativeToBandHeight" x="0" y="0" width="90" height="20"/>
+								<textElement textAlignment="Left"/>
+								<textFieldExpression><![CDATA[$F{TRANSPORT_DESCRIPTION}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="b5a69626-cbcf-4692-9c0f-90a5691263f5">
+						<jr:tableHeader style="table_TH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement uuid="a1806821-aa54-4bf3-a13e-c5e43a5ef6f7" style="common1" x="0" y="0" width="90" height="30"/>
+								<textElement/>
+								<text><![CDATA[COVER NAME]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="table_TD" height="20" rowSpan="1">
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement uuid="bff39940-1896-4f74-a713-5200299c407d" style="common" stretchType="RelativeToBandHeight" x="0" y="0" width="90" height="20"/>
+								<textElement textAlignment="Left"/>
+								<textFieldExpression><![CDATA[$F{COVER_NAME}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="e50d1180-d5ef-470b-a9ab-22432360ce78">
+						<jr:tableHeader style="table_TH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement uuid="ac40889c-f8c7-49a1-a391-cce06c35aaa7" style="common1" x="0" y="0" width="90" height="30"/>
+								<textElement/>
+								<text><![CDATA[GOODS DESCRIPTION]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="table_TD" height="20" rowSpan="1">
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement uuid="7e0b75c2-ea3d-470a-ba0d-382150fef61e" style="common" stretchType="RelativeToBandHeight" x="0" y="0" width="90" height="20"/>
+								<textElement textAlignment="Left"/>
+								<textFieldExpression><![CDATA[$F{GOODS_DESCRIPTION}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="e59e8031-e178-42d4-8f8a-47435961872d">
+						<jr:tableHeader style="table_TH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement uuid="aa4f57bf-7696-4936-86c0-ada1e752ebd7" style="common1" x="0" y="0" width="90" height="30"/>
+								<textElement/>
+								<text><![CDATA[Saleterm For Valuation
+]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="table_TD" height="20" rowSpan="1">
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement uuid="09d0f641-bcfe-4be4-b448-b5aca191682c" style="common" stretchType="RelativeToBandHeight" x="0" y="0" width="90" height="20"/>
+								<textElement textAlignment="Left"/>
+								<textFieldExpression><![CDATA[$F{SALE_TERM_NAME}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="e738daca-6680-44ad-9004-f8bc034fbd57">
+						<jr:tableHeader style="table_TH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement uuid="51ff2fe8-8a1e-4e46-bcda-6d14e29f303e" style="common1" x="0" y="0" width="90" height="30"/>
+								<textElement/>
+								<text><![CDATA[Saleterm Charges(AED)
+]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="table_TD" height="20" rowSpan="1">
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement uuid="6ac42cbf-8401-43c3-b3fa-1da653d5bd18" style="common" stretchType="RelativeToBandHeight" x="0" y="0" width="90" height="20"/>
+								<textElement textAlignment="Right"/>
+								<textFieldExpression><![CDATA[$F{TOTAL_SLAE_TERM_CHARGES}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="3577f1d6-7055-41af-bc74-a799a9c02e44">
+						<jr:tableHeader style="table_TH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement uuid="3e5f79e6-f06c-4377-b19f-d51c6d20fd64" style="common1" x="0" y="0" width="90" height="30"/>
+								<textElement/>
+								<text><![CDATA[Tolerance Charges(AED)
+]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="table_TD" height="20" rowSpan="1">
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement uuid="5917f006-d062-43d5-bde4-8ae8459c297f" style="common" stretchType="RelativeToBandHeight" x="0" y="0" width="90" height="20"/>
+								<textElement textAlignment="Right"/>
+								<textFieldExpression><![CDATA[$F{TOTAL_TOLERANCE_CHARGES}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="7c86fedd-2860-49b9-b9fa-861c4f143909">
+						<jr:tableHeader style="table_TH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement uuid="03563aec-ba89-4fbb-ae5d-0265c97b3bd1" style="common1" x="0" y="0" width="90" height="30"/>
+								<textElement/>
+								<text><![CDATA[Extracover Name
+]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="table_TD" height="20" rowSpan="1">
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement uuid="ac89c752-0fe0-44d1-abf2-d4851a660285" style="common" stretchType="RelativeToBandHeight" x="0" y="0" width="90" height="20"/>
+								<textElement textAlignment="Left"/>
+								<textFieldExpression><![CDATA[$F{EXTRA_COVER_NAME}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="d001a7ff-eb59-4107-8949-f90acd061685">
+						<jr:tableHeader style="table_TH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement uuid="5a350158-ff6b-4cd4-a851-68849b005942" style="common1" x="0" y="0" width="90" height="30"/>
+								<textElement/>
+								<text><![CDATA[SumInsured Local
+]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="table_TD" height="20" rowSpan="1">
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement uuid="1bef7220-e48e-45a0-be9c-ad3f72debcf6" style="common" stretchType="RelativeToBandHeight" x="0" y="0" width="90" height="20"/>
+								<textElement textAlignment="Right"/>
+								<textFieldExpression><![CDATA[$F{SUM_INSURED_LOCAL}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="2791dd56-39d5-409f-87f7-b736c0034334">
+						<jr:tableHeader style="table_TH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement uuid="a0cdbd64-9547-47a5-ab55-83df31f66a36" style="common1" x="0" y="0" width="90" height="30"/>
+								<textElement/>
+								<text><![CDATA[Currency Name
+]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="table_TD" height="20" rowSpan="1">
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement uuid="d294b589-f9db-4427-a080-6c9f4aed3954" style="common" stretchType="RelativeToBandHeight" x="0" y="0" width="90" height="20"/>
+								<textElement textAlignment="Left"/>
+								<textFieldExpression><![CDATA[$F{CURRENCY_NAME}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="74b657ea-7c25-4b38-b246-95df5b146ffd">
+						<jr:tableHeader style="table_TH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement uuid="f89eefb4-d0b8-45b7-bcd8-429263e62569" style="common1" x="0" y="0" width="90" height="30"/>
+								<textElement/>
+								<text><![CDATA[Exchange Rate
+]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="table_TD" height="20" rowSpan="1">
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement uuid="6e49467a-16fa-4695-9701-2f115850694f" style="common" stretchType="RelativeToBandHeight" x="0" y="0" width="90" height="20"/>
+								<textElement textAlignment="Right"/>
+								<textFieldExpression><![CDATA[$F{EXCHANGE_RATE}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="68bab002-f869-43f8-b8b1-b59bda413550">
+						<jr:tableHeader style="table_TH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement uuid="21d44dd6-086d-424e-8625-43d9a7edae98" style="common1" x="0" y="0" width="90" height="30"/>
+								<textElement/>
+								<text><![CDATA[SumInsured Foreign
+]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="table_TD" height="20" rowSpan="1">
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement uuid="ae7e05e0-0cf0-407b-8ac7-0878dc263350" style="common" stretchType="RelativeToBandHeight" x="0" y="0" width="90" height="20"/>
+								<textElement textAlignment="Right"/>
+								<textFieldExpression><![CDATA[$F{SUM_INSURED_FOREIGN}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="6ad9ee50-2bd2-445b-a90c-a7674be12553">
+						<jr:tableHeader style="table_TH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement uuid="d9015653-7ad9-4414-a86c-c2ea8addd729" style="common1" x="0" y="0" width="90" height="30"/>
+								<textElement/>
+								<text><![CDATA[Marine Premium
+]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="table_TD" height="20" rowSpan="1">
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement uuid="bdf73f60-a50a-470f-b01d-eba2d698efdc" style="common" stretchType="RelativeToBandHeight" x="0" y="0" width="90" height="20"/>
+								<textElement textAlignment="Right"/>
+								<textFieldExpression><![CDATA[$F{BASIC_PREMIUM}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="eae1ec37-5847-4cdc-a08b-bf25c55fd9ae">
+						<jr:tableHeader style="table_TH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement uuid="a56f7858-089e-4e3d-88fe-fbe50511472f" style="common1" x="0" y="0" width="90" height="30"/>
+								<textElement/>
+								<text><![CDATA[War Premium
+]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="table_TD" height="20" rowSpan="1">
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement uuid="8c1938e1-865d-463f-b889-cdce466aab97" style="common" stretchType="RelativeToBandHeight" x="0" y="0" width="90" height="20"/>
+								<textElement textAlignment="Right"/>
+								<textFieldExpression><![CDATA[$F{TOTAL_WAR_CHARGES}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="b4a08265-f4c4-49c6-b913-4f06946d8f6b">
+						<jr:tableHeader style="table_TH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement uuid="7965a574-b271-499e-8d1a-5e8803320179" style="common1" x="0" y="0" width="90" height="30"/>
+								<textElement/>
+								<text><![CDATA[Excess Premium
+]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="table_TD" height="20" rowSpan="1">
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement uuid="042ce099-b2f6-4911-b8cd-2cfc2a001c46" style="common" stretchType="RelativeToBandHeight" x="0" y="0" width="90" height="20"/>
+								<textElement textAlignment="Right"/>
+								<textFieldExpression><![CDATA[$F{EXCESS_PREMIUM}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="b327d5e1-9b96-4f0d-b449-afe06ab1d2dd">
+						<jr:tableHeader style="table_TH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement uuid="18c13e90-5e30-47a6-b063-e00f28fb928c" style="common1" x="0" y="0" width="90" height="30"/>
+								<textElement/>
+								<text><![CDATA[Policy Fee
+]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="table_TD" height="20" rowSpan="1">
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement uuid="5498ada3-44ca-4bba-8221-ca1d2fa534c3" style="common" stretchType="RelativeToBandHeight" x="0" y="0" width="90" height="20"/>
+								<textElement textAlignment="Right"/>
+								<textFieldExpression><![CDATA[$F{POLICY_FEE}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="5c9c66c2-1039-4ff9-8103-6c20a06079dd">
+						<jr:tableHeader style="table_TH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement uuid="b2564beb-5e39-4279-b6db-7004b6b0d0fe" style="common1" x="0" y="0" width="90" height="30"/>
+								<textElement/>
+								<text><![CDATA[Total Premium(AED)]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="table_TD" height="20" rowSpan="1">
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement uuid="3ef65d77-f61b-4ea6-9421-21213c029648" style="common" stretchType="RelativeToBandHeight" x="0" y="0" width="90" height="20"/>
+								<textElement textAlignment="Right"/>
+								<textFieldExpression><![CDATA[$F{TOTAL_PREMIUM_LOCAL}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="d5f907d5-b45a-4799-996b-9d24b2990d9a">
+						<jr:tableHeader style="table_TH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement uuid="2ff60e75-fc52-4ccc-9cd3-b7ec2d543b43" style="common1" x="0" y="0" width="90" height="30"/>
+								<textElement/>
+								<text><![CDATA[Foreign Currency Status
+]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="table_TD" height="20" rowSpan="1">
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement uuid="40d4b714-c23d-4b8e-8bbb-694b814f3932" style="common" stretchType="RelativeToBandHeight" x="0" y="0" width="90" height="20"/>
+								<textElement textAlignment="Left"/>
+								<textFieldExpression><![CDATA[$F{FOREIGN_CURRENCY}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="007860c9-010d-4386-ac84-318092bed4a5">
+						<jr:tableHeader style="table_TH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement uuid="35c7b001-09f4-425a-a9c8-00c2e9970476" style="common1" x="0" y="0" width="90" height="30"/>
+								<textElement/>
+								<text><![CDATA[Total Premium(Foreign)
+]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="table_TD" height="20" rowSpan="1">
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement uuid="143aa0ed-4be4-480c-9178-0adf3b92069b" style="common" stretchType="RelativeToBandHeight" x="0" y="0" width="90" height="20"/>
+								<textElement textAlignment="Right"/>
+								<textFieldExpression><![CDATA[$F{TOTAL_PREMIUM_FOREIGN}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="bd8bd3b2-36e3-41fb-842d-88e88a161400">
+						<jr:tableHeader style="table_TH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement uuid="95bcdb76-b8fa-4604-bdca-75eb815296f0" style="common1" x="0" y="0" width="90" height="30"/>
+								<textElement/>
+								<text><![CDATA[COMMISSION]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="table_TD" height="20" rowSpan="1">
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement uuid="1741f509-c853-4d88-b199-6502bbe7302d" style="common" stretchType="RelativeToBandHeight" x="0" y="0" width="90" height="20"/>
+								<textElement textAlignment="Right"/>
+								<textFieldExpression><![CDATA[$F{COMMISSION}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="b15be6b4-031d-4ade-b022-fc4534594bc5">
+						<jr:tableHeader style="table_TH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement uuid="d09bf3a6-f905-49d4-b921-2fbe09e9d51b" style="common1" x="0" y="0" width="90" height="30"/>
+								<textElement/>
+								<text><![CDATA[Transit from City
+]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="table_TD" height="20" rowSpan="1">
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement uuid="7ca5461e-a728-4ce1-bf49-758439af9bdd" style="common" stretchType="RelativeToBandHeight" x="0" y="0" width="90" height="20"/>
+								<textElement textAlignment="Left"/>
+								<textFieldExpression><![CDATA[$F{TRANSIT_FROM_CITY}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="83110c60-d6d1-4641-abff-111aec5a7375">
+						<jr:tableHeader style="table_TH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement uuid="eba533c5-f218-42ed-ac77-7e33766f75fb" style="common1" x="0" y="0" width="90" height="30"/>
+								<textElement/>
+								<text><![CDATA[Transit from Country
+]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="table_TD" height="20" rowSpan="1">
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement uuid="2bde3df4-1328-456a-a03a-dae0e43a0e8d" style="common" stretchType="RelativeToBandHeight" x="0" y="0" width="90" height="20"/>
+								<textElement textAlignment="Left"/>
+								<textFieldExpression><![CDATA[$F{TRANSIT_FROM_COUNTRY}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="3cf9a6ae-d98d-4150-b46d-66cca1945021">
+						<jr:tableHeader style="table_TH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement uuid="90ba923a-a815-45bc-81e2-8a871547952a" style="common1" x="0" y="0" width="90" height="30"/>
+								<textElement/>
+								<text><![CDATA[Finaldest City
+]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="table_TD" height="20" rowSpan="1">
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement uuid="f07b844e-bb78-4693-a94b-2c64b72f3753" style="common" stretchType="RelativeToBandHeight" x="0" y="0" width="90" height="20"/>
+								<textElement textAlignment="Left"/>
+								<textFieldExpression><![CDATA[$F{FINAL_DEST_CITY}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="67d6a5ca-1b7a-4ff1-ac02-9562fc12dc62">
+						<jr:tableHeader style="table_TH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement uuid="7262bb51-ba54-4f28-8130-c1a54c6f6cd7" style="common1" x="0" y="0" width="90" height="30"/>
+								<textElement/>
+								<text><![CDATA[Finaldest Country
+]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="table_TD" height="20" rowSpan="1">
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement uuid="27e9c1e1-2615-47f6-a1ec-52c9797a29b9" style="common" stretchType="RelativeToBandHeight" x="0" y="0" width="90" height="20"/>
+								<textElement textAlignment="Left"/>
+								<textFieldExpression><![CDATA[$F{FINAL_DESTINATION_COUNTRY}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="fa4169fa-4d1c-446a-8898-95a1d7b0ff3c">
+						<jr:tableHeader style="table_TH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement uuid="c9af8c9e-b672-4f6f-8079-0b47e6f12564" style="common1" x="0" y="0" width="90" height="30"/>
+								<textElement/>
+								<text><![CDATA[Debitnote No
+]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="table_TD" height="20" rowSpan="1">
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement uuid="4ef35aac-6f14-4ef4-b1df-a9c3d7c2b6a0" style="common" stretchType="RelativeToBandHeight" x="0" y="0" width="90" height="20"/>
+								<textElement textAlignment="Left"/>
+								<textFieldExpression><![CDATA[$F{DEBIT_NOTE_NO}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="dd2418cf-c23f-450a-88af-08164174f16a">
+						<jr:tableHeader style="table_TH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement uuid="e1d6a447-6347-4317-bcc7-4533195000d5" style="common1" x="0" y="0" width="90" height="30"/>
+								<textElement/>
+								<text><![CDATA[REFERRAL]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="table_TD" height="20" rowSpan="1">
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement uuid="642c264c-c0e1-478a-9558-649bef2bcc77" style="common" stretchType="RelativeToBandHeight" x="0" y="0" width="90" height="20"/>
+								<textElement textAlignment="Left"/>
+								<textFieldExpression><![CDATA[$F{REFERRAL}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="fcd8fd42-9fdc-4637-af5e-7fc8aa76482d">
+						<jr:tableHeader style="table_TH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement uuid="3ad04551-f17a-4ffe-b519-fb5ba6deecb1" style="common1" x="0" y="0" width="90" height="30"/>
+								<textElement/>
+								<text><![CDATA[Referral Status
+]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="table_TD" height="20" rowSpan="1">
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement uuid="b1c9b7ba-7f0a-4586-b62d-036686731554" style="common" stretchType="RelativeToBandHeight" x="0" y="0" width="90" height="20"/>
+								<textElement textAlignment="Left"/>
+								<textFieldExpression><![CDATA[$F{REFERAL_STATUS}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="543bbd40-5190-461b-b77f-244c291ecaf8">
+						<jr:tableHeader style="table_TH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement uuid="3a4e08a7-cb33-4c41-84b3-55b7fab1e59c" style="common1" x="0" y="0" width="90" height="30"/>
+								<textElement/>
+								<text><![CDATA[STATUS]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="table_TD" height="20" rowSpan="1">
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement uuid="fc3a29fc-64c3-4e27-aef6-9ab3874b80d7" style="common" stretchType="RelativeToBandHeight" x="0" y="0" width="90" height="20"/>
+								<textElement textAlignment="Left"/>
+								<textFieldExpression><![CDATA[$F{STATUS}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="aae88f0a-b8e2-46af-8e46-c0c47bb4dfc5">
+						<jr:tableHeader style="table_TH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement uuid="ba8de828-600e-45cf-bba6-1f7728bd3077" style="common1" x="0" y="0" width="90" height="30"/>
+								<textElement/>
+								<text><![CDATA[INTEGRATION STATUS]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="table_TD" height="20" rowSpan="1">
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement uuid="f5a58e9d-73cc-40e5-9b4b-5321d6c3222b" style="common" stretchType="RelativeToBandHeight" x="0" y="0" width="90" height="20"/>
+								<textElement textAlignment="Left"/>
+								<textFieldExpression><![CDATA[$F{INTEGRATION_STATUS}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="d895a552-3775-4275-8619-2d2aa03c3e09">
+						<jr:tableHeader style="table_TH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement uuid="2a8eb628-da11-4cc6-88bd-544ad12f7527" style="common1" x="0" y="0" width="90" height="30"/>
+								<textElement/>
+								<text><![CDATA[INTEGRATION ERROR]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="table_TD" height="20" rowSpan="1">
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement uuid="31e116f4-dc59-4f02-a8b5-a1af853d2d28" style="common" stretchType="RelativeToBandHeight" x="0" y="0" width="90" height="20"/>
+								<textElement textAlignment="Left"/>
+								<textFieldExpression><![CDATA[$F{INTEGRATION_ERROR}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+		</band>
+		<band height="40">
+			<textField>
+				<reportElement uuid="139e8d36-50bc-415b-a42c-8759a3ff1e0b" mode="Opaque" x="0" y="20" width="3691" height="20" backcolor="#CCCCCC"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Arial" size="16" isBold="true" isUnderline="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Open Cover Policies"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="ba489f84-fcef-4958-b0b8-02cd7ca13e10" mode="Transparent" x="0" y="0" width="3691" height="20" backcolor="#FFFFFF"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Arial" size="16" isBold="true" isUnderline="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[""]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="15">
+			<componentElement>
+				<reportElement uuid="0d9eb2d9-f401-4b9a-a651-0a537c1cb414" key="table" style="table" x="0" y="0" width="3691" height="15"/>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="DayandReports_1" uuid="050f663d-364f-47c6-942c-fccd75315795">
+						<datasetParameter name="startDate">
+							<datasetParameterExpression><![CDATA[$P{startDate}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="endDate">
+							<datasetParameterExpression><![CDATA[$P{endDate}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="status">
+							<datasetParameterExpression><![CDATA[$P{status}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="branchCode">
+							<datasetParameterExpression><![CDATA[$P{branchCode}]]></datasetParameterExpression>
+						</datasetParameter>
+						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					</datasetRun>
+					<jr:column width="40" uuid="78dfefe3-42f3-4ea8-b8ae-11b8b4984803">
+						<jr:tableHeader style="table_TH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement uuid="64493a77-7c7a-4c29-bd49-bd8e31c098e4" style="common1" x="0" y="0" width="40" height="30"/>
+								<textElement/>
+								<text><![CDATA[Sno]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="table_TD" height="20" rowSpan="1">
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement uuid="65a5d185-410d-4976-af46-99c590c87971" style="common" stretchType="RelativeToBandHeight" x="0" y="0" width="40" height="20"/>
+								<textElement textAlignment="Center"/>
+								<textFieldExpression><![CDATA[$F{RNK}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="640937a3-5743-40fd-93ae-2acad99c3cee">
+						<jr:tableHeader style="table_TH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement uuid="9a66984b-c4a3-4a82-8c8c-baf05ce4bb3a" style="common1" x="0" y="0" width="90" height="30"/>
+								<textElement/>
+								<text><![CDATA[ENTRY DATE]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="table_TD" height="20" rowSpan="1">
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement uuid="eeb85f86-5706-4a98-9ced-f86fb1f6eeed" style="common" stretchType="RelativeToBandHeight" x="0" y="0" width="90" height="20"/>
+								<textElement textAlignment="Left"/>
+								<textFieldExpression><![CDATA[$F{ENTRY_DATE}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="ed145db1-b2ad-4b95-bb21-856113e02d7c">
+						<jr:tableHeader style="table_TH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement uuid="9bc30932-8289-4d83-bb22-35f719cecab5" style="common1" x="0" y="0" width="90" height="30"/>
+								<textElement/>
+								<text><![CDATA[BRANCH NAME]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="table_TD" height="20" rowSpan="1">
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement uuid="df51b4d1-1538-4bc3-a0ac-adce8dcc24c4" style="common" stretchType="RelativeToBandHeight" x="0" y="0" width="90" height="20"/>
+								<textElement textAlignment="Left"/>
+								<textFieldExpression><![CDATA[$F{BRANCH_NAME}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="61adb5ae-ebb0-4e13-a9ce-6e624f91d3fb">
+						<jr:tableHeader style="table_TH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement uuid="07be0820-1be7-4965-a360-e7c13184b61c" style="common1" x="0" y="0" width="90" height="30"/>
+								<textElement/>
+								<text><![CDATA[LOGIN ID]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="table_TD" height="20" rowSpan="1">
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement uuid="5858054c-7abe-410c-8e8e-d29a82f48ef4" style="common" stretchType="RelativeToBandHeight" x="0" y="0" width="90" height="20"/>
+								<textElement textAlignment="Left"/>
+								<textFieldExpression><![CDATA[$F{LOGIN_ID}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="d6b45f2d-8e32-4f64-8188-1a302b57d64e">
+						<jr:tableHeader style="table_TH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement uuid="8d000523-64be-41ec-9777-c32e82b032b0" style="common1" x="0" y="0" width="90" height="30"/>
+								<textElement/>
+								<text><![CDATA[APPLICATIONID]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="table_TD" height="20" rowSpan="1">
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement uuid="88424539-82b7-4655-8dec-e098ff7ca0ec" style="common" stretchType="RelativeToBandHeight" x="0" y="0" width="90" height="20"/>
+								<textElement textAlignment="Left"/>
+								<textFieldExpression><![CDATA[$F{APPLICATIONID}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="2137d7a3-eecc-4ffd-9a06-1422eab03866">
+						<jr:tableHeader style="table_TH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement uuid="cc104fb8-9eef-4be7-adcd-80bdfffffea7" style="common1" x="0" y="0" width="90" height="30"/>
+								<textElement/>
+								<text><![CDATA[QUOTE NO]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="table_TD" height="20" rowSpan="1">
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement uuid="14eeedb1-caf9-4ca4-ab70-2dc1307e43cf" style="common" stretchType="RelativeToBandHeight" x="0" y="0" width="90" height="20"/>
+								<textElement textAlignment="Left"/>
+								<textFieldExpression><![CDATA[$F{QUOTE_NO}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="f6fcaf9e-6e3f-42a8-a039-9fef1223e6d0">
+						<jr:tableHeader style="table_TH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement uuid="3fe927aa-c0ee-419b-8ae2-487fe037d22f" style="common1" x="0" y="0" width="90" height="30"/>
+								<textElement/>
+								<text><![CDATA[APPLICATION NO]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="table_TD" height="20" rowSpan="1">
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement uuid="b0da214d-4392-4a3c-81ac-3a811399b8a8" style="common" stretchType="RelativeToBandHeight" x="0" y="0" width="90" height="20"/>
+								<textElement textAlignment="Left"/>
+								<textFieldExpression><![CDATA[$F{APPLICATION_NO}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="140" uuid="7540bcd0-408a-4702-9256-4c476ba6287b">
+						<jr:tableHeader style="table_TH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement uuid="74d648e5-f088-44ed-9ac6-d4a1e30cf100" style="common1" x="0" y="0" width="140" height="30"/>
+								<textElement/>
+								<text><![CDATA[POLICY NO]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="table_TD" height="20" rowSpan="1">
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement uuid="9785d7e4-7952-4060-b3a0-24315829205f" style="common" stretchType="RelativeToBandHeight" x="0" y="0" width="140" height="20"/>
+								<textElement textAlignment="Left"/>
+								<textFieldExpression><![CDATA[$F{POLICY_NO}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="af436635-b5a3-4c29-a5de-cf59d945a22c">
+						<jr:tableHeader style="table_TH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement uuid="46e2853b-8050-4ef2-8e3d-760dd2163856" style="common1" x="0" y="0" width="90" height="30"/>
+								<textElement/>
+								<text><![CDATA[INCEPTION DATE]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="table_TD" height="20" rowSpan="1">
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement uuid="a685b797-7105-4807-90a9-c24cd6da2605" style="common" stretchType="RelativeToBandHeight" x="0" y="0" width="90" height="20"/>
+								<textElement textAlignment="Left"/>
+								<textFieldExpression><![CDATA[$F{INCEPTION_DATE}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="46c0e0fa-87bf-4b59-b351-af7b9d1207ad">
+						<jr:tableHeader style="table_TH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement uuid="5412ec98-0581-4640-9abb-21d0534aa9d8" style="common1" x="0" y="0" width="90" height="30"/>
+								<textElement/>
+								<text><![CDATA[EFFECTIVE DATE]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="table_TD" height="20" rowSpan="1">
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement uuid="f10c2f8c-5733-45d7-a2c9-09cfaee46ad3" style="common" stretchType="RelativeToBandHeight" x="0" y="0" width="90" height="20"/>
+								<textElement textAlignment="Left"/>
+								<textFieldExpression><![CDATA[$F{EFFECTIVE_DATE}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="dce7c692-d2fd-4568-8a44-e673003055fc">
+						<jr:tableHeader style="table_TH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement uuid="0a8341a6-a20f-46b9-a9e7-c686ca31c44d" style="common1" x="0" y="0" width="90" height="30"/>
+								<textElement/>
+								<text><![CDATA[PRODUCT ID]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="table_TD" height="20" rowSpan="1">
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement uuid="611ada8e-2592-4b6d-94a2-5253fb548213" style="common" stretchType="RelativeToBandHeight" x="0" y="0" width="90" height="20"/>
+								<textElement textAlignment="Left"/>
+								<textFieldExpression><![CDATA[$F{PRODUCT_ID}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="959c53d5-024a-4153-b11a-2354dc14eb6f">
+						<jr:tableHeader style="table_TH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement uuid="08700b44-06fa-42fb-8d4c-762af724a45e" style="common1" x="0" y="0" width="90" height="30"/>
+								<textElement/>
+								<text><![CDATA[CUSTOMER NAME]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="table_TD" height="20" rowSpan="1">
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement uuid="424a9dcd-7703-4ceb-91c7-97be6cde6f8a" style="common" stretchType="RelativeToBandHeight" x="0" y="0" width="90" height="20"/>
+								<textElement textAlignment="Left"/>
+								<textFieldExpression><![CDATA[$F{CUSTOMER_NAME}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="5ccff6e8-29e3-45fd-a9a6-fc0f639f780d">
+						<jr:tableHeader style="table_TH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement uuid="783b5570-cdc5-4164-a8d1-c5d0a0700f13" style="common1" x="0" y="0" width="90" height="30"/>
+								<textElement/>
+								<text><![CDATA[TRANSPORT DESCRIPTION]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="table_TD" height="20" rowSpan="1">
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement uuid="58eabe32-ff67-41e5-a3f6-bc855fa513dd" style="common" stretchType="RelativeToBandHeight" x="0" y="0" width="90" height="20"/>
+								<textElement textAlignment="Left"/>
+								<textFieldExpression><![CDATA[$F{TRANSPORT_DESCRIPTION}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="38ec9493-3e50-498a-8a55-0e9bb43e1e1f">
+						<jr:tableHeader style="table_TH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement uuid="c1ceb754-9b14-46ac-8beb-6e04bdbf48bf" style="common1" x="0" y="0" width="90" height="30"/>
+								<textElement/>
+								<text><![CDATA[COVER NAME]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="table_TD" height="20" rowSpan="1">
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement uuid="4a92fff1-6dcd-40c9-a797-89881373ecd4" style="common" stretchType="RelativeToBandHeight" x="0" y="0" width="90" height="20"/>
+								<textElement textAlignment="Left"/>
+								<textFieldExpression><![CDATA[$F{COVER_NAME}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="7fafe984-3e57-4b0c-ae73-0dfee8d54c2a">
+						<jr:tableHeader style="table_TH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement uuid="4e15d259-444a-459a-9282-1029a2cba91b" style="common1" x="0" y="0" width="90" height="30"/>
+								<textElement/>
+								<text><![CDATA[GOODS DESCRIPTION]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="table_TD" height="20" rowSpan="1">
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement uuid="781357cf-0343-41eb-8262-c4de5baac4d8" style="common" stretchType="RelativeToBandHeight" x="0" y="0" width="90" height="20"/>
+								<textElement textAlignment="Left"/>
+								<textFieldExpression><![CDATA[$F{GOODS_DESCRIPTION}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="55a4f0f9-b59e-4801-9291-7a1ac9ea2421">
+						<jr:tableHeader style="table_TH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement uuid="35bd6ab8-aceb-4148-9f9f-a737f91c4633" style="common1" x="0" y="0" width="90" height="30"/>
+								<textElement/>
+								<text><![CDATA[Saleterm For Valuation
+]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="table_TD" height="20" rowSpan="1">
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement uuid="ea88f8d9-9a66-4168-a29f-d6c6f1be73f8" style="common" stretchType="RelativeToBandHeight" x="0" y="0" width="90" height="20"/>
+								<textElement textAlignment="Left"/>
+								<textFieldExpression><![CDATA[$F{SALE_TERM_NAME}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="05378abd-658f-4e59-bb72-afc08d819ae2">
+						<jr:tableHeader style="table_TH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement uuid="3b1f1f5f-3376-436b-8d65-4113a369b0ff" style="common1" x="0" y="0" width="90" height="30"/>
+								<textElement/>
+								<text><![CDATA[Saleterm Charges(AED)
+]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="table_TD" height="20" rowSpan="1">
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement uuid="109ca07d-d299-439b-a729-981fc11e7eb9" style="common" stretchType="RelativeToBandHeight" x="0" y="0" width="90" height="20"/>
+								<textElement textAlignment="Right"/>
+								<textFieldExpression><![CDATA[$F{TOTAL_SLAE_TERM_CHARGES}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="6dd9fbcb-e053-4ee7-b5a1-54f8ddcfde5a">
+						<jr:tableHeader style="table_TH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement uuid="ad59ca53-b9df-44b6-805a-1c4c6abfec98" style="common1" x="0" y="0" width="90" height="30"/>
+								<textElement/>
+								<text><![CDATA[Tolerance Charges(AED)
+]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="table_TD" height="20" rowSpan="1">
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement uuid="a16ee0a9-029f-4dfc-91c0-4c006e8cf7d4" style="common" stretchType="RelativeToBandHeight" x="0" y="0" width="90" height="20"/>
+								<textElement textAlignment="Right"/>
+								<textFieldExpression><![CDATA[$F{TOTAL_TOLERANCE_CHARGES}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="d9f8dc2b-6292-440f-9389-1a9265dcd3e5">
+						<jr:tableHeader style="table_TH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement uuid="1a5cbac1-c1af-4d97-8497-162246816052" style="common1" x="0" y="0" width="90" height="30"/>
+								<textElement/>
+								<text><![CDATA[Extracover Name
+]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="table_TD" height="20" rowSpan="1">
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement uuid="5f9a7c27-5073-47cc-a1b9-465bd3a37256" style="common" stretchType="RelativeToBandHeight" x="0" y="0" width="90" height="20"/>
+								<textElement textAlignment="Left"/>
+								<textFieldExpression><![CDATA[$F{EXTRA_COVER_NAME}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="fd7c0277-0db6-405b-8526-d11c97f7fb1e">
+						<jr:tableHeader style="table_TH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement uuid="929b2870-534c-44c6-8879-c465f025c47d" style="common1" x="0" y="0" width="90" height="30"/>
+								<textElement/>
+								<text><![CDATA[SumInsured Local
+]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="table_TD" height="20" rowSpan="1">
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement uuid="675918e5-9090-46cf-a91b-53434698a96a" style="common" stretchType="RelativeToBandHeight" x="0" y="0" width="90" height="20"/>
+								<textElement textAlignment="Right"/>
+								<textFieldExpression><![CDATA[$F{SUM_INSURED_LOCAL}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="c4985191-10b2-47f9-99e9-2b676ed45da0">
+						<jr:tableHeader style="table_TH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement uuid="4fde7d80-d8e5-4608-9caa-469f4bdfbb2c" style="common1" x="0" y="0" width="90" height="30"/>
+								<textElement/>
+								<text><![CDATA[Currency Name
+]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="table_TD" height="20" rowSpan="1">
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement uuid="46155c5b-9078-45df-b863-856c7de878b3" style="common" stretchType="RelativeToBandHeight" x="0" y="0" width="90" height="20"/>
+								<textElement textAlignment="Left"/>
+								<textFieldExpression><![CDATA[$F{CURRENCY_NAME}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="aa10278b-80fb-438c-b60c-641591d546d7">
+						<jr:tableHeader style="table_TH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement uuid="b18496bf-9e26-4e60-b1bb-0bcc45a63ac3" style="common1" x="0" y="0" width="90" height="30"/>
+								<textElement/>
+								<text><![CDATA[Exchange Rate
+]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="table_TD" height="20" rowSpan="1">
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement uuid="423ce020-5649-4dfa-a945-dea9d40c035d" style="common" stretchType="RelativeToBandHeight" x="0" y="0" width="90" height="20"/>
+								<textElement textAlignment="Right"/>
+								<textFieldExpression><![CDATA[$F{EXCHANGE_RATE}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="a36d0a71-8fff-4429-bc96-22f05201c311">
+						<jr:tableHeader style="table_TH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement uuid="9e991e8f-4aee-4355-b99c-2b0a3a25f4be" style="common1" x="0" y="0" width="90" height="30"/>
+								<textElement/>
+								<text><![CDATA[SumInsured Foreign
+]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="table_TD" height="20" rowSpan="1">
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement uuid="e3793c51-1136-4e28-8b8c-45cdaab1b7dc" style="common" stretchType="RelativeToBandHeight" x="0" y="0" width="90" height="20"/>
+								<textElement textAlignment="Right"/>
+								<textFieldExpression><![CDATA[$F{SUM_INSURED_FOREIGN}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="4309091a-90a3-4f55-adec-825cefb23bce">
+						<jr:tableHeader style="table_TH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement uuid="6c1aeadc-0f53-41d0-ae38-49a689538737" style="common1" x="0" y="0" width="90" height="30"/>
+								<textElement/>
+								<text><![CDATA[Marine Premium
+]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="table_TD" height="20" rowSpan="1">
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement uuid="f1bd0c86-2b4c-40ea-bd49-95a8347f7d9d" style="common" stretchType="RelativeToBandHeight" x="0" y="0" width="90" height="20"/>
+								<textElement textAlignment="Right"/>
+								<textFieldExpression><![CDATA[$F{BASIC_PREMIUM}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="647ec34d-fcea-4274-b4b8-9282cba8dc2a">
+						<jr:tableHeader style="table_TH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement uuid="af085844-8a7d-460b-8e05-c40568352b0b" style="common1" x="0" y="0" width="90" height="30"/>
+								<textElement/>
+								<text><![CDATA[War Premium
+]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="table_TD" height="20" rowSpan="1">
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement uuid="86fb7e2c-2831-44ed-830b-738d610da6cc" style="common" stretchType="RelativeToBandHeight" x="0" y="0" width="90" height="20"/>
+								<textElement textAlignment="Right"/>
+								<textFieldExpression><![CDATA[$F{TOTAL_WAR_CHARGES}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="2d8aa4cc-a199-4432-8fc5-6ae23bdff92a">
+						<jr:tableHeader style="table_TH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement uuid="aef30f1a-1f47-4806-9b36-2c7d2622bb91" style="common1" x="0" y="0" width="90" height="30"/>
+								<textElement/>
+								<text><![CDATA[Excess Premium
+]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="table_TD" height="20" rowSpan="1">
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement uuid="d07b9561-3cd8-41ae-9987-4115457d853c" style="common" stretchType="RelativeToBandHeight" x="0" y="0" width="90" height="20"/>
+								<textElement textAlignment="Right"/>
+								<textFieldExpression><![CDATA[$F{EXCESS_PREMIUM}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="eb6ea48a-8c5a-44e1-b9d5-193f4a6f4bec">
+						<jr:tableHeader style="table_TH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement uuid="2d4b519e-66a0-40d7-97bf-e6a09eb3901d" style="common1" x="0" y="0" width="90" height="30"/>
+								<textElement/>
+								<text><![CDATA[Policy Fee
+]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="table_TD" height="20" rowSpan="1">
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement uuid="01cea72c-9e7c-4aca-a92d-effc3cdee972" style="common" stretchType="RelativeToBandHeight" x="0" y="0" width="90" height="20"/>
+								<textElement textAlignment="Right"/>
+								<textFieldExpression><![CDATA[$F{POLICY_FEE}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="f472035e-e00a-4bd4-89f6-8248a0041cdc">
+						<jr:tableHeader style="table_TH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement uuid="3f10f0b0-b86f-43ec-bad7-07277221385c" style="common1" x="0" y="0" width="90" height="30"/>
+								<textElement/>
+								<text><![CDATA[Total Premium(AED)]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="table_TD" height="20" rowSpan="1">
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement uuid="ad2b9c0d-b76f-4755-b8d5-e16a61c45a76" style="common" stretchType="RelativeToBandHeight" x="0" y="0" width="90" height="20"/>
+								<textElement textAlignment="Right"/>
+								<textFieldExpression><![CDATA[$F{TOTAL_PREMIUM_LOCAL}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="d74f6580-dba1-4d1a-ad66-47c84d9329c5">
+						<jr:tableHeader style="table_TH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement uuid="43e4a66b-021c-41f9-9ce0-3ba49a3f325b" style="common1" x="0" y="0" width="90" height="30"/>
+								<textElement/>
+								<text><![CDATA[Foreign Currency Status
+]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="table_TD" height="20" rowSpan="1">
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement uuid="05867586-087b-41b6-b5bf-be43f77e9b9c" style="common" stretchType="RelativeToBandHeight" x="0" y="0" width="90" height="20"/>
+								<textElement textAlignment="Left"/>
+								<textFieldExpression><![CDATA[$F{FOREIGN_CURRENCY}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="d3fe3fee-76e1-4a5c-89a7-af233995f640">
+						<jr:tableHeader style="table_TH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement uuid="381d8639-6b75-49c7-9dba-1da4a6906d9d" style="common1" x="0" y="0" width="90" height="30"/>
+								<textElement/>
+								<text><![CDATA[Total Premium(Foreign)
+]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="table_TD" height="20" rowSpan="1">
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement uuid="98f3a36a-798b-4133-bf2e-40c460867fb2" style="common" stretchType="RelativeToBandHeight" x="0" y="0" width="90" height="20"/>
+								<textElement textAlignment="Right"/>
+								<textFieldExpression><![CDATA[$F{TOTAL_PREMIUM_FOREIGN}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="ae61e100-fc40-47b9-a4ed-4c26508189b7">
+						<jr:tableHeader style="table_TH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement uuid="70f79c04-1fbf-45c9-9358-56f0a62dc975" style="common1" x="0" y="0" width="90" height="30"/>
+								<textElement/>
+								<text><![CDATA[COMMISSION]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="table_TD" height="20" rowSpan="1">
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement uuid="4522b59a-a028-4f1f-8fa0-c13e65d49465" style="common" stretchType="RelativeToBandHeight" x="0" y="0" width="90" height="20"/>
+								<textElement textAlignment="Right"/>
+								<textFieldExpression><![CDATA[$F{COMMISSION}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="6c9eb835-1051-4b58-bb6f-80eedc2c0fa4">
+						<jr:tableHeader style="table_TH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement uuid="ac267793-aa66-40d4-8775-f9f4f9818f58" style="common1" x="0" y="0" width="90" height="30"/>
+								<textElement/>
+								<text><![CDATA[Transit from City
+]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="table_TD" height="20" rowSpan="1">
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement uuid="e2c56f73-4de6-4bcb-956e-ba35f7000ccf" style="common" stretchType="RelativeToBandHeight" x="0" y="0" width="90" height="20"/>
+								<textElement textAlignment="Left"/>
+								<textFieldExpression><![CDATA[$F{TRANSIT_FROM_CITY}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="c2a4c485-cc33-4f8e-84c1-512fcf33444b">
+						<jr:tableHeader style="table_TH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement uuid="2433b494-a52f-4bf4-9e83-f66c7f1f3241" style="common1" x="0" y="0" width="90" height="30"/>
+								<textElement/>
+								<text><![CDATA[Transit from Country
+]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="table_TD" height="20" rowSpan="1">
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement uuid="aa3066f5-56f6-41e2-9f64-1fa586b53859" style="common" stretchType="RelativeToBandHeight" x="0" y="0" width="90" height="20"/>
+								<textElement textAlignment="Left"/>
+								<textFieldExpression><![CDATA[$F{TRANSIT_FROM_COUNTRY}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="4c52e819-efab-4699-8df5-a061cf2b16f4">
+						<jr:tableHeader style="table_TH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement uuid="d8e9196e-73ca-480b-8948-509716b95518" style="common1" x="0" y="0" width="90" height="30"/>
+								<textElement/>
+								<text><![CDATA[Finaldest City
+]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="table_TD" height="20" rowSpan="1">
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement uuid="7f77517d-2339-46eb-a859-4f03eb65afc1" style="common" stretchType="RelativeToBandHeight" x="0" y="0" width="90" height="20"/>
+								<textElement textAlignment="Left"/>
+								<textFieldExpression><![CDATA[$F{FINAL_DEST_CITY}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="a74502d5-57f7-4941-9273-86c364d529ab">
+						<jr:tableHeader style="table_TH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement uuid="aeaeaf93-a692-4ba3-8afe-afcc2d3cda82" style="common1" x="0" y="0" width="90" height="30"/>
+								<textElement/>
+								<text><![CDATA[Finaldest Country
+]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="table_TD" height="20" rowSpan="1">
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement uuid="51d1d665-55ee-4f7a-b471-04ea54154443" style="common" stretchType="RelativeToBandHeight" x="0" y="0" width="90" height="20"/>
+								<textElement textAlignment="Left"/>
+								<textFieldExpression><![CDATA[$F{FINAL_DESTINATION_COUNTRY}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="741cf343-1fe1-49cd-8383-561f3cfd58af">
+						<jr:tableHeader style="table_TH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement uuid="dac8413d-080d-435b-91ba-170b51df2dfe" style="common1" x="0" y="0" width="90" height="30"/>
+								<textElement/>
+								<text><![CDATA[Debitnote No
+]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="table_TD" height="20" rowSpan="1">
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement uuid="a8a731da-d39a-461c-aa50-066ba85c6b49" style="common" stretchType="RelativeToBandHeight" x="0" y="0" width="90" height="20"/>
+								<textElement textAlignment="Left"/>
+								<textFieldExpression><![CDATA[$F{DEBIT_NOTE_NO}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="e73f3747-1508-4cc4-bf1c-37325ee06422">
+						<jr:tableHeader style="table_TH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement uuid="1398f3ec-c8a7-4ad9-bf7a-ce09d551b4c8" style="common1" x="0" y="0" width="90" height="30"/>
+								<textElement/>
+								<text><![CDATA[REFERRAL]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="table_TD" height="20" rowSpan="1">
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement uuid="286dc49f-e4c6-4867-824d-4c2a302d847d" style="common" stretchType="RelativeToBandHeight" x="0" y="0" width="90" height="20"/>
+								<textElement textAlignment="Left"/>
+								<textFieldExpression><![CDATA[$F{REFERRAL}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="bab0cff0-87b8-4145-88a2-41165b82bc47">
+						<jr:tableHeader style="table_TH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement uuid="bbba8924-80d1-4709-9572-311e927983e6" style="common1" x="0" y="0" width="90" height="30"/>
+								<textElement/>
+								<text><![CDATA[Referral Status
+]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="table_TD" height="20" rowSpan="1">
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement uuid="66c1aca1-5913-4fdc-bbbe-78808de00e5d" style="common" stretchType="RelativeToBandHeight" x="0" y="0" width="90" height="20"/>
+								<textElement textAlignment="Left"/>
+								<textFieldExpression><![CDATA[$F{REFERAL_STATUS}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="8cbcd2ea-fd4d-4191-b266-a84b2d686279">
+						<jr:tableHeader style="table_TH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement uuid="851eb7b5-934d-4b2c-aec0-55e48c0b1ca3" style="common1" x="0" y="0" width="90" height="30"/>
+								<textElement/>
+								<text><![CDATA[STATUS]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="table_TD" height="20" rowSpan="1">
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement uuid="b33f6316-66ac-4709-8b16-96510c81c938" style="common" stretchType="RelativeToBandHeight" x="0" y="0" width="90" height="20"/>
+								<textElement textAlignment="Left"/>
+								<textFieldExpression><![CDATA[$F{STATUS}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="740e3362-a552-4488-bfa6-741cc7ba0ee8">
+						<jr:tableHeader style="table_TH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement uuid="34752b1a-1e02-4f47-948e-38ed5dcbfb06" style="common1" x="0" y="0" width="90" height="30"/>
+								<textElement/>
+								<text><![CDATA[INTEGRATION STATUS]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="table_TD" height="20" rowSpan="1">
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement uuid="78fe825f-0a19-428c-b451-c41de6224f2e" style="common" stretchType="RelativeToBandHeight" x="0" y="0" width="90" height="20"/>
+								<textElement textAlignment="Left"/>
+								<textFieldExpression><![CDATA[$F{INTEGRATION_STATUS}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="3a8795b9-8c6c-42af-a756-7bab9efdd44b">
+						<jr:tableHeader style="table_TH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement uuid="c802969e-2df7-4460-996e-98b0384302b6" style="common1" x="0" y="0" width="90" height="30"/>
+								<textElement/>
+								<text><![CDATA[INTEGRATION ERROR]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="table_TD" height="20" rowSpan="1">
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement uuid="cb1e763b-7a6d-409a-8c0e-c4a6f7c13a2d" style="common" stretchType="RelativeToBandHeight" x="0" y="0" width="90" height="20"/>
+								<textElement textAlignment="Left"/>
+								<textFieldExpression><![CDATA[$F{INTEGRATION_ERROR}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

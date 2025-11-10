@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="LCSmartReport" pageWidth="1482" pageHeight="2160" whenNoDataType="AllSectionsNoDetail" columnWidth="1442" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="2cc9e87e-6055-4f72-8fae-c916e5bf2474">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="684"/>
+	<property name="ireport.y" value="0"/>
+	<style name="style1" mode="Transparent" backcolor="#9999FF">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 1]]></conditionExpression>
+			<style backcolor="#CCCCCC"/>
+		</conditionalStyle>
+	</style>
+	<parameter name="loginId" class="java.lang.String"/>
+	<parameter name="branchCode" class="java.lang.String"/>
+	<parameter name="type" class="java.lang.String"/>
+	<parameter name="value" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[Select rownum sno,A.* from table(lc_smart_reports($P{loginId},$P{branchCode},$P{type},$P{value})) A]]>
+	</queryString>
+	<field name="SNO" class="java.math.BigDecimal"/>
+	<field name="COMPANY_NAME" class="java.lang.String"/>
+	<field name="MISSIPPI_OPENCOVER_NO" class="java.lang.String"/>
+	<field name="CUSTOMER_ID" class="java.math.BigDecimal"/>
+	<field name="CUST_NAME" class="java.lang.String"/>
+	<field name="BANK_NAME" class="java.lang.String"/>
+	<field name="LC_NUMBER" class="java.lang.String"/>
+	<field name="LC_BALANCE_AMOUNT" class="java.math.BigDecimal"/>
+	<field name="LOGIN_ID" class="java.lang.String"/>
+	<field name="OPEN_COVER_NO" class="java.lang.String"/>
+	<field name="START_DATE" class="java.lang.String"/>
+	<field name="END_DATE" class="java.lang.String"/>
+	<field name="LC_AMOUNT" class="java.math.BigDecimal"/>
+	<field name="LC_AMT_DH" class="java.math.BigDecimal"/>
+	<field name="BANK_ID" class="java.math.BigDecimal"/>
+	<field name="LC_ID" class="java.math.BigDecimal"/>
+	<field name="EXCHANGE_RATE" class="java.math.BigDecimal"/>
+	<field name="SHORT_NAME" class="java.lang.String"/>
+	<field name="LC_CURRENCY_ID" class="java.lang.String"/>
+	<field name="USED_AMT" class="java.math.BigDecimal"/>
+	<group name="brokerGroup">
+		<groupHeader>
+			<band height="20"/>
+		</groupHeader>
+	</group>
+	<group name="OPGroup">
+		<groupHeader>
+			<band height="33">
+				<staticText>
+					<reportElement uuid="5de941b1-2e7f-488d-a5cf-0b847cc07ae5" x="0" y="16" width="37" height="17"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial" size="8" isBold="true"/>
+					</textElement>
+					<text><![CDATA[S.No]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="ac99f544-4a87-471b-82f2-6b2a4b1bce64" x="256" y="16" width="164" height="17"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial" size="8" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Bank Name]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="9c474858-4f71-4bdc-a5e3-dd9fa746dc32" x="701" y="16" width="124" height="17"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial" size="8" isBold="true"/>
+					</textElement>
+					<text><![CDATA[LC Currency]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="a831a473-c7cf-402e-80f2-7c8bf94c563f" x="142" y="16" width="114" height="17"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial" size="8" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Customer Name
+]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="ecbad10c-0445-45fa-8b49-531557c2c309" x="606" y="16" width="95" height="17"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial" size="8" isBold="true"/>
+					</textElement>
+					<text><![CDATA[End Date]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="de2bfaf9-0ec4-4bd7-80db-92fa875e08c0" x="420" y="16" width="91" height="17"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial" size="8" isBold="true"/>
+					</textElement>
+					<text><![CDATA[LC Number]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="456ae50f-9911-4fa6-94c9-5972f72db26c" x="825" y="16" width="133" height="17"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial" size="8" isBold="true"/>
+					</textElement>
+					<text><![CDATA[LC Currency Amount]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="4c6da5d5-9682-4a58-a15a-e182cc2badde" x="1172" y="16" width="137" height="17"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="Arial" size="8" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Used Amount(AED)]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="ba3e109d-bb72-42da-acc4-27527d431002" x="958" y="16" width="113" height="17"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="Arial" size="8" isBold="true"/>
+					</textElement>
+					<text><![CDATA[LC Amount]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="9f07fc3d-7d6b-4f1d-b295-9296a3787bc7" x="37" y="16" width="105" height="17"/>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font fontName="Arial" size="8" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Open Cover No]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="f4810c64-aa17-4dae-83cb-c8188476bffb" x="511" y="16" width="95" height="17"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial" size="8" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Start Date]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="835a5191-0b0d-4e0c-aaf8-49ecdbd65b6d" x="1071" y="16" width="101" height="17"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="Arial" size="8" isBold="true"/>
+					</textElement>
+					<text><![CDATA[LC Amount(AED)]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="1ace8dd9-6ecf-4639-9776-249f8208b40c" x="1309" y="16" width="133" height="17"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="Arial" size="8" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Pending LC Amount(AED)]]></text>
+				</staticText>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="15"/>
+		</groupFooter>
+	</group>
+	<title>
+		<band height="45" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="4d1df4bd-b8db-442c-aa16-e130a6fe1111" mode="Opaque" x="0" y="13" width="1442" height="15" backcolor="#999999"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[LCSmart Report]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="19" splitType="Stretch"/>
+	</pageHeader>
+	<detail>
+		<band height="24">
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement uuid="dd6d33e8-3183-4078-b4a4-388a2639dfef" stretchType="RelativeToBandHeight" mode="Transparent" x="0" y="0" width="37" height="24" isPrintWhenDetailOverflows="true"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{SNO}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement uuid="f67156bc-84e8-4781-a1df-818944ca0663" stretchType="RelativeToBandHeight" mode="Transparent" x="256" y="0" width="164" height="24" isPrintWhenDetailOverflows="true"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{BANK_NAME}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="#,##0.00;-#,##0.00" isBlankWhenNull="true">
+				<reportElement uuid="81168555-64e9-47f8-9a08-77e0e728ca9d" stretchType="RelativeToBandHeight" mode="Transparent" x="701" y="0" width="124" height="24" isPrintWhenDetailOverflows="true"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{SHORT_NAME}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement uuid="1441b1b7-15d9-4d60-a833-ffa015417cff" stretchType="RelativeToBandHeight" mode="Transparent" x="420" y="0" width="91" height="24" isPrintWhenDetailOverflows="true"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{LC_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="#,##0.00;-#,##0.00" isBlankWhenNull="true">
+				<reportElement uuid="8607efaa-c37e-4845-baa1-7b98f14da073" stretchType="RelativeToBandHeight" mode="Transparent" x="825" y="0" width="133" height="24" isPrintWhenDetailOverflows="true"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{EXCHANGE_RATE}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement uuid="fdb4ff1f-29cf-4879-aa35-6b2a3a720344" stretchType="RelativeToBandHeight" mode="Transparent" x="606" y="0" width="95" height="24" isPrintWhenDetailOverflows="true"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{END_DATE}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="#,##0.00;-#,##0.00" isBlankWhenNull="true">
+				<reportElement uuid="69ad7b11-f65f-4883-a7f6-2666531f4fcc" stretchType="RelativeToBandHeight" mode="Transparent" x="1172" y="0" width="137" height="24" isPrintWhenDetailOverflows="true"/>
+				<textElement textAlignment="Right" verticalAlignment="Top">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{USED_AMT}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement uuid="6ea01b8e-b0e5-4dbc-a7bb-b430fa2ffafb" stretchType="RelativeToBandHeight" mode="Transparent" x="142" y="0" width="114" height="24" isPrintWhenDetailOverflows="true"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{CUST_NAME}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="#,##0.00;-#,##0.00" isBlankWhenNull="true">
+				<reportElement uuid="d3c9e82d-bec2-4381-9abe-a3569e9c0023" stretchType="RelativeToBandHeight" mode="Transparent" x="958" y="0" width="113" height="24" isPrintWhenDetailOverflows="true"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{LC_AMOUNT}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement uuid="6a55bcbd-582a-4420-9d05-17010ec063ed" stretchType="RelativeToBandHeight" mode="Transparent" x="37" y="0" width="105" height="24" isPrintWhenDetailOverflows="true"/>
+				<textElement textAlignment="Left">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{OPEN_COVER_NO}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="#,##0.00;-#,##0.00" isBlankWhenNull="true">
+				<reportElement uuid="50a3f2cf-99f4-4943-a57b-2748e3ceca09" stretchType="RelativeToBandHeight" mode="Transparent" x="1071" y="0" width="101" height="24" isPrintWhenDetailOverflows="true"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{LC_AMT_DH}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="#,##0.00;-#,##0.00" isBlankWhenNull="true">
+				<reportElement uuid="ceef2198-1b94-4606-b0a6-41428ff06e01" stretchType="RelativeToBandHeight" mode="Transparent" x="511" y="0" width="95" height="24" isPrintWhenDetailOverflows="true"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{START_DATE}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="#,##0.00;-#,##0.00" isBlankWhenNull="true">
+				<reportElement uuid="e896edc9-ad16-45f2-b21b-3aee584f6d57" stretchType="RelativeToBandHeight" mode="Transparent" x="1309" y="0" width="133" height="24" isPrintWhenDetailOverflows="true"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{LC_BALANCE_AMOUNT}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="15">
+			<textField>
+				<reportElement uuid="3da61c27-82cb-49ad-a230-bf796003f9e4" x="1173" y="0" width="170" height="15"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement uuid="3bb615ae-d547-451a-8b5e-ba0e9817ba33" x="1343" y="0" width="99" height="15"/>
+				<textElement>
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<lastPageFooter>
+		<band height="15">
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="c242b7b7-7551-4a9a-85ce-46996525513b" x="0" y="0" width="420" height="15"/>
+				<textElement>
+					<font fontName="Arial" size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["There were " +String.valueOf($V{REPORT_COUNT}) +" records on this report."]]></textFieldExpression>
+			</textField>
+		</band>
+	</lastPageFooter>
+	<summary>
+		<band height="15"/>
+	</summary>
+</jasperReport>

@@ -1,0 +1,88 @@
+@charset "utf-8";
+/* CSS Document */
+.table {	
+	border-width: 1px solid;
+	width: 100%;	
+}
+thead tr {
+	background-color: #6D7B8D;
+}
+th.sorted {
+	background-color: #C0C0C0;
+	FONT-FAMILY: lucida, verdana, helvetica, arial, sans-serif;
+	font-size: 11px;
+	text-decoration: none;
+	color: #3636c7;	
+}
+th a,th a:visited {
+	text-decoration: none;
+	color: #FFFFFF;
+	width: 100%;
+}
+th a:hover {	
+	background-color: #454545;
+	text-decoration: underline;	
+}
+th.sorted a,th.sortable a {
+	background-position: right;
+	display: block;
+	width: 100%;
+}
+th.sortable a {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 13px;
+	font-weight: bold;
+	background-color: #6D7B8D;
+	background-image: url(../images/arrow_off.png);
+    background-repeat: no-repeat;
+    color: #FFFFFF;
+}
+th.order1 a {
+	FONT-FAMILY: lucida, verdana, helvetica, arial, sans-serif;
+	font-size: 11px;
+	color: #3636c7;
+	background-image: url(../images/arrow_down.png);
+    background-repeat: no-repeat;   
+}
+th.order2 a {
+	FONT-FAMILY: lucida, verdana, helvetica, arial, sans-serif;
+	font-size: 11px;
+	color: #3636c7;
+	background-image: url(../images/arrow_up.png);
+    background-repeat: no-repeat;  
+}
+tr.odd {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: normal;
+	background-color: #F7F7F7;
+	width: 100%;	
+}
+tr.tableRowEven,tr.even {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: normal;
+	background-color: #FEFDF9;
+	width: 100%;	
+}
+.group-1 {
+    font-weight:bold;
+    padding-bottom:10px;
+    border-top:1px solid black;
+}
+.group-2 {
+    font-style:italic;
+    border-top: 1px solid black;
+}
+.grouped-table tr.even {
+    background-color: #fff;
+}
+.grouped-table tr.odd {
+    background-color: #fff;
+}
+.pagelinks {
+	background-color:#FFFFFF;
+	FONT-FAMILY: verdana;
+	font-size: 13px;
+	text-align: right !important;			
+}

@@ -1,0 +1,271 @@
+/*
+table { 
+	width: 100%; 
+	border-collapse: collapse; 
+}
+/* Zebra striping *//*
+tr:nth-of-type(odd) { 
+	background: #eee; 
+}
+th { 
+	background: #ffffff;
+	font-weight: bold; 
+}
+td, th { 
+	padding: 6px; 
+	border: 1px solid #ccc; 
+/*	text-align: left;*//* 
+}
+
+.tableDate {
+	width: 15%;
+}
+
+/* 
+Max width before this PARTICULAR table gets nasty
+This query will take effect for any screen smaller than 760px
+and also iPads specifically.
+*/
+@media 
+only screen and (max-width: 760px)  {
+
+	/* Force table to not be like tables anymore */
+	table.perInsu, .perInsu thead, .perInsu tbody, .perInsu tfoot, .perInsu th, .perInsu td, .perInsu tr { 
+		display: block; 
+	}
+	
+	/* Hide table headers (but not display: none;, for accessibility) */
+	.perInsu thead tr { 
+		position: absolute;
+		top: -9999px;
+		left: -9999px;
+	}
+	
+	.perInsu tfoot tr { 
+		position: absolute;
+		top: -9999px;
+		left: -9999px;
+	}
+	
+	.perInsu tr { border: 1px solid #ccc; }
+	
+	.perInsu td { 
+		/* Behave  like a "row" */
+		border: none;
+		border-bottom: 1px solid #eee; 
+		position: relative;
+		padding-left: 50%; 
+	}
+	
+	.perInsu td:before { 
+		/* Now like a table header */
+		position: absolute;
+		/* Top/left values mimic padding */
+		top: 6px;
+		left: 6px;
+		width: 45%; 
+		padding-right: 10px; 
+		white-space: nowrap;
+		font-weight: bolder;		
+	}
+	
+	/*
+	Label the data
+	*/
+	table.perInsu td:nth-of-type(1):before { content: "S.No."; text-align: left; }
+	table.perInsu td:nth-of-type(2):before { content: "Name"; text-align: left; }
+	table.perInsu td:nth-of-type(3):before { content: "Date of Birth"; text-align: left; }
+	table.perInsu td:nth-of-type(4):before { content: "Gender"; text-align: left; }
+	table.perInsu td:nth-of-type(5):before { content: "Relations"; text-align: left; }
+	table.perInsu td:nth-of-type(6):before { content: "Nationality"; text-align: left; }
+	table.perInsu td:nth-of-type(7):before { content: "Delete"; text-align: left; }
+	
+}
+
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen
+and (min-device-width : 320px)
+and (max-device-width : 480px) {
+	body { 
+		padding: 0; 
+		margin: 0; 
+		width: 100%; }
+	}
+
+/* iPads (portrait and landscape) ----------- */
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+	body { 
+		width: 100%; 
+	}
+}
+
+/****************************************************************************************/
+
+@media 
+only screen and (max-width: 760px)  {
+
+	/* Force table to not be like tables anymore */
+	table.polDtls, .polDtls thead, .polDtls tbody, .polDtls tfoot, .polDtls th, .polDtls td, .polDtls tr { 
+		display: block; 
+	}
+	
+	/* Hide table headers (but not display: none;, for accessibility) */
+	.polDtls thead tr { 
+		position: absolute;
+		top: -9999px;
+		left: -9999px;
+	}
+	
+	.polDtls tfoot tr { 
+		position: absolute;
+		top: -9999px;
+		left: -9999px;
+	}
+	
+	.polDtls tr { border: 1px solid #ccc; }
+	
+	.polDtls td { 
+		/* Behave  like a "row" */
+		border: none;
+		border-bottom: 1px solid #eee; 
+		position: relative;
+		padding-left: 50%; 
+	}
+	
+	.polDtls td:before { 
+		/* Now like a table header */
+		position: absolute;
+		/* Top/left values mimic padding */
+		top: 6px;
+		left: 6px;
+		width: 45%; 
+		padding-right: 10px; 
+		white-space: nowrap;
+		font-weight: bolder;		
+	}
+	
+	/*
+	Label the data
+	*/
+	table.polDtls td:nth-of-type(1):before { content: "S.No."; text-align: left; }
+	table.polDtls td:nth-of-type(2):before { content: "Name"; text-align: left; }
+	table.polDtls td:nth-of-type(3):before { content: "Date of Birth"; text-align: left; }
+	table.polDtls td:nth-of-type(4):before { content: "Gender"; text-align: left; }
+	table.polDtls td:nth-of-type(5):before { content: "Relations"; text-align: left; }
+	table.polDtls td:nth-of-type(6):before { content: "Nationality"; text-align: left; }
+	
+}
+
+/******************************************************************************************/
+
+@media 
+only screen and (max-width: 760px)  {
+
+	/* Force table to not be like tables anymore */
+	table.quoteInfo, .quoteInfo thead, .quoteInfo tbody, .quoteInfo tfoot, .quoteInfo th, .quoteInfo td, .quoteInfo tr { 
+		display: block; 
+	}
+	
+	/* Hide table headers (but not display: none;, for accessibility) */
+	.quoteInfo thead tr { 
+		position: absolute;
+		top: -9999px;
+		left: -9999px;
+	}
+	
+	.quoteInfo tfoot tr { 
+		position: absolute;
+		top: -9999px;
+		left: -9999px;
+	}
+	
+	.quoteInfo tr { border: 1px solid #ccc; }
+	
+	.quoteInfo td { 
+		/* Behave  like a "row" */
+		border: none;
+		border-bottom: 1px solid #eee; 
+		position: relative;
+		padding-left: 50%;
+		text-align: right; 
+	}
+	
+	.quoteInfo td:before { 
+		/* Now like a table header */
+		position: absolute;
+		/* Top/left values mimic padding */
+		top: 6px;
+		left: 6px;
+		width: 45%; 
+		padding-right: 10px; 
+		white-space: nowrap;
+		font-weight: bolder;		
+	}
+	
+	/*
+	Label the data
+	*/
+	table.quoteInfo td:nth-of-type(1):before { content: "Quote No."; text-align: left; }
+	table.quoteInfo td:nth-of-type(2):before { content: "Quotation Date"; text-align: left; }
+	table.quoteInfo td:nth-of-type(3):before { content: "Proposer Name"; text-align: left; }
+	table.quoteInfo td:nth-of-type(4):before { content: "Cover Start Date"; text-align: left; }
+	
+}
+
+/******************************************************************************************/
+
+@media 
+only screen and (max-width: 760px)  {
+
+	/* Force table to not be like tables anymore */
+	table.dynaTable, .dynaTable thead, .dynaTable tbody, .dynaTable tfoot, .dynaTable th, .dynaTable td, .dynaTable tr { 
+		display: block; 
+	}
+	
+	/* Hide table headers (but not display: none;, for accessibility) */
+	.dynaTable thead tr { 
+		position: absolute;
+		top: -9999px;
+		left: -9999px;
+	}
+	
+	.dynaTable tfoot tr { 
+		position: absolute;
+		top: -9999px;
+		left: -9999px;
+	}
+	
+	.dynaTable tr { border: 1px solid #ccc; }
+	
+	.dynaTable td { 
+		/* Behave  like a "row" */
+		border: none;
+		border-bottom: 1px solid #eee; 
+		position: relative;
+		padding-left: 50%;
+		text-align: right; 
+	}
+	
+	.dynaTable td:before { 
+		/* Now like a table header */
+		position: absolute;
+		/* Top/left values mimic padding */
+		top: 6px;
+		left: 6px;
+		width: 45%; 
+		padding-right: 10px; 
+		white-space: nowrap;
+		font-weight: bolder;		
+	}
+	
+	/*
+	Label the data
+	
+	table.dynaTable td:nth-of-type(1):before { content: "Quote No."; text-align: left; }
+	table.dynaTable td:nth-of-type(2):before { content: "Quotation Date"; text-align: left; }
+	table.dynaTable td:nth-of-type(3):before { content: "Proposer Name"; text-align: left; }
+	table.dynaTable td:nth-of-type(4):before { content: "Cover Start Date"; text-align: left; }
+	*/
+}
+
+/******************************************************************************************/

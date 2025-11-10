@@ -1,0 +1,223 @@
+body{ font-family:Arial, Helvetica, sans-serif; font-size:12px;}
+.heading{ color:#FFFFFF; font-size:13px; background:#666; padding:5px 8px; font-weight:bold;}
+.input{ border:1px solid #CCCCCC;}
+.bg{ background:url(../images/td.png) repeat-x bottom; padding:5px 0;}
+.btntab{text-align:left; background:#667D95; color:#FFFFFF; cursor:pointer; border:none; font-weight:bold; padding:10px 5px; width:150px; }
+.btntab:hover{text-align:left; background:#CAE1F9; color:#FFFFFF; cursor:pointer; border:none; font-weight:bold; padding:10px 5px; width:150px;  }
+.mainmenu{ color:#FFFFFF; text-decoration:none; font-weight:bold;}
+.mainmenu:hover{ color:#ccc;}
+.btn{ background:#013366; color:#FFFFFF; cursor:pointer; border:none; font-weight:bold; padding:2px 2px;}
+
+.strength0{ width:200px; background:#cccccc;}
+
+.strength1{width:50px; background:#ff0000;}
+
+.strength2{width:100px; background:#ff5f5f;}
+
+.strength3{width:150px; background:#56e500;}
+
+.strength4{ background:#4dcd00; width:200px;}
+
+.strength5{ background:#399800; width:250px;}
+
+.inputsm{ border:1px solid #CCCCCC; width:50px;}
+
+
+.headingCovers{ color:#FFFFFF; font-size:13px; background:#999999; padding:5px 8px; font-weight:bold;}
+.tdScheme0{color:#FFFFFF;font-size:14px;background:#336699; padding:5px 8px;font-weight:bold;}
+.tdScheme1{color:#FFFFFF;font-size:14px;background:#527578; padding:5px 8px;font-weight:bold;}
+.tdScheme2{color:#FFFFFF;font-size:14px;background:#9CC7F2; padding:5px 8px;font-weight:bold;}
+.tdScheme3{color:#FFFFFF;font-size:14px;background:#C7B26F; padding:5px 8px;font-weight:bold;}
+.tdCovers0{background:#D0D1D1;font-size:12px; padding:5px 8px;}
+.tdCovers1{background:#CEDFCE;font-size:12px; padding:5px 8px;}
+.tdCovers2{background:#F6E4CC;font-size:12px; padding:5px 8px;}
+.tdCovers3{background:#C7B26F;font-size:12px; padding:5px 8px;}
+.tableCovers{border: 1px solid white;}
+
+.tCols {
+	width: 300px;
+	height: 40px;
+	padding: 2px 4px 4px 4px;	
+}
+
+.tCols1 {
+	width: 50%;
+	height: 40px;
+	padding: 2px 4px 4px 4px;	
+}
+
+.tCols50 {
+	width: 50%;
+}
+
+.text
+{				
+	padding: 0px 5px 6px 5px;
+	font-size:14px;
+	color: #777;
+	font-family: "proxima-nova", sans-serif;						
+}
+
+.tbox
+{
+	font-family: "proxima-nova", sans-serif;			
+	line-height:25px;					
+}
+
+.inputAppend {
+	width: 90%;
+}
+
+.ui-datepicker-trigger
+{
+	float:left;
+	width:10%;
+	padding: 0;
+	margin-left: 5px;
+}
+
+.ui-datepicker {
+	font-size:12px;
+}
+
+.ui-widget {
+	font-size:12px;
+}
+
+.inputBox
+{
+	
+	border-top-right-radius: 2px;
+	border-top-left-radius: 2px;
+	border-bottom-right-radius: 2px;
+	border-bottom-left-radius: 2px;
+	
+	-moz-border-radius: 2px;
+	-khtml-border-radius: 2px;
+	-webkit-border-radius: 2px;
+	border-radius: 2px;
+	height: 24px;	
+	display: block;
+	outline: 0;
+	width: 88%;	
+	border: 1px solid #cccccc;
+	
+	padding-left: 5px;
+}
+
+.inputBox:FOCUS {
+	-moz-box-shadow: 0px 0px 20px #cccccc);
+	-webkit-box-shadow: 0px 0px 20px #cccccc;
+	box-shadow: 0px 0px 20px #cccccc;
+}
+
+.inputAppend {
+	
+	border-top-right-radius: 2px;
+	border-top-left-radius: 2px;
+	border-bottom-right-radius: 2px;
+	border-bottom-left-radius: 2px;
+	
+	-moz-border-radius: 2px;
+	-khtml-border-radius: 2px;
+	-webkit-border-radius: 2px;
+	border-radius: 2px;
+	height: 26px;
+	display: block;
+	outline: 0;
+	border: 1px solid #cccccc;				
+}
+
+.inputAppend:FOCUS {
+	-moz-box-shadow: 0px 0px 20px #cccccc);
+	-webkit-box-shadow: 0px 0px 20px #cccccc;
+	box-shadow: 0px 0px 20px #cccccc;
+}
+
+.inputBox1
+{	
+	border-top-right-radius: 2px;
+	border-top-left-radius: 2px;
+	border-bottom-right-radius: 2px;
+	border-bottom-left-radius: 2px;
+	
+	-moz-border-radius: 2px;
+	-khtml-border-radius: 2px;
+	-webkit-border-radius: 2px;
+	border-radius: 2px;
+	height: 24px;
+	display: block;
+	outline: 0;
+	border: 1px solid #cccccc;
+	width: 85%;
+	float:left;
+	
+	padding-left: 5px;
+}
+
+.inputBox1:FOCUS {
+	-moz-box-shadow: 0px 0px 20px #cccccc);
+	-webkit-box-shadow: 0px 0px 20px #cccccc;
+	box-shadow: 0px 0px 20px #cccccc;
+}
+
+.inputButton {
+	float:left;
+	width:10%;	
+}
+
+.inputSelect
+{
+	
+	border-top-right-radius: 2px;
+	border-top-left-radius: 2px;
+	border-bottom-right-radius: 2px;
+	border-bottom-left-radius: 2px;
+	
+	-moz-border-radius: 2px;
+	-khtml-border-radius: 2px;
+	-webkit-border-radius: 2px;
+	border-radius: 2px;
+	height: 28px;	
+	display: block;
+	outline: 0;
+	border: 1px solid #cccccc;
+	width: 91%;
+	
+	padding-left: 5px;		
+}
+
+.inputSelect:FOCUS {
+	-moz-box-shadow: 0px 0px 20px #cccccc);
+	-webkit-box-shadow: 0px 0px 20px #cccccc;
+	box-shadow: 0px 0px 20px #cccccc;
+}
+/*
+.rColor {
+	background-color: #F0F0F0;
+}*/
+.inputBoxA
+{
+	
+	border-top-right-radius: 2px;
+	border-top-left-radius: 2px;
+	border-bottom-right-radius: 2px;
+	border-bottom-left-radius: 2px;
+	
+	-moz-border-radius: 2px;
+	-khtml-border-radius: 2px;
+	-webkit-border-radius: 2px;
+	border-radius: 2px;
+	display: block;
+	outline: 0;
+	width: 100%;	
+	border: 1px solid #cccccc;
+	
+	padding-left: 5px;
+}
+
+.inputBoxA:FOCUS {
+	-moz-box-shadow: 0px 0px 20px #cccccc);
+	-webkit-box-shadow: 0px 0px 20px #cccccc;
+	box-shadow: 0px 0px 20px #cccccc;
+}

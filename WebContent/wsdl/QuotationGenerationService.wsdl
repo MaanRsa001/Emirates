@@ -1,0 +1,550 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://webservice.maan.com" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://webservice.maan.com" xmlns:intf="http://webservice.maan.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://webservice.maan.com" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="quoteRequest">
+    <complexType>
+     <sequence>
+      <element name="requestInfo" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="quoteRequestResponse">
+    <complexType>
+     <sequence>
+      <element name="quoteRequestReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="draftRequest">
+    <complexType>
+     <sequence>
+      <element name="requestInfo" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="draftRequestResponse">
+    <complexType>
+     <sequence>
+      <element name="draftRequestReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="policyRequest">
+    <complexType>
+     <sequence>
+      <element name="requestInfo" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="policyRequestResponse">
+    <complexType>
+     <sequence>
+      <element name="policyRequestReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="adminReferral">
+    <complexType>
+     <sequence>
+      <element name="requestInfo" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="adminReferralResponse">
+    <complexType>
+     <sequence>
+      <element name="adminReferralReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="premiumRequest">
+    <complexType>
+     <sequence>
+      <element name="requestInfo" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="premiumRequestResponse">
+    <complexType>
+     <sequence>
+      <element name="premiumRequestReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="quotePdfRequest">
+    <complexType>
+     <sequence>
+      <element name="requestInfo" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="quotePdfRequestResponse">
+    <complexType>
+     <sequence>
+      <element name="quotePdfRequestReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="debitPdfRequest">
+    <complexType>
+     <sequence>
+      <element name="requestInfo" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="debitPdfRequestResponse">
+    <complexType>
+     <sequence>
+      <element name="debitPdfRequestReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="creditPdfRequest">
+    <complexType>
+     <sequence>
+      <element name="requestInfo" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="creditPdfRequestResponse">
+    <complexType>
+     <sequence>
+      <element name="creditPdfRequestReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="quoteInfoRequest">
+    <complexType>
+     <sequence>
+      <element name="requestInfo" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="quoteInfoRequestResponse">
+    <complexType>
+     <sequence>
+      <element name="quoteInfoRequestReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="receiptPdfRequest">
+    <complexType>
+     <sequence>
+      <element name="requestInfo" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="receiptPdfRequestResponse">
+    <complexType>
+     <sequence>
+      <element name="receiptPdfRequestReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="adminReferralResponse">
+
+      <wsdl:part element="impl:adminReferralResponse" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="draftRequestRequest">
+
+      <wsdl:part element="impl:draftRequest" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="quotePdfRequestRequest">
+
+      <wsdl:part element="impl:quotePdfRequest" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="creditPdfRequestRequest">
+
+      <wsdl:part element="impl:creditPdfRequest" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="policyRequestRequest">
+
+      <wsdl:part element="impl:policyRequest" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="receiptPdfRequestResponse">
+
+      <wsdl:part element="impl:receiptPdfRequestResponse" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="quoteRequestResponse">
+
+      <wsdl:part element="impl:quoteRequestResponse" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="adminReferralRequest">
+
+      <wsdl:part element="impl:adminReferral" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="policyRequestResponse">
+
+      <wsdl:part element="impl:policyRequestResponse" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="receiptPdfRequestRequest">
+
+      <wsdl:part element="impl:receiptPdfRequest" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="quoteRequestRequest">
+
+      <wsdl:part element="impl:quoteRequest" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="draftRequestResponse">
+
+      <wsdl:part element="impl:draftRequestResponse" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="quoteInfoRequestResponse">
+
+      <wsdl:part element="impl:quoteInfoRequestResponse" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="quoteInfoRequestRequest">
+
+      <wsdl:part element="impl:quoteInfoRequest" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="debitPdfRequestRequest">
+
+      <wsdl:part element="impl:debitPdfRequest" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="premiumRequestResponse">
+
+      <wsdl:part element="impl:premiumRequestResponse" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="quotePdfRequestResponse">
+
+      <wsdl:part element="impl:quotePdfRequestResponse" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="premiumRequestRequest">
+
+      <wsdl:part element="impl:premiumRequest" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="creditPdfRequestResponse">
+
+      <wsdl:part element="impl:creditPdfRequestResponse" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="debitPdfRequestResponse">
+
+      <wsdl:part element="impl:debitPdfRequestResponse" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:portType name="QuotationGenerationService">
+
+      <wsdl:operation name="quoteRequest">
+
+         <wsdl:input message="impl:quoteRequestRequest" name="quoteRequestRequest"/>
+
+         <wsdl:output message="impl:quoteRequestResponse" name="quoteRequestResponse"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="draftRequest">
+
+         <wsdl:input message="impl:draftRequestRequest" name="draftRequestRequest"/>
+
+         <wsdl:output message="impl:draftRequestResponse" name="draftRequestResponse"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="policyRequest">
+
+         <wsdl:input message="impl:policyRequestRequest" name="policyRequestRequest"/>
+
+         <wsdl:output message="impl:policyRequestResponse" name="policyRequestResponse"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="adminReferral">
+
+         <wsdl:input message="impl:adminReferralRequest" name="adminReferralRequest"/>
+
+         <wsdl:output message="impl:adminReferralResponse" name="adminReferralResponse"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="premiumRequest">
+
+         <wsdl:input message="impl:premiumRequestRequest" name="premiumRequestRequest"/>
+
+         <wsdl:output message="impl:premiumRequestResponse" name="premiumRequestResponse"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="quotePdfRequest">
+
+         <wsdl:input message="impl:quotePdfRequestRequest" name="quotePdfRequestRequest"/>
+
+         <wsdl:output message="impl:quotePdfRequestResponse" name="quotePdfRequestResponse"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="debitPdfRequest">
+
+         <wsdl:input message="impl:debitPdfRequestRequest" name="debitPdfRequestRequest"/>
+
+         <wsdl:output message="impl:debitPdfRequestResponse" name="debitPdfRequestResponse"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="creditPdfRequest">
+
+         <wsdl:input message="impl:creditPdfRequestRequest" name="creditPdfRequestRequest"/>
+
+         <wsdl:output message="impl:creditPdfRequestResponse" name="creditPdfRequestResponse"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="quoteInfoRequest">
+
+         <wsdl:input message="impl:quoteInfoRequestRequest" name="quoteInfoRequestRequest"/>
+
+         <wsdl:output message="impl:quoteInfoRequestResponse" name="quoteInfoRequestResponse"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="receiptPdfRequest">
+
+         <wsdl:input message="impl:receiptPdfRequestRequest" name="receiptPdfRequestRequest"/>
+
+         <wsdl:output message="impl:receiptPdfRequestResponse" name="receiptPdfRequestResponse"/>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="QuotationGenerationServiceSoapBinding" type="impl:QuotationGenerationService">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="quoteRequest">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="quoteRequestRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="quoteRequestResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="draftRequest">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="draftRequestRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="draftRequestResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="policyRequest">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="policyRequestRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="policyRequestResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="adminReferral">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="adminReferralRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="adminReferralResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="premiumRequest">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="premiumRequestRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="premiumRequestResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="quotePdfRequest">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="quotePdfRequestRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="quotePdfRequestResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="debitPdfRequest">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="debitPdfRequestRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="debitPdfRequestResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="creditPdfRequest">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="creditPdfRequestRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="creditPdfRequestResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="quoteInfoRequest">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="quoteInfoRequestRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="quoteInfoRequestResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="receiptPdfRequest">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="receiptPdfRequestRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="receiptPdfRequestResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="QuotationGenerationServiceService">
+
+      <wsdl:port binding="impl:QuotationGenerationServiceSoapBinding" name="QuotationGenerationService">
+
+         <wsdlsoap:address location="http://localhost:4040/EmiratesTest/services/QuotationGenerationService"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>
