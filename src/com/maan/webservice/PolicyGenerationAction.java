@@ -93,7 +93,7 @@ public String policyGeneration()
 		}
 		service.updatePolicyInfo(info);
 		//Policy Integration
-		String productId=(String) session.get("product_id");
+		String productId=info.getProductId();
 		Runnable hello = new MailTriggerIntegration(info.getPolicyNo(),info.getApplicationNo(),productId);
 	    Thread thread1 = new Thread(hello);
 	    thread1.setDaemon(true);

@@ -298,5 +298,36 @@ public class PortfolioAction extends ActionSupport implements ModelDriven<Portfo
 		String arr[]=name.split("/");
 		 return arr[1]+"/"+arr[0]+"/"+arr[2];
 	}
+	public String payment()
+	{
+		return "paymentReportAdmin";
+	}
 	
+	public String getPayListAjax() {
+		if(StringUtils.isBlank(bean.getQuoteno()) && StringUtils.isBlank(bean.getFromdate()) && StringUtils.isBlank(bean.getTodate())) {
+			addActionError("Please atleast one to Proceed");
+		}else if(StringUtils.isBlank(bean.getFromdate()) && StringUtils.isBlank(bean.getQuoteno())) {
+			addActionError("Please Select the From Date");
+		}else if(StringUtils.isBlank(bean.getTodate()) && StringUtils.isBlank(bean.getQuoteno())) {
+			addActionError("Please Select the To Date");
+		}
+		
+		if(!hasActionErrors()) {
+			if("paymentsLists".equals(bean.getReqFrom())){
+		    	portfolioList=pservice.getPaymentList(bean.getFromdate(), bean.getTodate(), bean.getRep(), bean.getProductID(), branchCode, "", "",bean.getQuoteno());
+			}
+		}
+		 return "portfolioAjax";
+	}
+	public String viewPay() {
+		if(StringUtils.isNotBlank(bean.getMerchantReference())) {
+			pservice.setPaymentDetails(bean);
+		}else
+			return payment();
+		return "viewpaymentmaster";
+	}
+	public String submitPay() {
+		pservice.updateSubmitPay(bean);
+		return payment();
+	}
 }

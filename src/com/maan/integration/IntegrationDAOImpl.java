@@ -111,8 +111,8 @@ public class IntegrationDAOImpl extends MyJdbcTemplate implements IntegrationDAO
 		List<Map<String,Object>> result=null;
 		try{
 			String query="";
-			query="select  LOGIN_ID , USERNAME  FIRST_NAME from login_master  where login_id = (select decode(APPLICATION_ID ,'1',login_id, APPLICATION_ID)  from  position_master where POLICY_NO=?)";
-			result = this.mytemplate.queryForList(query,new Object[]{policyNo});
+			query="select  LOGIN_ID , USERNAME  FIRST_NAME ,(select APPLICATION_ID from  position_master where POLICY_NO=? and status='P')  APPLICATION_ID  from login_master  where login_id = (select decode(APPLICATION_ID ,'1',login_id, APPLICATION_ID)  from  position_master where POLICY_NO=?)";
+			result = this.mytemplate.queryForList(query,new Object[]{policyNo,policyNo});
 			//result=constantList("CUSTOMER",result);
 		}catch (Exception e) {
 			e.printStackTrace(); 

@@ -507,7 +507,7 @@ public class PremiumDAO extends MyJdbcTemplate {
  			String args[]=new String[] {
 					quoteNo,productId,"O".equals(paymentMethod)?"ONLINE":"CASH",
 					resultMap.get("TOTAL_PREMIUM").toString(),
-					"P".equals(status)?"PENDING":"COMPLETED",
+					"P".equals(status)?"PENDING":"SUCCESS",
 					resultMap.get("MERCHANT_REFERENCENO").toString(),
 					resultMap.get("EMAIL").toString(),
 					resultMap.get("NAME").toString(),

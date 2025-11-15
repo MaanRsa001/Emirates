@@ -403,6 +403,10 @@
 	    <put-attribute name="title" value="Protfolio"/>
 	    <put-attribute name="body" value="/pages/admin/portfolio/AdminPortfolio.jsp"/>
 	</definition>
+	<definition name="paymentReportAdmin" extends="baseLayoutAdmin">
+	    <put-attribute name="title" value="Payment Report"/>
+	    <put-attribute name="body" value="/pages/admin/portfolio/AdminPaymentPg.jsp"/>
+	</definition>
 	<definition name="check" extends="baseLayoutAdmin">
 	    <put-attribute name="title" value="Protfolio"/>
 	    <put-attribute name="body" value="/pages/admin/portfolio/CheckPortfolio.jsp"/>
@@ -574,5 +578,9 @@
 	<definition name="paymentreport" extends="newLayout"  >
 		<put-attribute name="title" value="Payment Report" />
 		<put-attribute name="body" value="/pages/paymentreport.jsp" />
+	</definition>
+	<definition name="viewpaymentmaster" extends="baseLayoutAdmin">
+	    <put-attribute name="title" value="view Payment"/>
+	    <put-attribute name="body" value="/pages/admin/portfolio/viewPayAdmin.jsp"/>
 	</definition>
 </tiles-definitions>

@@ -310,6 +310,8 @@
 	            	<result name="information" type="tiles">information</result>
 	            	<result name="portfolioAjax" type="tiles">portfolioajax</result>
 	            	<result name="viewAjax" type="tiles">viewajax</result>
+	            	<result name="paymentReportAdmin" type="tiles">paymentReportAdmin</result>
+	            	<result name="viewpaymentmaster" type="tiles">viewpaymentmaster</result>
 	            </action>
 	            
 	            <action name="Rating*" class="com.maan.adminnew.rating.RatingEngineAction" method="{1}">

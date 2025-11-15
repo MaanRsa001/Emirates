@@ -57,5 +57,15 @@ public class PortfolioService {
 	public String getbranchWiseCountry(String branchCode){
 		 return dao.getbranchWiseCountry(branchCode);
 	}
+	public List<Map<String, Object>> getPaymentList(String fromdate, String todate, String rep, String productID,String branchCode, String string, String string2, String quoteno) {
+		return dao.getPaymentList(fromdate,todate,rep,productID,branchCode,quoteno);
+	}
+	public void setPaymentDetails(PortfolioBean bean) {
+		 dao.setPaymentDetails(bean);
+	}
+	public void updateSubmitPay(PortfolioBean bean) {
+		dao.updateSubmitPay(bean);
+		
+	}
 	
 }

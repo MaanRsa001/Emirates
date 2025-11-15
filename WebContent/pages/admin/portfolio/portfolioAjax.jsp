@@ -115,5 +115,31 @@
 	<input type="button" onclick="print('${record.ENTRY_DATE}')" value="PRINT QUOTE" />
 	<br/></s:if>
 </s:elseif>
+<s:elseif test='"paymentsLists".equals(reqFrom)'>
+												<display:table name="portfolioList" pagesize="10" requestURI="/getListPortfolio.action" class="table" uid="row" id="record">
+														<display:setProperty name="paging.banner.one_item_found" value="" />
+														<display:setProperty name="paging.banner.one_items_found" value="" />
+														<display:setProperty name="paging.banner.all_items_found" value="" />
+														<display:setProperty name="paging.banner.some_items_found" value="" />
+														<display:setProperty name="paging.banner.placement"	value="bottom" />
+														<display:setProperty name="paging.banner.onepage" value="" />
+														
+														<display:column sortable="true" style="text-align:center;font-size:15px;width:15%;" title="SNO" value="${record_rowNum}"/>
+														<display:column sortable="true" style="text-align:left;font-size:13px;" title="QUOTE_NO" property="QUOTE_NO" />
+														<display:column sortable="true" style="text-align:left;font-size:13px;" title="MERCHANT_REFERENCE" property="MERCHANT_REFERENCE" />
+														<display:column sortable="true" style="text-align:left;font-size:13px;" title="CUSTOMER NAME" property="CUSTOMER_NAME" />
+														<display:column sortable="true" style="text-align:left;font-size:13px;" title="PREMIUM" property="PREMIUM" />
+														<display:column sortable="true" style="text-align:center;font-size:13px;width:35%;"  title="DATE" property="REQUEST_TIME" ></display:column>
+														<display:column sortable="true" style="text-align:left;font-size:13px;" title="RESPONSE_STATUS" property="RESPONSE_STATUS" />
+														<display:column sortable="true" style="text-align:left;font-size:13px;" title="RESPONSE_MESSAGE" property="RESPONSE_MESSAGE" />
+														
+ 														<display:column sortable="true" style="text-align:left;font-size:13px;" title="Update Payment">
+	   															<a href="#" onclick="getView('${record.MERCHANT_REFERENCE}','${record.QUOTE_NO}');">Update</a>
+													</display:column>
+														
+														
+														
+													</display:table>
+</s:elseif>
 
 

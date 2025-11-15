@@ -425,5 +425,99 @@ public class PortfolioBean {
 	public void setInceptionDate(String inceptionDate) {
 		this.inceptionDate = inceptionDate;
 	}
+	
+	private String merchantReference;
+    private String responseMessage;
+    private String responseStatus;
+    private String resAuthTransRefNo;
+    private String resAuthAmount;
+    private String resAuthTime;
+    private String resTransactionId;
+    private String resAuthCode;
+    private String cardNumberMasked;
+    private String resReasonCode;
+    private String resDecision;
+    private String responseTranNo;
+
+	public String getMerchantReference() {
+		return merchantReference;
+	}
+	public void setMerchantReference(String merchantReference) {
+		this.merchantReference = merchantReference;
+	}
+	public String getResponseMessage() {
+		return responseMessage;
+	}
+	public void setResponseMessage(String responseMessage) {
+		this.responseMessage = responseMessage;
+	}
+	public String getResponseStatus() {
+		return responseStatus;
+	}
+	public void setResponseStatus(String responseStatus) {
+		this.responseStatus = responseStatus;
+	}
+	public String getResAuthTransRefNo() {
+		return resAuthTransRefNo;
+	}
+	public void setResAuthTransRefNo(String resAuthTransRefNo) {
+		this.resAuthTransRefNo = resAuthTransRefNo;
+	}
+	public String getResAuthAmount() {
+		return resAuthAmount;
+	}
+	public void setResAuthAmount(String resAuthAmount) {
+		this.resAuthAmount = resAuthAmount;
+	}
+	public String getResAuthTime() {
+		return resAuthTime;
+	}
+	public void setResAuthTime(String resAuthTime) {
+		this.resAuthTime = resAuthTime;
+	}
+	public String getResTransactionId() {
+		return resTransactionId;
+	}
+	public void setResTransactionId(String resTransactionId) {
+		this.resTransactionId = resTransactionId;
+	}
+	public String getResAuthCode() {
+		return resAuthCode;
+	}
+	public void setResAuthCode(String resAuthCode) {
+		this.resAuthCode = resAuthCode;
+	}
+	public String getCardNumberMasked() {
+		return cardNumberMasked;
+	}
+	public void setCardNumberMasked(String cardNumberMasked) {
+		this.cardNumberMasked = cardNumberMasked;
+	}
+	public String getResReasonCode() {
+		return resReasonCode;
+	}
+	public void setResReasonCode(String resReasonCode) {
+		this.resReasonCode = resReasonCode;
+	}
+	public String getResDecision() {
+		return resDecision;
+	}
+	public void setResDecision(String resDecision) {
+		this.resDecision = resDecision;
+	}
+	public String getResponseTranNo() {
+		return responseTranNo;
+	}
+	public void setResponseTranNo(String responseTranNo) {
+		this.responseTranNo = responseTranNo;
+	}
+	public String getApplicationno() {
+		return applicationno;
+	}
+	public void setApplicationno(String applicationno) {
+		this.applicationno = applicationno;
+	}
+
+	private String applicationno;	
 }
 

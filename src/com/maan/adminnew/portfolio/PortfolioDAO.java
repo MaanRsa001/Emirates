@@ -10,6 +10,7 @@ import org.apache.logging.log4j.Logger;
 import com.maan.common.DBConstants;
 import com.maan.common.LogUtil;
 import com.maan.common.MyJdbcTemplate;
+import com.maan.quotation.service.PremiumService;
 
 public class PortfolioDAO extends MyJdbcTemplate {
 	private static final Logger logger = LogUtil.getLogger(PortfolioDAO.class);
@@ -385,6 +386,103 @@ public class PortfolioDAO extends MyJdbcTemplate {
 		 }	
 		 logger.info("getbranchWiseCountry - Exit:"+ result);
 		 return result;
+	}
+
+	public List<Map<String, Object>> getPaymentList(String fromdate, String todate, String rep, String productID,
+			String branchCode, String quoteno) {
+		List<Map<String, Object>> list;
+		if(StringUtils.isNotBlank(quoteno)) {
+			String sql=getQuery("SELECT_PAYMENTLIST_1");
+			String args[]= {
+					quoteno,quoteno
+			};
+			logger.info("query==>"+sql);
+			logger.info("args==>"+StringUtils.join(args, ", "));
+			list = this.mytemplate.queryForList(sql,args);
+			return list;
+		}else {
+			String sql=getQuery("SELECT_PAYMENTLIST_2");
+			String[] args=new String[2];
+			args[0]=fromdate+" 00:00:00";
+			args[1]=todate+" 23:59:59";
+			logger.info("query==>"+sql);
+			logger.info("args==>"+StringUtils.join(args, ", "));
+			list = this.mytemplate.queryForList(sql,args);
+			return list;
+		}
+		
+	}
+
+	public Object setPaymentDetails(PortfolioBean bean) {
+		try {
+			
+			String sql=getQuery("SELECT_PAYMENTLIST_3");
+			String[] args=new String[] { bean.getMerchantReference()};
+			logger.info("query==>"+sql);
+			logger.info("args==>"+StringUtils.join(args, ", "));
+			List<Map<String, Object>> list = this.mytemplate.queryForList(sql,args);
+			if(list!=null && list.size()>0) {
+				Map<String, Object> map = list.get(0);
+				 
+				 bean.setResponseMessage(map.get("RESPONSE_MESSAGE")==null?"":map.get("RESPONSE_MESSAGE").toString());
+				 bean.setResponseStatus(map.get("RESPONSE_STATUS")==null?"":map.get("RESPONSE_STATUS").toString());
+				 bean.setResAuthTransRefNo(map.get("RES_AUTH_TRANS_REF_NO")==null?"":map.get("RES_AUTH_TRANS_REF_NO").toString()); 
+				 bean.setResAuthAmount(map.get("PREMIUM")==null?"0":map.get("PREMIUM").toString());
+				 bean.setResTransactionId(map.get("RES_TRANSACTION_ID")==null?"":map.get("RES_TRANSACTION_ID").toString());
+				 bean.setResAuthCode(map.get("RES_AUTH_CODE")==null?"":map.get("RES_AUTH_CODE").toString());
+				 bean.setCardNumberMasked(map.get("CARD_NUMBER_MASKED")==null?"":map.get("CARD_NUMBER_MASKED").toString());
+				 bean.setResReasonCode(map.get("RES_REASON_CODE")==null?"":map.get("RES_REASON_CODE").toString());
+				 bean.setResDecision(map.get("RES_DECISION")==null?"":map.get("RES_DECISION").toString());
+				 bean.setResponseTranNo(map.get("RESPONSE_TRAN_NO")==null?"":map.get("RESPONSE_TRAN_NO").toString());
+				 bean.setApplicationno(map.get("APPLICATION_NO")==null?"":map.get("APPLICATION_NO").toString());
+				 bean.setQuoteno(map.get("QUOTE_NO")==null?"":map.get("QUOTE_NO").toString());
+				    
+			}
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+	public void updateSubmitPay(PortfolioBean bean) {
+		 try {
+			 String updateQuery=getQuery("UPD_PAYMENT_LIST_1");
+				String[] args=new String[]{bean.getResponseMessage(),
+						bean.getResponseStatus(),
+						bean.getResAuthTransRefNo() ,
+						bean.getResAuthAmount(),
+						bean.getResTransactionId(),
+						bean.getResAuthCode(),
+						bean.getCardNumberMasked(),
+						bean.getResReasonCode(),
+						bean.getResDecision(),
+						bean.getResTransactionId(),
+						bean.getMerchantReference()};
+				System.out.println(updateQuery);
+				System.out.println(StringUtils.join(args));
+				int update = this.mytemplate.update(updateQuery, args);
+				
+				if("ACCEPT".equalsIgnoreCase(bean.getResDecision()) && bean.getResReasonCode().equals("100") && "SUCCESS".equals(bean.getResponseStatus())) {
+					updateQuery=getQuery("UPD_PAYMENT_LIST_2");
+					args=new String[]{bean.getQuoteno()};
+					update = this.mytemplate.update(updateQuery, args);
+					updateQuery=getQuery("UPD_PAYMENT_LIST_3"); 
+					args=new String[]{"EXPIRED",bean.getMerchantReference(),bean.getQuoteno()};
+					update = this.mytemplate.update(updateQuery, args);					
+					PremiumService service=new PremiumService();
+					String result=service.policyGeneration( bean.getApplicationno());
+					
+					updateQuery=getQuery("SELECT_WEBSERV_1");
+					args=new String[]{bean.getQuoteno()};
+					 List<Map<String, Object>> quoteInfo = this.mytemplate.queryForList(updateQuery, args);
+					 String sql_2= getQuery("SELECT_PAYMENTLIST_4");
+					List<Map<String, Object>> list = this.mytemplate.queryForList(sql_2,new String[] {bean.getMerchantReference()});
+					service.sentPolicyMail(list.get(0),result,quoteInfo.get(0));
+					 
+				}
+		 }catch (Exception e) {
+			 e.printStackTrace();
+		}
 	}
 	
 }

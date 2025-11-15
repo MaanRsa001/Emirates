@@ -46,11 +46,11 @@ public class CyberSouceIntegration extends MyJdbcTemplate {
 		 
 		String signature;
 		try {
-			String sql= "select * from payment_detail where quote_no=? and PAYMENT_TYPE='ONLINE' and RESPONSE_STATUS='PENDING' and MERCHANT_REFERENCE=?";
+			String sql= getQuery("SELECT_PAYMENTLIST_5");
 			List<Map<String, Object>> list = this.mytemplate.queryForList(sql,new String[] {quoteNo,merchantRefno});
 			
 				if(list.size()>0) {
-					sql="select * from payment_vendor_master where status='Y' and vendor_id='1'";
+					sql=getQuery("SELECT_PAYMENTVENDORMASTER");
 					List<Map<String, Object>> vendors = this.mytemplate.queryForList(sql);
 					Map<String, Object> vendor = vendors.get(0);
 					
@@ -140,7 +140,7 @@ public class CyberSouceIntegration extends MyJdbcTemplate {
 			if(containsKey) {
 				
 
-				String sql_2= "select * from payment_detail where MERCHANT_REFERENCE=?";
+				String sql_2= getQuery("SELECT_PAYMENTLIST_4"); 
 				String merchantReference = params.get("req_transaction_uuid");
 				
 				List<Map<String, Object>> list = this.mytemplate.queryForList(sql_2,new String[] {merchantReference});
@@ -155,7 +155,7 @@ public class CyberSouceIntegration extends MyJdbcTemplate {
 					resultRet.put("applicationNo", applicationNo);
 					resultRet.put("quoteNo", quoteNo);
 					resultRet.put("merchantRefno", merchantReference);
-					String sql="select * from payment_vendor_master where status='Y' and vendor_id='1'";
+					String sql=getQuery("SELECT_PAYMENTVENDORMASTER");
 					List<Map<String, Object>> vendors = this.mytemplate.queryForList(sql);
 					Map<String, Object> vendor = vendors.get(0);				
 					
@@ -177,7 +177,7 @@ public class CyberSouceIntegration extends MyJdbcTemplate {
 					String decision_reason_code=params.getOrDefault("decision_reason_code","0");
 					
 					if(isvalid && params.get("decision").equals("ACCEPT") && params.get("decision_reason_code").equals("100")) {
-						String paymentCheck="select NVL(MD.PREMIUM,0)+NVL(MD.EXCESS_PREMIUM,0)+NVL(MD.VAT_TAX_AMT,0) TOTAL_PREMIUM from MARINE_DATA MD where MD.APPLICATION_NO=?";
+						String paymentCheck=getQuery("SELECT_PAYMENTCHK");
 						 List<Map<String, Object>> payment = this.mytemplate.queryForList(paymentCheck,new String[] {applicationNo});
 						 if( new BigDecimal( payment.get(0).get("TOTAL_PREMIUM").toString()).compareTo(new BigDecimal(auth_amount))==0 ) {
 							responseStatus="SUCCESS";
@@ -196,11 +196,7 @@ public class CyberSouceIntegration extends MyJdbcTemplate {
 						responseMessage=params.get("message");
 					 
 					} 
-					updateQuery="Update payment_detail set RESPONSE_MESSAGE=?,RESPONSE_STATUS=? "
-							+ ",RES_AUTH_TRANS_REF_NO=?,RES_AUTH_AMOUNT=?,RES_AUTH_TIME=?,RES_TRANSACTION_ID=?,"
-							+ "RES_AUTH_CODE=?,CARD_NUMBER_MASKED=?,RES_REASON_CODE=?,RES_DECISION=?"
-							+ ",RESPONSE_TIME=sysdate,	RESPONSE_TRAN_NO=?	 "
-							+ "where  MERCHANT_REFERENCE=?";
+					updateQuery=getQuery("UPD_PAYMENT_LIST_5");
 					args=new String[]{responseMessage,responseStatus,auth_trans_ref_no , auth_amount,auth_time,transaction_id,auth_code,req_card_number
 							,decision_reason_code,decision,auth_trans_ref_no,merchantReference};
 					System.out.println(updateQuery);
@@ -208,10 +204,10 @@ public class CyberSouceIntegration extends MyJdbcTemplate {
 					int update = this.mytemplate.update(updateQuery, args);
 					
 					if("ACCEPT".equalsIgnoreCase(params.get("decision") ) && params.get("decision_reason_code").equals("100") && "SUCCESS".equals(responseStatus)) {
-						updateQuery="update position_master set pdf_broker_status='1' where QUOTE_NO=?";
+						updateQuery= getQuery("UPD_PAYMENT_LIST_2"); 
 						args=new String[]{quoteNo};
 						update = this.mytemplate.update(updateQuery, args);
-						updateQuery="Update payment_detail set RESPONSE_STATUS=? where  MERCHANT_REFERENCE!=? and QUOTE_NO=? and RESPONSE_STATUS='PENDING'"; 
+						updateQuery=getQuery("UPD_PAYMENT_LIST_6"); 
 						args=new String[]{"EXPIRED",merchantReference,quoteNo};
 						update = this.mytemplate.update(updateQuery, args);
 						
@@ -284,11 +280,11 @@ public class CyberSouceIntegration extends MyJdbcTemplate {
 			 
 			String signature;
 			try {
-				String sql= "select * from payment_detail where  PAYMENT_TYPE='ONLINE' and RESPONSE_STATUS='PENDING' and MERCHANT_REFERENCE=?";
+				String sql= getQuery("SELECT_PAYMENTLIST_6");
 				List<Map<String, Object>> list = this.mytemplate.queryForList(sql,new String[] {merchantRefno});
 				
 					if(list.size()>0) {
-						sql="select * from payment_vendor_master where status='Y' and vendor_id='1'";
+						sql=getQuery("SELECT_PAYMENTVENDORMASTER");
 						List<Map<String, Object>> vendors = this.mytemplate.queryForList(sql);
 						Map<String, Object> vendor = vendors.get(0);
 						
