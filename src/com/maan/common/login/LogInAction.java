@@ -256,7 +256,7 @@ public class LogInAction extends ActionSupport  implements SessionAware, Servlet
 	}
 	
 	public boolean validPassword(String newpassword){
-    	Pattern pattern=Pattern.compile("((?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%]).{7,20})");
+    	Pattern pattern=Pattern.compile("((?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%]).{12,20})");
     	Matcher matcher = pattern.matcher(newpassword);
     	return matcher.matches();
 	}

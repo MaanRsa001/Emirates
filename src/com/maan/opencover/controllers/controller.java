@@ -1926,10 +1926,10 @@ public class controller extends HttpServlet
 			}else{
 				if("GUEST".equalsIgnoreCase(guestStatus) && "Approved".equalsIgnoreCase(proposalStatus)){
 					message="Referral Approved BY UW in HEAD OFFICE";
-					sendMail(message);
+					// sendMail(message);
 				}else if("GUEST".equalsIgnoreCase(guestStatus)){
 					message="Proposal Modified BY UW in HEAD OFFICE";
-					sendMail(message);
+					// sendMail(message);
 				}
 				response.sendRedirect("showOpencover.jsp?error="+error+"&renewalYN="+renewalYN);
 			}
