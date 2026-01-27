@@ -198,7 +198,7 @@ public class BrokerManagementAction extends ActionSupport implements ModelDriven
     }
     public boolean validPassword(String newpassword)
 	{
-    	Pattern pattern=Pattern.compile("((?=.*\\d)(?=.*[a-z])(?=.*[@#$%]).{6,20})");//(?=.*[A-Z])
+    	Pattern pattern=Pattern.compile("((?=.*\\d)(?=.*[a-z])(?=.*[@#$%]).{12,20})");//(?=.*[A-Z])
     	Matcher matcher = pattern.matcher(newpassword);
     	return matcher.matches();
 	}
