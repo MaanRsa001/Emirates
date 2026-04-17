@@ -263,6 +263,8 @@ public class UserMgtAction extends ActionSupport implements ModelDriven<UserMgtB
     		addActionError(getText("error.broker.newpassword"));
     	else if(StringUtils.contains(bean.getPassword(), " "))
 	 		addActionError("Password should not contain white spaces");
+    	if(!validPassword(bean.getPassword()))
+    		addActionError(getText("error.invalid"));
     	if(StringUtils.isEmpty(bean.getRepassword()))
     		addActionError(getText("error.broker.repassword"));
     	else if(!bean.getPassword().equals(bean.getRepassword()))
@@ -369,7 +371,7 @@ public class UserMgtAction extends ActionSupport implements ModelDriven<UserMgtB
     }
 	public boolean validPassword(String newpassword)
 	{
-    	Pattern pattern=Pattern.compile("((?=.*\\d)(?=.*[a-z])(?=.*[@#$%]).{6,20})");//(?=.*[A-Z])
+    	Pattern pattern=Pattern.compile("((?=.*\\d)(?=.*[a-z])(?=.*[@#$%]).{12,20})");//(?=.*[A-Z])
     	Matcher matcher = pattern.matcher(newpassword);
     	return matcher.matches();
 	}

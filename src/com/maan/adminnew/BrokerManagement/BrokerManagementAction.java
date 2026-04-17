@@ -561,6 +561,8 @@ public class BrokerManagementAction extends ActionSupport implements ModelDriven
     	}if(!bean.getRpassword().equals(bean.getPassword())){
     		addActionError(getText("error.different"));
     	}
+    	if(!validPassword(bean.getPassword()))
+    		addActionError(getText("error.invalid"));
     }
     public boolean validString(String value,int format)
     { 

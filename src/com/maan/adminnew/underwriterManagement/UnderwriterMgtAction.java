@@ -4,6 +4,8 @@ package com.maan.adminnew.underwriterManagement;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import org.apache.commons.lang.StringUtils;
 import org.apache.logging.log4j.Logger;
@@ -200,12 +202,20 @@ public class UnderwriterMgtAction extends ActionSupport implements ModelDriven<U
     		addActionError(getText("error.broker.newpassword"));
     	}else if(StringUtils.contains(bean.getPassword(), " "))
 	 		addActionError("Password should not contain white spaces");
+    	if(!validPassword(bean.getPassword()))
+    		addActionError(getText("error.invalid"));
     	if(StringUtils.isEmpty(bean.getRpassword())){
     		addActionError(getText("error.broker.repassword"));
     	}if(!bean.getRpassword().equals(bean.getPassword())){
     		addActionError(getText("error.different"));
     	}
     }
+	public boolean validPassword(String newpassword)
+	{
+    	Pattern pattern=Pattern.compile("((?=.*\\d)(?=.*[a-z])(?=.*[@#$%]).{12,20})");//(?=.*[A-Z])
+    	Matcher matcher = pattern.matcher(newpassword);
+    	return matcher.matches();
+	}
 	public String updateExclude(){
 		service.updateExcludedBrokers(bean);
 		includeIssuer=service.includeissuerDetails(bean, bean.getType1());

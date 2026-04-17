@@ -2,6 +2,9 @@ package com.maan.adminnew.AdminMgt;
 
 import java.util.List;
 import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 import org.apache.commons.lang.StringUtils;
 import com.maan.adminnew.common.CommonService;
 import com.maan.common.Validation;
@@ -153,6 +156,8 @@ public class AdminMgtAction extends ActionSupport implements ModelDriven<AdminMg
     		addActionError(getText("error.admin.loginid.required"));
     	else if(StringUtils.contains(bean.getLoginID(), " "))
 	 		addActionError("Login Id should not contain white spaces");
+    	if(!validPassword(bean.getPwd()))
+    		addActionError(getText("error.invalid"));
     	if("new".equals(bean.getMode())){
     		if(cservice.getAdminInfo(bean.getLoginID()).size()>0)
         		addActionError(getText("error.loginid.notavailable"));
@@ -175,4 +180,11 @@ public class AdminMgtAction extends ActionSupport implements ModelDriven<AdminMg
     	if(StringUtils.isBlank(bean.getStatus()))
     		addActionError(getText("error.admin.status.required"));
     }
+    
+    public boolean validPassword(String newpassword)
+	{
+    	Pattern pattern=Pattern.compile("((?=.*\\d)(?=.*[a-z])(?=.*[@#$%]).{12,20})");//(?=.*[A-Z])
+    	Matcher matcher = pattern.matcher(newpassword);
+    	return matcher.matches();
+	}
 }
